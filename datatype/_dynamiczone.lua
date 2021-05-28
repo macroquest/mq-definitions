@@ -1,0 +1,8 @@
+--- @class dynamiczone
+--- @field public Leader dzmember The leader of the dynamic zone
+--- @field public LeaderFlagged boolean Returns true if the dzleader can successfully enter the dz (this also means the dz is actually Loaded.)Example: ${DynamicZone.LeaderFlagged}
+--- @field public MaxMembers number Maximum number of characters that can enter this dynamic zone
+--- @field public Member dzmember The dynamic zone member # or name
+--- @field public Members number Current number of characters in the dynamic zone
+--- @field public Name string The full name of the dynamic zone
+--- @field public ToString string Same as Name

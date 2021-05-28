@@ -1,0 +1,7 @@
+--- @class fellowshipmember
+--- @field public Class class Member's class
+--- @field public Level number Member's level
+--- @field public LastOn ticks How long since member was last online
+--- @field public Name string Member's name
+--- @field public Zone zone Zone information for the member's zone
+--- @field public ToString string player name

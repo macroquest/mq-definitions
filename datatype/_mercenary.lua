@@ -1,0 +1,7 @@
+--- @class mercenary
+--- @field public AAPoints number AA Points spent on mercenary abilities
+--- @field public Stance string Current stance of the mercenary
+--- @field public State string Current state of the mercenary (returns "DEAD","SUSPENDED","ACTIVE", or "UNKNOWN"
+--- @field public StateID number Current state ID of the mercenary as a number.
+--- @field public Index string Index
+--- @field public ToString string Same as Name

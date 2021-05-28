@@ -1,0 +1,7 @@
+--- @class argb
+--- @field public A number Alpha
+--- @field public R number Red
+--- @field public G number Green
+--- @field public B number Blue
+--- @field public Int number The integer formed by ARGB
+--- @field public ToString string The hex value of the integer formed by ARGB

@@ -1,0 +1,26 @@
+--- @class ground
+--- @field public ID number Ground item ID (not the same as item ID, this is like spawn ID)
+--- @field public Distance number Distance from player to ground item
+--- @field public X float X coordinate
+--- @field public Y float Y coordinate
+--- @field public Z float Z coordinate
+--- @field public Heading heading Ground item is facing this heading
+--- @field public Name string Name
+--- @field public HeadingTo heading Direction player must move to meet this ground item
+--- @field public LineOfSight boolean Returns TRUE if ground spawn is in line of sight
+--- @field public Address number ???
+--- @field public DisplayName float Displays name of the grounspawn
+--- @field public Distance3D number Distance from player to ground item
+--- @field public SubID number ???
+--- @field public ZoneID number ???
+--- @field public First action First spawn
+--- @field public Last action Last spawn
+--- @field public Next action Next spawn
+--- @field public Prev action Prev spawn
+--- @field public DoFace action Will cause the toon to face the called for spawn if it exists
+--- @field public DoTarget action Will cause the toon to target the called for spawn if it exists
+--- @field public Grab action Picks up the ground spawn
+--- @field public W float X coordinate (Westward-positive)
+--- @field public N float Y coordinate (Northward-positive)
+--- @field public U float Z coordinate (Upward-positive)
+--- @field public ToString string Same as ID

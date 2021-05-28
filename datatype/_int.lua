@@ -1,0 +1,5 @@
+--- @class int
+--- @field public Float float The number as a float (123 is represented as 123.0)
+--- @field public Hex string The hex value of the integer (10 is represented as 0xA)
+--- @field public Reverse number Endianness reversed
+--- @field public ToString string The number

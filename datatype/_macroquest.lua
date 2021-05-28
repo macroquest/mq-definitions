@@ -1,0 +1,25 @@
+--- @class macroquest
+--- @field public BuildDate string Date that MQ2Main.dll was built
+--- @field public ChatChannel boolean Returns TRUE if channel name is joined
+--- @field public ChatChannels number Returns the number of channels currently joined
+--- @field public Error string Last normal error message
+--- @field public GameState string Returns "INGAME, CHARSELECT, PRECHARSELECT, UNKNOWN"
+--- @field public LastCommand string Last command entered
+--- @field public LastTell string Name of last person to send you a tell
+--- @field public LClickedObject boolean Returns TRUE if an object has been left clicked
+--- @field public LoginName string Your station name
+--- @field public MouseX number Mouse's X location
+--- @field public MouseY number Mouse's Y location
+--- @field public MQ2DataError string Last MQ2Data parsing error message
+--- @field public Path string Directory that Macroquest.exe launched from
+--- @field public Ping number Your current ping
+--- @field public Running number Running time of current MQ2 session, in milliseconds
+--- @field public Server string Full name of your server
+--- @field public SyntaxError string Last syntax error message
+--- @field public ViewportX number EverQuest viewport upper left (X) position
+--- @field public ViewportXCenter number EverQuest viewport center (X) position
+--- @field public ViewportXMax number EverQuest viewport lower right (X) position
+--- @field public ViewportY number EverQuest viewport upper left (Y) position
+--- @field public ViewportYCenter number EverQuest viewport center (Y) position
+--- @field public ViewportYMax number EverQuest viewport lower right (Y) position
+--- @field public ToString string None

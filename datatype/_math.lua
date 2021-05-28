@@ -1,0 +1,16 @@
+--- @class math
+--- @field public Abs float The absolute value of the result of n
+--- @field public Acos float Arccosine of n (in degrees)
+--- @field public Asin float Arcsine of n (in degrees)
+--- @field public Atan float Arctangent of n (in degrees)
+--- @field public Calc float Performs a mathematical calculation n
+--- @field public Cos float Cosine of n (in degrees)
+--- @field public Dec number Decimal value of a hexidecimal string
+--- @field public Distance float Calculates the distance between two points on the map1, 2, or 3 dimensions may be providedDefaults to your character's current location
+--- @field public Hex string Returns hexidecimal value of int n
+--- @field public Not number Bitwise complement of n
+--- @field public Rand number Random integer. Rand[5] range 0 to 4. Rand[100,200] range 100 to 199
+--- @field public Sin float Sine of n (in degrees)
+--- @field public Sqrt float Square root of n
+--- @field public Tan float Tangent of n (in degrees)
+--- @field public ToString string NULL

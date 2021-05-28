@@ -1,0 +1,6 @@
+--- @class heading
+--- @field public Clock number The nearest clock direction, e.g. 1-12
+--- @field public Degrees number Heading in degrees
+--- @field public DegreesCCW number Heading in degrees counter-clockwise.  This is the way the rest of MQ and EQ uses it.
+--- @field public Name string The long compass direction, e.g. "south by southeast"
+--- @field public ShortName string The short compass direction, e.g. "SSE"

@@ -1,0 +1,3 @@
+--- @class friends
+--- @field public Friend boolean Returns TRUE if name is on your friend list
+--- @field public ToString number Number of friends on your friends list

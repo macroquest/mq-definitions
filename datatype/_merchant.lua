@@ -1,0 +1,13 @@
+--- @class merchant
+--- @field public Full boolean Returns TRUE if the merchant's inventory is full
+--- @field public Items number Number of items on the merchant
+--- @field public Item item Item number # on the merchant's list
+--- @field public Markup float The number used to calculate the buy and sell value for an item (this is what is changed by charisma and faction). This value is capped at 1.05Markup*Item Value = Amount you buy item forItem Value*(1/Markup) = Amount you sell item for
+--- @field public Open boolean Returns TRUE if merchant is open
+--- @field public SelectedItem item The currently selected item in the merchant window, and item type
+--- @field public ItemsReceived boolean True if the merchants itemlist has been filled in.
+--- @field public OpenWindow action Will open the merchant closest to you, or if you have a merchant target
+--- @field public SelectItem action Select item specified or partial match that fits. Use SelectItem[=xxx] for EXACT match(its not case sensitive)
+--- @field public Buy action Buys # of whatever is selected with Merchant.SelectItem[xxx]
+--- @field public Sell action Sell # of whatever is selected with /seletitem. See examples
+--- @field public ToString boolean Same as Open

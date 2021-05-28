@@ -1,0 +1,15 @@
+--- @class raid
+--- @field public AverageLevel number Average level of raid members (more accurate than in the window)
+--- @field public Invited boolean Have I been invited to the raid?
+--- @field public Leader raidmember Raid leader
+--- @field public Locked boolean Returns TRUE if the raid is locked
+--- @field public Looter string Specified looter name by number
+--- @field public Looters number Number of specified looters
+--- @field public LootType number Loot type number:1 Leader2 Leader & GroupLeader3 Leader & Specified
+--- @field public MainAssist raidmember Raid main assist
+--- @field public MasterLooter raidmember Raid Master Looter
+--- @field public Member raidmember Raid member by number or name
+--- @field public Members number Total number of raid members
+--- @field public Target raidmember Raid target (clicked in raid window)
+--- @field public TotalLevels number Sum of all raid members' levels
+--- @field public ToString string None

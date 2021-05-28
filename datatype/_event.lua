@@ -1,0 +1,4 @@
+--- @class event
+--- @field public List string Returns a list of loaded Events, separated by commas
+--- @field public Triggered number Returns the number of events which have been triggered but not checked by /doevents
+--- @field public ToString string Returns a list of loaded Events, separated by commas

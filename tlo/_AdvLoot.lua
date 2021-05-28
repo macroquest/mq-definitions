@@ -1,0 +1,8 @@
+--- @class AdvLoot
+--- @field public LootingInProgress boolean Is lloting from ADVLoot in progress?
+--- @field public SList any Data on Shared list
+--- @field public PList any Data on Personal list
+--- @field public SCount number Item count from the Shared list
+--- @field public PCount number Item count from the Personal list
+--- @field public SWantCount number Want count from the Shared list
+--- @field public PWantCount number Want count from the Personal list

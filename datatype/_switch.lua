@@ -1,0 +1,22 @@
+--- @class switch
+--- @field public DefaultHeading heading Heading of "closed" switch
+--- @field public Distance float Distance from player to switch in (x,y)
+--- @field public Heading heading Switch is facing this heading
+--- @field public HeadingTo heading Direction player must move to meet this switch
+--- @field public ID number Switch ID
+--- @field public LineOfSight boolean Returns TRUE if the switch is in LoS
+--- @field public Name string Name
+--- @field public Open boolean Open?
+--- @field public X float X coordinate
+--- @field public Y float Y coordinate
+--- @field public Z float Z coordinate
+--- @field public W float X coordinate (Westward-positive)
+--- @field public N float Y coordinate (Northward-positive)
+--- @field public D float D coordinate (Upward-positive)
+--- @field public DefaultX float X coordinate of "closed" switch
+--- @field public DefaultY float Y coordinate of "closed" switch
+--- @field public DefaultZ float Z coordinate of "closed" switch
+--- @field public DefaultW float X coordinate of "closed" switch (Westward-positive)
+--- @field public DefaultN float Y coordinate of "closed" switch (Northward-positive)
+--- @field public DefaultU float Z coordinate of "closed" switch (Upward-positive)
+--- @field public ToString string Same as ID

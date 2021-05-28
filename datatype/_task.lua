@@ -1,0 +1,22 @@
+--- @class task
+--- @field public Index string Returns the task's place on the tasklist
+--- @field public Objective.Instruction string Returns a tasks's Objectives
+--- @field public Objective.Status string Returns the status of the objective in the format amount done Vs total IE 0/3
+--- @field public Objective.Zone string Returns the zone the objective is to be performed in
+--- @field public CurrentCount number Returns the current count of the .Type needed to complete a objective
+--- @field public RequiredCount number Returns the required count of the .Type needed to complete a objective
+--- @field public Optional boolean Returns true or false if a objective is optional
+--- @field public RequiredItem string Returns a string of the required item to complete a objective.
+--- @field public RequiredSkill string Returns a string of the required skill to complete a objective.
+--- @field public RequiredSpell string Returns a string of the required spell to complete a objective.
+--- @field public DZSwitchID number Returns an int of the switch used in a objective.
+--- @field public ID number Returns an int of the task ID
+--- @field public Step string Returns description of current step in the task
+--- @field public Select string Selects the task
+--- @field public Title string Returns name of the shared task
+--- @field public Timer ticks Returns amount of time before task expires
+--- @field public Members number Returns number of members in task
+--- @field public Member taskmember Returns specified member in task by index or name
+--- @field public Leader string Returns task leader's name
+--- @field public WindowIndex number Returns the Quest Window List Index. (if the window actually has the list filled)
+--- @field public Type string Returns a string that can be one of the following: Unknown,None,Deliver,Kill,Loot,Hail,Explore,Tradeskill,Fishing,Foraging,Cast,UseSkill,DZSwitch,DestroyObject,Collect,Dialogue

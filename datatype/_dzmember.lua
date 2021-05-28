@@ -1,0 +1,5 @@
+--- @class dzmember
+--- @field public Flagged boolean Returns true if the dzmember can successfully enter the dz.Example:${DynamicZone.Member[x].Flagged} where x is either index or the name.
+--- @field public Name string The name of the member
+--- @field public Status string The status of the member - one of the following: Unknown, Online, Offline, In Dynamic Zone, Link Dead
+--- @field public ToString string Same as Name

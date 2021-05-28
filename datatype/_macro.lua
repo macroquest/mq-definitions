@@ -1,0 +1,14 @@
+--- @class Macro
+--- @field public CurCommand string list the current line number, macro name and code of the macro being processed
+--- @field public CurLine number The current line number of the macro being processed
+--- @field public CurSub string The current sub routine
+--- @field public isOuterVariable boolean true if the provided parameter is a defined outer variable
+--- @field public isTLO boolean true if the provided parameter an existing TLO
+--- @field public MemUse number How much memory the macro is using
+--- @field public Name string The name of the macro currently running
+--- @field public Params number The number of parameters that were passed to the current subroutine
+--- @field public Paused boolean NULL if no macro running, FALSE if mqpause is off, TRUE if mqpause is on
+--- @field public Return string The value that was returned by the last completed subroutine
+--- @field public RunTime number How long the macro has been running (in seconds)
+--- @field public StackSize number StackSize?
+--- @field public Undeclared Invoke will list all undeclared variables

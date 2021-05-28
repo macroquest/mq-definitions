@@ -1,0 +1,7 @@
+--- @class invslot
+--- @field public ID number ID of this item slot (usable directly by /itemnotify)
+--- @field public Item item Item data for the item in this slot
+--- @field public Name string For inventory slots not inside packs, the slot name, otherwise NULL
+--- @field public Pack invslot Container that must be opened to access the slot with /itemnotify
+--- @field public Slot number Slot number inside the pack which holds the item, otherwise NULL
+--- @field public ToString number Same as ID

@@ -1,4 +1,3 @@
-
 --- Macroquest Lua Binding
 --- @class Mq
 --- @field public TLO TLO Top Level Object (TLO) Binding
@@ -7,76 +6,6 @@
 
 --- @type Mq
 local mq = {}
-
----MQ2 Top Level Object Accssor
----@class TLO
----@field AdvLoot AdvLoot
----@field Alert Alert
----@field Alias any
----@field AltAbility any
----@field Bandoliler any
----@field Bool bool
----@field Corpse corpse
----@field Cursor any
----@field Defined any
----@field DisplayItem any
----@field DoorTarget any
----@field DynamicZone any
----@field Event any
----@field EverQuest any
----@field FindItem any
----@field FindItemBank any
----@field FindItemBankCount any
----@field FindItemCount any
----@field Float any
----@field FPS any
----@field Friends any
----@field GameTime any
----@field Ground any
----@field GroupLeader any
----@field GroupLeaderName any
----@field Heading heading
----@field If any
----@field Ini any
----@field Int any
----@field Irc any
----@field ItemTarget any
----@field LastSpawn any
----@field LineOfSight any
----@field Macro Macro
----@field MacroQuest macroquest
----@field Math math
----@field Me character
----@field Menu any
----@field Mercenary mercenary
----@field Merchant merchant
----@field Mount any
----@field NearestSpawn any
----@field Plugin plugin
----@field Raid raid
----@field Range any
----@field Select any
----@field SelectedItem any
----@field Skill any
----@field Spawn spawn
----@field SpawnCount any
----@field Spell any
----@field String any
----@field Switch any
----@field Target any
----@field Task any
----@field Time any
----@field Type type
----@field Window any
-
---- @type TLO
-local TLO = {}
-
----EQ Game Command Binding
----@class CMD
-
----Sol2 ImGui Binding
----@class IMGUI
 
 ---Base MQ Functions
 
@@ -116,8 +45,98 @@ function mq.unevent(name) end
 ---Process queued events.
 function mq.doevents() end
 
+-- Misc classes that are needed for completion
+
 -- Define the action class - has no members but takes an action such as click or open in game.
 --- @class action
 
 -- Define the Invoke class - has no members but will invote the action portion of some of the new TLO additions.
 --- @class Invoke
+
+---EQ Game Command Binding
+---@class CMD
+---@field nav any
+---@field afk any
+---@field anon any
+---@field target any
+---@field keypress any
+---@field cast any
+---@field stand any
+---@field alt any
+
+---Sol2 ImGui Binding
+---@class IMGUI
+
+---MQ2 Top Level Object Accssor
+---@class TLO
+---@field AdvLoot AdvLoot
+---@field Alert Alert
+---@field Alias boolean
+---@field AltAbility altability
+---@field Bandoliler any
+---@field Bool bool
+---@field Corpse corpse
+---@field Cursor any
+---@field Defined any
+---@field DisplayItem any
+---@field DoorTarget any
+---@field DynamicZone any
+---@field Event any
+---@field EverQuest any
+---@field Familiar any
+---@field FindItem any
+---@field FindItemBank any
+---@field FindItemBankCount any
+---@field FindItemCount any
+---@field Float float
+---@field FPS any
+---@field FrameLimiter any
+---@field Friends any
+---@field GameTime any
+---@field Ground any
+---@field GroundItemCount any
+---@field Group any
+---@field GroupLeader any
+---@field GroupLeaderName any
+---@field Heading heading
+---@field If any
+---@field Illusion any
+---@field Ini any
+---@field Int any
+---@field InvSlot any
+---@field Irc any
+---@field ItemTarget any
+---@field LastSpawn any
+---@field LineOfSight any
+---@field Lua any
+---@field Macro Macro
+---@field MacroQuest macroquest
+---@field Math math
+---@field Me character
+---@field Menu any
+---@field Mercenary mercenary
+---@field Merchant merchant
+---@field Mount any
+---@field Navigation Navigation
+---@field NearestSpawn any
+---@field Pet pet
+---@field Plugin plugin
+---@field PointMerchant any
+---@field Raid raid
+---@field Range any
+---@field Select any
+---@field SelectedItem item
+---@field Skill skill
+---@field Spawn spawn
+---@field SpawnCount any
+---@field Spell any
+---@field String any
+---@field SubDefined any
+---@field Switch any
+---@field SwitchTarget any
+---@field Target any
+---@field Task any
+---@field Time any
+---@field Type type
+---@field Window any
+---@field Zone any

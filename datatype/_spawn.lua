@@ -1,19 +1,36 @@
 --- @class spawn
 --- @field public AARank number AA rank number
+--- @field public AATitle string AA Title name
+--- @field public ActorDef string Actor Defintion
+--- @field public Address integer Unknown?
 --- @field public AFK boolean AFK?
 --- @field public Aggressive boolean returns TRUE or FALSE if a mob is aggressive or not
 --- @field public Animation number Current animation ID. See Animations for a list of animations.
 --- @field public Anonymous boolean Anonymous
 --- @field public Assist boolean Current Raid or Group assist target?
+--- @field public AssistName string Name of current Raid or Group assist target
+--- @field public bAlwaysShowAura boolean Show Auras?
+--- @field public bBetaBuffed boolean Am I Beta Buffed?
 --- @field public Binding boolean Binding wounds?
+--- @field public Blind integer Blind?  Not sure why this is a number?
 --- @field public Body body Body type
+--- @field public bShowHelm boolean Showing Helm?
+--- @field public bStationary boolean Stationary spawn?  Not to be confused with "Moving"
+--- @field public bTempPet boolean Is the spawn a Temporary Pet?
 --- @field public Buyer boolean Is a buyer? (ie. Buyer in the bazaar)
+--- @field public bWaitingForPort boolean Am I waiting to accept a port?
 --- @field public CachedBuff cachedbuff Caches buff information cast on others, refer to [[DataType:CachedBuff for additional information
+--- @field public CachedBuffCount integer Number of Buffs cached
 --- @field public CanSplashLand boolean TRUE/FALSE on if a splash spell can land...NOTE! This check is ONLY for line of sight to the targetindicator (red/green circle)
 --- @field public Casting spell Spell, if currently casting (only accurate on yourself, not NPCs or other group members)
+--- @field public CeilingHeightAtCurrLocation integer Ceiling Height
 --- @field public Class class Class
 --- @field public CleanName string The "cleaned up" name
+--- @field public CollisionCounter number
+--- @field public CombatSkillTicks any
 --- @field public ConColor string GREY, GREEN, LIGHT BLUE, BLUE, WHITE, YELLOW, RED
+--- @field public ContractorID integer
+--- @field public CorpseDragCount integer
 --- @field public CurrentEndurance number Current Endurance points (only updates when target/group)
 --- @field public CurrentHPs number Current hit points
 --- @field public CurrentMana number Current Mana points (only updates when target/group)
@@ -29,18 +46,23 @@
 --- @field public DistanceX number Distance from player in X plane
 --- @field public DistanceY number Distance from player in Y plane
 --- @field public DistanceZ number Distance from player in Z plane
+--- @field public DraggingPlayer boolean Am I currently dragging someone?
+--- @field public DragNames string What are the names of the dragging players?
 --- @field public DoAssist action assists the spawn
 --- @field public DoFace action Faces target
 --- @field public DoTarget action targets spawn
 --- @field public Ducking boolean Ducking?
 --- @field public Equipment number returns a inttype, it takes numbers 0-8 or names: head chest arms wrists hands legs feet primary offhand
 --- @field public EQLoc number Location using EQ format
+--- @field public FD number
 --- @field public FeetWet boolean Feet wet/swimming?
 --- @field public Feigning boolean Feigning?
 --- @field public Following spawn The spawn a player is following using /follow on - also returns your pet's target via ${Me.Pet.Following}
 --- @field public Fleeing boolean Is your target moving away from you?
+--- @field public FloorZ integer What is the Z portion of the current location.
 --- @field public Gender string Gender
 --- @field public GM boolean GM or Guide?
+--- @field public GMRank integer GM Rank
 --- @field public GroupLeader boolean Group leader?
 --- @field public Guild string Guild name
 --- @field public GuildStatus string Guild status (Leader, Officer, Member) NOTE GuildStatus is no longer present in BETA/TEST/LIVE versions and only available in UF and ROF EMU builds.

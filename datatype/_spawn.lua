@@ -122,6 +122,7 @@
 --- @field public SeeInvis number
 --- @field public Sitting boolean Sitting?
 --- @field public Sneaking boolean Sneaking?
+--- @field public SpawnStatus number No idea
 --- @field public Speed number How fast is this spawn moving
 --- @field public Standing boolean Standing?
 --- @field public StandState number StandState
@@ -131,8 +132,8 @@
 --- @field public Suffix string Suffix attached to name, eg. of <servername>
 --- @field public Surname string Last name
 --- @field public Targetable boolean Is the spawn targetable?
---- @field public TargetOfTarget target
-----@field public TimeBeenDead number
+--- @field public TargetOfTarget target My targets target
+----@field public TimeBeenDead number If not dead, this is some huge number.  Not sure.
 --- @field public Title string Prefix/Title before name
 --- @field public Trader boolean Trader?
 --- @field public Type string PC, NPC, Untargetable, Mount, Pet, Corpse, Chest, Trigger, Trap, Timer, Item, Mercenary, Aura, Object, Banner, Campfire, Flyer

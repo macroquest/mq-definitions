@@ -63,6 +63,7 @@ function mq.doevents() end
 ---@field cast any
 ---@field stand any
 ---@field alt any
+---@field removebuff any
 
 ---Sol2 ImGui Binding
 ---@class IMGUI

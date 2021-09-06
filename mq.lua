@@ -2,6 +2,7 @@
 --- @class Mq
 --- @field public TLO TLO Top Level Object (TLO) Binding
 --- @field public cmd CMD Command Binding
+--- @field public cmdf CMD Command Binding
 --- @field public imgui IMGUI sol2 ImGui Binding
 
 --- @type Mq
@@ -59,11 +60,15 @@ function mq.doevents() end
 ---@field afk any
 ---@field anon any
 ---@field target any
+---@field echo any
 ---@field keypress any
 ---@field cast any
 ---@field stand any
 ---@field alt any
 ---@field removebuff any
+---@field destroy any
+---@field autoinventory any
+---@field doability any
 
 ---Sol2 ImGui Binding
 ---@class IMGUI

@@ -140,7 +140,7 @@ function mq.doevents() end
 ---@field SubDefined any
 ---@field Switch any
 ---@field SwitchTarget any
----@field Target any
+---@field Target target
 ---@field Task any
 ---@field Time any
 ---@field Type type

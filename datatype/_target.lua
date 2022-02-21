@@ -36,3 +36,6 @@
 --- @field public Symbol spell Returns the name of the Symbol spell if the Target has one
 --- @field public Tashed spell Returns the name of the Tash spell if the Target has one
 --- @field public ToString string Same as Name
+target = {}
+---@return spell
+target.Aego = function() end

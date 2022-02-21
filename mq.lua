@@ -72,6 +72,9 @@ function mq.doevents() end
 
 ---Sol2 ImGui Binding
 ---@class IMGUI
+---@field imgui any
+
+function mq.imgui.init(s, f) end
 
 ---MQ2 Top Level Object Accssor
 ---@class TLO

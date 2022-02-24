@@ -10,6 +10,7 @@
 ---@field Taunt boolean Taunt state
 ---@field Focus boolean Focus state
 ---@field Buff boolean
+---@field ID int returns pet ID
 
 ---@type pet
 local pet = {}

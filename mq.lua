@@ -40,11 +40,16 @@ function mq.unbind(command) end
 function mq.event(name, matcherText, callback) end
 
 ---Unregisters the event by name so that it will not longer react.
----@param name string
+---@param name string Name of the Event
 function mq.unevent(name) end
 
 ---Process queued events.
-function mq.doevents() end
+---@param name string Name of the Event to do
+function mq.doevents(name) end
+
+---Flush events.
+---@param name string Name of the Event to flush
+function mq.flushevents(name) end
 
 -- Misc classes that are needed for completion
 

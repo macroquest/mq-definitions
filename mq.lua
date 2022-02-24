@@ -74,6 +74,7 @@ function mq.flushevents(name) end
 ---@field destroy any
 ---@field autoinventory any
 ---@field doability any
+---@field face any
 
 ---Sol2 ImGui Binding
 ---@class IMGUI

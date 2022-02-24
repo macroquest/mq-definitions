@@ -61,20 +61,20 @@ function mq.flushevents(name) end
 
 ---EQ Game Command Binding
 ---@class CMD
----@field nav any
 ---@field afk any
----@field anon any
----@field target any
----@field echo any
----@field keypress any
----@field cast any
----@field stand any
 ---@field alt any
----@field removebuff any
----@field destroy any
+---@field anon any
 ---@field autoinventory any
+---@field cast any
+---@field destroy any
 ---@field doability any
+---@field echo any
 ---@field face any
+---@field keypress any
+---@field nav any
+---@field removebuff any
+---@field stand any
+---@field target any
 
 ---Sol2 ImGui Binding
 ---@class IMGUI

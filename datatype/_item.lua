@@ -20,6 +20,7 @@
 --- @field public Clairvoyance number Clairvoyance
 --- @field public Class string Returns the #th long class name of the listed classes on an item. Items suitable for ALL classes will effectively have all 17 classes listed.
 --- @field public Classes number The number of classes that can use the item. Items suitable for ALL classes will return 16.
+--- @field public Clicky itemspell Activatable spell effect, if any.
 --- @field public CombatEffects number CombatEffects
 --- @field public Container number Number of slots, if this is a container
 --- @field public DamageShieldMitigation number Damage Shield Mitigation

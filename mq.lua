@@ -51,6 +51,15 @@ function mq.doevents(name) end
 ---@param name string Name of the Event to flush
 function mq.flushevents(name) end
 
+---Returns all spawns.
+---@return spawn[] The spawns
+function mq.getAllSpawns() end
+
+---Returns all spawns by predicate.
+---@param predicate fun(spawn: spawn): bool The filter predicate
+---@return spawn[] The spawns
+function mq.getFilteredSpawns(predicate) end
+
 -- Misc classes that are needed for completion
 
 -- Define the action class - has no members but takes an action such as click or open in game.
@@ -99,10 +108,10 @@ function mq.imgui.init(s, f) end
 ---@field Event any
 ---@field EverQuest any
 ---@field Familiar any
----@field FindItem any
----@field FindItemBank any
----@field FindItemBankCount any
----@field FindItemCount any
+---@field FindItem item
+---@field FindItemBank item
+---@field FindItemBankCount int
+---@field FindItemCount int
 ---@field Float float
 ---@field FPS any
 ---@field FrameLimiter any
@@ -144,7 +153,7 @@ function mq.imgui.init(s, f) end
 ---@field Skill skill
 ---@field Spawn spawn
 ---@field SpawnCount any
----@field Spell any
+---@field Spell spell
 ---@field String any
 ---@field SubDefined any
 ---@field Switch any
@@ -153,5 +162,5 @@ function mq.imgui.init(s, f) end
 ---@field Task any
 ---@field Time any
 ---@field Type type
----@field Window any
+---@field Window window
 ---@field Zone any

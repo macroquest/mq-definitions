@@ -23,6 +23,8 @@
 --- @field public Range float Maximum range to target (use AERange for AE and group spells)
 --- @field public Rank number Returns either 1, 2 or 3 for spells and 4-30 for clickys and potions.
 --- @field public RankName string Returns the spell/combat ability name rank character has.
+--- @field public ReagentCount int Number of reagents used for this spell
+--- @field public ReagentID int ID of the reagent item used for this spell
 --- @field public RecastTime float Time to recast after successful cast
 --- @field public RecoveryTime timestamp Same as FizzleTime
 --- @field public ResistAdj number Resist adjustment

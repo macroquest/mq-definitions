@@ -70,19 +70,19 @@ function mq.getFilteredSpawns(predicate) end
 
 ---EQ Game Command Binding
 ---@class CMD
----@field afk any
+---@field afk fun()
 ---@field alt any
----@field anon any
----@field autoinventory any
+---@field anon fun()
+---@field autoinventory fun()
 ---@field cast any
----@field destroy any
+---@field destroy fun()
 ---@field doability any
 ---@field echo any
----@field face any
+---@field face fun()
 ---@field keypress any
 ---@field nav any
 ---@field removebuff any
----@field stand any
+---@field stand fun()
 ---@field target any
 
 ---Sol2 ImGui Binding
@@ -103,22 +103,22 @@ function mq.imgui.init(s, f) end
 ---@field Cursor any
 ---@field Defined any
 ---@field DisplayItem any
----@field DoorTarget any
+---@field DoorTarget fun(filter:string): void
 ---@field DynamicZone any
 ---@field Event any
 ---@field EverQuest any
 ---@field Familiar any
----@field FindItem item
----@field FindItemBank item
----@field FindItemBankCount int
----@field FindItemCount int
+---@field FindItem  fun(idOrName:any):item
+---@field FindItemBank  fun(idOrName:any):item
+---@field FindItemBankCount fun(filter:string): int
+---@field FindItemCount fun(filter:string): int
 ---@field Float float
 ---@field FPS any
 ---@field FrameLimiter any
 ---@field Friends any
 ---@field GameTime any
 ---@field Ground any
----@field GroundItemCount any
+---@field GroundItemCount fun(filter:string): int Number of items on the ground in this zone (filter is optional).
 ---@field Group any
 ---@field GroupLeader any
 ---@field GroupLeaderName any
@@ -132,7 +132,7 @@ function mq.imgui.init(s, f) end
 ---@field ItemTarget any
 ---@field LastSpawn any
 ---@field LineOfSight any
----@field Lua any
+---@field Lua Lua
 ---@field Macro Macro
 ---@field MacroQuest macroquest
 ---@field Math math
@@ -142,7 +142,7 @@ function mq.imgui.init(s, f) end
 ---@field Merchant merchant
 ---@field Mount any
 ---@field Navigation Navigation
----@field NearestSpawn any
+---@field NearestSpawn fun(filter:string): spawn
 ---@field Pet pet
 ---@field Plugin plugin
 ---@field PointMerchant any
@@ -151,9 +151,9 @@ function mq.imgui.init(s, f) end
 ---@field Select any
 ---@field SelectedItem item
 ---@field Skill skill
----@field Spawn spawn
----@field SpawnCount any
----@field Spell spell
+---@field Spawn fun(idOrFilter:any): spawn
+---@field SpawnCount fun(filter:any): int
+---@field Spell fun(idOrName:any): spell
 ---@field String any
 ---@field SubDefined any
 ---@field Switch any
@@ -163,4 +163,4 @@ function mq.imgui.init(s, f) end
 ---@field Time any
 ---@field Type type
 ---@field Window window
----@field Zone any
+---@field Zone zone

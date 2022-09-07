@@ -1,4 +1,4 @@
---- @class target
+--- @class target : spawn
 --- @field public Aego spell Returns the name of the Aego spell if the Target has one
 --- @field public AggroHolder spawn Returns the target's current target.
 --- @field public Beneficial spell Returns the name of the Beneficial spell if the Target has one. This will skip "player" casted buffs, but will show NPC Casted buffs and some AA buffs.

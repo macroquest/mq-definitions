@@ -32,7 +32,7 @@
 --- @field public Skill string See below for Skill Types
 --- @field public SlowPct number Percentage of slow, example of use ${Target.Slowed.SlowPct} or ${Spell[Slowing Helix].SlowPct}
 --- @field public SpellIcon number Icon number of the spell. Exmaple ${Spell[blah].SpellIcon}
---- @field public SpellType string "Beneficial(Group)", "Beneficial", "Detrimental" or "Unknown"
+--- @field public SpellType string The spell type, Will be one of "Beneficial(Group)", "Beneficial", "Detrimental" or "Unknown"
 --- @field public Stacks boolean Does the selected spell stack with your current buffs (duration is in ticks)
 --- @field public StacksPet boolean Does the selected spell stack with your pet's current buffs (duration is in ticks)
 --- @field public StacksTarget boolean Does the selected spell stack with your target's current buffs (duration is in ticks)

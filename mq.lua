@@ -4,8 +4,6 @@
 --- @field public cmd CMD Command Binding
 --- @field public cmdf CMD Command Binding
 --- @field public imgui IMGUI sol2 ImGui Binding
-
---- @type Mq
 local mq = {}
 
 ---Base MQ Functions

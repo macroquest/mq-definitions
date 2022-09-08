@@ -3,17 +3,8 @@
 --- @field public TLO TLO Top Level Object (TLO) Binding
 --- @field public cmd CMD Command Binding
 --- @field public cmdf CMD Command Binding
---- @field public delay fun(delay: string|integer, cancelCallback?: fun(): boolean) Delay execution for a number or string ending in s, m, or ms (seconds, minutes, milliseconds).
---- @field public bind fun(command: string, callback: function) Binds a command to an in-game slash prompt.
---- @field public unbind fun(command: string) Unbinds a previously assigned function from a command.
---- @field public exit fun() Force Exits the Script, ignoring the normal Lua return flow.
---- @field public event fun(name: string, matcherText: string, callback: function) Creates an event that will execute a Lua function when the provided matcher text is seen in game.
---- @field public unevent fun(name: string) Unregisters the event by name so that it will not longer react.
---- @field public doevents fun(name?: string) Process queued events.
---- @field public flushevents fun(name?: string) Flush events.
---- @field public getAllSpawns fun(): spawn[] Gets all spawns.
---- @field public getFilteredSpawns fun(predicate: fun(spawn: spawn): bool): spawn[] Returns all spawns by predicate.
 --- @field public imgui IMGUI sol2 ImGui Binding
+
 local mq = {}
 
 ---Base MQ Functions
@@ -96,7 +87,7 @@ function mq.getFilteredSpawns(predicate) end
 
 ---Sol2 ImGui Binding
 ---@class IMGUI
----@field imgui any
+---@field init fun(name: string, render: fun())
 
 function mq.imgui.init(s, f) end
 
@@ -112,22 +103,22 @@ function mq.imgui.init(s, f) end
 ---@field Cursor any
 ---@field Defined any
 ---@field DisplayItem any
----@field DoorTarget fun(filter:string): void
+---@field DoorTarget fun(filter: string)
 ---@field DynamicZone any
 ---@field Event any
 ---@field EverQuest any
 ---@field Familiar any
----@field FindItem  fun(idOrName:any):item
----@field FindItemBank  fun(idOrName:any):item
----@field FindItemBankCount fun(filter:string): int
----@field FindItemCount fun(filter:string): int
+---@field FindItem  fun(idOrName: integer|string):item
+---@field FindItemBank  fun(idOrName: integer|string):item
+---@field FindItemBankCount fun(filter: string): int
+---@field FindItemCount fun(filter: string): int
 ---@field Float float
 ---@field FPS any
 ---@field FrameLimiter any
 ---@field Friends any
 ---@field GameTime any
 ---@field Ground any
----@field GroundItemCount fun(filter:string): int Number of items on the ground in this zone (filter is optional).
+---@field GroundItemCount fun(filter: string): int Number of items on the ground in this zone (filter is optional).
 ---@field Group any
 ---@field GroupLeader any
 ---@field GroupLeaderName any
@@ -151,7 +142,7 @@ function mq.imgui.init(s, f) end
 ---@field Merchant merchant
 ---@field Mount any
 ---@field Navigation Navigation
----@field NearestSpawn fun(filter:string): spawn
+---@field NearestSpawn fun(filter: string): spawn
 ---@field Pet pet
 ---@field Plugin plugin
 ---@field PointMerchant any
@@ -160,9 +151,9 @@ function mq.imgui.init(s, f) end
 ---@field Select any
 ---@field SelectedItem item
 ---@field Skill skill
----@field Spawn fun(idOrFilter:any): spawn
----@field SpawnCount fun(filter:any): int
----@field Spell fun(idOrName:any): spell
+---@field Spawn fun(idOrFilter: integer|string): spawn
+---@field SpawnCount fun(filter: integer|string): int
+---@field Spell fun(idOrName: integer|string): spell
 ---@field String any
 ---@field SubDefined any
 ---@field Switch any
@@ -173,3 +164,4 @@ function mq.imgui.init(s, f) end
 ---@field Type type
 ---@field Window window
 ---@field Zone zone
+---@field NetBots NetBots|fun(name: string): netbot|"NULL" NetBots TLO binding

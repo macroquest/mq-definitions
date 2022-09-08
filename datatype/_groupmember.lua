@@ -1,4 +1,4 @@
---- @class groupmember
+--- @class groupmember : spawn
 --- @field public Index number Which number in the group the member is
 --- @field public Leader boolean TRUE if the member is the group's leader, FALSE otherwise
 --- @field public Level number The member's level

@@ -1,5 +1,5 @@
---- @class target
---- @field public Aego spell Returns the name of the Aego spell if the Target has one
+--- @class target : spawn
+--- @field public Aego fun(): spell Returns the name of the Aego spell if the Target has one
 --- @field public AggroHolder spawn Returns the target's current target.
 --- @field public Beneficial spell Returns the name of the Beneficial spell if the Target has one. This will skip "player" casted buffs, but will show NPC Casted buffs and some AA buffs.
 --- @field public Buff spell Returns the target's spell by buff index number or the first buff if no Index is provided.
@@ -36,6 +36,3 @@
 --- @field public Symbol spell Returns the name of the Symbol spell if the Target has one
 --- @field public Tashed spell Returns the name of the Tash spell if the Target has one
 --- @field public ToString string Same as Name
-target = {}
----@return spell
-target.Aego = function() end

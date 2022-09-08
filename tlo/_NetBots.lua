@@ -1,5 +1,5 @@
---- NetBots Lua Binding
---- @class NetBots
+--- NetBots Lua Bindings
+---@class NetBots
 ---@field Client fun(index: integer): netbot The netbot at the given index in the array
 ---@field Counts fun(): integer The number of connected clients.
 ---@field Enable fun(): boolean The plugin status.

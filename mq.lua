@@ -163,4 +163,6 @@ function mq.imgui.init(s, f) end
 ---@field Type type
 ---@field Window window
 ---@field Zone zone
----@field NetBots NetBots|fun(name: string): netbot|"NULL" NetBots TLO binding
+---@field EQBC EQBC EQBC TLO bindings
+---@field NetBots NetBots|fun(name: string): netbot|"NULL" NetBots TLO bindings
+---@field Twist Twist|fun(): boolean Twist TLO binding

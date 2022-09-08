@@ -43,11 +43,11 @@ function mq.event(name, matcherText, callback) end
 function mq.unevent(name) end
 
 ---Process queued events.
----@param name string Name of the Event to do
+---@param name? string Name of the Event to do
 function mq.doevents(name) end
 
 ---Flush events.
----@param name string Name of the Event to flush
+---@param name? string Name of the Event to flush
 function mq.flushevents(name) end
 
 ---Returns all spawns.
@@ -102,7 +102,7 @@ function mq.imgui.init(s, f) end
 ---@field Cursor any
 ---@field Defined any
 ---@field DisplayItem any
----@field DoorTarget fun(filter: string)
+---@field DoorTarget spawn
 ---@field DynamicZone any
 ---@field Event any
 ---@field EverQuest any
@@ -141,7 +141,7 @@ function mq.imgui.init(s, f) end
 ---@field Merchant merchant
 ---@field Mount any
 ---@field Navigation Navigation
----@field NearestSpawn fun(filter: string): spawn
+---@field NearestSpawn fun(filter: string): spawn|fun(index: integer, filter: string): spawn
 ---@field Pet pet
 ---@field Plugin plugin
 ---@field PointMerchant any

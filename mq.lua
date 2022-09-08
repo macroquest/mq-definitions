@@ -141,7 +141,6 @@ function mq.imgui.init(s, f) end
 ---@field Merchant merchant
 ---@field Mount any
 ---@field Navigation Navigation
----@field NearestSpawn fun(filter: string): spawn|fun(index: integer, filter: string): spawn
 ---@field Pet pet
 ---@field Plugin plugin
 ---@field PointMerchant any
@@ -166,3 +165,10 @@ function mq.imgui.init(s, f) end
 ---@field EQBC EQBC EQBC TLO bindings
 ---@field NetBots NetBots|fun(name: string): netbot|"NULL" NetBots TLO bindings
 ---@field Twist Twist|fun(): boolean Twist TLO binding
+local TLO = {}
+
+---@param index  integer
+---@param filter  string
+---@return spawn
+---@overload fun(filter: string): spawn
+function TLO.NearestSpawn(index, filter)end

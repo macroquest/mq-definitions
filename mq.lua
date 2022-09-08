@@ -3,6 +3,16 @@
 --- @field public TLO TLO Top Level Object (TLO) Binding
 --- @field public cmd CMD Command Binding
 --- @field public cmdf CMD Command Binding
+--- @field public delay fun(delay: string|integer, cancelCallback?: fun(): boolean) Delay execution for a number or string ending in s, m, or ms (seconds, minutes, milliseconds).
+--- @field public bind fun(command: string, callback: function) Binds a command to an in-game slash prompt.
+--- @field public unbind fun(command: string) Unbinds a previously assigned function from a command.
+--- @field public exit fun() Force Exits the Script, ignoring the normal Lua return flow.
+--- @field public event fun(name: string, matcherText: string, callback: function) Creates an event that will execute a Lua function when the provided matcher text is seen in game.
+--- @field public unevent fun(name: string) Unregisters the event by name so that it will not longer react.
+--- @field public doevents fun(name?: string) Process queued events.
+--- @field public flushevents fun(name?: string) Flush events.
+--- @field public getAllSpawns fun(): spawn[] Gets all spawns.
+--- @field public getFilteredSpawns fun(predicate: fun(spawn: spawn): bool): spawn[] Returns all spawns by predicate.
 --- @field public imgui IMGUI sol2 ImGui Binding
 
 --- @type Mq
@@ -12,7 +22,8 @@ local mq = {}
 
 ---Timing delay.
 ---@param delayValue number|string A number or string ending in s, m, or ms (seconds, minutes, milliseconds).
-function mq.delay(delayValue) end
+---@param cancelCallback? fun(): boolean an optional lua function which evaluates to true or false to decide whether to end the delay early
+function mq.delay(delayValue, cancelCallback) end
 
 ---Joins a number of string-convertable parameters into a single string
 ---@vararg ...

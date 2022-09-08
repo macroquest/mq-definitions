@@ -14,8 +14,6 @@
 --- @field public getAllSpawns fun(): spawn[] Gets all spawns.
 --- @field public getFilteredSpawns fun(predicate: fun(spawn: spawn): bool): spawn[] Returns all spawns by predicate.
 --- @field public imgui IMGUI sol2 ImGui Binding
-
---- @type Mq
 local mq = {}
 
 ---Base MQ Functions

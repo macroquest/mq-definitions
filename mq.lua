@@ -1,3 +1,5 @@
+---@meta
+
 --- Macroquest Lua Binding
 --- @class Mq
 --- @field public TLO TLO Top Level Object (TLO) Binding
@@ -162,15 +164,7 @@ function mq.imgui.init(s, f) end
 ---@field Type type
 ---@field Window window
 ---@field Zone zone
----@field EQBC EQBC EQBC TLO bindings
----@field NetBots NetBots|fun(name: string): netbot|"NULL" NetBots TLO bindings
----@field Twist Twist|fun(): boolean Twist TLO binding
----@field MoveUtils MoveUtils|fun(): string MoveUtils TLO binding
----@field Stick Stick|fun(): string Stick TLO binding
----@field MoveTo MoveTo|fun(): string MoveTo TLO binding
----@field MakeCamp MakeCamp|fun(): string MakeCamp TLO binding
----@field Circle Circle|fun(): string Circle TLO binding
-local TLO = {}
+TLO = {}
 
 ---@param index  integer
 ---@param filter  string

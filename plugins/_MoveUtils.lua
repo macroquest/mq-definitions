@@ -1,5 +1,7 @@
+---@meta
+
 --- MoveUtils Lua Bindings
----@class MoveUtils
+---@class TLO.MoveUtils
 ---@field Command fun(): string Returns the currently active command. MAKECAMP returns if a camp is setup but no other command is currently in use ["NONE", "STICK", "MOVETO", "MAKECAMP", "CIRCLE"]
 ---@field Stuck fun(): boolean Returns true if plugin stucklogic has determined you are currently stuck
 ---@field Summoned fun(): boolean Returns true if BreakOnSummon is enabled and has fired due to your character being summoned beyond breakonsummon distance
@@ -17,6 +19,7 @@
 ---@field Version fun(): number Returns the version number of the plugin
 ---@field MovePause fun(): boolean Returns TRUE if mpause \(PauseKB\) is enabled
 ---@field GM fun(): boolean Returns TRUE if BreakOnGM fired
+TLO.MoveUtils = {}
 
 --- Stick Lua Bindings
 ---@class Stick
@@ -36,9 +39,10 @@
 ---@field DistMod fun(): number Returns current stickdist modifier
 ---@field DistModPercent fun(): number Returns current stickdist percent modifier
 ---@field Always fun(): boolean Returns TRUE if /stick always is active
+TLO.Stick = {}
 
 --- MoveTo Lua Bindings
----@class MoveTo
+---@class TLO.MoveTo
 ---@field Moving fun(): boolean Returns TRUE if moveto or camp return is active
 ---@field Stopped fun(): boolean Returns TRUE if the last moveto command completed successfully
 ---@field CampStopped fun(): boolean Returns TRUE if within moveto distance of makecamp Y X location
@@ -47,9 +51,10 @@
 ---@field ArrivalDistY fun(): number Returns acceptable arrival distance for precisey
 ---@field ArrivalDistX fun(): number Returns acceptable arrival distance for precisex
 ---@field Broken fun(): boolean Returns TRUE if BreakOnAggro or BreakOnHit event have halted moveto prematurely
+TLO.MoveTo = {}
 
 --- MakeCamp Lua Bindings
----@class MakeCamp
+---@class TLO.MakeCamp
 ---@field Status fun(): string Returns status of MakeCamp command. AltCamp returns OFF ["OFF", "PAUSED" or "ON"]
 ---@field Leash fun(): boolean Returns TRUE if plugin stucklogic has determined you are currently stuck
 ---@field AnchorX fun(): number Returns location of current camp X anchor
@@ -71,9 +76,10 @@
 ---@field Bearing fun(): number Returns the bearing \(heading\) of camp scattering
 ---@field ScatDist fun(): number Returns the distance from anchor to perform scatter
 ---@field ScatSize fun(): number Returns the size of scattering radius
+TLO.MakeCamp = {}
 
 --- Circle Lua Bindings
----@class Circle
+---@class TLO.Circle
 ---@field Status fun(): string Returns ON if circling ["OFF", "PAUSED" or "ON"]
 ---@field CircleY fun(): number Returns the location of circle center Y
 ---@field CircleX fun(): number Returns the location of circle center X
@@ -83,3 +89,4 @@
 ---@field Clockwise fun(): boolean Returns FALSE if reverse circling
 ---@field Backwards fun(): boolean Returns TRUE if movement direction backwards
 ---@field Radius fun(): number Returns the radius size of circle
+TLO.Circle = {}

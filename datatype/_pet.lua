@@ -1,3 +1,5 @@
+---@meta
+
 ---@diagnostic disable: duplicate-set-field
 ---@class pet
 ---@field Combat boolean Combat state
@@ -9,10 +11,7 @@
 ---@field Target spawn Returns the pet's current target
 ---@field Taunt boolean Taunt state
 ---@field Focus boolean Focus state
----@field Buff boolean
 ---@field ID int returns pet ID
-
----@type pet
 local pet = {}
 
 ---Returns the slot number for the buff name

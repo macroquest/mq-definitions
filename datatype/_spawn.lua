@@ -147,3 +147,5 @@
 --- @field public E number Shortcut for -X (makes Eastward positive)
 --- @field public S number Shortcut for -Y (makes Southward positive)
 --- @field public D number Shortcut for -Z (makes Downward positive)
+--- @field public FindBuff fun(predicate: string): spell Try find a given buff/debuff given predicate from cachedbuffs
+--- @field public Aggresive fun(): boolean Is the spawn agressive towards you

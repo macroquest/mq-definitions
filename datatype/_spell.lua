@@ -37,6 +37,7 @@
 --- @field public StacksPet boolean Does the selected spell stack with your pet's current buffs (duration is in ticks)
 --- @field public StacksTarget boolean Does the selected spell stack with your target's current buffs (duration is in ticks)
 --- @field public StacksWith boolean alias for .WillStack - see entry for more details
+--- @field public NewStacks fun(): boolean see entry for more details
 --- @field public TargetType string See below for Target Types
 --- @field public WearOff string The "wear off" message
 --- @field public WillStack boolean Does the selected spell stack with the specific SPELL nameDOES NOT work with AAs.

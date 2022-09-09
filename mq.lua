@@ -83,7 +83,7 @@ function mq.getFilteredSpawns(predicate) end
 
 ---Sol2 ImGui Binding
 ---@class IMGUI
----@field imgui any
+---@field init fun(name: string, render: fun())
 
 ---Register the ImGui Callback.  Named function that will be called on every ImGui update, 
 ---usually bound to one function that renders the ImGui window interface in game.
@@ -107,6 +107,7 @@ function mq.imgui.destory(name) end
 ---@field Cursor any
 ---@field Defined any
 ---@field DisplayItem any
+---@field DoorTarget spawn
 ---@field DynamicZone any
 ---@field Event any
 ---@field EverQuest any
@@ -148,7 +149,6 @@ function mq.imgui.destory(name) end
 ---@field Select any
 ---@field SelectedItem item
 ---@field Skill skill
----@field Spawn userdata
 ---@field String any
 ---@field SubDefined any
 ---@field Switch any
@@ -159,6 +159,13 @@ function mq.imgui.destory(name) end
 ---@field Type type
 ---@field Window window
 ---@field Zone zone
+TLO = {}
+
+---@param index  integer
+---@param filter  string
+---@return spawn
+---@overload fun(filter: string): spawn
+function TLO.NearestSpawn(index, filter)end
 mq.TLO = {}
 
 ---Returns the FindItem userdata

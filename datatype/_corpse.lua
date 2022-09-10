@@ -1,4 +1,4 @@
---- @class corpse
+--- @class corpse : spawn
 --- @field public Item item #th item on the corpse
 --- @field public Items number Number of items on the corpse
 --- @field public Open boolean Corpse open?

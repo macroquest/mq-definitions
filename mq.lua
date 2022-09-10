@@ -99,7 +99,6 @@ function mq.imgui.destory(name) end
 ---@class TLO
 ---@field Achievement Achievement
 ---@field AdvLoot AdvLoot
----@field Alert Alert
 ---@field Alias boolean
 ---@field AltAbility altability
 ---@field Bandoliler any
@@ -161,6 +160,15 @@ function mq.imgui.destory(name) end
 ---@field Window window
 ---@field Zone zone
 TLO = {}
+
+---Returns a pipe | separated list of alert ids
+---@return string
+function TLO.Alert() end
+
+---Retreive information for the laert category by its id
+---@param id integer
+---@return alert
+function TLO.Alert(id) end
 
 ---@param index  integer
 ---@param filter  string

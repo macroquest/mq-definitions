@@ -3,14 +3,14 @@
 Achievement = {}
 
 ---@type achievementmgr
-Achievement.Achievement = nil
+Achievement = nil
 
 ---Find an achievement by it's name
 ---@param name string Name of achievement
 ---@return achievement
-Achievement.Achievement = function(name) end
+Achievement = function(name) end
 
 ---Find an achievement by it's id
 ---@param id integer Id of achievement
 ---@return achievement
-Achievement.Achievement = function(id) end
+Achievement = function(id) end

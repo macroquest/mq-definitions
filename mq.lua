@@ -97,6 +97,7 @@ function mq.imgui.destory(name) end
 
 ---MQ2 Top Level Object Accssor
 ---@class TLO
+---@field Achievement Achievement
 ---@field AdvLoot AdvLoot
 ---@field Alert Alert
 ---@field Alias boolean

@@ -99,11 +99,10 @@ function mq.imgui.destory(name) end
 ---@class TLO
 ---@field Achievement Achievement
 ---@field AdvLoot AdvLoot
----@field Alias boolean
+---@field Alias fun(name:string):boolean True if alias exists
 ---@field AltAbility altability
 ---@field Bandoliler any
----@field Bool bool
----@field Corpse corpse
+---@field Corpse fun():corpse Corpse you are looting
 ---@field Cursor any
 ---@field Defined any
 ---@field DisplayItem any
@@ -169,6 +168,9 @@ function TLO.Alert() end
 ---@param id integer
 ---@return alert
 function TLO.Alert(id) end
+
+---@deprecated Use Lua types
+function TLO.Bool() end
 
 ---@param index  integer
 ---@param filter  string

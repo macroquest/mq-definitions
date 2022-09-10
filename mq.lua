@@ -103,11 +103,10 @@ function mq.imgui.destory(name) end
 ---@field AltAbility altability
 ---@field Bandoliler any
 ---@field Corpse fun():corpse Corpse you are looting
----@field Cursor any
----@field Defined any
----@field DisplayItem any
----@field DoorTarget spawn
----@field DynamicZone any
+---@field Cursor fun():item
+---@field DisplayItem fun():item
+---@field DoorTarget fun():spawn
+---@field DynamicZone dynamiczone
 ---@field Event any
 ---@field EverQuest any
 ---@field Familiar any

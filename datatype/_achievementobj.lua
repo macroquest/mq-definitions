@@ -1,0 +1,8 @@
+---@meta
+---@class achievementobj
+---@field ID fun():integer
+---@field Description fun():string
+---@field Count fun():integer
+---@field RequiredCount fun():integer
+---@field Completed fun():boolean
+---@field Index fun():integer

@@ -102,8 +102,8 @@ function mq.imgui.destory(name) end
 ---@field Alias fun(name:string):boolean True if alias exists
 ---@field AltAbility altability
 ---@field Bandoliler any
----@field Corpse fun():corpse Corpse you are looting
----@field Cursor fun():item
+---@field Corpse corpse|fun():corpse|nil Corpse you are looting
+---@field Cursor item|fun():string|nil
 ---@field DisplayItem fun():item
 ---@field DoorTarget fun():spawn
 ---@field DynamicZone dynamiczone

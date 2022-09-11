@@ -7,8 +7,8 @@
 ---@field Enable fun(): boolean The plugin status.
 ---@field Listen fun(): boolean The grab parameter status.
 ---@field Output fun(): boolean The send parameter status.
-TLO.NetBots = {}
+mq.TLO.NetBots = {}
 
 ---@param name string # Name of he netbot
 ---@return netbot|"NULL" # Returns the netbot with the given name or 'NULL' if not found
-function TLO.NetBots(name) end
+function mq.TLO.NetBots(name) end

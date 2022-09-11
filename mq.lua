@@ -159,7 +159,7 @@ function mq.imgui.destory(name) end
 ---@field Type type
 ---@field Window window
 ---@field Zone zone
-TLO = {}
+local TLO = {}
 
 ---@param index  integer
 ---@param filter  string

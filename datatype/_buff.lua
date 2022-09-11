@@ -5,6 +5,6 @@
 --- @field public ID number The ID of the buff or shortbuff slot
 --- @field public Level number The level of the person that cast the buff on you (not the level of the spell)
 --- @field public Mod float The modifier to a bard song
---- @field public Remove action Removes the named/partial name buff
+--- @field public Remove fun() Removes the named/partial name buff
 --- @field public Spell spell The spell
 --- @field public ToString string Same as Name

@@ -13,13 +13,13 @@
 --- @field public Distance3D number Distance from player to ground item
 --- @field public SubID number ???
 --- @field public ZoneID number ???
---- @field public First action First spawn
---- @field public Last action Last spawn
---- @field public Next action Next spawn
---- @field public Prev action Prev spawn
---- @field public DoFace action Will cause the toon to face the called for spawn if it exists
---- @field public DoTarget action Will cause the toon to target the called for spawn if it exists
---- @field public Grab action Picks up the ground spawn
+--- @field public First fun() First spawn
+--- @field public Last fun() Last spawn
+--- @field public Next fun() Next spawn
+--- @field public Prev fun() Prev spawn
+--- @field public DoFace fun() Will cause the toon to face the called for spawn if it exists
+--- @field public DoTarget fun() Will cause the toon to target the called for spawn if it exists
+--- @field public Grab fun() Picks up the ground spawn
 --- @field public W float X coordinate (Westward-positive)
 --- @field public N float Y coordinate (Northward-positive)
 --- @field public U float Z coordinate (Upward-positive)

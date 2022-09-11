@@ -173,7 +173,7 @@
 --- @field public Silenced string Returns the name of the Silence type effect on you
 --- @field public Silver number Silver on your character
 --- @field public SilverBank number Silver in bank
---- @field public Sit action Causes toon to sit if not already
+--- @field public Sit fun() Causes toon to sit if not already
 --- @field public Skill number Skill level of skill with this name or ID #
 --- @field public SkillCap number Skill cap of skill with this name or ID #
 --- @field public Song buff Finds song with this name
@@ -184,8 +184,8 @@
 --- @field public SpellReady boolean Gem with this spell name or in this gem # ready to cast?
 --- @field public SpellShieldBonus number Spell Shield bonus from gear and spells
 --- @field public STA number Character Stamina
---- @field public Stand action causes toon to stand if not already
---- @field public StopCast action Causes toon to stop casting
+--- @field public Stand fun() causes toon to stand if not already
+--- @field public StopCast fun() Causes toon to stop casting
 --- @field public STR number Character Strength
 --- @field public StrikeThroughBonus number Strikethrough bonus from gear and spells
 --- @field public Stunned boolean Am I stunned?

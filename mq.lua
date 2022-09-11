@@ -159,6 +159,7 @@ function mq.imgui.destory(name) end
 ---@field Zone zone
 local TLO = {}
 
+---@diagnostic disable: duplicate-set-field
 ---Returns a pipe | separated list of alert ids
 ---@return string
 function TLO.Alert() end
@@ -167,6 +168,7 @@ function TLO.Alert() end
 ---@param id integer
 ---@return alert
 function TLO.Alert(id) end
+---@diagnostic enable: duplicate-set-field
 
 ---@deprecated Use Lua types
 function TLO.Bool() end
@@ -176,43 +178,75 @@ function TLO.Bool() end
 ---@return spawn
 ---@overload fun(filter: string): spawn
 function TLO.NearestSpawn(index, filter)end
-mq.TLO = {}
-
----Returns the FindItem userdata
----@type userdata
-mq.TLO.FindItem = nil
 
 ---Finds an Item by the item ID
 ---@param id integer
 ---@return item
-mq.TLO.FindItem = function(id)end
+function mq.TLO.FindItem(id)end
 
 ---Finds an Item by the item Name
 ---@param name string
 ---@return item
 function mq.TLO.FindItem(name)end
 
+---Finds an Item in the bank by the item ID
+---@param id integer
+---@return item
+function mq.TLO.FindItemBank(id)end
+
+---Finds an Item in the bank by the item Name
+---@param name string
+---@return item
+function mq.TLO.FindItemBank(name)end
+
+---Return a counts of Items by the item ID
+---@param id integer
+---@return integer
+function mq.TLO.FindItemCount(id)end
+
+---Return a counts of Items by the item Name
+---@param name string
+---@return integer
+function mq.TLO.FindItemCount(name)end
+
+---Return a counts of Items in the bank by the item ID
+---@param id integer
+---@return integer
+function mq.TLO.FindItemBankCount(id)end
+
+---Return a counts of Items in the bank by the item Name
+---@param name string
+---@return integer
+function mq.TLO.FindItemBankCount(name)end
+
 ---Returns a Spawn by ID
 ---@param id integer
 ---@return spawn
-mq.TLO.Spawn = function(id)end
+function mq.TLO.Spawn(id)end
 
-----Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) Filter
-----@param Filter string
-----return spawn
-----function mq.TLO.Spawn(Filter)end
+----Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
+---@param filter string
+---@return spawn
+function mq.TLO.Spawn(filter)end
 
----Number of items on the ground in this zone (Filter is optional)
----@param Filter string
----@return int
-function mq.TLO.GroundItemCount(Filter)end
+---Number of items on the ground in this zone (filter is optional)
+---@param filter string
+---@return integer
+function mq.TLO.GroundItemCount(filter)end
 
-----@field FindItemBank  fun(idOrName:any):item
-----@field FindItemBankCount fun(filter:string):int
-----@field FindItemCount fun(filter:string):int
-----@field DoorTarget fun(filter:string)
-----@field NearestSpawn fun(filter:string): spawn
-----@field SpawnCount fun(filter:any): int
-----@field Spell fun(idOrName:any): spell
+----Returns a count of Spawns by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
+---@param filter string
+---@return integer
+function mq.TLO.SpawnCount(filter)end
+
+---Returns a Spell by ID
+---@param id integer
+---@return spell
+function mq.TLO.Spell(id)end
+
+----Returns a Spell by Name
+---@param name string
+---@return spell
+function mq.TLO.Spell(name)end
 
 return mq

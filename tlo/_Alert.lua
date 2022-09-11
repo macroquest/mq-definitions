@@ -1,3 +1,0 @@
---- @class Alert
---- @field public List alerttypelist Data on the Shared list
---- @field public Size number Returns count of alerts

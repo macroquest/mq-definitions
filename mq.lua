@@ -16,7 +16,7 @@ function mq.cmdf(command, ...) end
 
 ---Provides a Timing delay
 ---@param delayValue number|string A number (milliseconds) or string ending in s, m, or ms (e.g. '2s' or '1m')
----@param condition? function An optional function that can end the delay early with a return of true
+---@param condition? function An optional condition that can end the delay early with a return of true
 function mq.delay(delayValue, condition) end
 
 ---Joins a number of string-convertable parameters into a single string
@@ -97,18 +97,16 @@ function mq.imgui.destory(name) end
 
 ---MQ2 Top Level Object Accssor
 ---@class TLO
+---@field Achievement Achievement
 ---@field AdvLoot AdvLoot
----@field Alert Alert
----@field Alias boolean
+---@field Alias fun(name:string):boolean True if alias exists
 ---@field AltAbility altability
 ---@field Bandoliler any
----@field Bool bool
----@field Corpse corpse
----@field Cursor any
----@field Defined any
----@field DisplayItem any
----@field DoorTarget spawn
----@field DynamicZone any
+---@field Corpse fun():corpse Corpse you are looting
+---@field Cursor fun():item
+---@field DisplayItem fun():item
+---@field DoorTarget fun():spawn
+---@field DynamicZone dynamiczone
 ---@field Event any
 ---@field EverQuest any
 ---@field Familiar any
@@ -160,6 +158,18 @@ function mq.imgui.destory(name) end
 ---@field Window window
 ---@field Zone zone
 local TLO = {}
+
+---Returns a pipe | separated list of alert ids
+---@return string
+function TLO.Alert() end
+
+---Retreive information for the laert category by its id
+---@param id integer
+---@return alert
+function TLO.Alert(id) end
+
+---@deprecated Use Lua types
+function TLO.Bool() end
 
 ---@param index  integer
 ---@param filter  string

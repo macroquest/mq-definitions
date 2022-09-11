@@ -157,7 +157,7 @@ function mq.imgui.destory(name) end
 ---@field Type type
 ---@field Window window
 ---@field Zone zone
-TLO = {}
+local TLO = {}
 
 ---Returns a pipe | separated list of alert ids
 ---@return string

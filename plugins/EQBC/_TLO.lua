@@ -8,4 +8,4 @@
 ---@field Server fun(): string Hostname or IP of server you connected to
 ---@field ToonName fun(): string Character name as seen by EQBC \(may reflect YouPlayer\)
 ---@field Setting fun(): boolean Option enabled/disabled status. \(see **/bccmd set** for complete list\)
-TLO.EQBC = {}
+mq.TLO.EQBC = {}

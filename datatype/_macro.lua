@@ -11,4 +11,4 @@
 --- @field public Return string The value that was returned by the last completed subroutine
 --- @field public RunTime number How long the macro has been running (in seconds)
 --- @field public StackSize number StackSize?
---- @field public Undeclared Invoke will list all undeclared variables
+--- @field public Undeclared fun() will list all undeclared variables

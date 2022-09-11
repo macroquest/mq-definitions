@@ -3,8 +3,8 @@
 --- @field public Checked boolean Returns TRUE if the button has been checked
 --- @field public Child window Child with this name
 --- @field public Children boolean Returns TRUE if the window has children
---- @field public DoClose action Does the ction of closing a window
---- @field public DoOpen action Does the action of opening a window
+--- @field public DoClose fun() Does the ction of closing a window
+--- @field public DoOpen fun() Does the action of opening a window
 --- @field public Enabled boolean Returns TRUE if the window is enabled
 --- @field public FirstChild window First child window
 --- @field public Height number Height in pixels
@@ -14,10 +14,10 @@
 --- @field public HScrollPos number Horizontal scrollbar position
 --- @field public HScrollPct number Horizontal scrollbar position in % to range from 0 to 100
 --- @field public Items number Number of items in a Listbox or Combobox
---- @field public LeftMouseDown action Does the action of clicking the left mouse button down
---- @field public LeftMouseHeld action Does the action of holding the left mouse button
---- @field public LeftMouseHeldUp action does the action of holding the left mouse button up
---- @field public LeftMouseUp action Does the action of clicking the left mouse button up
+--- @field public LeftMouseDown fun() Does the action of clicking the left mouse button down
+--- @field public LeftMouseHeld fun() Does the action of holding the left mouse button
+--- @field public LeftMouseHeldUp fun() does the action of holding the left mouse button up
+--- @field public LeftMouseUp fun() Does the action of clicking the left mouse button up
 --- @field public List string Get the text for the #th item in a list box. Only works on list boxes. Use of ,y is optional and allows selection of the column of the window to get text from or Find an item in a list box by partial match (use window.List[=text] for exact). Only works on list boxes. Use of ,y is optional and allows selection of the column of the window to search in.
 --- @field public Minimized boolean Returns TRUE if the window is minimized
 --- @field public MouseOver boolean Returns TRUE if the mouse is currently over the window
@@ -26,11 +26,11 @@
 --- @field public Next window Next sibling window
 --- @field public Open boolean Returns TRUE if the window is open
 --- @field public Parent window Parent window
---- @field public RightMouseDown action does the action of clicking the right mouse button
---- @field public RightMouseHeld action Does the action of holding the right mouse button
---- @field public RightMouseHeldUp action Does the action of holding the right mouse button up
---- @field public RightMouseUp action Does the action of clicking the right mouse button up
---- @field public Select action Selects the specified window
+--- @field public RightMouseDown fun() does the action of clicking the right mouse button
+--- @field public RightMouseHeld fun() Does the action of holding the right mouse button
+--- @field public RightMouseHeldUp fun() Does the action of holding the right mouse button up
+--- @field public RightMouseUp fun() Does the action of clicking the right mouse button up
+--- @field public Select fun() Selects the specified window
 --- @field public ScreenID string ScreenID of window piece. Note: This is not Custom UI dependent, it must be the same on all UIs
 --- @field public Siblings boolean Returns TRUE if the window has siblings
 --- @field public Style number Window style code

@@ -48,9 +48,9 @@
 --- @field public DistanceZ number Distance from player in Z plane
 --- @field public DraggingPlayer boolean Am I currently dragging someone?
 --- @field public DragNames string What are the names of the dragging players?
---- @field public DoAssist action assists the spawn
---- @field public DoFace action Faces target
---- @field public DoTarget action targets spawn
+--- @field public DoAssist fun() assists the spawn
+--- @field public DoFace fun() Faces target
+--- @field public DoTarget fun() targets spawn
 --- @field public Ducking boolean Ducking?
 --- @field public Equipment number returns a inttype, it takes numbers 0-8 or names: head chest arms wrists hands legs feet primary offhand
 --- @field public EQLoc number Location using EQ format
@@ -84,7 +84,7 @@
 --- @field public LastCastNum number No idea...
 --- @field public LastCastTime number No idea...
 --- @field public Level number Level
---- @field public DoLeftClick action left clicks the spawn
+--- @field public DoLeftClick fun() left clicks the spawn
 --- @field public Levitating boolean Levitating?
 --- @field public LFG boolean LFG?
 --- @field public Light string Name of the light class this spawn has

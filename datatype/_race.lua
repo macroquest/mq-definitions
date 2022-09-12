@@ -1,4 +1,4 @@
 --- @class race
---- @field public ID number The ID of the race
---- @field public Name string The name of the race
---- @field public ToString string The name of the race
+--- @field public ID fun(): integer The ID of the race
+--- @field public Name fun(): string The name of the race
+--- @field public ToString fun(): string The name of the race

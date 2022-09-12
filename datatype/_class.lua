@@ -1,12 +1,12 @@
 ---@class class
----@field public CanCast boolean Can cast seplls, including Bard
----@field public ClericType boolean Cleric/Paladin?
----@field public DruidType boolean Druid/Ranger?
----@field public HealerType boolean Cleric/Druid/Shaman?
----@field public ID number The class's ID #
----@field public MercType boolean Mercenary?
----@field public Name string The long name, as in "Ranger"
----@field public NecromancerType boolean Necromancer/Shadow Knight?
----@field public PureCaster boolean Any one of: Cleric, Druid, Shaman, Necromancer, Wizard, Mage, Enchanter
----@field public ShamanType boolean Shaman/Beastlord?
----@field public ShortName string The short name as in "RNG"
+---@field public CanCast fun(): boolean Can cast seplls, including Bard
+---@field public ClericType fun(): boolean Cleric/Paladin?
+---@field public DruidType fun(): boolean Druid/Ranger?
+---@field public HealerType fun(): boolean Cleric/Druid/Shaman?
+---@field public ID fun(): integer The class's ID #
+---@field public MercType fun(): boolean Mercenary?
+---@field public Name fun(): string The long name, as in "Ranger"
+---@field public NecromancerType fun(): boolean Necromancer/Shadow Knight?
+---@field public PureCaster fun(): boolean Any one of: Cleric, Druid, Shaman, Necromancer, Wizard, Mage, Enchanter
+---@field public ShamanType fun(): boolean Shaman/Beastlord?
+---@field public ShortName fun(): string The short name as in "RNG"

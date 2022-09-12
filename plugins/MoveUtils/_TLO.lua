@@ -19,7 +19,7 @@
 ---@field Version fun(): number Returns the version number of the plugin
 ---@field MovePause fun(): boolean Returns TRUE if mpause \(PauseKB\) is enabled
 ---@field GM fun(): boolean Returns TRUE if BreakOnGM fired
-mq.TLO.MoveUtils = {}
+TLO.MoveUtils = {}
 
 --- Stick Lua Bindings
 ---@class Stick
@@ -39,7 +39,7 @@ mq.TLO.MoveUtils = {}
 ---@field DistMod fun(): number Returns current stickdist modifier
 ---@field DistModPercent fun(): number Returns current stickdist percent modifier
 ---@field Always fun(): boolean Returns TRUE if /stick always is active
-mq.TLO.Stick = {}
+TLO.Stick = {}
 
 --- MoveTo Lua Bindings
 ---@class TLO.MoveTo
@@ -51,7 +51,7 @@ mq.TLO.Stick = {}
 ---@field ArrivalDistY fun(): number Returns acceptable arrival distance for precisey
 ---@field ArrivalDistX fun(): number Returns acceptable arrival distance for precisex
 ---@field Broken fun(): boolean Returns TRUE if BreakOnAggro or BreakOnHit event have halted moveto prematurely
-mq.TLO.MoveTo = {}
+TLO.MoveTo = {}
 
 --- MakeCamp Lua Bindings
 ---@class TLO.MakeCamp
@@ -76,7 +76,7 @@ mq.TLO.MoveTo = {}
 ---@field Bearing fun(): number Returns the bearing \(heading\) of camp scattering
 ---@field ScatDist fun(): number Returns the distance from anchor to perform scatter
 ---@field ScatSize fun(): number Returns the size of scattering radius
-mq.TLO.MakeCamp = {}
+TLO.MakeCamp = {}
 
 --- Circle Lua Bindings
 ---@class TLO.Circle
@@ -89,4 +89,4 @@ mq.TLO.MakeCamp = {}
 ---@field Clockwise fun(): boolean Returns FALSE if reverse circling
 ---@field Backwards fun(): boolean Returns TRUE if movement direction backwards
 ---@field Radius fun(): number Returns the radius size of circle
-mq.TLO.Circle = {}
+TLO.Circle = {}

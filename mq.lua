@@ -104,8 +104,8 @@ function mq.imgui.destory(name) end
 ---@field Bandoliler any
 ---@field Corpse corpse|fun():corpse|nil Corpse you are looting
 ---@field Cursor item|fun():string|nil
----@field DisplayItem fun():item
----@field DoorTarget fun():spawn
+---@field DisplayItem fun():item Access to all the information in the Item Display window
+---@field DoorTarget spawn|fun():string|nil Information on your doortarget
 ---@field DynamicZone dynamiczone
 ---@field Event any
 ---@field EverQuest any
@@ -114,19 +114,18 @@ function mq.imgui.destory(name) end
 ---@field FPS userdata
 ---@field FrameLimiter userdata
 ---@field Friends userdata
----@field GameTime any
----@field Ground any
----@field Group any
+---@field GameTime time
+---@field Ground ground #References the ground spawn item you have targeted.
+---@field Group group
 ---@field GroupLeader any
 ---@field GroupLeaderName any
----@field Heading heading
 ---@field If any
 ---@field Illusion any
 ---@field Ini any
 ---@field Int any
 ---@field InvSlot any
 ---@field Irc any
----@field ItemTarget any
+---@field ItemTarget ground #Gives access to the ground item that is previously targeted using /itemtarget.
 ---@field LastSpawn any
 ---@field LineOfSight any
 ---@field Lua Lua
@@ -136,28 +135,24 @@ function mq.imgui.destory(name) end
 ---@field Me character
 ---@field Menu any
 ---@field Mercenary mercenary
----@field Merchant merchant
+---@field Merchant merchant #Interacts with the currently active merchant
 ---@field Mount any
----@field Navigation Navigation
 ---@field Pet pet
----@field Plugin plugin
 ---@field PointMerchant any
 ---@field Raid raid
----@field Range any
----@field Select any
----@field SelectedItem item
----@field Skill skill
+---@field Range range
+---@field Select fun(target: string, ...): integer #Finds number of matches in [target]
+---@field SelectedItem item #Returns information on the object that is selected in your own inventory while using a merchant.
 ---@field String any
 ---@field SubDefined any
----@field Switch any
+---@field Switch switch
 ---@field SwitchTarget any
 ---@field Target target
----@field Task any
----@field Time any
----@field Type type
----@field Window window
----@field Zone zone
-local TLO = {}
+---@field Task fun(index?: integer): task|nil #Returns the first task, or the current shared task if one exists.
+---@field Time time
+---@field Type  fun(type: string): mqtype #Information on data types
+---@field Window fun(name: string): window #Information on a particular UI window
+TLO = {}
 
 ---@diagnostic disable: duplicate-set-field
 ---Returns a pipe | separated list of alert ids
@@ -219,6 +214,35 @@ function mq.TLO.FindItemBankCount(id)end
 ---@return integer
 function mq.TLO.FindItemBankCount(name)end
 
+---@diagnostic disable: duplicate-set-field
+----Creates a heading object using degrees (clockwise)
+---@param degrees integer Degrees (clockwise)
+---@return heading
+function TLO.Heading(degrees) end
+
+----Creates a heading object using the heading to this y,x location
+---@param y integer #Y location
+---@param x integer #X location
+---@return heading
+function TLO.Heading(y, x) end
+
+----Creates a heading object using the heading to this north,west location
+---@param north integer #North location
+---@param west integer #West location
+---@return heading
+function TLO.Heading(north, west) end
+---@diagnostic enable: duplicate-set-field
+
+---Returns a Plugin by index, starting with 1 and stopping whenever the list runs out of plugins.
+---@param index integer
+---@return plugin
+function mq.TLO.Plugin(index)end
+
+----Returns a Plugin by Name
+---@param name string
+---@return plugin
+function mq.TLO.Plugin(name)end
+
 ---Returns a Spawn by ID
 ---@param id integer
 ---@return spawn
@@ -248,5 +272,33 @@ function mq.TLO.Spell(id)end
 ---@param name string
 ---@return spell
 function mq.TLO.Spell(name)end
+
+---Returns a Skill by number
+---@param number integer
+---@return skill
+function mq.TLO.Skill(number)end
+
+----Returns a Skill by Name
+---@param name string
+---@return skill
+function mq.TLO.Skill(name)end
+
+----The current zone information
+---@type zone
+TLO.Zone = nil
+
+---@diagnostic disable: duplicate-set-field
+---@diagnostic disable: assign-type-mismatch
+----Retrieves information about a zone by zone ID. If this zone is the current zone, then this will return currentzone.
+---@param id integer Zone ID
+---@return zone|nil
+function TLO.Zone(id) end
+
+----Retrieves information about a zone by short name. If this zone is the current zone, then this will return currentzone.
+---@param shortName string Zone Short Name
+---@return zone|nil
+function TLO.Zone(shortName) end
+---@diagnostic enable: assign-type-mismatch
+---@diagnostic enable: duplicate-set-field
 
 return mq

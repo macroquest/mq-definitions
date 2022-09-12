@@ -3,7 +3,7 @@
 --- @field public Checked boolean Returns TRUE if the button has been checked
 --- @field public Child window Child with this name
 --- @field public Children boolean Returns TRUE if the window has children
---- @field public DoClose fun() Does the ction of closing a window
+--- @field public DoClose fun() Does the action of closing a window
 --- @field public DoOpen fun() Does the action of opening a window
 --- @field public Enabled boolean Returns TRUE if the window is enabled
 --- @field public FirstChild window First child window

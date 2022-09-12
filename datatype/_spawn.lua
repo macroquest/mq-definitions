@@ -111,7 +111,7 @@
 --- @field public Next spawn Next spawn in the list
 --- @field public Owner spawn Owner, if mercenary
 --- @field public Prev spawn Previous spawn in the list
---- @field public Pet spawn Pet
+--- @field public Pet pet Pet
 --- @field public PctHPs number Percent hit points
 --- @field public PlayerState number returns a mask as an inttype which has the following meaning:0=Idle 1=Open 2=WeaponSheathed 4=Aggressive 8=ForcedAggressive 0x10=InstrumentEquipped 0x20=Stunned 0x40=PrimaryWeaponEquipped 0x80=SecondaryWeaponEquipped
 --- @field public Primary number Item ID of anything that may be in the Primary slot

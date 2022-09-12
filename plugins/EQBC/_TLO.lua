@@ -1,7 +1,7 @@
 ---@meta
 
 --- EQBC Lua Bindings
----@class TLO.EQBC
+---@class mq.TLO.EQBC
 ---@field Connected fun(): boolean Client connection status
 ---@field Names fun(): string List of connected characters (space delmited)
 ---@field Port fun(): string OFFLINE if not connected, port if connected

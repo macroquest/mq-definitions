@@ -150,7 +150,7 @@ function mq.imgui.destory(name) end
 ---@field Target target
 ---@field Task fun(index?: integer): task|nil #Returns the first task, or the current shared task if one exists.
 ---@field Time time
----@field Type  fun(type: string): type #Information on data types
+---@field Type  fun(type: string): mqtype #Information on data types
 ---@field Window fun(name: string): window #Information on a particular UI window
 TLO = {}
 

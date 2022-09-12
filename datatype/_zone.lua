@@ -1,5 +1,5 @@
 --- @class zone
---- @field public ID number ID of the zone
---- @field public Name string Full zone name
---- @field public ShortName string Short zone name
---- @field public ToString string Same as Name
+--- @field public ID fun(): integer ID of the zone
+--- @field public Name fun(): string Full zone name
+--- @field public ShortName fun(): string Short zone name
+--- @field public ToString fun(): string Same as Name

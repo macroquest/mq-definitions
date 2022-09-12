@@ -152,7 +152,7 @@ function mq.imgui.destory(name) end
 ---@field Time time
 ---@field Type  fun(type: string): type #Information on data types
 ---@field Window fun(name: string): window #Information on a particular UI window
-local TLO = {}
+TLO = {}
 
 ---@diagnostic disable: duplicate-set-field
 ---Returns a pipe | separated list of alert ids

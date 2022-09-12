@@ -5,8 +5,8 @@ mqtype = nil
 
 ---@param id integer # Internal ID number
 ---@return string # Member name based on an internal ID number (based on 1 through N, not all values will be used)
-function mqtype.TypeMember(id) end
+function mqtype.Member(id) end
 
 ---@param name string 
 ---@return integer # Member internal ID number based on name (will be a number from 1 to N)
-function mqtype.TypeMember(name) end
+function mqtype.Member(name) end

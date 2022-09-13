@@ -295,12 +295,12 @@ TLO.Zone = nil
 ---@diagnostic disable: assign-type-mismatch
 ----Retrieves information about a zone by zone ID. If this zone is the current zone, then this will return currentzone.
 ---@param id integer Zone ID
----@return zone|nil
+---@return zone|fun(): string | nil
 function TLO.Zone(id) end
 
 ----Retrieves information about a zone by short name. If this zone is the current zone, then this will return currentzone.
 ---@param shortName string Zone Short Name
----@return zone|nil
+---@return zone|fun(): string | nil
 function TLO.Zone(shortName) end
 ---@diagnostic enable: assign-type-mismatch
 ---@diagnostic enable: duplicate-set-field

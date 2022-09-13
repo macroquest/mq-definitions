@@ -127,7 +127,7 @@ function mq.imgui.destory(name) end
 ---@field Irc any
 ---@field ItemTarget ground #Gives access to the ground item that is previously targeted using /itemtarget.
 ---@field LastSpawn any
----@field LineOfSight any
+---@field LineOfSight fun(query: string):boolean #Query is a string with the syntax of "y,x,z:y2,x2,z2"
 ---@field Lua Lua
 ---@field Macro Macro
 ---@field MacroQuest macroquest

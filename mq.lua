@@ -64,6 +64,10 @@ function mq.getAllSpawns() end
 ---@return spawn[] The spawns
 function mq.getFilteredSpawns(predicate) end
 
+---@param type any # The variable we want to check type of
+---@return mqtype
+function mq.gettype(type) end
+
 ---@class Cmd
 ---@field afk fun()
 ---@field alt fun()

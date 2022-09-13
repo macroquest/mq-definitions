@@ -14,3 +14,13 @@ The files in this library work with the VSCode Extension found here:
 - [VSCode Marketplace - Lua Language Server Extension](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)
 The extension can also be installed directly from within VSCode.  Search Extensions for "Lua Language Server" as seen here, and install the one by "sumneko"
 ![image](https://user-images.githubusercontent.com/414568/189777359-887c937a-5453-4ea0-a8f0-5c41ea4d6b66.png)
+Create a  [settings file for VS Code](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settingsjson-location) if you do not already have one with these settings:
+```json
+{
+  "Lua.runtime.version": "Lua 5.1",
+  "Lua.workspace.library": [
+    "./relative/path/to/mq/def",
+    "./relative/path/to/imgui/def"
+  ],
+}
+```

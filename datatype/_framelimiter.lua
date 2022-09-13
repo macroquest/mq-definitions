@@ -1,0 +1,11 @@
+---@class framelimiter
+---@field public BackgroundFPS number Value of the target background fps setting.
+---@field public ClearScreen boolean Value of the clear screen when not rendering setting.
+---@field public CPU number Current CPU usage as %
+---@field public Enabled boolean TRUE if the frame limiter feature is currently active.
+---@field public ForegroundFPS number Value of the target foreground fps setting.
+---@field public MinSimulationFPS number Value of the minimum simualtion rate setting.
+---@field public RenderFPS number Current graphics scene frame rate (visible fps).
+---@field public SaveByChar boolean TRUE if settings for the frame limiter are being saved by character.
+---@field public SimulationFPS number Current simulation frame rate (game updates per second).
+---@field public Status string Either "Foreground" or "Background".

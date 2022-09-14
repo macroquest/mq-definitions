@@ -5,9 +5,9 @@
 ---@field public imgui IMGUI sol2 ImGui Binding
 mq = {}
 
----Performs an ingame slash action provided as a string
----@param command string An in-game slash command (including the slash) (e.g. '/keypress DUCK')
-function mq.cmd(command) end
+---Performs an ingame slash action provided as a string. Any arguments passed to it are stringified (in lua), concatenated (with a space delimiter), and sent as part of the command.
+---@vararg string An in-game slash command (including the slash) (e.g. '/keypress DUCK')
+function mq.cmd(...) end
 
 ---Simular to mq.cmd() but provides C/C++ string formatting
 ---@param command string An in-game slash command (including the slash) (e.g. '/keypress %s')
@@ -20,7 +20,7 @@ function mq.cmdf(command, ...) end
 function mq.delay(delayValue, condition) end
 
 ---Joins a number of string-convertable parameters into a single string
----@vararg ...
+---@vararg string
 ---@return string
 function mq.join(...) end
 
@@ -95,9 +95,14 @@ function mq.gettype(type) end
 ---@param callback function The callback function
 function mq.imgui.init(name, callback) end
 
+---Does a a registered ImGui callback exist?
+---@param name string The name of registered callback
+---@return boolean
+function mq.imgui.exists(name) end
+
 ---Destroy a registered ImGui callback.
 ---@param name string The name of registered callback
-function mq.imgui.destory(name) end
+function mq.imgui.destroy(name) end
 
 ---MQ2 Top Level Object Accssor
 ---@class TLO

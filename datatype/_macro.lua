@@ -12,3 +12,4 @@
 --- @field public RunTime fun(): number How long the macro has been running (in seconds)
 --- @field public StackSize fun(): number StackSize?
 --- @field public Undeclared fun() will list all undeclared variables
+--- @field public Variable fun(name: string): int|bool|fun(): nil|true # Attemps to get Macro variable into LUA

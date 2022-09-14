@@ -11,7 +11,7 @@
 --- @field public MouseX fun(): number Mouse's X location
 --- @field public MouseY fun(): number Mouse's Y location
 --- @field public MQ2DataError fun(): string Last MQ2Data parsing error message
---- @field public Path fun(): string Directory that Macroquest.exe launched from
+--- @field public Path fun(relativePath?: string): string Directory that Macroquest.exe launched from. Relative path is added to the MQ directory
 --- @field public Ping fun(): number Your current ping
 --- @field public Running fun(): number Running time of current MQ2 session, in milliseconds
 --- @field public Server fun(): string Full name of your server

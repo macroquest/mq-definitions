@@ -40,5 +40,5 @@
 --- @field public NewStacks fun(): boolean see entry for more details
 --- @field public TargetType fun(): string See below for Target Types
 --- @field public WearOff fun(): string The "wear off" message
---- @field public WillStack fun(): boolean Does the selected spell stack with the specific SPELL nameDOES NOT work with AAs.
+--- @field public WillStack fun(name: string): boolean Does the selected spell stack with the specific SPELL nameDOES NOT work with AAs.
 --- @field public ToString fun(): string Same as Name

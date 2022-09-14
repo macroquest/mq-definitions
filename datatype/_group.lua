@@ -11,7 +11,7 @@
 --- @field public MarkNpc fun(): groupmember Data on the group member who can mark NPCs, if one is assigned
 --- @field public MasterLooter fun(): groupmember Data on the Master Looter of the group, if one is assigned
 --- @field public MeleeMercCount fun(): number count of how many Melee DPS mercenaries are in your group
---- @field public Member fun(): groupmember Accesses #th member of your group; 0 is you, 1 is the first person in the group list, etc.
+--- @field public Member fun(n: integer): groupmember Accesses #th member of your group; 0 is you, 1 is the first person in the group list, etc.
 --- @field public Member.Index fun(): number Which number in the group the PC with name is
 --- @field public Member.Pet spawn Returns the group members' pet name
 --- @field public Members fun(): number Total number of group members, excluding yourself

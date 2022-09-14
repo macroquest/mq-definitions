@@ -4,14 +4,14 @@
 --- @field public AAPointsSpent fun(): number The number of points you have spent on AA abilities
 --- @field public AAPointsTotal fun(): number The total number of AA points you have
 --- @field public AAVitality fun(): number The total number of AA Vitality you have
---- @field public Ability fun(): string Skill name assigned to this doability button
---- @field public AbilityReady fun(): boolean Ability with this name or on this button # ready?
+--- @field public Ability fun(name: string): string Skill name assigned to this doability button
+--- @field public AbilityReady fun(name: string): boolean Ability with this name or on this button # ready?
 --- @field public AccuracyBonus fun(): number Accuracy bonus from gear and spells
 --- @field public ActiveDisc spell Returns a spell if melee discipline is active.
 --- @field public ActiveFavorCost fun(): number If Tribute is active, how much it is costing you every 10 minutes. Returns NULL if tribute is inactive.
 --- @field public AltAbility altability Returns the total number of points you have spent in ability # or name
---- @field public AltAbilityReady fun(): boolean Alt ability # or name ready?
---- @field public AltAbilityTimer fun(): number Alt ability reuse time remaining (in ticks) for ability # or name
+--- @field public AltAbilityReady fun(n: string|integer): boolean Alt ability # or name ready?
+--- @field public AltAbilityTimer fun(n: string|integer): number Alt ability reuse time remaining (in ticks) for ability # or name
 --- @field public AltTimerReady fun(): boolean Alternate timer ready? (Bash/Slam/Frenzy/Backstab). Note: ${AbilityReady} works fine with most of these.
 --- @field public AGI fun(): number Character Agility
 --- @field public AggroLock spawn spawn info for aggro lock player
@@ -19,12 +19,12 @@
 --- @field public AssistComplete fun(): boolean returns true/false if the assist is complete
 --- @field public AttackBonus fun(): number Attack bonus from gear and spells
 --- @field public AttackSpeed fun(): number Your Attack Speed. No haste spells/items = AttackSpeed of 100. A 41% haste item will result in an AttackSpeed of 141. This variable does not take into account spell or song haste.
---- @field public Aura fun(): string The aura effect name
+--- @field public Aura fun(n: integer): string The aura effect name
 --- @field public AutoFire fun(): boolean Is Autofire on?
 --- @field public AvoidanceBonus fun(): number Avoidance bonus from gear/spells
 --- @field public Bank item Item in this bankslot #
 --- @field public BardSongPlaying fun(): boolean Is a bard song playing?
---- @field public Book fun(): number Slot in your spellbook assigned to spell name.
+--- @field public Book fun(n: integer): number Slot in your spellbook assigned to spell name.
 --- @field public Buff buff The buff with this name
 --- @field public Buyer fun(): boolean if you are an active buyer
 --- @field public CanMount fun(): boolean for some indoor zones that where not flagged as nomount and added bazaar, nexus to zones where its ok to mount.
@@ -35,8 +35,8 @@
 --- @field public Chronobines fun(): number Chronobines on your character
 --- @field public ClairvoyanceBonus fun(): number Clairvoyance Bonus
 --- @field public Combat fun(): boolean In combat?
---- @field public CombatAbility fun(): number The number of Combat ability name in your list (not the same as anyone else's list!)
---- @field public CombatAbilityReady fun(): boolean Is this Combat Ability ready?
+--- @field public CombatAbility fun(n: string|integer): number The number of Combat ability name in your list (not the same as anyone else's list!)
+--- @field public CombatAbilityReady fun(n: string): boolean Is this Combat Ability ready?
 --- @field public CombatAbilityTimer fun(): number The time remaining (in seconds) before the Combat Ability name is usable
 --- @field public CombatEffectsBonus fun(): number Combat Effects bonus from gear and spells
 --- @field public CombatState fun(): string Returns one of the following: COMBAT, DEBUFFED, COOLDOWN, ACTIVE, RESTING, UNKNOWN
@@ -75,7 +75,7 @@
 --- @field public Fellowship fellowship Info about Fellowship
 --- @field public FreeBuffSlots fun(): number Number of open buff slots (not counting the short duration buff slots)
 --- @field public FreeInventory fun(): number Number of free inventory spaces
---- @field public Gem fun(): number Returns the slot # with the spell name
+--- @field public Gem fun(name: string|integer): number Returns the slot # with the spell name
 --- @field public GemTimer spell The timer for the spell with this name or in this gem #
 --- @field public Gold fun(): number Gold on character
 --- @field public GoldBank fun(): number Gold in bank
@@ -120,8 +120,8 @@
 --- @field public LANPCHealth fun(): number Level of NPC Health of the current group leader (not your own ability level)
 --- @field public LAOffenseEnhancement fun(): number Level of Offense Enhancement of the current group leader (not your own ability level)
 --- @field public LASpellAwareness fun(): number Level of Spell Awareness of the current group leader (not your own ability level)
---- @field public Language fun(): number The EQ language number of the specified language. See below for language/number table.
---- @field public LanguageSkill fun(): number Your skill in language
+--- @field public Language fun(id: integer): number The EQ language number of the specified language.
+--- @field public LanguageSkill fun(id: integer): number Your skill in language
 --- @field public LargestFreeInventory fun(): number Size of your largest free inventory space
 --- @field public LastZoned timestamp Returns a timestamp of last time you zoned
 --- @field public LDoNPoints fun(): number Available LDoN points
@@ -174,14 +174,14 @@
 --- @field public Silver fun(): number Silver on your character
 --- @field public SilverBank fun(): number Silver in bank
 --- @field public Sit fun() Causes toon to sit if not already
---- @field public Skill fun(): number Skill level of skill with this name or ID #
---- @field public SkillCap fun(): number Skill cap of skill with this name or ID #
+--- @field public Skill fun(n: string|integer): number Skill level of skill with this name or ID #
+--- @field public SkillCap fun(n: string|integer): number Skill cap of skill with this name or ID #
 --- @field public Song buff Finds song with this name
 --- @field public Spawn spawn The character's spawn
 --- @field public SpellInCooldown fun(): boolean returns TRUE if you have a spell in cooldown and FALSE when not.
 --- @field public SpellDamageBonus fun(): number Spell Damage bonus
 --- @field public SpellRankCap fun(): number your characters spell rank cap. if it returns: 1 = Rk. I spells 2 = Rk. II spells 3 = Rk. III spells
---- @field public SpellReady fun(): boolean Gem with this spell name or in this gem # ready to cast?
+--- @field public SpellReady fun(name: string|integer): boolean Gem with this spell name or in this gem # ready to cast?
 --- @field public SpellShieldBonus fun(): number Spell Shield bonus from gear and spells
 --- @field public STA fun(): number Character Stamina
 --- @field public Stand fun() causes toon to stand if not already

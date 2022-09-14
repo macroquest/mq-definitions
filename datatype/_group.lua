@@ -4,16 +4,14 @@
 --- @field public Cleric fun(): string Will now return the cleric as a spawntype if a cleric is in the group (not a mercenary but a REAL cleric)
 --- @field public GroupSize fun(): number Number of members in your group, including yourself
 --- @field public HealerMercCount fun(): number count of how many Healer mercenaries are in your group
---- @field public Injured fun(): number Will return the numbers of people in the group that has a hp percent lower than 90
+--- @field public Injured fun(amount: integer): number Will return the numbers of people in the group that has a hp percent lower than [amount]
 --- @field public Leader fun(): groupmember Data on the leader of the group
+--- @field public LowMana fun(amount: integer): number Will return the number of people in the group that have a mana percent lower than [amount]
 --- @field public MainAssist fun(): groupmember Data on the main assist of the group
 --- @field public MainTank fun(): groupmember Data on the main tank of the group
 --- @field public MarkNpc fun(): groupmember Data on the group member who can mark NPCs, if one is assigned
 --- @field public MasterLooter fun(): groupmember Data on the Master Looter of the group, if one is assigned
 --- @field public MeleeMercCount fun(): number count of how many Melee DPS mercenaries are in your group
---- @field public Member fun(): groupmember Accesses #th member of your group; 0 is you, 1 is the first person in the group list, etc.
---- @field public Member.Index fun(): number Which number in the group the PC with name is
---- @field public Member.Pet spawn Returns the group members' pet name
 --- @field public Members fun(): number Total number of group members, excluding yourself
 --- @field public MercenaryCount fun(): number Count of how many Mercenaries are in the group
 --- @field public MouseOver fun(): string Returns the name of the group member your mouse is hovering over
@@ -22,3 +20,14 @@
 --- @field public Puller groupmember Data on the puller of the group
 --- @field public TankMercCount fun(): number count of how many Tank mercenaries are in your group
 --- @field public ToString fun(): string Same as Members
+Group = nil
+
+---Accesses #th member of your group; 0 is you, 1 is the first person in the group list, etc.
+---@param index integer
+---@return groupmember
+function Group.Member(index) end
+
+---Which number in the group the PC with name is
+---@param name string
+---@return integer
+function Group.Member(name) end

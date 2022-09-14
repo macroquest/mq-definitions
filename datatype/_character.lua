@@ -4,8 +4,6 @@
 --- @field public AAPointsSpent fun(): number The number of points you have spent on AA abilities
 --- @field public AAPointsTotal fun(): number The total number of AA points you have
 --- @field public AAVitality fun(): number The total number of AA Vitality you have
---- @field public Ability fun(): string Skill name assigned to this doability button
---- @field public AbilityReady fun(): boolean Ability with this name or on this button # ready?
 --- @field public AccuracyBonus fun(): number Accuracy bonus from gear and spells
 --- @field public ActiveDisc spell Returns a spell if melee discipline is active.
 --- @field public ActiveFavorCost fun(): number If Tribute is active, how much it is costing you every 10 minutes. Returns NULL if tribute is inactive.

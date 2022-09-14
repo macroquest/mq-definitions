@@ -1,13 +1,13 @@
 --- @class itemspell
 --- @field public CastTime timestamp Cast time (unadjusted)
---- @field public EffectiveCasterLevel int|fun():integer Effective level that is used to cast the spell.
---- @field public EffectType int|fun():integer The type of item spell effect.
---- @field public MaxCharges int|fun():integer The maximum number of charges supported by this spell.
---- @field public OverrideDescription string|fun():string Overrides the normal spell description string, if set.
---- @field public OverrideName string|fun():string Overrides the normal spell name string, if set.
---- @field public ProcRate int|fun():integer Combat effect proc rate.
---- @field public RecastType int|fun():integer Recast type of the spell.
---- @field public RequiredLevel int|fun():integer Level required for the spell to be usable.
+--- @field public EffectiveCasterLevel fun(): integer Effective level that is used to cast the spell.
+--- @field public EffectType fun(): integer The type of item spell effect.
+--- @field public MaxCharges fun(): integer The maximum number of charges supported by this spell.
+--- @field public OverrideDescription fun(): string Overrides the normal spell description string, if set.
+--- @field public OverrideName fun(): string Overrides the normal spell name string, if set.
+--- @field public ProcRate fun(): integer Combat effect proc rate.
+--- @field public RecastType fun(): integer Recast type of the spell.
+--- @field public RequiredLevel fun(): integer Level required for the spell to be usable.
 --- @field public Spell spell The spell.
---- @field public SpellID int|fun():integer ID of the Spell.
---- @field public TimerID int|fun():integer Timer ID of the spell.
+--- @field public SpellID fun(): integer ID of the Spell.
+--- @field public TimerID fun(): integer Timer ID of the spell.

@@ -89,7 +89,7 @@ function mq.gettype(type) end
 ---@class IMGUI
 ---@field init fun(name: string, render: fun())
 
----Register the ImGui Callback.  Named function that will be called on every ImGui update, 
+---Register the ImGui Callback.  Named function that will be called on every ImGui update,
 ---usually bound to one function that renders the ImGui window interface in game.
 ---@param name string The name of the callback
 ---@param callback function The callback function
@@ -116,7 +116,7 @@ function mq.imgui.destory(name) end
 ---@field Familiar any
 ---@field Float float
 ---@field FPS userdata
----@field FrameLimiter userdata
+---@field FrameLimiter framelimiter
 ---@field Friends userdata
 ---@field GameTime time
 ---@field Ground ground #References the ground spawn item you have targeted.
@@ -131,7 +131,7 @@ function mq.imgui.destory(name) end
 ---@field Irc any
 ---@field ItemTarget ground #Gives access to the ground item that is previously targeted using /itemtarget.
 ---@field LastSpawn any
----@field LineOfSight any
+---@field LineOfSight fun(query: string):boolean #Query is a string with the syntax of "y,x,z:y2,x2,z2"
 ---@field Lua Lua
 ---@field Macro Macro
 ---@field MacroQuest macroquest

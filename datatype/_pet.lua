@@ -12,6 +12,9 @@
 ---@field Taunt fun(): boolean Taunt state
 ---@field Focus fun(): boolean Focus state
 ---@field ID fun(): integer returns pet ID
+---@field Name fun(): string Name
+---@field CleanName fun(): string The "cleaned up" name
+---@field Height fun(): integer Height
 local pet = {}
 
 ---Returns the slot number for the buff name

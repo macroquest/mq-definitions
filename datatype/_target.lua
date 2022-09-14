@@ -3,17 +3,17 @@
 --- @field public AggroHolder spawn Returns the target's current target.
 --- @field public Beneficial spell Returns the name of the Beneficial spell if the Target has one. This will skip "player" casted buffs, but will show NPC Casted buffs and some AA buffs.
 --- @field public Buff spell Returns the target's spell by buff index number or the first buff if no Index is provided.
---- @field public BuffCount number Returns the number of buffs on the target.
+--- @field public BuffCount fun(): integer Returns the number of buffs on the target.
 --- @field public BuffDuration timestamp Returns the duration remaining on this target buff by index number or by spell name
---- @field public BuffsPopulated boolean Returns TRUE when the target's buffs are finished populating.
+--- @field public BuffsPopulated fun(): boolean Returns TRUE when the target's buffs are finished populating.
 --- @field public Brells spell Returns the name of the Brells spell if the Target has one
 --- @field public Charmed spell Returns the name of the Charmed spell if the Target has one
 --- @field public Clarity spell Returns the name of the Clarity spell if the Target has one
 --- @field public Corrupted spell Returns the name of any the Corruption spell if Target has one
 --- @field public Cursed spell Returns the name of the Curse spell if Target has one
 --- @field public Crippled spell Returns the name of the Cripple spell if the Target has one
---- @field public Diseased string Returns the name of a Disease spell if the Target has one
---- @field public Dotted string Returns the name of a DOT spell if the Target has one
+--- @field public Diseased fun(): string Returns the name of a Disease spell if the Target has one
+--- @field public Dotted fun(): string Returns the name of a DOT spell if the Target has one
 --- @field public DSed spell Returns the name of the Damage Shield spell if the Target has one
 --- @field public Focus spell Returns the name of the Focus spell if the Target has one
 --- @field public Growth spell Returns the name of the Growth spell if the Target has one
@@ -21,7 +21,7 @@
 --- @field public HybridHP spell Returns the name of the Hybrid HP spell if the Target has one
 --- @field public Maloed spell Returns the name of the Malo spell if the Target has one
 --- @field public Mezzed spell Returns the name of the Mez spell if the Target has one
---- @field public Poisoned string Returns the name of a Poison spell if the Target has one
+--- @field public Poisoned fun(): string Returns the name of a Poison spell if the Target has one
 --- @field public Pred spell Returns the name of the Predator spell if the Target has one
 --- @field public Rooted spell Returns the name of the Rooted spell if the Target has one
 --- @field public Regen spell Returns the name of the Regen spell if the Target has one

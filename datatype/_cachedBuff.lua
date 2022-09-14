@@ -4,8 +4,8 @@
 ---
 --- Usagei
 --- @class cachedbuff
---- @field public CasterName string Returns the name of the caster who applied the cached buff
---- @field public Count number Returns the amount of buffs catched, or -1 it none
---- @field public Duration number Returns the duration of the cached buff
---- @field public Slot number Returns the buff slot the target had the buff in
---- @field public SpellID number Returns the buff's spell ID
+--- @field public CasterName fun(): string Returns the name of the caster who applied the cached buff
+--- @field public Count fun(): number Returns the amount of buffs catched, or -1 it none
+--- @field public Duration fun(): number Returns the duration of the cached buff
+--- @field public Slot fun(): number Returns the buff slot the target had the buff in
+--- @field public SpellID fun(): number Returns the buff's spell ID

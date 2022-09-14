@@ -64,6 +64,10 @@ function mq.getAllSpawns() end
 ---@return spawn[] The spawns
 function mq.getFilteredSpawns(predicate) end
 
+---@param type any # The variable we want to check type of
+---@return mqtype
+function mq.gettype(type) end
+
 ---@class Cmd
 ---@field afk fun()
 ---@field alt fun()
@@ -170,28 +174,28 @@ function TLO.Bool() end
 
 ---@param index  integer
 ---@param filter  string
----@return spawn
+---@return spawn | fun(): string|nil
 ---@overload fun(filter: string): spawn
 function TLO.NearestSpawn(index, filter)end
 
 ---Finds an Item by the item ID
 ---@param id integer
----@return item
+---@return item | fun(): string|nil
 function mq.TLO.FindItem(id)end
 
----Finds an Item by the item Name
+---Finds an Item by the partial item Name (use of '=' infront of name forces exact match)
 ---@param name string
----@return item
+---@return item | fun(): string|nil
 function mq.TLO.FindItem(name)end
 
 ---Finds an Item in the bank by the item ID
 ---@param id integer
----@return item
+---@return item | fun(): string|nil
 function mq.TLO.FindItemBank(id)end
 
----Finds an Item in the bank by the item Name
+---Finds an Item in the bank by the partial item Name (use of '=' infront of name forces exact match)
 ---@param name string
----@return item
+---@return item | fun(): string|nil
 function mq.TLO.FindItemBank(name)end
 
 ---Return a counts of Items by the item ID
@@ -245,12 +249,12 @@ function mq.TLO.Plugin(name)end
 
 ---Returns a Spawn by ID
 ---@param id integer
----@return spawn
+---@return spawn | fun(): string|nil
 function mq.TLO.Spawn(id)end
 
 ----Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string
----@return spawn
+---@return spawn | fun(): string|nil
 function mq.TLO.Spawn(filter)end
 
 ---Number of items on the ground in this zone (filter is optional)
@@ -265,12 +269,12 @@ function mq.TLO.SpawnCount(filter)end
 
 ---Returns a Spell by ID
 ---@param id integer
----@return spell
+---@return spell | fun(): string|nil
 function mq.TLO.Spell(id)end
 
 ----Returns a Spell by Name
 ---@param name string
----@return spell
+---@return spell | fun(): string|nil
 function mq.TLO.Spell(name)end
 
 ---Returns a Skill by number
@@ -291,12 +295,12 @@ TLO.Zone = nil
 ---@diagnostic disable: assign-type-mismatch
 ----Retrieves information about a zone by zone ID. If this zone is the current zone, then this will return currentzone.
 ---@param id integer Zone ID
----@return zone|nil
+---@return zone|fun(): string | nil
 function TLO.Zone(id) end
 
 ----Retrieves information about a zone by short name. If this zone is the current zone, then this will return currentzone.
 ---@param shortName string Zone Short Name
----@return zone|nil
+---@return zone|fun(): string | nil
 function TLO.Zone(shortName) end
 ---@diagnostic enable: assign-type-mismatch
 ---@diagnostic enable: duplicate-set-field

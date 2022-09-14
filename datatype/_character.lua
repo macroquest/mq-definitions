@@ -9,9 +9,6 @@
 --- @field public AccuracyBonus fun(): number Accuracy bonus from gear and spells
 --- @field public ActiveDisc spell Returns a spell if melee discipline is active.
 --- @field public ActiveFavorCost fun(): number If Tribute is active, how much it is costing you every 10 minutes. Returns NULL if tribute is inactive.
---- @field public AltAbility altability Returns the total number of points you have spent in ability # or name
---- @field public AltAbilityReady fun(): boolean Alt ability # or name ready?
---- @field public AltAbilityTimer fun(): number Alt ability reuse time remaining (in ticks) for ability # or name
 --- @field public AltTimerReady fun(): boolean Alternate timer ready? (Bash/Slam/Frenzy/Backstab). Note: ${AbilityReady} works fine with most of these.
 --- @field public AGI fun(): number Character Agility
 --- @field public AggroLock spawn spawn info for aggro lock player
@@ -22,10 +19,7 @@
 --- @field public Aura fun(): string The aura effect name
 --- @field public AutoFire fun(): boolean Is Autofire on?
 --- @field public AvoidanceBonus fun(): number Avoidance bonus from gear/spells
---- @field public Bank item Item in this bankslot #
 --- @field public BardSongPlaying fun(): boolean Is a bard song playing?
---- @field public Book fun(): number Slot in your spellbook assigned to spell name.
---- @field public Buff buff The buff with this name
 --- @field public Buyer fun(): boolean if you are an active buyer
 --- @field public CanMount fun(): boolean for some indoor zones that where not flagged as nomount and added bazaar, nexus to zones where its ok to mount.
 --- @field public CareerFavor fun(): number Career favor/tribute
@@ -211,3 +205,68 @@
 --- @field public WIS fun(): number Character Wisdom
 --- @field public XTarget xtarget Extended target data for the specified XTarget #. Note: Passing no index to this returns the fun(): number of current extended targets.
 --- @field public Vitality fun(): number Total amount of Vitality your toon has
+Character = nil
+
+---@param index integer # Ability #
+---@return integer # The doability button number that the skill name is on
+function Character.Ability(index) end
+
+---@param index integer # Ability button number
+---@return boolean
+function Character.AbilityReady(index) end
+
+---@param name string 
+---@return boolean
+function Character.AbilityReady(name) end
+
+---@param index integer # Alt ability #
+---@return altability
+function Character.AltAbility(index) end
+
+---@param name string 
+---@return altability
+function Character.AltAbility(name) end
+
+---@param index integer # Alt ability #
+---@return boolean
+function Character.AltAbilityReady(index) end
+
+---@param name string 
+---@return boolean
+function Character.AltAbilityReady(name) end
+
+---@param index integer # Alt ability #
+---@return integer
+function Character.AltAbilityTimer(index) end
+
+---@param name string 
+---@return integer
+function Character.AltAbilityTimer(name) end
+
+---@param name string 
+---@return integer
+function Character.AltCurrency(name) end
+
+---@param slot integer # Bankslot number 
+---@return item
+function Character.Bank (slot) end
+
+---@param name string 
+---@return integer # Slot in your spell book assigned to spell name
+function Character.Book(name) end
+
+---@param slot integer # Slot number in book 
+---@return spell
+function Character.Book(slot) end
+
+---@param bindPointIndex integer # Your bind points (0-4) 
+---@return worldlocation
+function Character.BoundLocation(bindPointIndex) end
+
+---@param name string # Name of the buff
+---@return buff
+function Character.Buff(name) end
+
+---@param slotNumber integer # Buff slot number
+---@return buff
+function Character.Buff(slotNumber) end

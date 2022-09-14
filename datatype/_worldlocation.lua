@@ -1,0 +1,7 @@
+--- @class worldlocation
+--- @field public ID fun(): integer # The location's ID
+--- @field public Heading fun(): number # At the point of binding, what direction was the character facing
+--- @field public Zone zone # Access to the zone data
+--- @field public X fun(): number # The X coordinate
+--- @field public Y fun(): number # The Y coordinate
+--- @field public Z fun(): number # The Z coordinate

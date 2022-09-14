@@ -27,9 +27,6 @@
 --- @field public Chronobines fun(): number Chronobines on your character
 --- @field public ClairvoyanceBonus fun(): number Clairvoyance Bonus
 --- @field public Combat fun(): boolean In combat?
---- @field public CombatAbility fun(): number The number of Combat ability name in your list (not the same as anyone else's list!)
---- @field public CombatAbilityReady fun(): boolean Is this Combat Ability ready?
---- @field public CombatAbilityTimer fun(): number The time remaining (in seconds) before the Combat Ability name is usable
 --- @field public CombatEffectsBonus fun(): number Combat Effects bonus from gear and spells
 --- @field public CombatState fun(): string Returns one of the following: COMBAT, DEBUFFED, COOLDOWN, ACTIVE, RESTING, UNKNOWN
 --- @field public Copper fun(): number Copper on your character
@@ -66,9 +63,6 @@
 --- @field public Faycites fun(): number Faycites on your character
 --- @field public Fellowship fellowship Info about Fellowship
 --- @field public FreeBuffSlots fun(): number Number of open buff slots (not counting the short duration buff slots)
---- @field public FreeInventory fun(): number Number of free inventory spaces
---- @field public Gem fun(): number Returns the slot # with the spell name
---- @field public GemTimer spell The timer for the spell with this name or in this gem #
 --- @field public Gold fun(): number Gold on character
 --- @field public GoldBank fun(): number Gold in bank
 --- @field public GroupAssistTarget spawn Current group assist target
@@ -76,11 +70,9 @@
 --- @field public GroupLeaderExp fun(): number Group leadership experience (out of 330)
 --- @field public GroupLeaderPoints fun(): number Group leadership points
 --- @field public GroupList fun(): string Returns a string of your group members (excluding you)
---- @field public GroupMarkNPC spawn Current group marked NPC (1-3)
 --- @field public GroupSize fun(): number Size of group
 --- @field public GukEarned fun(): number Total LDoN points earned in Deepest Guk
 --- @field public GuildID fun(): number Returns the ID number of your guild
---- @field public HaveExpansion fun(): boolean Returns TRUE/FALSE if you have that expansion #
 --- @field public Haste fun(): number Total Combined Haste (worn and spell) as shown in Inventory Window stats
 --- @field public HealAmountBonus fun(): number Total Heal Amount bonus from gear
 --- @field public HeroicAGIBonus fun(): number Total Heroic Agility bonus from gear
@@ -97,9 +89,7 @@
 --- @field public ID fun(): number Spawn ID
 --- @field public InInstance fun(): boolean Returns TRUE/FALSE if you are in an instance.
 --- @field public INT fun(): number Character Intelligence
---- @field public Inventory item Item in this slot #
 --- @field public Invulnerable fun(): string Returns the invulnerable spell name on you, can be used with spell data type ex. ${Me.Invulnerable.Spell.ID}
---- @field public ItemReady fun(): boolean True/False on if the item is ready to cast.
 --- @field public LADelegateMA fun(): number Level of Delegate MA of the current group leader (not your own ability level)
 --- @field public LADelegateMarkNPC fun(): number Level of Delegate Mark NPC of the current group leader (not your own ability level)
 --- @field public LAFindPathPC fun(): number Level of Find Path PC of the current group leader (not your own ability level)
@@ -112,8 +102,6 @@
 --- @field public LANPCHealth fun(): number Level of NPC Health of the current group leader (not your own ability level)
 --- @field public LAOffenseEnhancement fun(): number Level of Offense Enhancement of the current group leader (not your own ability level)
 --- @field public LASpellAwareness fun(): number Level of Spell Awareness of the current group leader (not your own ability level)
---- @field public Language fun(): number The EQ language number of the specified language. See below for language/number table.
---- @field public LanguageSkill fun(): number Your skill in language
 --- @field public LargestFreeInventory fun(): number Size of your largest free inventory space
 --- @field public LastZoned timestamp Returns a timestamp of last time you zoned
 --- @field public LDoNPoints fun(): number Available LDoN points
@@ -143,7 +131,6 @@
 --- @field public PctMana fun(): number Current mana as a %
 --- @field public PctRaidLeaderExp fun(): number Raid leadership experience as a %
 --- @field public PctVitality fun(): number Percentage of Vitality the toon has
---- @field public PetBuff spell The spell in this PetBuff slot #
 --- @field public Phosphenes fun(): number Phosphenes on your character
 --- @field public Phosphites fun(): number Phosphites on your character
 --- @field public Platinum fun(): number Platinum on your character
@@ -151,10 +138,8 @@
 --- @field public PlatinumShared fun(): number Platinum in shared bank
 --- @field public Poisoned fun(): string Returns the name of any Poison spell
 --- @field public RadiantCrystals fun(): number Number of Radiant Crystals on your character
---- @field public RaidAssistTarget spawn Current raid assist target (1-3)
 --- @field public RaidLeaderExp fun(): number Raid leadership exp (out of 330)
 --- @field public RaidLeaderPoints fun(): number Raid leadership points
---- @field public RaidMarkNPC spawn Current raid marked NPC (1-3)
 --- @field public RangedReady fun(): boolean Ranged attack ready?
 --- @field public RujEarned fun(): number Total LDoN points earned in Rujarkian
 --- @field public Running fun(): boolean Do I have auto-run turned on?
@@ -166,14 +151,10 @@
 --- @field public Silver fun(): number Silver on your character
 --- @field public SilverBank fun(): number Silver in bank
 --- @field public Sit fun() Causes toon to sit if not already
---- @field public Skill fun(): number Skill level of skill with this name or ID #
---- @field public SkillCap fun(): number Skill cap of skill with this name or ID #
---- @field public Song buff Finds song with this name
 --- @field public Spawn spawn The character's spawn
 --- @field public SpellInCooldown fun(): boolean returns TRUE if you have a spell in cooldown and FALSE when not.
 --- @field public SpellDamageBonus fun(): number Spell Damage bonus
 --- @field public SpellRankCap fun(): number your characters spell rank cap. if it returns: 1 = Rk. I spells 2 = Rk. II spells 3 = Rk. III spells
---- @field public SpellReady fun(): boolean Gem with this spell name or in this gem # ready to cast?
 --- @field public SpellShieldBonus fun(): number Spell Shield bonus from gear and spells
 --- @field public STA fun(): number Character Stamina
 --- @field public Stand fun() causes toon to stand if not already
@@ -201,7 +182,6 @@
 --- @field public TributeTimer ticks Tribute Timer
 --- @field public UseAdvancedLooting fun(): boolean TRUE/FALSE if using advanced looting
 --- @field public WIS fun(): number Character Wisdom
---- @field public XTarget xtarget Extended target data for the specified XTarget #. Note: Passing no index to this returns the fun(): number of current extended targets.
 --- @field public Vitality fun(): number Total amount of Vitality your toon has
 Character = nil
 
@@ -272,3 +252,129 @@ function Character.Buff(name) end
 ---@param slotNumber integer # Buff slot number
 ---@return buff
 function Character.Buff(slotNumber) end
+
+---The number of Combat ability name in your list (not the same as anyone else's list!)
+---@param name string # Name of the combat ability
+---@return integer
+function Character.CombatAbility(name) end
+
+---The name of Combat Ability # in your list (not the same as anyone else's list!)
+---@param index integer # Combat Ability # in your list 
+---@return spell
+function Character.CombatAbility(index) end
+
+---@param minSize? integer # spaces of at least [minSize] size (giant=4) 
+---@return integer # Number of free inventory spaces
+function Character.FreeInventory(minSize) end
+
+---@param name string # Spell name
+---@return integer # Returns the slot # with the spell name
+function Character.Gem(name) end
+
+---@param gemSlot integer 
+---@return spell
+function Character.Gem(gemSlot) end
+
+---@param name string # Spell name
+---@return ticks
+function Character.GemTimer(name) end
+
+---@param gemSlot integer 
+---@return ticks
+function Character.GemTimer(gemSlot) end
+
+---@param index integer # Current group marked NPC (1-3)
+---@return spawn
+function Character.GroupMarkNPC(index) end
+
+---@param expansionNumber integer
+---@return boolean
+function Character.HaveExpansion(expansionNumber) end
+
+---@param name string # slotname (inventory slots only) [https://docs.macroquest.org/reference/general/slot-names/]
+---@return item
+function Character.Inventory(name) end
+
+---@param slotNumber integer 
+---@return item
+function Character.Inventory(slotNumber) end
+
+---@param name string 
+---@return boolean # True/False on if the item is ready to cast.
+function Character.ItemReady(name) end
+
+---@param name string 
+---@return integer # langauge number
+function Character.Language(name) end
+
+---@param languageNumber integer 
+---@return string # The EQ language name of the language number specified.
+function Character.Language(languageNumber) end
+
+---@param language integer 
+---@return integer # Your skill in language
+function Character.LanguageSkill(language) end
+
+---@param name string # Name of the buff
+---@return buff
+function Character.PetBuff(name) end
+
+---@param slotNumber integer # PetBuff slot number
+---@return buff
+function Character.PetBuff(slotNumber) end
+
+---@param index integer # Current raid assist target (1-3)
+---@return spawn
+function Character.RaidAssistTarget(index) end
+
+---@param index integer # Current raid marked NPC (1-3)
+---@return spawn
+function Character.RaidMarkNPC(index) end
+
+---@param name string 
+---@return integer # Returns current skill level
+function Character.Skill(name) end
+
+---@param skillId integer 
+---@return integer # Returns current skill level
+function Character.Skill(skillId) end
+
+---@param name string 
+---@return integer 
+function Character.SkillCap(name) end
+
+---@param skillId integer 
+---@return integer
+function Character.SkillCap(skillId) end
+
+---@param name string 
+---@return buff 
+function Character.Song(name) end
+
+---@param slotNumber integer 
+---@return buff
+function Character.Song(slotNumber) end
+
+---Gem with this spell name ready to cast?
+---@param name string 
+---@return boolean 
+function Character.SpellReady(name) end
+
+---Gem in this gem # ready to cast?
+---@param slotNumber integer 
+---@return boolean
+function Character.SpellReady(slotNumber) end
+
+---Returns the number of AUTO-HATER mobs on the extended target window where your aggro is less than the optional parameter N. N must be between 1-100 inclusive or it will be set to 100 (the default value).
+---@param n? integer # defaults to 100
+---@return integer
+function Character.XTAggroCount(n) end
+
+---Returns the number of current extended targets.
+---@return integer
+function Character.XTarget() end
+
+---Extended target data for the specified XTarget #.
+---@param index integer 
+---@return xtarget
+function Character.XTarget(index) end

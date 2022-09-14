@@ -205,8 +205,12 @@
 --- @field public Vitality fun(): number Total amount of Vitality your toon has
 Character = nil
 
----@param index integer # Ability #
+---@param name string # Skill name
 ---@return integer # The doability button number that the skill name is on
+function Character.Ability(name) end
+
+---@param index integer # doability button number
+---@return string # The skill name assigned to this doability button
 function Character.Ability(index) end
 
 ---@param index integer # Ability button number

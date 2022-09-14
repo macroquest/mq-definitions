@@ -1,15 +1,41 @@
---- @class raid
---- @field public AverageLevel number Average level of raid members (more accurate than in the window)
---- @field public Invited boolean Have I been invited to the raid?
---- @field public Leader raidmember Raid leader
---- @field public Locked boolean Returns TRUE if the raid is locked
---- @field public Looter string Specified looter name by number
---- @field public Looters number Number of specified looters
---- @field public LootType number Loot type number:1 Leader2 Leader & GroupLeader3 Leader & Specified
---- @field public MainAssist raidmember Raid main assist
---- @field public MasterLooter raidmember Raid Master Looter
---- @field public Member raidmember Raid member by number or name
---- @field public Members number Total number of raid members
---- @field public Target raidmember Raid target (clicked in raid window)
---- @field public TotalLevels number Sum of all raid members' levels
---- @field public ToString string None
+---@diagnostic disable: duplicate-set-field
+
+---@meta
+---@class raid
+---@field public AverageLevel fun(): integer Average level of raid members (more accurate than in the window)
+---@field public Invited fun(): boolean Have I been invited to the raid?
+---@field public Leader fun(): raidmember Raid leader
+---@field public Locked fun(): boolean Returns TRUE if the raid is locked
+---@field public Looter fun(): integer Number of specified looters
+---Loot type: 
+--- - 1 Leader
+--- - 2 Leader & GroupLeader
+--- - 3 Leader & Specified
+---@field public LootType fun(): integer
+---@field public MainAssist fun(): raidmember Raid main assist
+---@field public MasterLooter fun(): raidmember Raid Master Looter
+---@field public Members fun(): integer Total number of raid members
+---@field public Target fun(): raidmember Raid target (clicked in raid window)
+---@field public TotalLevels fun(): integer Sum of all raid members' levels
+---@field public ToString fun(): string None
+local raid = {}
+
+---Raid member by name
+---@param name string
+---@return raidmember
+function raid.Member(name) end
+
+---Raid member by index
+---@param index integer
+---@return raidmember
+function raid.Member(index) end
+
+---Specified looter by name
+---@param name string
+---@return string
+function raid.Looter(name) end
+
+---Specified looter by index
+---@param index integer
+---@return string
+function raid.Looter(index) end

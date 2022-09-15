@@ -1,4 +1,4 @@
 --- @class timer
---- @field public OriginalValue number Original value of the timer
---- @field public Value number Current value of the timer
---- @field public ToString string Same as Value
+--- @field public OriginalValue fun(): integer Original value of the timer
+--- @field public Value fun(): integer Current value of the timer
+--- @field public ToString fun(): string Same as Value

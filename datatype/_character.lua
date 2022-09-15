@@ -14,7 +14,7 @@
 --- @field public AssistComplete fun(): boolean returns true/false if the assist is complete
 --- @field public AttackBonus fun(): number Attack bonus from gear and spells
 --- @field public AttackSpeed fun(): number Your Attack Speed. No haste spells/items = AttackSpeed of 100. A 41% haste item will result in an AttackSpeed of 141. This variable does not take into account spell or song haste.
---- @field public Aura fun(): string The aura effect name
+--- @field public Aura fun(n: integer): string The aura effect name
 --- @field public AutoFire fun(): boolean Is Autofire on?
 --- @field public AvoidanceBonus fun(): number Avoidance bonus from gear/spells
 --- @field public BardSongPlaying fun(): boolean Is a bard song playing?

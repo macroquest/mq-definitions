@@ -1,7 +1,7 @@
 ---@meta
 
 ---@diagnostic disable: duplicate-set-field
----@class pet
+---@class pet : spawn
 ---@field Combat fun(): boolean Combat state
 ---@field Ghold fun(): boolean GHold state
 ---@field Hold fun(): boolean Hold state

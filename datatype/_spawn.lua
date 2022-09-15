@@ -14,7 +14,7 @@
 --- @field public Binding fun(): boolean Binding wounds?
 --- @field public Blind fun(): number Blind?  Not sure why this is a number?
 --- @field public Body body Body type
---- @field public Buff fun(name: string): string
+--- @field public Buff fun(name: string): spell Buff spell
 --- @field public bShowHelm fun(): boolean Showing Helm?
 --- @field public bStationary fun(): boolean Stationary spawn?  Not to be confused with "Moving"
 --- @field public bTempPet fun(): boolean Is the spawn a Temporary Pet?

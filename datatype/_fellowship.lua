@@ -6,8 +6,8 @@
 --- @field public CampfireZ fun(): float Campfire Z location
 --- @field public CampfireZone zone| fun(): zone Zone information for the zone that contains your campfire
 --- @field public ID MQInt #Fellowship ID
---- @field public Leader fun(): string Fellowship leader's name
+--- @field public Leader MQString #Fellowship leader's name
 --- @field public Member fun(): fellowshipmember Member data by name or #
 --- @field public Members MQInt #Number of members in the fellowship
---- @field public MotD fun(): string Fellowship Message of the Day
---- @field public ToString fun(): string TRUE if currently in a fellowship, FALSE if not
+--- @field public MotD MQString #Fellowship Message of the Day
+--- @field public ToString MQString #TRUE if currently in a fellowship, FALSE if not

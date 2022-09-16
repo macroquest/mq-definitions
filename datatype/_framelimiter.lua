@@ -8,4 +8,4 @@
 ---@field public RenderFPS MQFloat #Current graphics scene frame rate (visible fps).
 ---@field public SaveByChar MQBoolean #TRUE if settings for the frame limiter are being saved by character.
 ---@field public SimulationFPS MQFloat #Current simulation frame rate (game updates per second).
----@field public Status fun():string Either "Foreground" or "Background".
+---@field public Status MQString #Either "Foreground" or "Background".

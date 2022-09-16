@@ -18,19 +18,19 @@
 --- @field public CHA MQFloat #CHA value on item
 --- @field public Charges MQFloat #Charges
 --- @field public Clairvoyance MQFloat #Clairvoyance
---- @field public Class fun(): string Returns the #th long class name of the listed classes on an item. Items suitable for ALL classes will effectively have all 17 classes listed.
+--- @field public Class MQString #Returns the #th long class name of the listed classes on an item. Items suitable for ALL classes will effectively have all 17 classes listed.
 --- @field public Classes MQFloat #The number of classes that can use the item. Items suitable for ALL classes will return 16.
 --- @field public Clicky itemspell Activatable spell effect, if any.
 --- @field public CombatEffects MQFloat #CombatEffects
 --- @field public Container MQFloat #Number of slots, if this is a container
 --- @field public DamageShieldMitigation MQFloat #Damage Shield Mitigation
 --- @field public DamShield MQFloat #Damage Shield value on item
---- @field public Deity fun(): string Returns the #th deity of the listed deities on an item. Items with no deity restrictions will return NULL for all values of #.
+--- @field public Deity MQString #Returns the #th deity of the listed deities on an item. Items with no deity restrictions will return NULL for all values of #.
 --- @field public Deities MQFloat #The number of deities that can use the item. Items with no deity restrictions will return 0.
 --- @field public DEX MQFloat #DEX value on item
---- @field public DMGBonusType fun(): string "None", "Magic", "Fire", "Cold", "Poison", "Disease"
+--- @field public DMGBonusType MQString #"None", "Magic", "Fire", "Cold", "Poison", "Disease"
 --- @field public DoTShielding MQFloat #DoT Shielding
---- @field public EffectType fun(): string Spell effect type (see below for spell effect types)
+--- @field public EffectType MQString #Spell effect type (see below for spell effect types)
 --- @field public Endurance MQFloat #Endurance
 --- @field public EnduranceRegen MQFloat #Endurance regen
 --- @field public Evolving evolving Does this item have Evolving experience on?
@@ -63,19 +63,19 @@
 --- @field public Items MQFloat #Number of items, if this is a container.
 --- @field public ItemSlot MQFloat #Item Slot number see Slot Names
 --- @field public ItemSlot2 MQFloat #Item Slot sub number see Slot Names
---- @field public LDoNTheme fun(): string "All", "Deepest Guk", "Miragul's", "Mistmoore", "Rujarkian", "Takish", "Unknown"
+--- @field public LDoNTheme MQString #"All", "Deepest Guk", "Miragul's", "Mistmoore", "Rujarkian", "Takish", "Unknown"
 --- @field public Lore MQBoolean #Lore?
 --- @field public Magic MQBoolean #Magic?
 --- @field public Mana MQFloat #Mana value on item
 --- @field public ManaRegen MQFloat #ManaRegen value on item
 --- @field public MaxPower MQFloat #Max power on an power source
 --- @field public MerchQuantity MQFloat #Quantity of item active merchant has
---- @field public Name fun(): string Name
+--- @field public Name MQString #Name
 --- @field public NoDrop MQBoolean #No Trade?
 --- @field public NoRent MQBoolean #Temporary?
 --- @field public Power MQFloat #Power left on power source
 --- @field public Purity MQFloat #Purity of item
---- @field public Race fun(): string Returns the #th long race name of the listed races on an item. Items suitable for ALL races will effectively have all 15 races listed.
+--- @field public Race MQString #Returns the #th long race name of the listed races on an item. Items suitable for ALL races will effectively have all 15 races listed.
 --- @field public Races MQFloat #The number of races that can use the item. Items suitable for ALL races will return 15.
 --- @field public RequiredLevel MQFloat #Returns the Required Level of an item. Items with no required level will return 0.
 --- @field public SellPrice MQFloat #Price to sell this item at this merchant
@@ -103,7 +103,7 @@
 --- @field public Timer ticks Returns the number of ticks remaining on an item recast timer
 --- @field public TimerReady MQFloat #Returns the number of seconds remaining on an item recast timer
 --- @field public Tradeskills MQBoolean #Tradeskills?
---- @field public Type fun(): string Type
+--- @field public Type MQString #Type
 --- @field public Tribute MQFloat #Tribute value of the item
 --- @field public Value MQFloat #Item value in coppers
 --- @field public Weight MQFloat #Item weight
@@ -111,4 +111,4 @@
 --- @field public WornSlot invslot The #th invslot this item can be worn in (fingers/ears count as 2 slots)
 ----@field public WornSlot MQBoolean #Can item be worn in invslot with this name? (worn slots only)
 --- @field public WornSlots MQFloat #The number of invslots this item can be worn in (fingers/ears count as 2 slots)
---- @field public ToString fun(): string Same as Name
+--- @field public ToString MQString #Same as Name

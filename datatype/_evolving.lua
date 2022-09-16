@@ -3,4 +3,4 @@
 --- @field public ExpOn MQBoolean #Is evolving item experience turned on for this item?
 --- @field public Level MQInt #The level of the evolving item.
 --- @field public MaxLevel MQInt #The maximum level of the evolving item
---- @field public ToString fun(): string Same as ExpOn
+--- @field public ToString MQString #Same as ExpOn

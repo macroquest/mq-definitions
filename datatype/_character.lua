@@ -28,7 +28,7 @@
 --- @field public ClairvoyanceBonus MQFloat #Clairvoyance Bonus
 --- @field public Combat MQBoolean #In combat?
 --- @field public CombatEffectsBonus MQFloat #Combat Effects bonus from gear and spells
---- @field public CombatState fun(): string Returns one of the following: COMBAT, DEBUFFED, COOLDOWN, ACTIVE, RESTING, UNKNOWN
+--- @field public CombatState MQString #Returns one of the following: COMBAT, DEBUFFED, COOLDOWN, ACTIVE, RESTING, UNKNOWN
 --- @field public Copper MQFloat #Copper on your character
 --- @field public CopperBank MQFloat #Copper in bank
 --- @field public Corrupted spell Returns the name of the Corrupted debuff if you have one
@@ -47,9 +47,9 @@
 --- @field public DamageShieldBonus MQFloat #Damage Shield bonus from gear and spells
 --- @field public DamageShieldMitigationBonus MQFloat #Damage Shield Mitigation bonus from gear and spells
 --- @field public Dar MQFloat #Damage absorption remaining (eg. from Rune-type spells)
---- @field public Diseased fun(): string Returns the name of any Disease spell
+--- @field public Diseased MQString #Returns the name of any Disease spell
 --- @field public DEX MQFloat #Character Dexterity
---- @field public Dotted fun(): string Returns name of first DoT on character.
+--- @field public Dotted MQString #Returns name of first DoT on character.
 --- @field public DoTShieldBonus MQFloat #DoT Shield bonus from gear and spells
 --- @field public Doubloons MQFloat #Doubloons on your character
 --- @field public Downtime ticks Downtime (Ticks left til combat timer end)
@@ -69,7 +69,7 @@
 --- @field public Grouped MQBoolean #Grouped?
 --- @field public GroupLeaderExp MQFloat #Group leadership experience (out of 330)
 --- @field public GroupLeaderPoints MQFloat #Group leadership points
---- @field public GroupList fun(): string Returns a string of your group members (excluding you)
+--- @field public GroupList MQString #Returns a string of your group members (excluding you)
 --- @field public GroupSize MQFloat #Size of group
 --- @field public GukEarned MQFloat #Total LDoN points earned in Deepest Guk
 --- @field public GuildID MQFloat #Returns the ID number of your guild
@@ -89,7 +89,7 @@
 --- @field public ID MQFloat #Spawn ID
 --- @field public InInstance MQBoolean #Returns TRUE/FALSE if you are in an instance.
 --- @field public INT MQFloat #Character Intelligence
---- @field public Invulnerable fun(): string Returns the invulnerable spell name on you, can be used with spell data type ex. ${Me.Invulnerable.Spell.ID}
+--- @field public Invulnerable MQString #Returns the invulnerable spell name on you, can be used with spell data type ex. ${Me.Invulnerable.Spell.ID}
 --- @field public LADelegateMA MQFloat #Level of Delegate MA of the current group leader (not your own ability level)
 --- @field public LADelegateMarkNPC MQFloat #Level of Delegate Mark NPC of the current group leader (not your own ability level)
 --- @field public LAFindPathPC MQFloat #Level of Find Path PC of the current group leader (not your own ability level)
@@ -113,12 +113,12 @@
 --- @field public MaxEndurance MQFloat #Max endurance
 --- @field public MaxHPs MQFloat #Max hit points
 --- @field public MaxMana MQFloat #Max mana
---- @field public Mercenary fun(): string The state of your Mercenary, ACTIVE, SUSPENDED, or UNKNOWN (If it's dead). Returns NULL if you do not have a Mercenary.
---- @field public MercenaryStance fun(): string Current active mercenary stance as a string, default is NULL.
+--- @field public Mercenary MQString #The state of your Mercenary, ACTIVE, SUSPENDED, or UNKNOWN (If it's dead). Returns NULL if you do not have a Mercenary.
+--- @field public MercenaryStance MQString #Current active mercenary stance as a string, default is NULL.
 --- @field public MirEarned MQFloat #Total LDoN points earned in Miragul's
 --- @field public MMEarned MQFloat #Total LDoN points earned in Mistmoore
 --- @field public Moving MQBoolean #Moving? (including strafe)
---- @field public Name fun(): string First name
+--- @field public Name MQString #First name
 --- @field public NumGems MQFloat #Returns the amount of spell gems your toon has
 --- @field public Orux MQFloat #Orux on your character
 --- @field public PctAAExp MQFloat #AA exp as a %
@@ -136,7 +136,7 @@
 --- @field public Platinum MQFloat #Platinum on your character
 --- @field public PlatinumBank MQFloat #Platinum in bank
 --- @field public PlatinumShared MQFloat #Platinum in shared bank
---- @field public Poisoned fun(): string Returns the name of any Poison spell
+--- @field public Poisoned MQString #Returns the name of any Poison spell
 --- @field public RadiantCrystals MQFloat #Number of Radiant Crystals on your character
 --- @field public RaidLeaderExp MQFloat #Raid leadership exp (out of 330)
 --- @field public RaidLeaderPoints MQFloat #Raid leadership points
@@ -147,7 +147,7 @@
 --- @field public SecondaryAggroPlayer spawn spawninfo for secondary aggro player
 --- @field public ShieldingBonus MQFloat #Shielding bonus from gear and spells
 --- @field public Shrouded MQBoolean #Am I Shrouded?
---- @field public Silenced fun(): string Returns the name of the Silence type effect on you
+--- @field public Silenced MQString #Returns the name of the Silence type effect on you
 --- @field public Silver MQFloat #Silver on your character
 --- @field public SilverBank MQFloat #Silver in bank
 --- @field public Sit fun() Causes toon to sit if not already
@@ -163,9 +163,9 @@
 --- @field public StrikeThroughBonus MQFloat #Strikethrough bonus from gear and spells
 --- @field public Stunned MQBoolean #Am I stunned?
 --- @field public StunResistBonus MQFloat #Stun Resist bonus from gear and spells
---- @field public Subscription fun(): string Subscription type GOLD, FREE, (Silver?)
+--- @field public Subscription MQString #Subscription type GOLD, FREE, (Silver?)
 --- @field public SubscriptionDays MQFloat #Returns an intUsage: /echo I have ${Me.SubscriptionDays} left before my all access expires.
---- @field public Surname fun(): string Last name
+--- @field public Surname MQString #Last name
 --- @field public svChromatic MQFloat #Your character's lowest resist
 --- @field public svCold MQFloat #Character Cold Resist
 --- @field public svCorruption MQFloat #Character Corruption Resist

@@ -5,6 +5,6 @@
 --- @field public TotalMinutes MQInt #The total number of minutes
 --- @field public TotalSeconds MQInt #The total number of seconds
 --- @field public Ticks MQInt #The value in ticks
---- @field public Time fun(): string Time in the form MM:SS
---- @field public TimeHMS fun(): string Time in the form HH:MM:SS (if there are no hours, the form will be MM:SS)
---- @field public ToString fun(): string Same as Ticks
+--- @field public Time MQString #Time in the form MM:SS
+--- @field public TimeHMS MQString #Time in the form HH:MM:SS (if there are no hours, the form will be MM:SS)
+--- @field public ToString MQString #Same as Ticks

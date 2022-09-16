@@ -1,7 +1,7 @@
 --- @class mercenary
 --- @field public AAPoints MQInt #AA Points spent on mercenary abilities
---- @field public Stance fun(): string Current stance of the mercenary
---- @field public State fun(): string Current state of the mercenary (returns "DEAD","SUSPENDED","ACTIVE", or "UNKNOWN"
+--- @field public Stance MQString #Current stance of the mercenary
+--- @field public State MQString #Current state of the mercenary (returns "DEAD","SUSPENDED","ACTIVE", or "UNKNOWN"
 --- @field public StateID MQInt #Current state ID of the mercenary as a number.
---- @field public Index fun(): string Index
---- @field public ToString fun(): string Same as Name
+--- @field public Index MQString #Index
+--- @field public ToString MQString #Same as Name

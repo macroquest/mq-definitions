@@ -7,4 +7,4 @@
 --- @field public Mod float The modifier to a bard song
 --- @field public Remove fun() Removes the named/partial name buff
 --- @field public Spell spell The spell
---- @field public ToString fun(): string Same as Name
+--- @field public ToString MQString #Same as Name

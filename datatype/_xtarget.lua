@@ -1,6 +1,6 @@
 --- @class xtarget
 --- @field public ID MQInt #ID of specified XTarget
---- @field public Name fun(): string Name of specified XTarget
+--- @field public Name MQString #Name of specified XTarget
 --- @field public PctAggro MQFloat #PctAggro of specified XTarget
---- @field public TargetType fun(): string Extended target type
---- @field public ToString fun(): string Number of current extended targets
+--- @field public TargetType MQString #Extended target type
+--- @field public ToString MQString #Number of current extended targets

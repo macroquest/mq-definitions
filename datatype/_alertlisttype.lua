@@ -25,7 +25,7 @@
 ---@field bNoGuild MQBoolean #Exclude any player that is in the guild
 ---@field bNoPet MQBoolean #Exclude any spawn that is a pet
 ---@field bNotNearAlert MQBoolean #Indicates usage of notnearalert filter
----@field BodyType fun():string Any spawn with given body type
+---@field BodyType MQString #Any spawn with given body type
 ---@field bRaid MQBoolean #Any member of the raid
 ---@field bSlower MQBoolean #Any player that is a slower
 ---@field bSpawnID MQBoolean #Indicates usage of the id filter
@@ -35,20 +35,20 @@
 ---@field bTargPrev MQBoolean #Indicates usage of the prev filter
 ---@field bTrader MQBoolean #Any player that is a trader
 ---@field bTributeMaster MQBoolean #Any NPC that is a tribute master
----@field Class fun():string Any spawn that is the given class
+---@field Class MQString #Any spawn that is the given class
 ---@field FRadius MQInt #Any spawn that is given distance from the given loc filter
 ---@field FromSpawnID MQInt #Search starts at given spawn id
 ---@field GuildID fun():integer	Any member of the guild with the given id
----@field Light fun():string Any spawn that is equipped with the given light source
+---@field Light MQString #Any spawn that is equipped with the given light source
 ---@field MaxLevel MQInt #Any spawn that is at this level or lower
 ---@field MinLevel MQInt #Any spawn that is at this level or greater
----@field Name fun():string Any spawn with the given name
+---@field Name MQString #Any spawn with the given name
 ---@field NearAlertList MQInt #Any spawn near the given alert list
 ---@field NoAlertList MQInt #Excludes any spawn in the given alert list
 ---@field NotID MQInt #Excludes any spawn with the given id
 ---@field NotNearAlertList MQInt #Excludes any spawn near the given alert list
 ---@field PlayerState MQInt #Any spawn with the given state
----@field Race fun():string Any spawn with the given race
+---@field Race MQString #Any spawn with the given race
 ---@field Radius MQInt #Excludes the spawn if any player is within this distance (nopcnear filter)
 ---@field SortBy MQInt #Indicates the sort order of the filter
 ---@field Spawn fun():spawn If an ID or Name is part of the filter, attempts to return a spawn with the matching ID or Name

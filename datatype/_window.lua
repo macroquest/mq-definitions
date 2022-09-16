@@ -18,11 +18,11 @@
 --- @field public LeftMouseHeld fun() Does the action of holding the left mouse button
 --- @field public LeftMouseHeldUp fun() does the action of holding the left mouse button up
 --- @field public LeftMouseUp fun() Does the action of clicking the left mouse button up
---- @field public List fun(): string Get the text for the #th item in a list box. Only works on list boxes. Use of ,y is optional and allows selection of the column of the window to get text from or Find an item in a list box by partial match (use window.List[=text] for exact). Only works on list boxes. Use of ,y is optional and allows selection of the column of the window to search in.
+--- @field public List MQString #Get the text for the #th item in a list box. Only works on list boxes. Use of ,y is optional and allows selection of the column of the window to get text from or Find an item in a list box by partial match (use window.List[=text] for exact). Only works on list boxes. Use of ,y is optional and allows selection of the column of the window to search in.
 --- @field public Minimized MQBoolean #Returns TRUE if the window is minimized
 --- @field public MouseOver MQBoolean #Returns TRUE if the mouse is currently over the window
 --- @field public MyTradeReady MQBoolean #Have I clicked the Trade button?
---- @field public Name fun(): string Name of window piece, e.g. "ChatWindow" for top level windows, or the piece name for child windows. Note: this is Custom UI dependent
+--- @field public Name MQString #Name of window piece, e.g. "ChatWindow" for top level windows, or the piece name for child windows. Note: this is Custom UI dependent
 --- @field public Next window Next sibling window
 --- @field public Open MQBoolean #Returns TRUE if the window is open
 --- @field public Parent window Parent window
@@ -31,12 +31,12 @@
 --- @field public RightMouseHeldUp fun() Does the action of holding the right mouse button up
 --- @field public RightMouseUp fun() Does the action of clicking the right mouse button up
 --- @field public Select fun() Selects the specified window
---- @field public ScreenID fun(): string ScreenID of window piece. Note: This is not Custom UI dependent, it must be the same on all UIs
+--- @field public ScreenID MQString #ScreenID of window piece. Note: This is not Custom UI dependent, it must be the same on all UIs
 --- @field public Siblings MQBoolean #Returns TRUE if the window has siblings
 --- @field public Style MQFloat #Window style code
---- @field public Text fun(): string Window's text
---- @field public Tooltip fun(): string TooltipReference text
---- @field public Type fun(): string Type of window piece (Screen for top level windows, or Listbox, Button, Gauge, Label, Editbox, Slider, etc)
+--- @field public Text MQString #Window's text
+--- @field public Tooltip MQString #TooltipReference text
+--- @field public Type MQString #Type of window piece (Screen for top level windows, or Listbox, Button, Gauge, Label, Editbox, Slider, etc)
 --- @field public VScrollMax MQFloat #Vertical scrollbar range
 --- @field public VScrollPct MQFloat #Vertical scrollbar position in % to range from 0 to 100
 --- @field public VScrollPos MQFloat #Vertical scrollbar position

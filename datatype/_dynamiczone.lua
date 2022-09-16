@@ -6,7 +6,7 @@
 ---@field public MaxMembers MQInt #Maximum number of characters that can enter this dynamic zone
 ---@field public Members MQInt #Current number of characters in the dynamic zone
 ---@field public MinMembers MQInt #Minimum of members required
----@field public Name fun():string The full name of the dynamic zone
+---@field public Name MQString #The full name of the dynamic zone
 dynamiczone = {}
 
 ---Find the dynamic zone member by id

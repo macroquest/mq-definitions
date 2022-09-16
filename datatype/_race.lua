@@ -1,4 +1,4 @@
 --- @class race
 --- @field public ID MQInt #The ID of the race
---- @field public Name fun(): string The name of the race
---- @field public ToString fun(): string The name of the race
+--- @field public Name MQString #The name of the race
+--- @field public ToString MQString #The name of the race

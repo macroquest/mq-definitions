@@ -1,8 +1,8 @@
 ---@meta
 ---@class achievementcat
 ---@field ID MQInt #The unique ID for the category
----@field Name fun():string The category's display name
----@field Description fun():string The category's Description
+---@field Name MQString #The category's display name
+---@field Description MQString #The category's Description
 ---@field AchivementByIndex fun(index:integer):achievement Find an achievement by its index in this category
 ---@field AchivementCount MQInt #The number of achievements in this category
 ---@field CategoryByIndex fun(index:integer):integer Find a child category by its index in this category
@@ -10,7 +10,7 @@
 ---@field Points MQInt #The total earned points of achievements in this category
 ---@field CompletedAchievements MQInt #The number of achievements earned in this category and its subcategories
 ---@field TotalAchievements MQInt #The total number of achievements in this category and its subcategories
----@field ImageTextureName fun():string Name of the image texure that is used to represent this category in the Achievements Window
+---@field ImageTextureName MQString #Name of the image texure that is used to represent this category in the Achievements Window
 ---@field Index MQInt #The index of the category in the achievement manager.  For more information see [Achievement Indices](https://docs.macroquest.org/reference/top-level-objects/tlo-achievement/#note-about-achievement-indices)
 achievementcat = {}
 

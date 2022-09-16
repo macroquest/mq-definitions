@@ -3,8 +3,8 @@
 --- @field public AltTimer MQBoolean #Returns TRUE if the skill uses the kick/bash/slam/backstab/frenzy timer
 --- @field public ID number Skill number
 --- @field public MinLevel MQInt #Minimum level for your class
---- @field public Name fun(): string Name of the skill
+--- @field public Name MQString #Name of the skill
 --- @field public ReuseTime MQFloat #Reuse timer (what number format? ticks, seconds, deciseconds?)
 --- @field public SkillCap MQInt #Skill cap based on your current level and class.
 --- @field public StartingSkill MQInt #Base skill level for your class
---- @field public ToString fun(): string Same as Name
+--- @field public ToString MQString #Same as Name

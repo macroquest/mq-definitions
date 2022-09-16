@@ -6,7 +6,7 @@
 ---@field Ghold MQBoolean #GHold state
 ---@field Hold MQBoolean #Hold state
 ---@field ReGroup MQBoolean #ReGroup state
----@field Stance fun(): string Returns the pet's current stance (e.g. FOLLOW, GUARD)
+---@field Stance MQString #Returns the pet's current stance (e.g. FOLLOW, GUARD)
 ---@field Stop MQBoolean #Stop state
 ---@field Target spawn Returns the pet's current target
 ---@field Taunt MQBoolean #Taunt state

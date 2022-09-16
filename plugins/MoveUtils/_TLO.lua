@@ -2,7 +2,7 @@
 
 --- MoveUtils Lua Bindings
 ---@class TLO.MoveUtils
----@field Command fun(): string Returns the currently active command. MAKECAMP returns if a camp is setup but no other command is currently in use ["NONE", "STICK", "MOVETO", "MAKECAMP", "CIRCLE"]
+---@field Command MQString #Returns the currently active command. MAKECAMP returns if a camp is setup but no other command is currently in use ["NONE", "STICK", "MOVETO", "MAKECAMP", "CIRCLE"]
 ---@field Stuck MQBoolean #Returns true if plugin stucklogic has determined you are currently stuck
 ---@field Summoned MQBoolean #Returns true if BreakOnSummon is enabled and has fired due to your character being summoned beyond breakonsummon distance
 ---@field StuckLogic MQBoolean #Returns TRUE if stucklogic is enabled
@@ -23,7 +23,7 @@ TLO.MoveUtils = {}
 
 --- Stick Lua Bindings
 ---@class Stick
----@field Status fun(): string Returns ON if any form of stick is active ["OFF", "PAUSED" or "ON"]
+---@field Status MQString #Returns ON if any form of stick is active ["OFF", "PAUSED" or "ON"]
 ---@field Active MQBoolean #Returns TRUE if any form of stick is active
 ---@field Broken MQBoolean #Returns TRUE if BreakOnHit event has halted stick prematurely
 ---@field Distance MQFloat #Returns current distance used by stick
@@ -35,7 +35,7 @@ TLO.MoveUtils = {}
 ---@field Stopped MQBoolean #Returns TRUE if stick is within stick distance
 ---@field Pin MQBoolean #Returns TRUE if stick pin is active
 ---@field StickTarget MQInt #Returns spawnid of stick target if stick id/hold used, else spawnid of current target, 0 if no target and id/hold not used
----@field StickTargetName fun(): string Returns DisplayedName of stick target if stick id/hold used, else current target or NONE if no target and hold/id not used
+---@field StickTargetName MQString #Returns DisplayedName of stick target if stick id/hold used, else current target or NONE if no target and hold/id not used
 ---@field DistMod MQFloat #Returns current stickdist modifier
 ---@field DistModPercent MQFloat #Returns current stickdist percent modifier
 ---@field Always MQBoolean #Returns TRUE if /stick always is active
@@ -55,7 +55,7 @@ TLO.MoveTo = {}
 
 --- MakeCamp Lua Bindings
 ---@class TLO.MakeCamp
----@field Status fun(): string Returns status of MakeCamp command. AltCamp returns OFF ["OFF", "PAUSED" or "ON"]
+---@field Status MQString #Returns status of MakeCamp command. AltCamp returns OFF ["OFF", "PAUSED" or "ON"]
 ---@field Leash MQBoolean #Returns TRUE if plugin stucklogic has determined you are currently stuck
 ---@field AnchorX MQFloat #Returns location of current camp X anchor
 ---@field AnchorY MQFloat #Returns location of current camp Y anchor
@@ -80,12 +80,12 @@ TLO.MakeCamp = {}
 
 --- Circle Lua Bindings
 ---@class TLO.Circle
----@field Status fun(): string Returns ON if circling ["OFF", "PAUSED" or "ON"]
+---@field Status MQString #Returns ON if circling ["OFF", "PAUSED" or "ON"]
 ---@field CircleY MQFloat #Returns the location of circle center Y
 ---@field CircleX MQFloat #Returns the location of circle center X
 ---@field Drunken MQBoolean #Returns TRUE if drunken
----@field Rotation fun(): string Returns CCW if reverse circling ["CW" or "CCW"] 
----@field Direction fun(): string Returns movement direction of current circle ["FORWARDS" or "BACKWARDS"] 
+---@field Rotation MQString #Returns CCW if reverse circling ["CW" or "CCW"] 
+---@field Direction MQString #Returns movement direction of current circle ["FORWARDS" or "BACKWARDS"] 
 ---@field Clockwise MQBoolean #Returns FALSE if reverse circling
 ---@field Backwards MQBoolean #Returns TRUE if movement direction backwards
 ---@field Radius MQFloat #Returns the radius size of circle

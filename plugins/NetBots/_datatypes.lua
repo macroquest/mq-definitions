@@ -1,5 +1,5 @@
 --- @class netbot
---- @field public Name fun(): string Name of Name.
+--- @field public Name MQString #Name of Name.
 --- @field public Zone MQInt #Zone ID of Name.
 --- @field public Instance MQInt #Instance ID of Name.
 --- @field public ID fun(): integer|'NULL' Spawn ID of Name.
@@ -22,7 +22,7 @@
 --- @field public TargetID MQInt #Spawn ID of Name's target.
 --- @field public TargetHP MQInt #Hitpoints of Name's target.
 --- @field public Casting fun(): spell|'NULL' Spell Name is casting.
---- @field public State fun(): string State of Name (STUN STAND SIT DUCK BIND FEIGN DEAD UNKNOWN).
+--- @field public State MQString #State of Name (STUN STAND SIT DUCK BIND FEIGN DEAD UNKNOWN).
 --- @field public Attacking MQBoolean #Is Name Attacking?
 --- @field public AFK MQBoolean #Is Name AFK?
 --- @field public Binding MQBoolean #Is Name kneeling?
@@ -35,7 +35,7 @@
 --- @field public Mounted MQBoolean #Is Name on a mount?
 --- @field public Moving MQBoolean #Is Name moving?
 --- @field public Detrimentals MQInt #Total of detrimental counts for Name.
---- @field public Detrimental fun(): string A string list of all detrimental types affecting Name.
+--- @field public Detrimental MQString #A string list of all detrimental types affecting Name.
 --- @field public Raid MQBoolean #Is Name in a raid?
 --- @field public Sitting MQBoolean #Is Name sitting?
 --- @field public Standing MQBoolean #Is Name standing?
@@ -43,8 +43,8 @@
 --- @field public FreeBuffSlots MQInt #Total free buff slots Name has.
 --- @field public InZone fun(): boolean|'NULL' Is Name in the same zone as you?
 --- @field public InGroup MQBoolean #Is Name in your group?
---- @field public Leader fun(): string Is Name the group leader?
---- @field public Note fun(): string Is Name the group leader?
+--- @field public Leader MQString #Is Name the group leader?
+--- @field public Note MQString #Is Name the group leader?
 --- @field public Updated MQInt #Timestamp of last NetBots update from Name.
 --- @field public Gem fun(): string|fun(gemNumber?: integer): spell All spells Name has memorized, or Spell that is memorized in Gem[gemNumber].
 --- @field public Buff fun(): string|fun(gemNumberOrSpellName?: integer|string): spell All buffs Name currently has, or spell in Gem[gemNumberOrSpellName] or buff name by [gemNumberOrSpellName]
@@ -81,9 +81,9 @@
 --- @field public Trigger MQInt #Trigger counters for Name.
 --- @field public Resistance MQInt #Resistance counters for Name.
 --- @field public NoCure MQInt #NoCure counters for Name.
---- @field public Location fun(): string The Y,X,Z location of Name.
---- @field public Heading fun(): string The Heading of Name.
---- @field public MacroName fun(): string The running macro of Name, empty string if none running.
+--- @field public Location MQString #The Y,X,Z location of Name.
+--- @field public Heading MQString #The Heading of Name.
+--- @field public MacroName MQString #The running macro of Name, empty string if none running.
 --- @field public MacroState MQInt #The macro state for Name. 0=No macro running, 1=Running, 2=Paused
 --- @field public NavigationActive MQBoolean #If running a MQ2Nav path for Name.
 --- @field public NavigationPaused MQBoolean #If a MQ2Nav path is paused for Name.

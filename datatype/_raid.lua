@@ -17,7 +17,7 @@
 ---@field public Members MQInt #Total number of raid members
 ---@field public Target fun(): raidmember Raid target (clicked in raid window)
 ---@field public TotalLevels MQInt #Sum of all raid members' levels
----@field public ToString fun(): string None
+---@field public ToString MQString #None
 local raid = {}
 
 ---Raid member by name

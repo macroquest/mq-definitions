@@ -8,6 +8,6 @@
 ---@field public Duration MQInt #Returns the duration of the buff
 ---@field public OriginalDuration MQInt #Returns the original duration of the buff
 ---@field public Slot MQInt #Returns the buff slot the target had the buff in
----@field public Spell spell|function(): spell Access the spell
+---@field public Spell MQSpell #Access the spell
 ---@field public SpellID MQInt #Returns the buff's spell ID
 ---@field public Staleness timestamp|fun(): timestamp How long has it been since this information was refreshed

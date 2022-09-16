@@ -274,12 +274,12 @@ function mq.TLO.SpawnCount(filter)end
 
 ---Returns a Spell by ID
 ---@param id integer
----@return spell | fun(): string|nil
+---@return MQSpell
 function mq.TLO.Spell(id)end
 
 ----Returns a Spell by Name
 ---@param name string
----@return spell | fun(): string|nil
+---@return MQSpell
 function mq.TLO.Spell(name)end
 
 ---Returns a Skill by number

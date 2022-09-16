@@ -6,5 +6,5 @@
 --- @field public Level MQFloat #The level of the person that cast the buff on you (not the level of the spell)
 --- @field public Mod MQFloat The modifier to a bard song
 --- @field public Remove fun() Removes the named/partial name buff
---- @field public Spell spell The spell
+--- @field public Spell MQSpell The spell
 --- @field public ToString MQString #Same as Name

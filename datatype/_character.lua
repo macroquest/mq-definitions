@@ -5,7 +5,7 @@
 --- @field public AAPointsTotal MQFloat #The total number of AA points you have
 --- @field public AAVitality MQFloat #The total number of AA Vitality you have
 --- @field public AccuracyBonus MQFloat #Accuracy bonus from gear and spells
---- @field public ActiveDisc spell Returns a spell if melee discipline is active.
+--- @field public ActiveDisc MQSpell Returns a spell if melee discipline is active.
 --- @field public ActiveFavorCost MQFloat #If Tribute is active, how much it is costing you every 10 minutes. Returns NULL if tribute is inactive.
 --- @field public AltTimerReady MQBoolean #Alternate timer ready? (Bash/Slam/Frenzy/Backstab). Note: ${AbilityReady} works fine with most of these.
 --- @field public AGI MQFloat #Character Agility
@@ -31,7 +31,7 @@
 --- @field public CombatState MQString #Returns one of the following: COMBAT, DEBUFFED, COOLDOWN, ACTIVE, RESTING, UNKNOWN
 --- @field public Copper MQFloat #Copper on your character
 --- @field public CopperBank MQFloat #Copper in bank
---- @field public Corrupted spell Returns the name of the Corrupted debuff if you have one
+--- @field public Corrupted MQSpell Returns the name of the Corrupted debuff if you have one
 --- @field public CountBuffs MQFloat #Number of buffs you have, not including short duration buffs
 --- @field public CountersCurse MQFloat #Number of curse counters you have
 --- @field public CountersDisease MQFloat #Number of disease counters you have
@@ -43,7 +43,7 @@
 --- @field public CurrentHPs MQFloat #Current hit points
 --- @field public CurrentMana MQFloat #Current mana
 --- @field public CurrentWeight MQFloat #Current weight
---- @field public Cursed spell Returns the name of the Curse debuff if you are effected by one
+--- @field public Cursed MQSpell Returns the name of the Curse debuff if you are effected by one
 --- @field public DamageShieldBonus MQFloat #Damage Shield bonus from gear and spells
 --- @field public DamageShieldMitigationBonus MQFloat #Damage Shield Mitigation bonus from gear and spells
 --- @field public Dar MQFloat #Damage absorption remaining (eg. from Rune-type spells)
@@ -260,7 +260,7 @@ function Character.CombatAbility(name) end
 
 ---The name of Combat Ability # in your list (not the same as anyone else's list!)
 ---@param index integer # Combat Ability # in your list 
----@return spell
+---@return MQSpell
 function Character.CombatAbility(index) end
 
 ---@param minSize? integer # spaces of at least [minSize] size (giant=4) 
@@ -272,7 +272,7 @@ function Character.FreeInventory(minSize) end
 function Character.Gem(name) end
 
 ---@param gemSlot integer 
----@return spell
+---@return MQSpell
 function Character.Gem(gemSlot) end
 
 ---@param name string # Spell name

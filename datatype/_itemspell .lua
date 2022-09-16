@@ -8,6 +8,6 @@
 --- @field public ProcRate MQInt #Combat effect proc rate.
 --- @field public RecastType MQInt #Recast type of the spell.
 --- @field public RequiredLevel MQInt #Level required for the spell to be usable.
---- @field public Spell spell The spell.
+--- @field public Spell MQSpell The spell.
 --- @field public SpellID MQInt #ID of the Spell.
 --- @field public TimerID MQInt #Timer ID of the spell.

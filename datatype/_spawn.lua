@@ -21,7 +21,7 @@
 --- @field public bWaitingForPort MQBoolean #Am I waiting to accept a port?
 --- @field public CachedBuffCount MQFloat #Number of Buffs cached
 --- @field public CanSplashLand MQBoolean #TRUE/FALSE on if a splash spell can land...NOTE! This check is ONLY for line of sight to the targetindicator (red/green circle)
---- @field public Casting spell Spell, if currently casting (only accurate on yourself, not NPCs or other group members)
+--- @field public Casting MQSpell Spell, if currently casting (only accurate on yourself, not NPCs or other group members)
 --- @field public CeilingHeightAtCurrLocation MQFloat #Ceiling Height
 --- @field public Class class Class
 --- @field public CleanName MQString #The "cleaned up" name

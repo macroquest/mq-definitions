@@ -17,5 +17,5 @@
 --- @field public RequiresAbilityPoints MQFloat #Points required in above ability
 --- @field public ReuseTime MQFloat #Reuse time in seconds
 --- @field public ShortName MQString #Short name
---- @field public Spell spell Spell used by the ability (if any)
+--- @field public Spell MQSpell Spell used by the ability (if any)
 --- @field public Type MQFloat #Type (1-6)

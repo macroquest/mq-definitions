@@ -21,7 +21,7 @@
 --- @field public PetHP MQInt #Hitpoints of Name's pet.
 --- @field public TargetID MQInt #Spawn ID of Name's target.
 --- @field public TargetHP MQInt #Hitpoints of Name's target.
---- @field public Casting fun(): spell|'NULL' Spell Name is casting.
+--- @field public Casting spell | fun(): 'NULL' Spell Name is casting.
 --- @field public State MQString #State of Name (STUN STAND SIT DUCK BIND FEIGN DEAD UNKNOWN).
 --- @field public Attacking MQBoolean #Is Name Attacking?
 --- @field public AFK MQBoolean #Is Name AFK?

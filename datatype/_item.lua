@@ -82,7 +82,7 @@
 --- @field public Shielding MQFloat #Shielding
 --- @field public Size MQFloat #Item size:1 SMALL2 MEDIUM3 LARGE4 GIANT
 --- @field public SizeCapacity MQFloat #If item is a container, size of items it can hold:1 SMALL2 MEDIUM3 LARGE4 GIANT
---- @field public Spell spell Spell effect
+--- @field public Spell MQSpell Spell effect
 --- @field public SpellDamage MQFloat #Spell damage
 --- @field public SpellShield MQFloat #SpellShield
 --- @field public STA MQFloat #STA value on item

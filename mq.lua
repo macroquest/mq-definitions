@@ -1,22 +1,22 @@
 ---@meta
 
 ---@class Mq
----@field public TLO TLO Top Level Object (TLO) Binding
----@field public imgui IMGUI sol2 ImGui Binding
+---@field public TLO TLO # Top Level Object (TLO) Binding
+---@field public imgui IMGUI # sol2 ImGui Binding
 mq = {}
 
 ---Performs an ingame slash action provided as a string. Any arguments passed to it are stringified (in lua), concatenated (with a space delimiter), and sent as part of the command.
----@vararg string An in-game slash command (including the slash) (e.g. '/keypress DUCK')
+---@vararg string # An in-game slash command (including the slash) (e.g. '/keypress DUCK')
 function mq.cmd(...) end
 
 ---Simular to mq.cmd() but provides C/C++ string formatting
----@param command string An in-game slash command (including the slash) (e.g. '/keypress %s')
----@param ...? any Variables that provide input the formated string
+---@param command string # An in-game slash command (including the slash) (e.g. '/keypress %s')
+---@param ...? any # Variables that provide input the formated string
 function mq.cmdf(command, ...) end
 
 ---Provides a Timing delay
----@param delayValue number|string A number (milliseconds) or string ending in s, m, or ms (e.g. '2s' or '1m')
----@param condition? function An optional condition that can end the delay early with a return of true
+---@param delayValue number|string # A number (milliseconds) or string ending in s, m, or ms (e.g. '2s' or '1m')
+---@param condition? function # An optional condition that can end the delay early with a return of true
 function mq.delay(delayValue, condition) end
 
 ---Joins a number of string-convertable parameters into a single string
@@ -28,8 +28,8 @@ function mq.join(...) end
 function mq.exit() end
 
 ---Binds a command to an in-game slash prompt
----@param command string The command including the slash.  '/healme'
----@param callback function The Lua function to call when the command is entered in-game
+---@param command string # The command including the slash.  '/healme'
+---@param callback function # The Lua function to call when the command is entered in-game
 function mq.bind(command, callback) end
 
 ---Unbinds a previously assigned function from a command
@@ -39,29 +39,29 @@ function mq.unbind(command) end
 ---Creates an event that will execute a Lua function when the provided matcher text is seen in game
 ---Note: this needs to be paried with #doevents() to actually process the events during the script execution.
 ---@param name string Name of the Event
----@param matcherText string This needs an example and reference
----@param callback function Function to call when text is matched
+---@param matcherText string # This needs an example and reference
+---@param callback function # Function to call when text is matched
 function mq.event(name, matcherText, callback) end
 
 ---Unregisters the event by name so that it will no longer react
----@param name string Name of the Event
+---@param name string # Name of the Event
 function mq.unevent(name) end
 
 ---Process queued events
----@param name? string Optional name of a single Event to process
+---@param name? string # Optional name of a single Event to process
 function mq.doevents(name) end
 
 ---Flush events
----@param name? string Optional name of a single Event to flush
+---@param name? string # Optional name of a single Event to flush
 function mq.flushevents(name) end
 
 ---Returns all spawns
----@return spawn[] The spawns
+---@return spawn[] # The spawns
 function mq.getAllSpawns() end
 
 ---Returns all spawns by predicate.
----@param predicate fun(spawn: spawn): bool The filter predicate
----@return spawn[] The spawns
+---@param predicate fun(spawn: spawn): bool # The filter predicate
+---@return spawn[] # The spawns
 function mq.getFilteredSpawns(predicate) end
 
 ---@param type any # The variable we want to check type of
@@ -91,30 +91,30 @@ function mq.gettype(type) end
 
 ---Register the ImGui Callback.  Named function that will be called on every ImGui update,
 ---usually bound to one function that renders the ImGui window interface in game.
----@param name string The name of the callback
----@param callback function The callback function
+---@param name string # The name of the callback
+---@param callback function # The callback function
 function mq.imgui.init(name, callback) end
 
 ---Does a a registered ImGui callback exist?
----@param name string The name of registered callback
+---@param name string # The name of registered callback
 ---@return boolean
 function mq.imgui.exists(name) end
 
 ---Destroy a registered ImGui callback.
----@param name string The name of registered callback
+---@param name string # The name of registered callback
 function mq.imgui.destroy(name) end
 
 ---MQ2 Top Level Object Accssor
 ---@class TLO
 ---@field Achievement Achievement
 ---@field AdvLoot AdvLoot
----@field Alias fun(name:string):boolean True if alias exists
+---@field Alias fun(name:string):boolean # True if alias exists
 ---@field AltAbility altability
 ---@field Bandoliler any
----@field Corpse corpse|fun():corpse|nil Corpse you are looting
+---@field Corpse corpse|fun():corpse|nil # Corpse you are looting
 ---@field Cursor MQItem
----@field DisplayItem fun():item Access to all the information in the Item Display window
----@field DoorTarget MQSpawn Information on your doortarget
+---@field DisplayItem fun(): MQItem # Access to all the information in the Item Display window
+---@field DoorTarget MQSpawn # Information on your doortarget
 ---@field DynamicZone dynamiczone
 ---@field Event any
 ---@field EverQuest any
@@ -124,7 +124,7 @@ function mq.imgui.destroy(name) end
 ---@field FrameLimiter framelimiter
 ---@field Friends userdata
 ---@field GameTime time
----@field Ground ground #References the ground spawn item you have targeted.
+---@field Ground ground # References the ground spawn item you have targeted.
 ---@field Group group
 ---@field GroupLeader any
 ---@field GroupLeaderName any
@@ -134,9 +134,9 @@ function mq.imgui.destroy(name) end
 ---@field Int any
 ---@field InvSlot any
 ---@field Irc any
----@field ItemTarget ground #Gives access to the ground item that is previously targeted using /itemtarget.
+---@field ItemTarget ground # Gives access to the ground item that is previously targeted using /itemtarget.
 ---@field LastSpawn any
----@field LineOfSight fun(query: string):boolean #Query is a string with the syntax of "y,x,z:y2,x2,z2"
+---@field LineOfSight fun(query: string):boolean # Query is a string with the syntax of "y,x,z:y2,x2,z2"
 ---@field Lua Lua
 ---@field Macro Macro
 ---@field MacroQuest macroquest
@@ -144,23 +144,23 @@ function mq.imgui.destroy(name) end
 ---@field Me MQCharacter
 ---@field Menu any
 ---@field Mercenary mercenary
----@field Merchant MQMerchant #Interacts with the currently active merchant
+---@field Merchant MQMerchant # Interacts with the currently active merchant
 ---@field Mount any
 ---@field Pet pet
 ---@field PointMerchant any
 ---@field Raid raid
 ---@field Range range
----@field Select fun(target: string, ...): integer #Finds number of matches in [target]
----@field SelectedItem item #Returns information on the object that is selected in your own inventory while using a merchant.
+---@field Select fun(target: string, ...): integer # Finds number of matches in [target]
+---@field SelectedItem item # Returns information on the object that is selected in your own inventory while using a merchant.
 ---@field String any
 ---@field SubDefined any
 ---@field Switch switch
 ---@field SwitchTarget any
 ---@field Target MQTarget
----@field Task fun(index?: integer): task|nil #Returns the first task, or the current shared task if one exists.
+---@field Task fun(index?: integer): task|nil # Returns the first task, or the current shared task if one exists.
 ---@field Time time
----@field Type  fun(type: string): mqtype #Information on data types
----@field Window fun(name: string): MQWindow #Information on a particular UI window
+---@field Type  fun(type: string): mqtype # Information on data types
+---@field Window fun(name: string): MQWindow # Information on a particular UI window
 TLO = {}
 
 ---@diagnostic disable: duplicate-set-field
@@ -177,8 +177,8 @@ function TLO.Alert(id) end
 ---@deprecated Use Lua types
 function TLO.Bool() end
 
----@param index  integer
----@param filter  string
+---@param index integer
+---@param filter string
 ---@return MQSpawn
 ---@overload fun(filter: string): MQSpawn
 function TLO.NearestSpawn(index, filter)end
@@ -225,19 +225,19 @@ function mq.TLO.FindItemBankCount(name)end
 
 ---@diagnostic disable: duplicate-set-field
 ----Creates a heading object using degrees (clockwise)
----@param degrees integer Degrees (clockwise)
+---@param degrees integer # Degrees (clockwise)
 ---@return heading
 function TLO.Heading(degrees) end
 
 ----Creates a heading object using the heading to this y,x location
----@param y integer #Y location
----@param x integer #X location
+---@param y integer # Y location
+---@param x integer # X location
 ---@return heading
 function TLO.Heading(y, x) end
 
 ----Creates a heading object using the heading to this north,west location
----@param north integer #North location
----@param west integer #West location
+---@param north integer # North location
+---@param west integer # West location
 ---@return heading
 function TLO.Heading(north, west) end
 ---@diagnostic enable: duplicate-set-field
@@ -300,12 +300,12 @@ TLO.Zone = nil
 ---@diagnostic disable: assign-type-mismatch
 ----Retrieves information about a zone by zone ID. If this zone is the current zone, then this will return currentzone.
 ---@param id integer Zone ID
----@return zone|fun(): string | nil
+---@return MQZone
 function TLO.Zone(id) end
 
 ----Retrieves information about a zone by short name. If this zone is the current zone, then this will return currentzone.
 ---@param shortName string Zone Short Name
----@return zone|fun(): string | nil
+---@return MQZone
 function TLO.Zone(shortName) end
 ---@diagnostic enable: assign-type-mismatch
 ---@diagnostic enable: duplicate-set-field

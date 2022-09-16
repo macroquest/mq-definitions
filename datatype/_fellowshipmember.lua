@@ -3,5 +3,5 @@
 --- @field public Level MQInt #Member's level
 --- @field public LastOn fun(): ticks How long since member was last online
 --- @field public Name MQString #Member's name
---- @field public Zone zone | fun(): zone Zone information for the member's zone
+--- @field public Zone MQZone Zone information for the member's zone
 --- @field public ToString MQString #player name

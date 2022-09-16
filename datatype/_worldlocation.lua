@@ -1,7 +1,7 @@
 --- @class worldlocation
 --- @field public ID MQInt # The location's ID
 --- @field public Heading MQFloat # At the point of binding, what direction was the character facing
---- @field public Zone zone # Access to the zone data
+--- @field public Zone MQZone # Access to the zone data
 --- @field public X MQFloat # The X coordinate
 --- @field public Y MQFloat # The Y coordinate
 --- @field public Z MQFloat # The Z coordinate

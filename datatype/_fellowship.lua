@@ -4,7 +4,7 @@
 --- @field public CampfireX MQFloat #Campfire X location
 --- @field public CampfireY MQFloat #Campfire Y location
 --- @field public CampfireZ MQFloat #Campfire Z location
---- @field public CampfireZone zone| fun(): zone Zone information for the zone that contains your campfire
+--- @field public CampfireZone MQZone Zone information for the zone that contains your campfire
 --- @field public ID MQInt #Fellowship ID
 --- @field public Leader MQString #Fellowship leader's name
 --- @field public Member fun(): fellowshipmember Member data by name or #

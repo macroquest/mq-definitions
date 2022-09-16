@@ -17,3 +17,4 @@
 ---@alias MQSpell spell | fun(): string|nil
 ---@alias MQTarget target | fun(): string|nil
 ---@alias MQWindow window | fun(): string|nil
+---@alias MQZone zone | fun(): string|nil

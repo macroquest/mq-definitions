@@ -2,9 +2,9 @@
 
 --- Navigation Lua Bindings
 --- @class TLO.Navigation
---- @field public Active fun(): boolean Returns true if navigation is currently active
---- @field public Paused fun(): boolean Returns true if nativation is currently paused
---- @field public MeshLoaded fun(): boolean Returns true if a mesh is loaded for the zone
+--- @field public Active MQBoolean #Returns true if navigation is currently active
+--- @field public Paused MQBoolean #Returns true if nativation is currently paused
+--- @field public MeshLoaded MQBoolean #Returns true if a mesh is loaded for the zone
 TLO.Navigation = {}
 
 ----Returns true if a path exists for the target

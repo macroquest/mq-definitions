@@ -1,13 +1,13 @@
 --- @class merchant
---- @field public Full fun(): boolean Returns TRUE if the merchant's inventory is full
---- @field public Items fun(): number Number of items on the merchant
---- @field public Item item Item fun(): number # on the merchant's list
---- @field public Markup float The fun(): number used to calculate the buy and sell value for an item (this is what is changed by charisma and ffun()). This value is capped at 1.05Markup*Item Value = Amount you buy item forItem Value*(1/Markup) = Amount you sell item for
---- @field public Open fun(): boolean Returns TRUE if merchant is open
+--- @field public Full MQBoolean #Returns TRUE if the merchant's inventory is full
+--- @field public Items MQFloat #Number of items on the merchant
+--- @field public Item item Item MQFloat # on the merchant's list
+--- @field public Markup MQFloat The MQFloat #used to calculate the buy and sell value for an item (this is what is changed by charisma and ffun()). This value is capped at 1.05Markup*Item Value = Amount you buy item forItem Value*(1/Markup) = Amount you sell item for
+--- @field public Open MQBoolean #Returns TRUE if merchant is open
 --- @field public SelectedItem item The currently selected item in the merchant window, and item type
---- @field public ItemsReceived fun(): boolean True if the merchants itemlist has been filled in.
+--- @field public ItemsReceived MQBoolean #True if the merchants itemlist has been filled in.
 --- @field public OpenWindow fun() Will open the merchant closest to you, or if you have a merchant target
 --- @field public SelectItem fun() Select item specified or partial match that fits. Use SelectItem[=xxx] for EXACT match(its not case sensitive)
 --- @field public Buy fun() Buys # of whatever is selected with Merchant.SelectItem[xxx]
 --- @field public Sell fun() Sell # of whatever is selected with /seletitem. See examples
---- @field public ToString fun(): boolean Same as Open
+--- @field public ToString MQBoolean #Same as Open

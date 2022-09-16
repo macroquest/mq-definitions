@@ -1,6 +1,6 @@
 --- @class mqtype
---- @field public Name fun(): string Type name
---- @field public ToString fun(): string Same as Name
+--- @field public Name MQString #Type name
+--- @field public ToString MQString #Same as Name
 mqtype = nil
 
 ---@param id integer # Internal ID number

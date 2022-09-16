@@ -1,14 +1,14 @@
 --- @class groupmember : spawn
---- @field public Index fun(): number Which number in the group the member is
---- @field public Leader fun(): boolean TRUE if the member is the group's leader, FALSE otherwise
---- @field public Level fun(): number The member's level
---- @field public MainAssist fun(): boolean TRUE if the member is designated as the group's Main Assist, FALSE otherwise
---- @field public MainTank fun(): boolean TRUE if the member is designated as the group's Main Tank, FALSE otherwise
---- @field public Mercenary fun(): boolean TRUE if the member is a mercenary, FALSE otherwise
---- @field public Name fun(): string The name of the group member. This works even if they are not in the same zone as you.
---- @field public Offline fun(): boolean TRUE if the member is offline and FALSE if online
---- @field public OtherZone fun(): boolean TRUE if the member is online but in another zone and FALSE if online and in same zone as you.
---- @field public Present fun(): boolean TRUE if the member is online and in same zone and FALSE if online and not in same zone as you.
---- @field public Puller fun(): boolean TRUE if the member is designated as the group's Puller, FALSE otherwise
+--- @field public Index MQFloat #Which number in the group the member is
+--- @field public Leader MQBoolean #TRUE if the member is the group's leader, FALSE otherwise
+--- @field public Level MQFloat #The member's level
+--- @field public MainAssist MQBoolean #TRUE if the member is designated as the group's Main Assist, FALSE otherwise
+--- @field public MainTank MQBoolean #TRUE if the member is designated as the group's Main Tank, FALSE otherwise
+--- @field public Mercenary MQBoolean #TRUE if the member is a mercenary, FALSE otherwise
+--- @field public Name MQString #The name of the group member. This works even if they are not in the same zone as you.
+--- @field public Offline MQBoolean #TRUE if the member is offline and FALSE if online
+--- @field public OtherZone MQBoolean #TRUE if the member is online but in another zone and FALSE if online and in same zone as you.
+--- @field public Present MQBoolean #TRUE if the member is online and in same zone and FALSE if online and not in same zone as you.
+--- @field public Puller MQBoolean #TRUE if the member is designated as the group's Puller, FALSE otherwise
 --- @field public Spawn spawn Accesses the group member's spawn directly. This is only really needed to access Spawn.Name, instead of GroupMember.Name, as spawn is inherited automatically.
---- @field public ToString fun(): string Same as Name
+--- @field public ToString MQString #Same as Name

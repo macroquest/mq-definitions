@@ -1,10 +1,10 @@
 --- @class currentzone
 --- @field public Dungeon boolean Are we in a dungeon
---- @field public Gravity float Gravity
+--- @field public Gravity MQFloat Gravity
 --- @field public ID number Zone ID
 --- @field public Indoor boolean Are we indoors?
---- @field public MaxClip float Maximum clip plane allowed in zone
---- @field public MinClip float Minimum clip plane allowed in zone
+--- @field public MaxClip MQFloat Maximum clip plane allowed in zone
+--- @field public MinClip MQFloat Minimum clip plane allowed in zone
 --- @field public Name string Full zone name
 --- @field public NoBind boolean Can we bind here?
 --- @field public Outdoor boolean Are we outdoors?

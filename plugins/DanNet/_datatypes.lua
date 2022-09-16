@@ -1,5 +1,5 @@
 ---@class observer
----@field Received fun(): integer # The last received timestamp, or 0 for never received
+---@field Received MQInt # The last received timestamp, or 0 for never received
 
 ---@class peer
 peer = nil

@@ -1,6 +1,6 @@
 --- @class altability
 --- @field public AARankRequired MQFloat #Rank required to train
---- @field public CanTrain fun(): boolean Returns true/false on if the Alternative Ability can be trained
+--- @field public CanTrain MQBoolean #Returns true/false on if the Alternative Ability can be trained
 --- @field public Cost MQFloat #Base cost to train
 --- @field public Description fun(): string Basic description
 --- @field public ID fun(): integer ID
@@ -11,7 +11,7 @@
 --- @field public Name fun(): string Name
 --- @field public NextIndex MQFloat #Returns the next index number of the Alternative Ability
 --- @field public PointsSpent MQFloat #Returns the amount of points spent on an AA
---- @field public Passive fun(): boolean Returns true/false on if the Alternative Ability is passive
+--- @field public Passive MQBoolean #Returns true/false on if the Alternative Ability is passive
 --- @field public RequiresAbility altability Required ability (if any)
 --- @field public Rank MQFloat #Returns the Rank of the AA
 --- @field public RequiresAbilityPoints MQFloat #Points required in above ability

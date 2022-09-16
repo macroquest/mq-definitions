@@ -1,40 +1,40 @@
 ---@meta
 ---@class alertlist MQDatatype
 ---@field AlertList fun():integer Any spawn on the associated alert list
----@field bAlert fun():boolean Indicates usage of alert filter
----@field bAura fun():boolean Any aur.
----@field bBanker fun():boolean Any banker
----@field bBanner fun():boolean Any banner
----@field bCampfire fun():boolean Any campfire
----@field bDps fun():boolean Any player that is a DPS class
----@field bExactName fun():boolean Name match requiries an exact match
----@field bFellowship fun():boolean Any member of the fellowship
----@field bGM fun():boolean Any player flagged as a GM
----@field bGroup fun():boolean Any member of the group
----@field bHealer fun():boolean Any player that is a healer class
----@field bKnight fun():boolean Any player that is a knight
----@field bKnownLocation fun():boolean Indicates usage of a loc filter
----@field bLFG fun():boolean Any player that is flagged as LFG
----@field bLight fun():boolean Indicates usage of a light filter
----@field bLoS fun():boolean Any spawn in line of sight
----@field bMerchant fun():boolean Any merchant
----@field bNamed fun():boolean Any "named" NPC
----@field bNearAlert fun():boolean Indicates usage of nearalert filter
----@field bNoAlert fun():boolean Indicates usage of noalert filter
----@field bNoGroup fun():boolean Exclude any player that is in the group
----@field bNoGuild fun():boolean Exclude any player that is in the guild
----@field bNoPet fun():boolean Exclude any spawn that is a pet
----@field bNotNearAlert fun():boolean Indicates usage of notnearalert filter
+---@field bAlert MQBoolean #Indicates usage of alert filter
+---@field bAura MQBoolean #Any aur.
+---@field bBanker MQBoolean #Any banker
+---@field bBanner MQBoolean #Any banner
+---@field bCampfire MQBoolean #Any campfire
+---@field bDps MQBoolean #Any player that is a DPS class
+---@field bExactName MQBoolean #Name match requiries an exact match
+---@field bFellowship MQBoolean #Any member of the fellowship
+---@field bGM MQBoolean #Any player flagged as a GM
+---@field bGroup MQBoolean #Any member of the group
+---@field bHealer MQBoolean #Any player that is a healer class
+---@field bKnight MQBoolean #Any player that is a knight
+---@field bKnownLocation MQBoolean #Indicates usage of a loc filter
+---@field bLFG MQBoolean #Any player that is flagged as LFG
+---@field bLight MQBoolean #Indicates usage of a light filter
+---@field bLoS MQBoolean #Any spawn in line of sight
+---@field bMerchant MQBoolean #Any merchant
+---@field bNamed MQBoolean #Any "named" NPC
+---@field bNearAlert MQBoolean #Indicates usage of nearalert filter
+---@field bNoAlert MQBoolean #Indicates usage of noalert filter
+---@field bNoGroup MQBoolean #Exclude any player that is in the group
+---@field bNoGuild MQBoolean #Exclude any player that is in the guild
+---@field bNoPet MQBoolean #Exclude any spawn that is a pet
+---@field bNotNearAlert MQBoolean #Indicates usage of notnearalert filter
 ---@field BodyType fun():string Any spawn with given body type
----@field bRaid fun():boolean Any member of the raid
----@field bSlower fun():boolean Any player that is a slower
----@field bSpawnID fun():boolean Indicates usage of the id filter
----@field bTank fun():boolean Any player that is a tank class
----@field bTargetable fun():boolean Any spawn that is targetable
----@field bTargNext fun():boolean Indicates usage of the next filter
----@field bTargPrev fun():boolean Indicates usage of the prev filter
----@field bTrader fun():boolean Any player that is a trader
----@field bTributeMaster fun():boolean Any NPC that is a tribute master
+---@field bRaid MQBoolean #Any member of the raid
+---@field bSlower MQBoolean #Any player that is a slower
+---@field bSpawnID MQBoolean #Indicates usage of the id filter
+---@field bTank MQBoolean #Any player that is a tank class
+---@field bTargetable MQBoolean #Any spawn that is targetable
+---@field bTargNext MQBoolean #Indicates usage of the next filter
+---@field bTargPrev MQBoolean #Indicates usage of the prev filter
+---@field bTrader MQBoolean #Any player that is a trader
+---@field bTributeMaster MQBoolean #Any NPC that is a tribute master
 ---@field Class fun():string Any spawn that is the given class
 ---@field FRadius fun():integer Any spawn that is given distance from the given loc filter
 ---@field FromSpawnID fun():integer Search starts at given spawn id

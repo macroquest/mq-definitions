@@ -1,5 +1,5 @@
 --- @class fellowship
---- @field public Campfire fun(): boolean TRUE if campfire is up, FALSE if not
+--- @field public Campfire MQBoolean #TRUE if campfire is up, FALSE if not
 --- @field public CampfireDuration ticks | fun(): ticks Time left on current campfire
 --- @field public CampfireX fun(): float Campfire X location
 --- @field public CampfireY fun(): float Campfire Y location

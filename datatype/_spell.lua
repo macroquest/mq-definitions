@@ -11,8 +11,8 @@
 --- @field public GemIcon fun(): integer Icon number of the spell. Exmaple ${Spell[blah].GemIcon}
 --- @field public HastePct MQFloat #Percentage of haste, example of use ${Me.Hasted.HastePct} or ${Spell[Speed of Milyex].HastePct}
 --- @field public ID number Spell ID
---- @field public IsSkill fun(): boolean is this spell a skill?
---- @field public IsSwarmSpell fun(): boolean Is this spell a Swarm spell?
+--- @field public IsSkill MQBoolean #is this spell a skill?
+--- @field public IsSwarmSpell MQBoolean #Is this spell a Swarm spell?
 --- @field public Level fun(): integer Level
 --- @field public Location MQFloat #Appears to be max distance
 --- @field public Mana fun(): integer Mana cost (unadjusted)
@@ -33,11 +33,11 @@
 --- @field public SlowPct MQFloat #Percentage of slow, example of use ${Target.Slowed.SlowPct} or ${Spell[Slowing Helix].SlowPct}
 --- @field public SpellIcon fun(): integer Icon number of the spell. Exmaple ${Spell[blah].SpellIcon}
 --- @field public SpellType fun(): string The spell type, Will be one of "Beneficial(Group)", "Beneficial", "Detrimental" or "Unknown"
---- @field public Stacks fun(): boolean Does the selected spell stack with your current buffs (duration is in ticks)
---- @field public StacksPet fun(): boolean Does the selected spell stack with your pet's current buffs (duration is in ticks)
---- @field public StacksTarget fun(): boolean Does the selected spell stack with your target's current buffs (duration is in ticks)
---- @field public StacksWith fun(): boolean alias for .WillStack - see entry for more details
---- @field public NewStacks fun(): boolean see entry for more details
+--- @field public Stacks MQBoolean #Does the selected spell stack with your current buffs (duration is in ticks)
+--- @field public StacksPet MQBoolean #Does the selected spell stack with your pet's current buffs (duration is in ticks)
+--- @field public StacksTarget MQBoolean #Does the selected spell stack with your target's current buffs (duration is in ticks)
+--- @field public StacksWith MQBoolean #alias for .WillStack - see entry for more details
+--- @field public NewStacks MQBoolean #see entry for more details
 --- @field public TargetType fun(): string See below for Target Types
 --- @field public WearOff fun(): string The "wear off" message
 --- @field public WillStack fun(name: string): boolean Does the selected spell stack with the specific SPELL nameDOES NOT work with AAs.

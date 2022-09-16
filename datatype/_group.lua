@@ -1,5 +1,5 @@
 --- @class group
---- @field public AnyoneMissing fun(): boolean TRUE if someone is missing in group, offline, in other zone or simply just dead
+--- @field public AnyoneMissing MQBoolean #TRUE if someone is missing in group, offline, in other zone or simply just dead
 --- @field public CasterMercCount MQFloat #count of how many Caster DPS mercenaries are in your group
 --- @field public Cleric fun(): string Will now return the cleric as a spawntype if a cleric is in the group (not a mercenary but a REAL cleric)
 --- @field public GroupSize MQFloat #Number of members in your group, including yourself
@@ -15,8 +15,8 @@
 --- @field public Members MQFloat #Total number of group members, excluding yourself
 --- @field public MercenaryCount MQFloat #Count of how many Mercenaries are in the group
 --- @field public MouseOver fun(): string Returns the name of the group member your mouse is hovering over
---- @field public Offline fun(): boolean will return a TRUE if offline, and FALSE if online
---- @field public OtherZone fun(): boolean will return a Bool TRUE if online but in another zone and FALSE if online and in same zone as you.
+--- @field public Offline MQBoolean #will return a TRUE if offline, and FALSE if online
+--- @field public OtherZone MQBoolean #will return a Bool TRUE if online but in another zone and FALSE if online and in same zone as you.
 --- @field public Puller groupmember Data on the puller of the group
 --- @field public TankMercCount MQFloat #count of how many Tank mercenaries are in your group
 --- @field public ToString fun(): string Same as Members

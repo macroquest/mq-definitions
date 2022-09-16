@@ -7,26 +7,26 @@
 --- @field public AccuracyBonus MQFloat #Accuracy bonus from gear and spells
 --- @field public ActiveDisc spell Returns a spell if melee discipline is active.
 --- @field public ActiveFavorCost MQFloat #If Tribute is active, how much it is costing you every 10 minutes. Returns NULL if tribute is inactive.
---- @field public AltTimerReady fun(): boolean Alternate timer ready? (Bash/Slam/Frenzy/Backstab). Note: ${AbilityReady} works fine with most of these.
+--- @field public AltTimerReady MQBoolean #Alternate timer ready? (Bash/Slam/Frenzy/Backstab). Note: ${AbilityReady} works fine with most of these.
 --- @field public AGI MQFloat #Character Agility
 --- @field public AggroLock spawn spawn info for aggro lock player
---- @field public AmIGroupLeader fun(): boolean Am I the group leader?
---- @field public AssistComplete fun(): boolean returns true/false if the assist is complete
+--- @field public AmIGroupLeader MQBoolean #Am I the group leader?
+--- @field public AssistComplete MQBoolean #returns true/false if the assist is complete
 --- @field public AttackBonus MQFloat #Attack bonus from gear and spells
 --- @field public AttackSpeed MQFloat #Your Attack Speed. No haste spells/items = AttackSpeed of 100. A 41% haste item will result in an AttackSpeed of 141. This variable does not take into account spell or song haste.
 --- @field public Aura fun(n: integer): string The aura effect name
---- @field public AutoFire fun(): boolean Is Autofire on?
+--- @field public AutoFire MQBoolean #Is Autofire on?
 --- @field public AvoidanceBonus MQFloat #Avoidance bonus from gear/spells
---- @field public BardSongPlaying fun(): boolean Is a bard song playing?
---- @field public Buyer fun(): boolean if you are an active buyer
---- @field public CanMount fun(): boolean for some indoor zones that where not flagged as nomount and added bazaar, nexus to zones where its ok to mount.
+--- @field public BardSongPlaying MQBoolean #Is a bard song playing?
+--- @field public Buyer MQBoolean #if you are an active buyer
+--- @field public CanMount MQBoolean #for some indoor zones that where not flagged as nomount and added bazaar, nexus to zones where its ok to mount.
 --- @field public CareerFavor MQFloat #Career favor/tribute
 --- @field public Cash MQFloat #Total cash on your character, expressed in coppers (eg. if you are carrying 100pp, Cash will return 100000)
 --- @field public CashBank MQFloat #Total cash in your bank, expressed in coppers
 --- @field public CHA MQFloat #Character Charisma
 --- @field public Chronobines MQFloat #Chronobines on your character
 --- @field public ClairvoyanceBonus MQFloat #Clairvoyance Bonus
---- @field public Combat fun(): boolean In combat?
+--- @field public Combat MQBoolean #In combat?
 --- @field public CombatEffectsBonus MQFloat #Combat Effects bonus from gear and spells
 --- @field public CombatState fun(): string Returns one of the following: COMBAT, DEBUFFED, COOLDOWN, ACTIVE, RESTING, UNKNOWN
 --- @field public Copper MQFloat #Copper on your character
@@ -66,7 +66,7 @@
 --- @field public Gold MQFloat #Gold on character
 --- @field public GoldBank MQFloat #Gold in bank
 --- @field public GroupAssistTarget spawn Current group assist target
---- @field public Grouped fun(): boolean Grouped?
+--- @field public Grouped MQBoolean #Grouped?
 --- @field public GroupLeaderExp MQFloat #Group leadership experience (out of 330)
 --- @field public GroupLeaderPoints MQFloat #Group leadership points
 --- @field public GroupList fun(): string Returns a string of your group members (excluding you)
@@ -87,7 +87,7 @@
 --- @field public HPRegenBonus MQFloat #HP regen bonus from gear and spells
 --- @field public Hunger MQFloat #Hunger level
 --- @field public ID MQFloat #Spawn ID
---- @field public InInstance fun(): boolean Returns TRUE/FALSE if you are in an instance.
+--- @field public InInstance MQBoolean #Returns TRUE/FALSE if you are in an instance.
 --- @field public INT MQFloat #Character Intelligence
 --- @field public Invulnerable fun(): string Returns the invulnerable spell name on you, can be used with spell data type ex. ${Me.Invulnerable.Spell.ID}
 --- @field public LADelegateMA MQFloat #Level of Delegate MA of the current group leader (not your own ability level)
@@ -117,7 +117,7 @@
 --- @field public MercenaryStance fun(): string Current active mercenary stance as a string, default is NULL.
 --- @field public MirEarned MQFloat #Total LDoN points earned in Miragul's
 --- @field public MMEarned MQFloat #Total LDoN points earned in Mistmoore
---- @field public Moving fun(): boolean Moving? (including strafe)
+--- @field public Moving MQBoolean #Moving? (including strafe)
 --- @field public Name fun(): string First name
 --- @field public NumGems MQFloat #Returns the amount of spell gems your toon has
 --- @field public Orux MQFloat #Orux on your character
@@ -140,19 +140,19 @@
 --- @field public RadiantCrystals MQFloat #Number of Radiant Crystals on your character
 --- @field public RaidLeaderExp MQFloat #Raid leadership exp (out of 330)
 --- @field public RaidLeaderPoints MQFloat #Raid leadership points
---- @field public RangedReady fun(): boolean Ranged attack ready?
+--- @field public RangedReady MQBoolean #Ranged attack ready?
 --- @field public RujEarned MQFloat #Total LDoN points earned in Rujarkian
---- @field public Running fun(): boolean Do I have auto-run turned on?
+--- @field public Running MQBoolean #Do I have auto-run turned on?
 --- @field public SecondaryPctAggro MQFloat #Secondary Percentage aggro
 --- @field public SecondaryAggroPlayer spawn spawninfo for secondary aggro player
 --- @field public ShieldingBonus MQFloat #Shielding bonus from gear and spells
---- @field public Shrouded fun(): boolean Am I Shrouded?
+--- @field public Shrouded MQBoolean #Am I Shrouded?
 --- @field public Silenced fun(): string Returns the name of the Silence type effect on you
 --- @field public Silver MQFloat #Silver on your character
 --- @field public SilverBank MQFloat #Silver in bank
 --- @field public Sit fun() Causes toon to sit if not already
 --- @field public Spawn spawn The character's spawn
---- @field public SpellInCooldown fun(): boolean returns TRUE if you have a spell in cooldown and FALSE when not.
+--- @field public SpellInCooldown MQBoolean #returns TRUE if you have a spell in cooldown and FALSE when not.
 --- @field public SpellDamageBonus MQFloat #Spell Damage bonus
 --- @field public SpellRankCap MQFloat #your characters spell rank cap. if it returns: 1 = Rk. I spells 2 = Rk. II spells 3 = Rk. III spells
 --- @field public SpellShieldBonus MQFloat #Spell Shield bonus from gear and spells
@@ -161,7 +161,7 @@
 --- @field public StopCast fun() Causes toon to stop casting
 --- @field public STR MQFloat #Character Strength
 --- @field public StrikeThroughBonus MQFloat #Strikethrough bonus from gear and spells
---- @field public Stunned fun(): boolean Am I stunned?
+--- @field public Stunned MQBoolean #Am I stunned?
 --- @field public StunResistBonus MQFloat #Stun Resist bonus from gear and spells
 --- @field public Subscription fun(): string Subscription type GOLD, FREE, (Silver?)
 --- @field public SubscriptionDays MQFloat #Returns an intUsage: /echo I have ${Me.SubscriptionDays} left before my all access expires.
@@ -177,10 +177,10 @@
 --- @field public TakEarned MQFloat #Total LDoN points earned in Takish
 --- @field public TargetOfTarget target Target of Target (will only work when group or raid Target of Target is active; if not, it will return NULL)
 --- @field public Thirst MQFloat #Thirst level
---- @field public Trader fun(): boolean if you are an active Trader
---- @field public TributeActive fun(): boolean Tribute Active
+--- @field public Trader MQBoolean #if you are an active Trader
+--- @field public TributeActive MQBoolean #Tribute Active
 --- @field public TributeTimer ticks Tribute Timer
---- @field public UseAdvancedLooting fun(): boolean TRUE/FALSE if using advanced looting
+--- @field public UseAdvancedLooting MQBoolean #TRUE/FALSE if using advanced looting
 --- @field public WIS MQFloat #Character Wisdom
 --- @field public Vitality MQFloat #Total amount of Vitality your toon has
 Character = nil

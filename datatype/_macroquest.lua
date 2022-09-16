@@ -1,12 +1,12 @@
 --- @class macroquest
 --- @field public BuildDate fun(): string Date that MQ2Main.dll was built
---- @field public ChatChannel fun(): boolean Returns TRUE if channel name is joined
+--- @field public ChatChannel MQBoolean #Returns TRUE if channel name is joined
 --- @field public ChatChannels MQFloat #Returns the number #of channels currently joined
 --- @field public Error fun(): string Last normal error message
 --- @field public GameState fun(): string Returns "INGAME, CHARSELECT, PRECHARSELECT, UNKNOWN"
 --- @field public LastCommand fun(): string Last command entered
 --- @field public LastTell fun(): string Name of last person to send you a tell
---- @field public LClickedObject fun(): boolean Returns TRUE if an object has been left clicked
+--- @field public LClickedObject MQBoolean #Returns TRUE if an object has been left clicked
 --- @field public LoginName fun(): string Your station name
 --- @field public MouseX MQFloat #Mouse's X location
 --- @field public MouseY MQFloat #Mouse's Y location

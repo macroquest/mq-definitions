@@ -3,7 +3,7 @@
 --- @field public AGI MQFloat #AGI value on item
 --- @field public Accuracy MQFloat #Accuracy
 --- @field public Attack MQFloat #Attack value on item
---- @field public Attuneable fun(): boolean Attuneable?
+--- @field public Attuneable MQBoolean #Attuneable?
 --- @field public AugRestrictions MQFloat #Augment Restrictions
 --- @field public Augs MQFloat #Number of augs on this item
 --- @field public AugSlot1 MQFloat #Aug slot 1
@@ -64,15 +64,15 @@
 --- @field public ItemSlot MQFloat #Item Slot number see Slot Names
 --- @field public ItemSlot2 MQFloat #Item Slot sub number see Slot Names
 --- @field public LDoNTheme fun(): string "All", "Deepest Guk", "Miragul's", "Mistmoore", "Rujarkian", "Takish", "Unknown"
---- @field public Lore fun(): boolean Lore?
---- @field public Magic fun(): boolean Magic?
+--- @field public Lore MQBoolean #Lore?
+--- @field public Magic MQBoolean #Magic?
 --- @field public Mana MQFloat #Mana value on item
 --- @field public ManaRegen MQFloat #ManaRegen value on item
 --- @field public MaxPower MQFloat #Max power on an power source
 --- @field public MerchQuantity MQFloat #Quantity of item active merchant has
 --- @field public Name fun(): string Name
---- @field public NoDrop fun(): boolean No Trade?
---- @field public NoRent fun(): boolean Temporary?
+--- @field public NoDrop MQBoolean #No Trade?
+--- @field public NoRent MQBoolean #Temporary?
 --- @field public Power MQFloat #Power left on power source
 --- @field public Purity MQFloat #Purity of item
 --- @field public Race fun(): string Returns the #th long race name of the listed races on an item. Items suitable for ALL races will effectively have all 15 races listed.
@@ -88,7 +88,7 @@
 --- @field public STA MQFloat #STA value on item
 --- @field public Stack MQFloat #Number of items in the stack
 --- @field public Stacks MQFloat #Number of stacks of the item in your inventory
---- @field public Stackable fun(): boolean Stackable?
+--- @field public Stackable MQBoolean #Stackable?
 --- @field public StackCount MQFloat #The total number of the stackable item in your inventory
 --- @field public StackSize MQFloat #Maximum number if items that can be in the stack
 --- @field public STR MQFloat #STR value on item
@@ -102,13 +102,13 @@
 --- @field public svPoison MQFloat #svPoison value on item
 --- @field public Timer ticks Returns the number of ticks remaining on an item recast timer
 --- @field public TimerReady MQFloat #Returns the number of seconds remaining on an item recast timer
---- @field public Tradeskills fun(): boolean Tradeskills?
+--- @field public Tradeskills MQBoolean #Tradeskills?
 --- @field public Type fun(): string Type
 --- @field public Tribute MQFloat #Tribute value of the item
 --- @field public Value MQFloat #Item value in coppers
 --- @field public Weight MQFloat #Item weight
 --- @field public WIS MQFloat #WIS value on item
 --- @field public WornSlot invslot The #th invslot this item can be worn in (fingers/ears count as 2 slots)
-----@field public WornSlot fun(): boolean Can item be worn in invslot with this name? (worn slots only)
+----@field public WornSlot MQBoolean #Can item be worn in invslot with this name? (worn slots only)
 --- @field public WornSlots MQFloat #The number of invslots this item can be worn in (fingers/ears count as 2 slots)
 --- @field public ToString fun(): string Same as Name

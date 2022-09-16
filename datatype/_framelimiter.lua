@@ -1,11 +1,11 @@
 ---@class framelimiter
 ---@field public BackgroundFPS MQFloat #Value of the target background fps setting.
----@field public ClearScreen fun():boolean Value of the clear screen when not rendering setting.
+---@field public ClearScreen MQBoolean #Value of the clear screen when not rendering setting.
 ---@field public CPU MQFloat #Current CPU usage as %
----@field public Enabled fun():boolean TRUE if the frame limiter feature is currently active.
+---@field public Enabled MQBoolean #TRUE if the frame limiter feature is currently active.
 ---@field public ForegroundFPS MQFloat #Value of the target foreground fps setting.
 ---@field public MinSimulationFPS MQFloat #Value of the minimum simualtion rate setting.
 ---@field public RenderFPS MQFloat #Current graphics scene frame rate (visible fps).
----@field public SaveByChar fun():boolean TRUE if settings for the frame limiter are being saved by character.
+---@field public SaveByChar MQBoolean #TRUE if settings for the frame limiter are being saved by character.
 ---@field public SimulationFPS MQFloat #Current simulation frame rate (game updates per second).
 ---@field public Status fun():string Either "Foreground" or "Background".

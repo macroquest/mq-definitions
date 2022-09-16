@@ -3,9 +3,9 @@
 ---@meta
 ---@class raid
 ---@field public AverageLevel fun(): integer Average level of raid members (more accurate than in the window)
----@field public Invited fun(): boolean Have I been invited to the raid?
+---@field public Invited MQBoolean #Have I been invited to the raid?
 ---@field public Leader fun(): raidmember Raid leader
----@field public Locked fun(): boolean Returns TRUE if the raid is locked
+---@field public Locked MQBoolean #Returns TRUE if the raid is locked
 ---@field public Looter fun(): integer Number of specified looters
 ---Loot type: 
 --- - 1 Leader

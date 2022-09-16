@@ -2,15 +2,15 @@
 
 ---@diagnostic disable: duplicate-set-field
 ---@class pet : spawn
----@field Combat fun(): boolean Combat state
----@field Ghold fun(): boolean GHold state
----@field Hold fun(): boolean Hold state
----@field ReGroup fun(): boolean ReGroup state
+---@field Combat MQBoolean #Combat state
+---@field Ghold MQBoolean #GHold state
+---@field Hold MQBoolean #Hold state
+---@field ReGroup MQBoolean #ReGroup state
 ---@field Stance fun(): string Returns the pet's current stance (e.g. FOLLOW, GUARD)
----@field Stop fun(): boolean Stop state
+---@field Stop MQBoolean #Stop state
 ---@field Target spawn Returns the pet's current target
----@field Taunt fun(): boolean Taunt state
----@field Focus fun(): boolean Focus state
+---@field Taunt MQBoolean #Taunt state
+---@field Focus MQBoolean #Focus state
 ---@field ID fun(): integer returns pet ID
 local pet = {}
 

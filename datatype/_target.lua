@@ -3,7 +3,7 @@
 --- @field public AggroHolder spawn|fun(): spawn Returns the target's current target.
 --- @field public Beneficial cachedbuff|fun(): string Returns the name of the Beneficial spell if the Target has one. This will skip "player" casted buffs, but will show NPC Casted buffs and some AA buffs.
 --- @field public BuffDuration timestamp|fun(val:string|integer): timestamp Returns the duration remaining on this target buff by index number or by spell name
---- @field public BuffsPopulated fun(): boolean Returns TRUE when the target's buffs are finished populating.
+--- @field public BuffsPopulated MQBoolean #Returns TRUE when the target's buffs are finished populating.
 --- @field public Brells fun(): string Returns the name of the Brells spell if the Target has one
 --- @field public Charmed cachedbuff|fun(): string Returns the name of the Charmed spell if the Target has one
 --- @field public Clarity cachedbuff|fun(): string Returns the name of the Clarity spell if the Target has one

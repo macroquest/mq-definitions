@@ -23,26 +23,26 @@
 --- @field public TargetHP fun(): integer Hitpoints of Name's target.
 --- @field public Casting fun(): spell|'NULL' Spell Name is casting.
 --- @field public State fun(): string State of Name (STUN STAND SIT DUCK BIND FEIGN DEAD UNKNOWN).
---- @field public Attacking fun(): boolean Is Name Attacking?
---- @field public AFK fun(): boolean Is Name AFK?
---- @field public Binding fun(): boolean Is Name kneeling?
---- @field public Ducking fun(): boolean Is Name ducking?
---- @field public Feigning fun(): boolean Is Name feigning?
---- @field public Grouped fun(): boolean Is Name in a group? (not necessarily your own group)
---- @field public Invis fun(): boolean Is Name invis?
---- @field public Levitating fun(): boolean Is Name levitating?
---- @field public LFG fun(): boolean Is Name LFG?
---- @field public Mounted fun(): boolean Is Name on a mount?
---- @field public Moving fun(): boolean Is Name moving?
+--- @field public Attacking MQBoolean #Is Name Attacking?
+--- @field public AFK MQBoolean #Is Name AFK?
+--- @field public Binding MQBoolean #Is Name kneeling?
+--- @field public Ducking MQBoolean #Is Name ducking?
+--- @field public Feigning MQBoolean #Is Name feigning?
+--- @field public Grouped MQBoolean #Is Name in a group? (not necessarily your own group)
+--- @field public Invis MQBoolean #Is Name invis?
+--- @field public Levitating MQBoolean #Is Name levitating?
+--- @field public LFG MQBoolean #Is Name LFG?
+--- @field public Mounted MQBoolean #Is Name on a mount?
+--- @field public Moving MQBoolean #Is Name moving?
 --- @field public Detrimentals fun(): integer Total of detrimental counts for Name.
 --- @field public Detrimental fun(): string A string list of all detrimental types affecting Name.
---- @field public Raid fun(): boolean Is Name in a raid?
---- @field public Sitting fun(): boolean Is Name sitting?
---- @field public Standing fun(): boolean Is Name standing?
---- @field public Stunned fun(): boolean Is Name stunned?
+--- @field public Raid MQBoolean #Is Name in a raid?
+--- @field public Sitting MQBoolean #Is Name sitting?
+--- @field public Standing MQBoolean #Is Name standing?
+--- @field public Stunned MQBoolean #Is Name stunned?
 --- @field public FreeBuffSlots fun(): integer Total free buff slots Name has.
 --- @field public InZone fun(): boolean|'NULL' Is Name in the same zone as you?
---- @field public InGroup fun(): boolean Is Name in your group?
+--- @field public InGroup MQBoolean #Is Name in your group?
 --- @field public Leader fun(): string Is Name the group leader?
 --- @field public Note fun(): string Is Name the group leader?
 --- @field public Updated fun(): integer Timestamp of last NetBots update from Name.
@@ -85,5 +85,5 @@
 --- @field public Heading fun(): string The Heading of Name.
 --- @field public MacroName fun(): string The running macro of Name, empty string if none running.
 --- @field public MacroState fun(): integer The macro state for Name. 0=No macro running, 1=Running, 2=Paused
---- @field public NavigationActive fun(): boolean If running a MQ2Nav path for Name.
---- @field public NavigationPaused fun(): boolean If a MQ2Nav path is paused for Name.
+--- @field public NavigationActive MQBoolean #If running a MQ2Nav path for Name.
+--- @field public NavigationPaused MQBoolean #If a MQ2Nav path is paused for Name.

@@ -1,11 +1,11 @@
 --- @class window
 --- @field public BGColor argb Background color
---- @field public Checked fun(): boolean Returns TRUE if the button has been checked
+--- @field public Checked MQBoolean #Returns TRUE if the button has been checked
 --- @field public Child window Child with this name
---- @field public Children fun(): boolean Returns TRUE if the window has children
+--- @field public Children MQBoolean #Returns TRUE if the window has children
 --- @field public DoClose fun() Does the action of closing a window
 --- @field public DoOpen fun() Does the action of opening a window
---- @field public Enabled fun(): boolean Returns TRUE if the window is enabled
+--- @field public Enabled MQBoolean #Returns TRUE if the window is enabled
 --- @field public FirstChild window First child window
 --- @field public Height MQFloat #Height in pixels
 --- @field public Highlighted boolean Returns TRUE if the window is highlighted
@@ -19,12 +19,12 @@
 --- @field public LeftMouseHeldUp fun() does the action of holding the left mouse button up
 --- @field public LeftMouseUp fun() Does the action of clicking the left mouse button up
 --- @field public List fun(): string Get the text for the #th item in a list box. Only works on list boxes. Use of ,y is optional and allows selection of the column of the window to get text from or Find an item in a list box by partial match (use window.List[=text] for exact). Only works on list boxes. Use of ,y is optional and allows selection of the column of the window to search in.
---- @field public Minimized fun(): boolean Returns TRUE if the window is minimized
---- @field public MouseOver fun(): boolean Returns TRUE if the mouse is currently over the window
---- @field public MyTradeReady fun(): boolean Have I clicked the Trade button?
+--- @field public Minimized MQBoolean #Returns TRUE if the window is minimized
+--- @field public MouseOver MQBoolean #Returns TRUE if the mouse is currently over the window
+--- @field public MyTradeReady MQBoolean #Have I clicked the Trade button?
 --- @field public Name fun(): string Name of window piece, e.g. "ChatWindow" for top level windows, or the piece name for child windows. Note: this is Custom UI dependent
 --- @field public Next window Next sibling window
---- @field public Open fun(): boolean Returns TRUE if the window is open
+--- @field public Open MQBoolean #Returns TRUE if the window is open
 --- @field public Parent window Parent window
 --- @field public RightMouseDown fun() does the action of clicking the right mouse button
 --- @field public RightMouseHeld fun() Does the action of holding the right mouse button
@@ -32,7 +32,7 @@
 --- @field public RightMouseUp fun() Does the action of clicking the right mouse button up
 --- @field public Select fun() Selects the specified window
 --- @field public ScreenID fun(): string ScreenID of window piece. Note: This is not Custom UI dependent, it must be the same on all UIs
---- @field public Siblings fun(): boolean Returns TRUE if the window has siblings
+--- @field public Siblings MQBoolean #Returns TRUE if the window has siblings
 --- @field public Style MQFloat #Window style code
 --- @field public Text fun(): string Window's text
 --- @field public Tooltip fun(): string TooltipReference text
@@ -43,5 +43,5 @@
 --- @field public Width MQFloat #Width in pixels
 --- @field public X MQFloat #Screen X position
 --- @field public Y MQFloat #Screen Y position
---- @field public ToString fun(): boolean TRUE if window exists, FALSE if not
+--- @field public ToString MQBoolean #TRUE if window exists, FALSE if not
 

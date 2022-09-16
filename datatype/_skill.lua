@@ -1,6 +1,6 @@
 --- @class skill
---- @field public Activated fun(): boolean Returns TRUE if the skill has been activated
---- @field public AltTimer fun(): boolean Returns TRUE if the skill uses the kick/bash/slam/backstab/frenzy timer
+--- @field public Activated MQBoolean #Returns TRUE if the skill has been activated
+--- @field public AltTimer MQBoolean #Returns TRUE if the skill uses the kick/bash/slam/backstab/frenzy timer
 --- @field public ID number Skill number
 --- @field public MinLevel fun(): integer Minimum level for your class
 --- @field public Name fun(): string Name of the skill

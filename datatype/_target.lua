@@ -2,7 +2,7 @@
 --- @field public Aego cachedbuff|fun(): string Returns the name of the Aego spell if the Target has one
 --- @field public AggroHolder spawn|fun(): spawn Returns the target's current target.
 --- @field public Beneficial cachedbuff|fun(): string Returns the name of the Beneficial spell if the Target has one. This will skip "player" casted buffs, but will show NPC Casted buffs and some AA buffs.
---- @field public Buff cachedbuff|fun(): cachedbuff Returns the target's spell by buff index number or the first buff if no Index is provided.
+--- @field public Buff cachedbuff|fun(name?: string|integer): cachedbuff Returns the target's spell by buff index number or the first buff if no Index is provided.
 --- @field public BuffCount fun(): integer Returns the number of buffs on the target.
 --- @field public BuffDuration timestamp|fun(val:string|integer): timestamp Returns the duration remaining on this target buff by index number or by spell name
 --- @field public BuffsPopulated fun(): boolean Returns TRUE when the target's buffs are finished populating.

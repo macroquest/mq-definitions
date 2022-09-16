@@ -7,7 +7,7 @@
 --- @field public Month fun(): integer #Month of the year (1-12)
 --- @field public Night fun(): boolean #Gives true if the current hour is considered "night" in EQ (7:00pm-6:59am)
 --- @field public Second fun(): integer #Second (0-59)
---- @field public SecondsSinceMidnight fun(): number #Number of seconds since midnight
+--- @field public SecondsSinceMidnight MQFloat ##Number of seconds since midnight
 --- @field public Time12 fun(): string #Time in 12-hour format (HH:MM:SS)
 --- @field public Time24 fun(): string #Time in 24-hour format (HH:MM:SS)
 --- @field public Year fun(): integer #Year

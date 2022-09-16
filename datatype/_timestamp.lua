@@ -6,7 +6,7 @@
 --- @field public Time fun(): string Time value formatted in M:S
 --- @field public TotalMinutes fun(): integer Total number of minutes in the timestamp (1hr 23min 53 seconds will return 83)
 --- @field public TotalSeconds fun(): integer Total number of minutes in the timestamp (1hr 23min 53 seconds will return 5033)
---- @field public Raw fun(): number Time value represented in milliseconds
+--- @field public Raw MQFloat #Time value represented in milliseconds
 --- @field public Float float timestamp represented in seconds (1hr 23 min 53 seconds will return 5033.00)
 --- @field public Ticks fun(): integer Time value represented in ticks
 --- @field public ToString fun(): string Same as Raw

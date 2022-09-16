@@ -1,7 +1,7 @@
 --- @class groupmember : spawn
---- @field public Index fun(): number Which number in the group the member is
+--- @field public Index MQFloat #Which number in the group the member is
 --- @field public Leader fun(): boolean TRUE if the member is the group's leader, FALSE otherwise
---- @field public Level fun(): number The member's level
+--- @field public Level MQFloat #The member's level
 --- @field public MainAssist fun(): boolean TRUE if the member is designated as the group's Main Assist, FALSE otherwise
 --- @field public MainTank fun(): boolean TRUE if the member is designated as the group's Main Tank, FALSE otherwise
 --- @field public Mercenary fun(): boolean TRUE if the member is a mercenary, FALSE otherwise

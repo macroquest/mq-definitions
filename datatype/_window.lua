@@ -7,13 +7,13 @@
 --- @field public DoOpen fun() Does the action of opening a window
 --- @field public Enabled fun(): boolean Returns TRUE if the window is enabled
 --- @field public FirstChild window First child window
---- @field public Height fun(): number Height in pixels
+--- @field public Height MQFloat #Height in pixels
 --- @field public Highlighted boolean Returns TRUE if the window is highlighted
 --- @field public HisTradeReady boolean Has the other person clicked the Trade button?
---- @field public HScrollMax fun(): number Horizontal scrollbar range
---- @field public HScrollPos fun(): number Horizontal scrollbar position
---- @field public HScrollPct fun(): number Horizontal scrollbar position in % to range from 0 to 100
---- @field public Items fun(): number Number of items in a Listbox or Combobox
+--- @field public HScrollMax MQFloat #Horizontal scrollbar range
+--- @field public HScrollPos MQFloat #Horizontal scrollbar position
+--- @field public HScrollPct MQFloat #Horizontal scrollbar position in % to range from 0 to 100
+--- @field public Items MQFloat #Number of items in a Listbox or Combobox
 --- @field public LeftMouseDown fun() Does the action of clicking the left mouse button down
 --- @field public LeftMouseHeld fun() Does the action of holding the left mouse button
 --- @field public LeftMouseHeldUp fun() does the action of holding the left mouse button up
@@ -33,15 +33,15 @@
 --- @field public Select fun() Selects the specified window
 --- @field public ScreenID fun(): string ScreenID of window piece. Note: This is not Custom UI dependent, it must be the same on all UIs
 --- @field public Siblings fun(): boolean Returns TRUE if the window has siblings
---- @field public Style fun(): number Window style code
+--- @field public Style MQFloat #Window style code
 --- @field public Text fun(): string Window's text
 --- @field public Tooltip fun(): string TooltipReference text
 --- @field public Type fun(): string Type of window piece (Screen for top level windows, or Listbox, Button, Gauge, Label, Editbox, Slider, etc)
---- @field public VScrollMax fun(): number Vertical scrollbar range
---- @field public VScrollPct fun(): number Vertical scrollbar position in % to range from 0 to 100
---- @field public VScrollPos fun(): number Vertical scrollbar position
---- @field public Width fun(): number Width in pixels
---- @field public X fun(): number Screen X position
---- @field public Y fun(): number Screen Y position
+--- @field public VScrollMax MQFloat #Vertical scrollbar range
+--- @field public VScrollPct MQFloat #Vertical scrollbar position in % to range from 0 to 100
+--- @field public VScrollPos MQFloat #Vertical scrollbar position
+--- @field public Width MQFloat #Width in pixels
+--- @field public X MQFloat #Screen X position
+--- @field public Y MQFloat #Screen Y position
 --- @field public ToString fun(): boolean TRUE if window exists, FALSE if not
 

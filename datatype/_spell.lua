@@ -9,12 +9,12 @@
 --- @field public DurationValue1 ticks Duration of the spell (if any)
 --- @field public FizzleTime timestamp Time to recover after fizzle
 --- @field public GemIcon fun(): integer Icon number of the spell. Exmaple ${Spell[blah].GemIcon}
---- @field public HastePct fun(): number Percentage of haste, example of use ${Me.Hasted.HastePct} or ${Spell[Speed of Milyex].HastePct}
+--- @field public HastePct MQFloat #Percentage of haste, example of use ${Me.Hasted.HastePct} or ${Spell[Speed of Milyex].HastePct}
 --- @field public ID number Spell ID
 --- @field public IsSkill fun(): boolean is this spell a skill?
 --- @field public IsSwarmSpell fun(): boolean Is this spell a Swarm spell?
 --- @field public Level fun(): integer Level
---- @field public Location fun(): number Appears to be max distance
+--- @field public Location MQFloat #Appears to be max distance
 --- @field public Mana fun(): integer Mana cost (unadjusted)
 --- @field public MyCastTime timestamp Adjusted cast time
 --- @field public MyRange float Adjusted spell range, including focus effects, etc.
@@ -25,12 +25,12 @@
 --- @field public RankName fun(): string Returns the spell/combat ability name rank character has.
 --- @field public ReagentCount fun(): integer Number of reagents used for this spell
 --- @field public ReagentID fun(): integer ID of the reagent item used for this spell
---- @field public RecastTime fun(): number Time to recast after successful cast
+--- @field public RecastTime MQFloat #Time to recast after successful cast
 --- @field public RecoveryTime timestamp Same as FizzleTime
 --- @field public ResistAdj fun(): integer Resist adjustment
 --- @field public ResistType fun(): string See below for Resist Types
 --- @field public Skill fun(): string See below for Skill Types
---- @field public SlowPct fun(): number Percentage of slow, example of use ${Target.Slowed.SlowPct} or ${Spell[Slowing Helix].SlowPct}
+--- @field public SlowPct MQFloat #Percentage of slow, example of use ${Target.Slowed.SlowPct} or ${Spell[Slowing Helix].SlowPct}
 --- @field public SpellIcon fun(): integer Icon number of the spell. Exmaple ${Spell[blah].SpellIcon}
 --- @field public SpellType fun(): string The spell type, Will be one of "Beneficial(Group)", "Beneficial", "Detrimental" or "Unknown"
 --- @field public Stacks fun(): boolean Does the selected spell stack with your current buffs (duration is in ticks)

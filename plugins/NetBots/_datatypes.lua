@@ -5,9 +5,9 @@
 --- @field public ID fun(): integer|'NULL' Spawn ID of Name.
 --- @field public Class class Class of Name.
 --- @field public Level fun(): integer Level of Name.
---- @field public PctExp fun(): number Percent Experience of Name.
---- @field public PctAAExp fun(): number Percent AA Experience of Name.
---- @field public PctGroupLeaderExp fun(): number Percent Group Leader Experience of Name. EMU servers only.
+--- @field public PctExp MQFloat #Percent Experience of Name.
+--- @field public PctAAExp MQFloat #Percent AA Experience of Name.
+--- @field public PctGroupLeaderExp MQFloat #Percent Group Leader Experience of Name. EMU servers only.
 --- @field public CurrentHPs fun(): integer Current Hitpoints of Name.
 --- @field public MaxHPs fun(): integer Total Hitpoints of Name
 --- @field public PctHPs fun(): integer Current Hitpoints percentage of Name.

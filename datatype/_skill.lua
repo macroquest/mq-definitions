@@ -4,7 +4,7 @@
 --- @field public ID number Skill number
 --- @field public MinLevel fun(): integer Minimum level for your class
 --- @field public Name fun(): string Name of the skill
---- @field public ReuseTime fun(): number Reuse timer (what number format? ticks, seconds, deciseconds?)
+--- @field public ReuseTime MQFloat #Reuse timer (what number format? ticks, seconds, deciseconds?)
 --- @field public SkillCap fun(): integer Skill cap based on your current level and class.
 --- @field public StartingSkill fun(): integer Base skill level for your class
 --- @field public ToString fun(): string Same as Name

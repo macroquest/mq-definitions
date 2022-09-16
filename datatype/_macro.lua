@@ -1,15 +1,15 @@
 --- @class Macro
 --- @field public CurCommand fun(): string list the current line number, macro name and code of the macro being processed
---- @field public CurLine fun(): number The current line number of the macro being processed
+--- @field public CurLine MQFloat #The current line number of the macro being processed
 --- @field public CurSub fun(): string The current sub routine
 --- @field public isOuterVariable fun(): boolean true if the provided parameter is a defined outer variable
 --- @field public isTLO fun(): boolean true if the provided parameter an existing TLO
---- @field public MemUse fun(): number How much memory the macro is using
+--- @field public MemUse MQFloat #How much memory the macro is using
 --- @field public Name fun(): string The name of the macro currently running
---- @field public Params fun(): number The number of parameters that were passed to the current subroutine
+--- @field public Params MQFloat #The number of parameters that were passed to the current subroutine
 --- @field public Paused fun(): boolean NULL if no macro running, FALSE if mqpause is off, TRUE if mqpause is on
 --- @field public Return fun(): string The value that was returned by the last completed subroutine
---- @field public RunTime fun(): number How long the macro has been running (in seconds)
---- @field public StackSize fun(): number StackSize?
+--- @field public RunTime MQFloat #How long the macro has been running (in seconds)
+--- @field public StackSize MQFloat #StackSize?
 --- @field public Undeclared fun() will list all undeclared variables
 --- @field public Variable fun(name: string): int|bool|fun(): any # Attemps to get Macro variable into LUA

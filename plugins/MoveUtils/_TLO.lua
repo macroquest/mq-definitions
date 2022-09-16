@@ -11,10 +11,10 @@
 ---@field TotalSilence MQBoolean #Returns TRUE if totalsilence is enabled
 ---@field Aggro MQBoolean #Returns TRUE if you are facing your target and your target is facing you
 ---@field TryToJump MQBoolean #Returns TRUE if stucklogic trytojump is enabled
----@field PauseMinDelay fun(): integer Returns the min delay for mousepause and mpause to resume command in ms
----@field PauseMaxDelay fun(): integer Returns the max delay for mousepause and mpause to resume command in ms
----@field PulseCheck fun(): integer Returns the number of pulses used to average movement rate for stucklogic
----@field PulseUnstuck fun(): integer Returns the number of pulses successfully moved forward after being stuck to be considered unstuck
+---@field PauseMinDelay MQInt #Returns the min delay for mousepause and mpause to resume command in ms
+---@field PauseMaxDelay MQInt #Returns the max delay for mousepause and mpause to resume command in ms
+---@field PulseCheck MQInt #Returns the number of pulses used to average movement rate for stucklogic
+---@field PulseUnstuck MQInt #Returns the number of pulses successfully moved forward after being stuck to be considered unstuck
 ---@field DistStuck MQFloat #Returns the amount of distance needed to have moved \(compared against pulse average\) or else considered stuck by stucklogic
 ---@field Version MQFloat #Returns the version number of the plugin
 ---@field MovePause MQBoolean #Returns TRUE if mpause \(PauseKB\) is enabled
@@ -34,7 +34,7 @@ TLO.MoveUtils = {}
 ---@field Behind MQBoolean #Returns TRUE if currently behind target \(regardless of _/stick behind_\), false if outside of stick dist or not behind
 ---@field Stopped MQBoolean #Returns TRUE if stick is within stick distance
 ---@field Pin MQBoolean #Returns TRUE if stick pin is active
----@field StickTarget fun(): integer Returns spawnid of stick target if stick id/hold used, else spawnid of current target, 0 if no target and id/hold not used
+---@field StickTarget MQInt #Returns spawnid of stick target if stick id/hold used, else spawnid of current target, 0 if no target and id/hold not used
 ---@field StickTargetName fun(): string Returns DisplayedName of stick target if stick id/hold used, else current target or NONE if no target and hold/id not used
 ---@field DistMod MQFloat #Returns current stickdist modifier
 ---@field DistModPercent MQFloat #Returns current stickdist percent modifier
@@ -61,8 +61,8 @@ TLO.MoveTo = {}
 ---@field AnchorY MQFloat #Returns location of current camp Y anchor
 ---@field LeashLength MQFloat #Returns size of Leash Length
 ---@field CampRadius MQFloat #Returns size of camp radius
----@field MinDelay fun(): integer Returns the min delay for auto-returning to camp in ms
----@field MaxDelay fun(): integer Returns the max delay for auto-returning to camp in ms
+---@field MinDelay MQInt #Returns the min delay for auto-returning to camp in ms
+---@field MaxDelay MQInt #Returns the max delay for auto-returning to camp in ms
 ---@field Returning MQBoolean #Returns TRUE if /makecamp return issued
 ---@field AltAnchorX MQFloat #Returns location of current altcamp X anchor
 ---@field AltAnchorY MQFloat #Returns location of current altcamp Y anchor

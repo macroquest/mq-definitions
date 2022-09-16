@@ -1,5 +1,5 @@
 --- @class xtarget
---- @field public ID fun(): integer ID of specified XTarget
+--- @field public ID MQInt #ID of specified XTarget
 --- @field public Name fun(): string Name of specified XTarget
 --- @field public PctAggro MQFloat #PctAggro of specified XTarget
 --- @field public TargetType fun(): string Extended target type

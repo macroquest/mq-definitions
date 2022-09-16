@@ -1,10 +1,10 @@
 --- @class ticks
---- @field public Hours fun(): integer The number of hours in HH:MM:SS (0-23)
---- @field public Minutes fun(): integer The number of minutes in HH:MM:SS (1-59)
---- @field public Seconds fun(): integer The number of seconds in HH:MM:SS (1-59)
---- @field public TotalMinutes fun(): integer The total number of minutes
---- @field public TotalSeconds fun(): integer The total number of seconds
---- @field public Ticks fun(): integer The value in ticks
+--- @field public Hours MQInt #The number of hours in HH:MM:SS (0-23)
+--- @field public Minutes MQInt #The number of minutes in HH:MM:SS (1-59)
+--- @field public Seconds MQInt #The number of seconds in HH:MM:SS (1-59)
+--- @field public TotalMinutes MQInt #The total number of minutes
+--- @field public TotalSeconds MQInt #The total number of seconds
+--- @field public Ticks MQInt #The value in ticks
 --- @field public Time fun(): string Time in the form MM:SS
 --- @field public TimeHMS fun(): string Time in the form HH:MM:SS (if there are no hours, the form will be MM:SS)
 --- @field public ToString fun(): string Same as Ticks

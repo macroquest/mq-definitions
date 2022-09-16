@@ -3,7 +3,7 @@
 ---@field public ClericType MQBoolean #Cleric/Paladin?
 ---@field public DruidType MQBoolean #Druid/Ranger?
 ---@field public HealerType MQBoolean #Cleric/Druid/Shaman?
----@field public ID fun(): integer The class's ID #
+---@field public ID MQInt #The class's ID #
 ---@field public MercType MQBoolean #Mercenary?
 ---@field public Name fun(): string The long name, as in "Ranger"
 ---@field public NecromancerType MQBoolean #Necromancer/Shadow Knight?

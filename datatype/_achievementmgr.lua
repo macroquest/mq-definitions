@@ -1,12 +1,12 @@
 ---@meta
 ---@class achievementmgr
 ---@field AchievementByIndex fun(index:integer):achievement Find an achievement by its index
----@field AchievementCount fun():integer The number of achievements in the mananger
+---@field AchievementCount MQInt #The number of achievements in the mananger
 ---@field CategoryByIndex fun(index:integer):achievementcat Find an achievement category by its index
----@field CategoryCount fun():integer The number of achievement categories in the mananger
----@field Points fun():integer The total number of accumulated achievement points
----@field CompletedAchievements fun():integer The number of completed achievements
----@field TotalAchievements fun():integer The number of available achievements
+---@field CategoryCount MQInt #The number of achievement categories in the mananger
+---@field Points MQInt #The total number of accumulated achievement points
+---@field CompletedAchievements MQInt #The number of completed achievements
+---@field TotalAchievements MQInt #The number of available achievements
 ---@field Ready MQBoolean #Indicates that the manager has loaded all achievement data is ready to be used
 achievementmgr = {}
 

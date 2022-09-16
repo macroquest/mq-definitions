@@ -3,7 +3,7 @@
 --- @field public CanTrain MQBoolean #Returns true/false on if the Alternative Ability can be trained
 --- @field public Cost MQFloat #Base cost to train
 --- @field public Description fun(): string Basic description
---- @field public ID fun(): integer ID
+--- @field public ID MQInt #ID
 --- @field public Index MQFloat #Returns the index number of the Alternative Ability
 --- @field public MaxRank MQFloat #Max rank available in this ability
 --- @field public MinLevel MQFloat #Minimum level to train

@@ -1,4 +1,4 @@
 ---@meta
 ---@class alert mq datatype
 ---@field List fun(index:integer):alertlist Get the item from the list at the specified index
----@field Size fun():integer Get the number of alerts
+---@field Size MQInt #Get the number of alerts

@@ -3,4 +3,4 @@
 ---@field ExpeditionName fun():string The name of the expedition 
 ---@field EventName fun():string The name of the event 
 ---@field Timer fun():timestamp The timestamp indicating when this lockout expires
----@field EventID fun():integer ID of the event.  Value only unique per Expedition.  Non-event lockouts (Replay Timer) will have a -1 event ID
+---@field EventID MQInt #ID of the event.  Value only unique per Expedition.  Non-event lockouts (Replay Timer) will have a -1 event ID

@@ -11,7 +11,7 @@
 ---@field Target spawn Returns the pet's current target
 ---@field Taunt MQBoolean #Taunt state
 ---@field Focus MQBoolean #Focus state
----@field ID fun(): integer returns pet ID
+---@field ID MQInt #returns pet ID
 local pet = {}
 
 ---Returns the slot number for the buff name

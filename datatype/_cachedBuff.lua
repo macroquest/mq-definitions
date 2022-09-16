@@ -4,10 +4,10 @@
 ---@class cachedbuff : spell
 ---@field public CasterName fun(): string Returns the name of the caster who applied the cached buff
 ---@field public Caster fun(): string Same as *CasterName*, added for conistency.
----@field public Count fun(): integer Returns the amount of buffs catched, or -1 it none
----@field public Duration fun(): integer Returns the duration of the buff
----@field public OriginalDuration fun(): integer Returns the original duration of the buff
----@field public Slot fun(): integer Returns the buff slot the target had the buff in
+---@field public Count MQInt #Returns the amount of buffs catched, or -1 it none
+---@field public Duration MQInt #Returns the duration of the buff
+---@field public OriginalDuration MQInt #Returns the original duration of the buff
+---@field public Slot MQInt #Returns the buff slot the target had the buff in
 ---@field public Spell spell|function(): spell Access the spell
----@field public SpellID fun(): integer Returns the buff's spell ID
+---@field public SpellID MQInt #Returns the buff's spell ID
 ---@field public Staleness timestamp|fun(): timestamp How long has it been since this information was refreshed

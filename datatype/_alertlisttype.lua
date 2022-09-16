@@ -1,6 +1,6 @@
 ---@meta
 ---@class alertlist MQDatatype
----@field AlertList fun():integer Any spawn on the associated alert list
+---@field AlertList MQInt #Any spawn on the associated alert list
 ---@field bAlert MQBoolean #Indicates usage of alert filter
 ---@field bAura MQBoolean #Any aur.
 ---@field bBanker MQBoolean #Any banker
@@ -36,24 +36,24 @@
 ---@field bTrader MQBoolean #Any player that is a trader
 ---@field bTributeMaster MQBoolean #Any NPC that is a tribute master
 ---@field Class fun():string Any spawn that is the given class
----@field FRadius fun():integer Any spawn that is given distance from the given loc filter
----@field FromSpawnID fun():integer Search starts at given spawn id
+---@field FRadius MQInt #Any spawn that is given distance from the given loc filter
+---@field FromSpawnID MQInt #Search starts at given spawn id
 ---@field GuildID fun():integer	Any member of the guild with the given id
 ---@field Light fun():string Any spawn that is equipped with the given light source
----@field MaxLevel fun():integer Any spawn that is at this level or lower
----@field MinLevel fun():integer Any spawn that is at this level or greater
+---@field MaxLevel MQInt #Any spawn that is at this level or lower
+---@field MinLevel MQInt #Any spawn that is at this level or greater
 ---@field Name fun():string Any spawn with the given name
----@field NearAlertList fun():integer Any spawn near the given alert list
----@field NoAlertList fun():integer Excludes any spawn in the given alert list
----@field NotID fun():integer Excludes any spawn with the given id
----@field NotNearAlertList fun():integer Excludes any spawn near the given alert list
----@field PlayerState fun():integer Any spawn with the given state
+---@field NearAlertList MQInt #Any spawn near the given alert list
+---@field NoAlertList MQInt #Excludes any spawn in the given alert list
+---@field NotID MQInt #Excludes any spawn with the given id
+---@field NotNearAlertList MQInt #Excludes any spawn near the given alert list
+---@field PlayerState MQInt #Any spawn with the given state
 ---@field Race fun():string Any spawn with the given race
----@field Radius fun():integer Excludes the spawn if any player is within this distance (nopcnear filter)
----@field SortBy fun():integer Indicates the sort order of the filter
+---@field Radius MQInt #Excludes the spawn if any player is within this distance (nopcnear filter)
+---@field SortBy MQInt #Indicates the sort order of the filter
 ---@field Spawn fun():spawn If an ID or Name is part of the filter, attempts to return a spawn with the matching ID or Name
----@field SpawnID fun():integer Any spawn with the given Spawn ID
----@field SpawnType fun():integer Any spawn with the given type
----@field xLoc fun():integer x component of the loc filter
----@field yLoc fun():integer y component of the loc filter
----@field ZRadius fun():integer z distance component of the loc filter
+---@field SpawnID MQInt #Any spawn with the given Spawn ID
+---@field SpawnType MQInt #Any spawn with the given type
+---@field xLoc MQInt #x component of the loc filter
+---@field yLoc MQInt #y component of the loc filter
+---@field ZRadius MQInt #z distance component of the loc filter

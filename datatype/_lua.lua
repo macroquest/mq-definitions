@@ -1,18 +1,18 @@
 --- @class LuaInfo
---- @field public PID fun(): integer The PID of the running or most recently executed version of this script
+--- @field public PID MQInt #The PID of the running or most recently executed version of this script
 --- @field public Name fun(): string The name of the script
 --- @field public Path fun(): string The full path of the script
 --- @field public Arguments fun(): string A comma delimited list of arguments passed to the script
 --- @field public StartTime fun(): string The time the most recent execution of the script was started
 --- @field public EndTime fun(): string The time the most recent execution of the script ended or NULL if the script has not ended
---- @field public ReturnCount fun(): integer The number of returns from the script, will be 0 if the script has not ended
+--- @field public ReturnCount MQInt #The number of returns from the script, will be 0 if the script has not ended
 --- @field public Return fun(index: integer): string string If not indexed, a comma-delimited list of return values. Accepts an integereger index to get a single return value if there is more than one
 --- @field public Status fun(): string The execution status of the script
 ---
 --- @class Lua
 --- @field public PIDs fun(): string A comma-delimited list of integereger PIDs that have info to access
 --- @field public Dir fun(): string The base lua scripts directory
---- @field public Turbo fun(): integer The turbo value
+--- @field public Turbo MQInt #The turbo value
 --- @field public RequirePaths fun(): string The semicolon-delimited value for lua require search paths
 --- @field public CRequirePaths fun(): string The semicolon-delimited value for dll require search paths
 --- @field public Script fun(pid: integer): LuaInfo The accessor to get info on individual scripts. Accepts a PID as an index, or will default to the last executed script that has finished running

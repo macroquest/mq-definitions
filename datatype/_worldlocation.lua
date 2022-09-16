@@ -1,5 +1,5 @@
 --- @class worldlocation
---- @field public ID fun(): integer # The location's ID
+--- @field public ID MQInt # The location's ID
 --- @field public Heading MQFloat ## At the point of binding, what direction was the character facing
 --- @field public Zone zone # Access to the zone data
 --- @field public X MQFloat ## The X coordinate

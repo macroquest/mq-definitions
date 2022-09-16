@@ -14,13 +14,11 @@
 --- @field public Binding fun(): boolean Binding wounds?
 --- @field public Blind fun(): number Blind?  Not sure why this is a number?
 --- @field public Body body Body type
---- @field public Buff fun(name: string): spell Buff spell
 --- @field public bShowHelm fun(): boolean Showing Helm?
 --- @field public bStationary fun(): boolean Stationary spawn?  Not to be confused with "Moving"
 --- @field public bTempPet fun(): boolean Is the spawn a Temporary Pet?
 --- @field public Buyer fun(): boolean Is a buyer? (ie. Buyer in the bazaar)
 --- @field public bWaitingForPort fun(): boolean Am I waiting to accept a port?
---- @field public CachedBuff cachedbuff Caches buff information cast on others, refer to [[DataType:CachedBuff for additional information
 --- @field public CachedBuffCount fun(): number Number of Buffs cached
 --- @field public CanSplashLand fun(): boolean TRUE/FALSE on if a splash spell can land...NOTE! This check is ONLY for line of sight to the targetindicator (red/green circle)
 --- @field public Casting spell Spell, if currently casting (only accurate on yourself, not NPCs or other group members)
@@ -150,3 +148,37 @@
 --- @field public D fun(): number Shortcut for -Z (makes Downward positive)
 --- @field public FindBuff fun(predicate: string): spell Try find a given buff/debuff given predicate from cachedbuffs
 --- @field public Aggresive fun(): boolean Is the spawn agressive towards you
+local spawn = {}
+
+---@diagnostic disable: duplicate-set-field
+---Returns the cachedbuff given the index or first one found
+---Data must be populated first by targeting
+---@param index? integer
+---@return cachedbuff
+function spawn.Buff(index)end
+
+---Returns the cachedbuff given the spell name
+---Data must be populated first by targeting
+---@param spellName string
+---@return cachedbuff
+function spawn.Buff(spellName)end
+---@diagnostic enable: duplicate-set-field
+
+---@return integer # Returns the number of cached buffs on the spawn. (Same as CachedBuffCount)
+function spawn.BuffCount() end
+
+---@diagnostic disable: duplicate-set-field
+---Returns the cachedbuff given the spell id
+---Data must be populated first by targeting
+---Refer to [DataType:CachedBuff](https://docs.macroquest.org/reference/data-types/datatype-cachedbuff/) for additional information
+---@param spellId integer
+---@return cachedbuff
+function spawn.CachedBuff(spellId)end
+
+---Returns the cachedbuff given the predicate (see https://docs.macroquest.org/main/features/cached-buffs/)
+---Data must be populated first by targeting
+---Refer to [DataType:CachedBuff](https://docs.macroquest.org/reference/data-types/datatype-cachedbuff/) for additional information
+---@param predicate string
+---@return cachedbuff
+function spawn.CachedBuff(predicate)end
+---@diagnostic enable: duplicate-set-field

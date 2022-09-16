@@ -112,7 +112,7 @@ function mq.imgui.destroy(name) end
 ---@field AltAbility altability
 ---@field Bandoliler any
 ---@field Corpse corpse|fun():corpse|nil Corpse you are looting
----@field Cursor item|fun():string|nil
+---@field Cursor MQItem
 ---@field DisplayItem fun():item Access to all the information in the Item Display window
 ---@field DoorTarget spawn|fun():string|nil Information on your doortarget
 ---@field DynamicZone dynamiczone
@@ -141,7 +141,7 @@ function mq.imgui.destroy(name) end
 ---@field Macro Macro
 ---@field MacroQuest macroquest
 ---@field Math math
----@field Me character
+---@field Me MQCharacter
 ---@field Menu any
 ---@field Mercenary mercenary
 ---@field Merchant merchant #Interacts with the currently active merchant
@@ -185,22 +185,22 @@ function TLO.NearestSpawn(index, filter)end
 
 ---Finds an Item by the item ID
 ---@param id integer
----@return item | fun(): string|nil
+---@return MQItem
 function mq.TLO.FindItem(id)end
 
 ---Finds an Item by the partial item Name (use of '=' infront of name forces exact match)
 ---@param name string
----@return item | fun(): string|nil
+---@return MQItem
 function mq.TLO.FindItem(name)end
 
 ---Finds an Item in the bank by the item ID
 ---@param id integer
----@return item | fun(): string|nil
+---@return MQItem
 function mq.TLO.FindItemBank(id)end
 
 ---Finds an Item in the bank by the partial item Name (use of '=' infront of name forces exact match)
 ---@param name string
----@return item | fun(): string|nil
+---@return MQItem
 function mq.TLO.FindItemBank(name)end
 
 ---Return a counts of Items by the item ID

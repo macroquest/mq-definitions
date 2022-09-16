@@ -52,7 +52,7 @@
 --- @field public DoTarget fun() targets spawn
 --- @field public Ducking MQBoolean #Ducking?
 --- @field public Equipment MQFloat #returns a inttype, it takes numbers 0-8 or names: head chest arms wrists hands legs feet primary offhand
---- @field public EQLoc MQFloat #Location using EQ format
+--- @field public EQLoc MQString #Location using EQ format
 --- @field public FD fun(): number
 --- @field public FeetWet MQBoolean #Feet wet/swimming?
 --- @field public Feigning MQBoolean #Feigning?
@@ -154,13 +154,13 @@ local spawn = {}
 ---Returns the cachedbuff given the index or first one found
 ---Data must be populated first by targeting
 ---@param index? integer
----@return cachedbuff
+---@return MQCachedBuff
 function spawn.Buff(index)end
 
 ---Returns the cachedbuff given the spell name
 ---Data must be populated first by targeting
 ---@param spellName string
----@return cachedbuff
+---@return MQCachedBuff
 function spawn.Buff(spellName)end
 ---@diagnostic enable: duplicate-set-field
 
@@ -172,13 +172,13 @@ function spawn.BuffCount() end
 ---Data must be populated first by targeting
 ---Refer to [DataType:CachedBuff](https://docs.macroquest.org/reference/data-types/datatype-cachedbuff/) for additional information
 ---@param spellId integer
----@return cachedbuff
+---@return MQCachedBuff
 function spawn.CachedBuff(spellId)end
 
 ---Returns the cachedbuff given the predicate (see https://docs.macroquest.org/main/features/cached-buffs/)
 ---Data must be populated first by targeting
 ---Refer to [DataType:CachedBuff](https://docs.macroquest.org/reference/data-types/datatype-cachedbuff/) for additional information
 ---@param predicate string
----@return cachedbuff
+---@return MQCachedBuff
 function spawn.CachedBuff(predicate)end
 ---@diagnostic enable: duplicate-set-field

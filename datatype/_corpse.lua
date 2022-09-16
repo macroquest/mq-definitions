@@ -5,10 +5,10 @@ corpse = {}
 
 --- Finds an item by partial name in this corpse (use =<name> for exact match)
 ---@param name string
----@return item
+---@return MQItem
 function corpse.Item(name) end
 
 --- Nth item on the corpse
 ---@param index any
----@return item
+---@return MQItem
 function corpse.Item(index) end

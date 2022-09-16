@@ -230,7 +230,7 @@ function Character.AltAbilityTimer(name) end
 function Character.AltCurrency(name) end
 
 ---@param slot integer # Bankslot number 
----@return item
+---@return MQItem
 function Character.Bank (slot) end
 
 ---@param name string 
@@ -246,11 +246,11 @@ function Character.Book(slot) end
 function Character.BoundLocation(bindPointIndex) end
 
 ---@param name string # Name of the buff
----@return buff
+---@return MQBuff
 function Character.Buff(name) end
 
 ---@param slotNumber integer # Buff slot number
----@return buff
+---@return MQBuff
 function Character.Buff(slotNumber) end
 
 ---The number of Combat ability name in your list (not the same as anyone else's list!)
@@ -292,11 +292,11 @@ function Character.GroupMarkNPC(index) end
 function Character.HaveExpansion(expansionNumber) end
 
 ---@param name string # slotname (inventory slots only) [https://docs.macroquest.org/reference/general/slot-names/]
----@return item
+---@return MQItem
 function Character.Inventory(name) end
 
 ---@param slotNumber integer 
----@return item
+---@return MQItem
 function Character.Inventory(slotNumber) end
 
 ---@param name string 
@@ -316,11 +316,11 @@ function Character.Language(languageNumber) end
 function Character.LanguageSkill(language) end
 
 ---@param name string # Name of the buff
----@return buff
+---@return MQBuff
 function Character.PetBuff(name) end
 
 ---@param slotNumber integer # PetBuff slot number
----@return buff
+---@return MQBuff
 function Character.PetBuff(slotNumber) end
 
 ---@param index integer # Current raid assist target (1-3)
@@ -348,11 +348,11 @@ function Character.SkillCap(name) end
 function Character.SkillCap(skillId) end
 
 ---@param name string 
----@return buff 
+---@return MQBuff 
 function Character.Song(name) end
 
 ---@param slotNumber integer 
----@return buff
+---@return MQBuff
 function Character.Song(slotNumber) end
 
 ---Gem with this spell name ready to cast?

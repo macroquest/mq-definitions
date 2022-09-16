@@ -9,7 +9,7 @@
 --- @field public ActiveFavorCost MQFloat #If Tribute is active, how much it is costing you every 10 minutes. Returns NULL if tribute is inactive.
 --- @field public AltTimerReady MQBoolean #Alternate timer ready? (Bash/Slam/Frenzy/Backstab). Note: ${AbilityReady} works fine with most of these.
 --- @field public AGI MQFloat #Character Agility
---- @field public AggroLock spawn spawn info for aggro lock player
+--- @field public AggroLock MQSpawn spawn info for aggro lock player
 --- @field public AmIGroupLeader MQBoolean #Am I the group leader?
 --- @field public AssistComplete MQBoolean #returns true/false if the assist is complete
 --- @field public AttackBonus MQFloat #Attack bonus from gear and spells
@@ -65,7 +65,7 @@
 --- @field public FreeBuffSlots MQFloat #Number of open buff slots (not counting the short duration buff slots)
 --- @field public Gold MQFloat #Gold on character
 --- @field public GoldBank MQFloat #Gold in bank
---- @field public GroupAssistTarget spawn Current group assist target
+--- @field public GroupAssistTarget MQSpawn Current group assist target
 --- @field public Grouped MQBoolean #Grouped?
 --- @field public GroupLeaderExp MQFloat #Group leadership experience (out of 330)
 --- @field public GroupLeaderPoints MQFloat #Group leadership points
@@ -144,7 +144,7 @@
 --- @field public RujEarned MQFloat #Total LDoN points earned in Rujarkian
 --- @field public Running MQBoolean #Do I have auto-run turned on?
 --- @field public SecondaryPctAggro MQFloat #Secondary Percentage aggro
---- @field public SecondaryAggroPlayer spawn spawninfo for secondary aggro player
+--- @field public SecondaryAggroPlayer MQSpawn spawninfo for secondary aggro player
 --- @field public ShieldingBonus MQFloat #Shielding bonus from gear and spells
 --- @field public Shrouded MQBoolean #Am I Shrouded?
 --- @field public Silenced MQString #Returns the name of the Silence type effect on you

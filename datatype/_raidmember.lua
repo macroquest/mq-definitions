@@ -6,5 +6,5 @@
 --- @field public Looter boolean Allowed to loot with current loot rules and looters?
 --- @field public Name string Raid member's name
 --- @field public RaidLeader boolean Returns TRUE if the member is the raid leader
---- @field public Spawn spawn Spawn object for this player if available (must be in zone)
+--- @field public Spawn MQSpawn Spawn object for this player if available (must be in zone)
 --- @field public ToString string Same as Name

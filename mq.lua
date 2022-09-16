@@ -114,7 +114,7 @@ function mq.imgui.destroy(name) end
 ---@field Corpse corpse|fun():corpse|nil Corpse you are looting
 ---@field Cursor MQItem
 ---@field DisplayItem fun():item Access to all the information in the Item Display window
----@field DoorTarget spawn|fun():string|nil Information on your doortarget
+---@field DoorTarget MQSpawn Information on your doortarget
 ---@field DynamicZone dynamiczone
 ---@field Event any
 ---@field EverQuest any
@@ -144,7 +144,7 @@ function mq.imgui.destroy(name) end
 ---@field Me MQCharacter
 ---@field Menu any
 ---@field Mercenary mercenary
----@field Merchant merchant #Interacts with the currently active merchant
+---@field Merchant MQMerchant #Interacts with the currently active merchant
 ---@field Mount any
 ---@field Pet pet
 ---@field PointMerchant any
@@ -179,8 +179,8 @@ function TLO.Bool() end
 
 ---@param index  integer
 ---@param filter  string
----@return spawn | fun(): string|nil
----@overload fun(filter: string): spawn
+---@return MQSpawn
+---@overload fun(filter: string): MQSpawn
 function TLO.NearestSpawn(index, filter)end
 
 ---Finds an Item by the item ID
@@ -254,12 +254,12 @@ function mq.TLO.Plugin(name)end
 
 ---Returns a Spawn by ID
 ---@param id integer
----@return spawn | fun(): string|nil
+---@return MQSpawn
 function mq.TLO.Spawn(id)end
 
 ----Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string
----@return spawn | fun(): string|nil
+---@return MQSpawn
 function mq.TLO.Spawn(filter)end
 
 ---Number of items on the ground in this zone (filter is optional)

@@ -56,7 +56,7 @@
 --- @field public FD fun(): number
 --- @field public FeetWet MQBoolean #Feet wet/swimming?
 --- @field public Feigning MQBoolean #Feigning?
---- @field public Following spawn The spawn a player is following using /follow on - also returns your pet's target via ${Me.Pet.Following}
+--- @field public Following MQSpawn The spawn a player is following using /follow on - also returns your pet's target via ${Me.Pet.Following}
 --- @field public Fleeing MQBoolean #Is your target moving away from you?
 --- @field public FloorZ MQFloat #What is the Z portion of the current location.
 --- @field public Gender MQString #Gender
@@ -94,23 +94,23 @@
 --- @field public LocYXZ MQString #LocYXZ of the spawn
 --- @field public Look MQFloat #Looking this angle
 --- @field public Mark MQFloat #Current Raid or Group marked npc mark number (raid first)
---- @field public Master spawn Master, if it is charmed or a pet
+--- @field public Master MQSpawn Master, if it is charmed or a pet
 --- @field public MaxEndurance MQFloat #Maximum Endurance points (only updates when target/group)
 --- @field public MaxHPs MQFloat #Maximum hit points
 --- @field public MaxMana MQFloat #Maximum Mana points (only updates when target/group)
 --- @field public MaxRange MQFloat #The max distance from this spawn for it to hit you
 --- @field public MaxRangeTo MQFloat #The Max distance from this spawn for you to hit it
 --- @field public MercID fun(): number
---- @field public Mount spawn Mount
+--- @field public Mount MQSpawn Mount
 --- @field public Moving MQBoolean #Moving?
 --- @field public MQLoc MQFloat #Location using MQ format
 --- @field public Name MQString #Name
 --- @field public Named MQBoolean #Is this a "named" spawn (ie. does it's name not start with an "a" or an "an")
 --- @field public NearestSpawn spawn Find the nearest spawn matching this Spawn Search, to this spawn (most efficient on yourself)
---- @field public Next spawn Next spawn in the list
---- @field public Owner spawn Owner, if mercenary
---- @field public Prev spawn Previous spawn in the list
---- @field public Pet pet Pet
+--- @field public Next MQSpawn Next spawn in the list
+--- @field public Owner MQSpawn Owner, if mercenary
+--- @field public Prev MQSpawn Previous spawn in the list
+--- @field public Pet MQPet Pet
 --- @field public PctHPs MQFloat #Percent hit points
 --- @field public PlayerState MQFloat #returns a mask as an inttype which has the following meaning:0=Idle 1=Open 2=WeaponSheathed 4=Aggressive 8=ForcedAggressive 0x10=InstrumentEquipped 0x20=Stunned 0x40=PrimaryWeaponEquipped 0x80=SecondaryWeaponEquipped
 --- @field public Primary MQFloat #Item ID of anything that may be in the Primary slot

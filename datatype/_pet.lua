@@ -8,7 +8,7 @@
 ---@field ReGroup MQBoolean #ReGroup state
 ---@field Stance MQString #Returns the pet's current stance (e.g. FOLLOW, GUARD)
 ---@field Stop MQBoolean #Stop state
----@field Target spawn Returns the pet's current target
+---@field Target MQSpawn Returns the pet's current target
 ---@field Taunt MQBoolean #Taunt state
 ---@field Focus MQBoolean #Focus state
 ---@field ID MQInt #returns pet ID

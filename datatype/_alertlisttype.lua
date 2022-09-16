@@ -51,7 +51,7 @@
 ---@field Race MQString #Any spawn with the given race
 ---@field Radius MQInt #Excludes the spawn if any player is within this distance (nopcnear filter)
 ---@field SortBy MQInt #Indicates the sort order of the filter
----@field Spawn fun():spawn If an ID or Name is part of the filter, attempts to return a spawn with the matching ID or Name
+---@field Spawn MQSpawn If an ID or Name is part of the filter, attempts to return a spawn with the matching ID or Name
 ---@field SpawnID MQInt #Any spawn with the given Spawn ID
 ---@field SpawnType MQInt #Any spawn with the given type
 ---@field xLoc MQInt #x component of the loc filter

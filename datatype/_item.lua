@@ -14,7 +14,7 @@
 --- @field public AugType MQFloat #Augment Type
 --- @field public Avoidance MQFloat #Avoidance
 --- @field public BuyPrice MQFloat #The cost to buy this item from active merchant
---- @field public CastTime float Spell effect's cast time (in seconds)
+--- @field public CastTime MQFloat Spell effect's cast time (in seconds)
 --- @field public CHA MQFloat #CHA value on item
 --- @field public Charges MQFloat #Charges
 --- @field public Clairvoyance MQFloat #Clairvoyance
@@ -54,11 +54,11 @@
 --- @field public HPRegen MQFloat #HPRegen value on item
 --- @field public Icon MQFloat #Item Icon
 --- @field public ID MQFloat #Item ID
---- @field public InstrumentMod float Instrument Modifier Value
+--- @field public InstrumentMod MQFloat Instrument Modifier Value
 --- @field public INT MQFloat #INT value on item
 --- @field public InvSlot MQFloat #Inventory Slot Number (Historic and now deprecated, use ItemSlot and ItemSlot2)
 --- @field public Item item Item in #th slot, if this is a container or has augs
---- @field public ItemDelay float Returns the delay of the weapon
+--- @field public ItemDelay MQFloat Returns the delay of the weapon
 --- @field public ItemLink item just prints the actual hexlink for an item (not clickable) unless [CLICKABLE] is included
 --- @field public Items MQFloat #Number of items, if this is a container.
 --- @field public ItemSlot MQFloat #Item Slot number see Slot Names

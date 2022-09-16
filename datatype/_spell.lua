@@ -1,5 +1,5 @@
 --- @class spell
---- @field public AERange float AE range (group spells use this for their range)
+--- @field public AERange MQFloat AE range (group spells use this for their range)
 --- @field public CastOnAnother MQString #Message when cast on others
 --- @field public CastOnYou MQString #Message when cast on yourself
 --- @field public CastTime timestamp Cast time (unadjusted)
@@ -17,10 +17,10 @@
 --- @field public Location MQFloat #Appears to be max distance
 --- @field public Mana MQInt #Mana cost (unadjusted)
 --- @field public MyCastTime timestamp Adjusted cast time
---- @field public MyRange float Adjusted spell range, including focus effects, etc.
+--- @field public MyRange MQFloat Adjusted spell range, including focus effects, etc.
 --- @field public Name MQString #Spell Name
---- @field public PushBack float Push back amount
---- @field public Range float Maximum range to target (use AERange for AE and group spells)
+--- @field public PushBack MQFloat Push back amount
+--- @field public Range MQFloat Maximum range to target (use AERange for AE and group spells)
 --- @field public Rank MQInt #Returns either 1, 2 or 3 for spells and 4-30 for clickys and potions.
 --- @field public RankName MQString #Returns the spell/combat ability name rank character has.
 --- @field public ReagentCount MQInt #Number of reagents used for this spell

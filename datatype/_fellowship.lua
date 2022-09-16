@@ -1,9 +1,9 @@
 --- @class fellowship
 --- @field public Campfire MQBoolean #TRUE if campfire is up, FALSE if not
 --- @field public CampfireDuration ticks | fun(): ticks Time left on current campfire
---- @field public CampfireX fun(): float Campfire X location
---- @field public CampfireY fun(): float Campfire Y location
---- @field public CampfireZ fun(): float Campfire Z location
+--- @field public CampfireX MQFloat #Campfire X location
+--- @field public CampfireY MQFloat #Campfire Y location
+--- @field public CampfireZ MQFloat #Campfire Z location
 --- @field public CampfireZone zone| fun(): zone Zone information for the zone that contains your campfire
 --- @field public ID MQInt #Fellowship ID
 --- @field public Leader MQString #Fellowship leader's name

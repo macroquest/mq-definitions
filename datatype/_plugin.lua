@@ -1,4 +1,4 @@
 --- @class plugin
 --- @field public Name MQString #Name of the plugin
---- @field public Version float Version number of the plugin
+--- @field public Version MQFloat Version number of the plugin
 --- @field public ToString MQString #Same as Name

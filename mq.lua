@@ -160,7 +160,7 @@ function mq.imgui.destroy(name) end
 ---@field Task fun(index?: integer): task|nil #Returns the first task, or the current shared task if one exists.
 ---@field Time time
 ---@field Type  fun(type: string): mqtype #Information on data types
----@field Window fun(name: string): window #Information on a particular UI window
+---@field Window fun(name: string): MQWindow #Information on a particular UI window
 TLO = {}
 
 ---@diagnostic disable: duplicate-set-field

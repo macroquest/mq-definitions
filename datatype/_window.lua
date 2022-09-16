@@ -1,12 +1,12 @@
 --- @class window
 --- @field public BGColor argb Background color
 --- @field public Checked MQBoolean #Returns TRUE if the button has been checked
---- @field public Child window Child with this name
+--- @field public Child MQWindow Child with this name
 --- @field public Children MQBoolean #Returns TRUE if the window has children
 --- @field public DoClose fun() Does the action of closing a window
 --- @field public DoOpen fun() Does the action of opening a window
 --- @field public Enabled MQBoolean #Returns TRUE if the window is enabled
---- @field public FirstChild window First child window
+--- @field public FirstChild MQWindow First child window
 --- @field public Height MQFloat #Height in pixels
 --- @field public Highlighted boolean Returns TRUE if the window is highlighted
 --- @field public HisTradeReady boolean Has the other person clicked the Trade button?
@@ -23,9 +23,9 @@
 --- @field public MouseOver MQBoolean #Returns TRUE if the mouse is currently over the window
 --- @field public MyTradeReady MQBoolean #Have I clicked the Trade button?
 --- @field public Name MQString #Name of window piece, e.g. "ChatWindow" for top level windows, or the piece name for child windows. Note: this is Custom UI dependent
---- @field public Next window Next sibling window
+--- @field public Next MQWindow Next sibling window
 --- @field public Open MQBoolean #Returns TRUE if the window is open
---- @field public Parent window Parent window
+--- @field public Parent MQWindow Parent window
 --- @field public RightMouseDown fun() does the action of clicking the right mouse button
 --- @field public RightMouseHeld fun() Does the action of holding the right mouse button
 --- @field public RightMouseHeldUp fun() Does the action of holding the right mouse button up

@@ -156,7 +156,7 @@ function mq.imgui.destroy(name) end
 ---@field SubDefined any
 ---@field Switch switch
 ---@field SwitchTarget any
----@field Target target
+---@field Target MQTarget
 ---@field Task fun(index?: integer): task|nil #Returns the first task, or the current shared task if one exists.
 ---@field Time time
 ---@field Type  fun(type: string): mqtype #Information on data types

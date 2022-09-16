@@ -131,7 +131,7 @@
 --- @field public Suffix MQString #Suffix attached to name, eg. of <servername>
 --- @field public Surname MQString #Last name
 --- @field public Targetable MQBoolean #Is the spawn targetable?
---- @field public TargetOfTarget target My targets target
+--- @field public TargetOfTarget MQTarget My targets target
 ----@field public TimeBeenDead MQFloat #If not dead, this is some huge fun(): number.  Not sure.
 --- @field public Title MQString #Prefix/Title before name
 --- @field public Trader MQBoolean #Trader?

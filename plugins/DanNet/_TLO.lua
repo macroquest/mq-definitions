@@ -2,24 +2,24 @@
 
 --- DanNet Lua Bindings
 ---@class TLO.DanNet
----@field Name MQString ## Current node name (fully qualified)
----@field Version MQString ## Current build version
----@field Debug MQString ## Debugging flag
----@field LocalEcho MQString ## Local echo flag (outgoing echo)
----@field CommandEcho MQString ## Command echo (incoming commands)
----@field FullNames MQString ## Print fully qualified names?
----@field FrontDelim MQString ## Use a front | in arrays?
----@field Timeout MQString ## Timeout for implicit delay in /dquery and /dobserve commands
----@field ObserveDelay MQString ## Delay between observe broadcasts (in ms)
----@field Evasive MQString ## Time to classify a peer as evasive (in ms)
----@field Expired MQString ## Keepalive time for non-responding peers (in ms)
----@field Keepalive MQString ## Keepalive time for local actor pipe (in ms)
----@field PeerCount MQString ## Number of connected peers
----@field Peers MQString ## List of connected peers
----@field GroupCount MQString ## Number of all groups
----@field Groups MQString ## List of all groups
----@field JoinedCount MQString ## Number of joined groups
----@field Joined MQString ## List of joined groups
+---@field Name MQString # Current node name (fully qualified)
+---@field Version MQString # Current build version
+---@field Debug MQString # Debugging flag
+---@field LocalEcho MQString # Local echo flag (outgoing echo)
+---@field CommandEcho MQString # Command echo (incoming commands)
+---@field FullNames MQString # Print fully qualified names?
+---@field FrontDelim MQString # Use a front | in arrays?
+---@field Timeout MQString # Timeout for implicit delay in /dquery and /dobserve commands
+---@field ObserveDelay MQString # Delay between observe broadcasts (in ms)
+---@field Evasive MQString # Time to classify a peer as evasive (in ms)
+---@field Expired MQString # Keepalive time for non-responding peers (in ms)
+---@field Keepalive MQString # Keepalive time for local actor pipe (in ms)
+---@field PeerCount MQString # Number of connected peers
+---@field Peers MQString # List of connected peers
+---@field GroupCount MQString # Number of all groups
+---@field Groups MQString # List of all groups
+---@field JoinedCount MQString # Number of joined groups
+---@field Joined MQString # List of joined groups
 TLO.DanNet = {}
 
 ---@param peerName string 

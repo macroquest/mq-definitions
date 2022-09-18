@@ -1,20 +1,20 @@
 ---@meta
 ---@class achievement
----@field ID MQInt #The achivement's unique ID
----@field Name MQString #The achievement's name
----@field Description MQString #The achievement's description
----@field Points MQInt #The point value for the achievement
----@field ObjectiveCount MQInt #The number of objectives in this achievement
----@field Index MQInt #The index of the achivement. See [Achivement Indices](https://docs.macroquest.org/reference/top-level-objects/tlo-achievement/#note-about-achievement-indices) for more information.
----@field IconID MQInt #ID of the Achievement state.  See [Achivement Icon](https://docs.macroquest.org/reference/data-types/datatype-achievement/#achievement-icon) for more information.
----@field State MQString #The achievement state.  See [Achievement State](https://docs.macroquest.org/reference/data-types/datatype-achievement/#achievement-state) for more information.
+---@field ID MQInt # The achivement's unique ID
+---@field Name MQString # The achievement's name
+---@field Description MQString # The achievement's description
+---@field Points MQInt # The point value for the achievement
+---@field ObjectiveCount MQInt # The number of objectives in this achievement
+---@field Index MQInt # The index of the achivement. See [Achivement Indices](https://docs.macroquest.org/reference/top-level-objects/tlo-achievement/#note-about-achievement-indices) for more information.
+---@field IconID MQInt # ID of the Achievement state.  See [Achivement Icon](https://docs.macroquest.org/reference/data-types/datatype-achievement/#achievement-icon) for more information.
+---@field State MQString # The achievement state.  See [Achievement State](https://docs.macroquest.org/reference/data-types/datatype-achievement/#achievement-state) for more information.
 ---@field Completed MQBoolean # If the achievement has been completed
 ---@field Open MQBoolean # If the achievement is open
 ---@field Locked MQBoolean # If the achievement is locked
 ---@field Hidden MQBoolean # If the achievement is hidden
----@field CompletedTime fun():time Calendar time when the achievement was completed.
-achievement = {}
+local achievement = {}
 
+---@diagnostic disable: duplicate-set-field
 ---Find an objective by it's Description
 ---@param description string
 ---@return achievementobj
@@ -24,6 +24,7 @@ function achievement.Objective(description) end
 ---@param id integer
 ---@return achievementobj
 function achievement.Objective(id) end
+---@diagnostic enable: duplicate-set-field
 
 ---Generate an cheivement link.  An optional name can be
 ---provided to display in the achievement, otherwise the
@@ -31,3 +32,6 @@ function achievement.Objective(id) end
 ---@param name? string
 ---@return string
 function achievement.Link(name) end
+
+---@return time # Calendar time when the achievement was completed.
+function achievement.CompletedTime() end

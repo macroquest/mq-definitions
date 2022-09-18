@@ -1,12 +1,12 @@
 ---@class class
----@field public CanCast MQBoolean #Can cast seplls, including Bard
----@field public ClericType MQBoolean #Cleric/Paladin?
----@field public DruidType MQBoolean #Druid/Ranger?
----@field public HealerType MQBoolean #Cleric/Druid/Shaman?
----@field public ID MQInt #The class's ID #
----@field public MercType MQBoolean #Mercenary?
----@field public Name MQString #The long name, as in "Ranger"
----@field public NecromancerType MQBoolean #Necromancer/Shadow Knight?
----@field public PureCaster MQBoolean #Any one of: Cleric, Druid, Shaman, Necromancer, Wizard, Mage, Enchanter
----@field public ShamanType MQBoolean #Shaman/Beastlord?
----@field public ShortName MQString #The short name as in "RNG"
+---@field public CanCast MQBoolean # Can cast seplls, including Bard
+---@field public ClericType MQBoolean # Cleric/Paladin?
+---@field public DruidType MQBoolean # Druid/Ranger?
+---@field public HealerType MQBoolean # Cleric/Druid/Shaman?
+---@field public ID MQInt # The class's ID #
+---@field public MercType MQBoolean # Mercenary?
+---@field public Name MQString # The long name, as in "Ranger"
+---@field public NecromancerType MQBoolean # Necromancer/Shadow Knight?
+---@field public PureCaster MQBoolean # Any one of: Cleric, Druid, Shaman, Necromancer, Wizard, Mage, Enchanter
+---@field public ShamanType MQBoolean # Shaman/Beastlord?
+---@field public ShortName MQString # The short name as in "RNG"

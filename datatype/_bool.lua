@@ -1,2 +1,2 @@
 --- @class bool
---- @field public ToString "TRUE" for non-zero, or "FALSE" for zero
+--- @field public ToString MQString # "TRUE" for non-zero, or "FALSE" for zero

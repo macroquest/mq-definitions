@@ -1,4 +1,4 @@
---- @class xtarget
+--- @class xtarget : spawn
 --- @field public ID MQInt #ID of specified XTarget
 --- @field public Name MQString #Name of specified XTarget
 --- @field public PctAggro MQFloat #PctAggro of specified XTarget

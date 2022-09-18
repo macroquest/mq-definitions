@@ -103,7 +103,7 @@
 --- @field public MercID fun(): number
 --- @field public Mount MQSpawn Mount
 --- @field public Moving MQBoolean #Moving?
---- @field public MQLoc MQFloat #Location using MQ format
+--- @field public MQLoc MQString # Location using MQ format
 --- @field public Name MQString #Name
 --- @field public Named MQBoolean #Is this a "named" spawn (ie. does it's name not start with an "a" or an "an")
 --- @field public NearestSpawn spawn Find the nearest spawn matching this Spawn Search, to this spawn (most efficient on yourself)

@@ -1,5 +1,6 @@
 --- @class macroquest
 --- @field public BuildDate MQString #Date that MQ2Main.dll was built
+--- @field public BuildName string Name of the build (Live, Test, Emu)
 --- @field public ChatChannel MQBoolean #Returns TRUE if channel name is joined
 --- @field public ChatChannels MQFloat #Returns the number #of channels currently joined
 --- @field public Error MQString #Last normal error message

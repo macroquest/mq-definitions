@@ -183,198 +183,234 @@
 --- @field public UseAdvancedLooting MQBoolean #TRUE/FALSE if using advanced looting
 --- @field public WIS MQFloat #Character Wisdom
 --- @field public Vitality MQFloat #Total amount of Vitality your toon has
-Character = nil
+local character = nil
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string # Skill name
 ---@return integer # The doability button number that the skill name is on
-function Character.Ability(name) end
+function character.Ability(name) end
 
 ---@param index integer # doability button number
 ---@return string # The skill name assigned to this doability button
-function Character.Ability(index) end
+function character.Ability(index) end
+---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
 ---@param index integer # Ability button number
 ---@return boolean
-function Character.AbilityReady(index) end
+function character.AbilityReady(index) end
 
 ---@param name string 
 ---@return boolean
-function Character.AbilityReady(name) end
+function character.AbilityReady(name) end
+---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
 ---@param index integer # Alt ability #
 ---@return altability
-function Character.AltAbility(index) end
+function character.AltAbility(index) end
 
 ---@param name string 
 ---@return altability
-function Character.AltAbility(name) end
+function character.AltAbility(name) end
+---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
 ---@param index integer # Alt ability #
 ---@return boolean
-function Character.AltAbilityReady(index) end
+function character.AltAbilityReady(index) end
 
 ---@param name string 
 ---@return boolean
-function Character.AltAbilityReady(name) end
+function character.AltAbilityReady(name) end
+---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
 ---@param index integer # Alt ability #
 ---@return integer
-function Character.AltAbilityTimer(index) end
+function character.AltAbilityTimer(index) end
 
 ---@param name string 
 ---@return integer
-function Character.AltAbilityTimer(name) end
+function character.AltAbilityTimer(name) end
+---@diagnostic enable: duplicate-set-field
 
 ---@param name string 
 ---@return integer
-function Character.AltCurrency(name) end
+function character.AltCurrency(name) end
 
 ---@param slot integer # Bankslot number 
 ---@return MQItem
-function Character.Bank (slot) end
+function character.Bank (slot) end
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string 
 ---@return integer # Slot in your spell book assigned to spell name
-function Character.Book(name) end
+function character.Book(name) end
 
 ---@param slot integer # Slot number in book 
 ---@return spell
-function Character.Book(slot) end
+function character.Book(slot) end
+---@diagnostic enable: duplicate-set-field
 
 ---@param bindPointIndex integer # Your bind points (0-4) 
 ---@return worldlocation
-function Character.BoundLocation(bindPointIndex) end
+function character.BoundLocation(bindPointIndex) end
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string # Name of the buff
 ---@return MQBuff
-function Character.Buff(name) end
+function character.Buff(name) end
 
 ---@param slotNumber integer # Buff slot number
 ---@return MQBuff
-function Character.Buff(slotNumber) end
+function character.Buff(slotNumber) end
+---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
 ---The number of Combat ability name in your list (not the same as anyone else's list!)
 ---@param name string # Name of the combat ability
 ---@return integer
-function Character.CombatAbility(name) end
+function character.CombatAbility(name) end
 
 ---The name of Combat Ability # in your list (not the same as anyone else's list!)
 ---@param index integer # Combat Ability # in your list 
 ---@return MQSpell
-function Character.CombatAbility(index) end
+function character.CombatAbility(index) end
+---@diagnostic enable: duplicate-set-field
 
 ---@param minSize? integer # spaces of at least [minSize] size (giant=4) 
 ---@return integer # Number of free inventory spaces
-function Character.FreeInventory(minSize) end
+function character.FreeInventory(minSize) end
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string # Spell name
 ---@return integer # Returns the slot # with the spell name
-function Character.Gem(name) end
+function character.Gem(name) end
 
 ---@param gemSlot integer 
 ---@return MQSpell
-function Character.Gem(gemSlot) end
+function character.Gem(gemSlot) end
+---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string # Spell name
 ---@return ticks
-function Character.GemTimer(name) end
+function character.GemTimer(name) end
 
 ---@param gemSlot integer 
 ---@return ticks
-function Character.GemTimer(gemSlot) end
+function character.GemTimer(gemSlot) end
+---@diagnostic enable: duplicate-set-field
 
 ---@param index integer # Current group marked NPC (1-3)
 ---@return spawn
-function Character.GroupMarkNPC(index) end
+function character.GroupMarkNPC(index) end
 
 ---@param expansionNumber integer
 ---@return boolean
-function Character.HaveExpansion(expansionNumber) end
+function character.HaveExpansion(expansionNumber) end
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string # slotname (inventory slots only) [https://docs.macroquest.org/reference/general/slot-names/]
 ---@return MQItem
-function Character.Inventory(name) end
+function character.Inventory(name) end
 
 ---@param slotNumber integer 
 ---@return MQItem
-function Character.Inventory(slotNumber) end
+function character.Inventory(slotNumber) end
+---@diagnostic enable: duplicate-set-field
 
 ---@param name string 
 ---@return boolean # True/False on if the item is ready to cast.
-function Character.ItemReady(name) end
+function character.ItemReady(name) end
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string 
 ---@return integer # langauge number
-function Character.Language(name) end
+function character.Language(name) end
 
 ---@param languageNumber integer 
 ---@return string # The EQ language name of the language number specified.
-function Character.Language(languageNumber) end
+function character.Language(languageNumber) end
+---@diagnostic enable: duplicate-set-field
 
 ---@param language integer 
 ---@return integer # Your skill in language
-function Character.LanguageSkill(language) end
+function character.LanguageSkill(language) end
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string # Name of the buff
 ---@return MQBuff
-function Character.PetBuff(name) end
+function character.PetBuff(name) end
 
 ---@param slotNumber integer # PetBuff slot number
 ---@return MQBuff
-function Character.PetBuff(slotNumber) end
+function character.PetBuff(slotNumber) end
+---@diagnostic enable: duplicate-set-field
 
 ---@param index integer # Current raid assist target (1-3)
 ---@return spawn
-function Character.RaidAssistTarget(index) end
+function character.RaidAssistTarget(index) end
 
 ---@param index integer # Current raid marked NPC (1-3)
 ---@return spawn
-function Character.RaidMarkNPC(index) end
+function character.RaidMarkNPC(index) end
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string 
 ---@return integer # Returns current skill level
-function Character.Skill(name) end
+function character.Skill(name) end
 
 ---@param skillId integer 
 ---@return integer # Returns current skill level
-function Character.Skill(skillId) end
+function character.Skill(skillId) end
+---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string 
 ---@return integer 
-function Character.SkillCap(name) end
+function character.SkillCap(name) end
 
 ---@param skillId integer 
 ---@return integer
-function Character.SkillCap(skillId) end
+function character.SkillCap(skillId) end
+---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
 ---@param name string 
 ---@return MQBuff 
-function Character.Song(name) end
+function character.Song(name) end
 
 ---@param slotNumber integer 
 ---@return MQBuff
-function Character.Song(slotNumber) end
+function character.Song(slotNumber) end
+---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
 ---Gem with this spell name ready to cast?
 ---@param name string 
 ---@return boolean 
-function Character.SpellReady(name) end
+function character.SpellReady(name) end
 
 ---Gem in this gem # ready to cast?
 ---@param slotNumber integer 
 ---@return boolean
-function Character.SpellReady(slotNumber) end
+function character.SpellReady(slotNumber) end
+---@diagnostic enable: duplicate-set-field
 
 ---Returns the number of AUTO-HATER mobs on the extended target window where your aggro is less than the optional parameter N. N must be between 1-100 inclusive or it will be set to 100 (the default value).
 ---@param n? integer # defaults to 100
 ---@return integer
-function Character.XTAggroCount(n) end
+function character.XTAggroCount(n) end
 
+---@diagnostic disable: duplicate-set-field
 ---Returns the number of current extended targets.
 ---@return integer
-function Character.XTarget() end
+function character.XTarget() end
 
 ---Extended target data for the specified XTarget #.
 ---@param index integer 
 ---@return xtarget
-function Character.XTarget(index) end
+function character.XTarget(index) end
+---@diagnostic enable: duplicate-set-field

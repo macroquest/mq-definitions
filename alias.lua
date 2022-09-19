@@ -11,6 +11,7 @@
 ---@alias MQBuff buff | fun(): string|nil
 ---@alias MQCachedBuff cachedbuff | fun(): string|nil
 ---@alias MQCharacter character | fun(): string|nil
+---@alias MQGroupMember groupmember | fun(): string|nil
 ---@alias MQInvSlot invslot | fun(): string|nil
 ---@alias MQItem item | fun(): string|nil
 ---@alias MQMerchant merchant | fun(): string|nil

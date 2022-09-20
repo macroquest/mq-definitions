@@ -144,7 +144,7 @@ function mq.imgui.destroy(name) end
 ---@field Menu any
 ---@field Mercenary mercenary
 ---@field Merchant MQMerchant # Interacts with the currently active merchant
----@field Mount any
+---@field Mount keyring
 ---@field Pet pet
 ---@field PointMerchant any
 ---@field Raid raid
@@ -265,6 +265,16 @@ function mq.TLO.Spawn(filter)end
 ---@param filter string
 ---@return integer
 function mq.TLO.GroundItemCount(filter)end
+
+---Retrieves the item in your mount keyring by index
+---@param index integer
+---@return keyringitem
+function mq.TLO.Mount(index) end
+
+---Retrieves the item in your mount keyring by name.  A = can be prepended for an exact name match.
+---@param name string
+---@return keyringitem
+function mq.TLO.Mount(name) end
 
 ----Returns a count of Spawns by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string

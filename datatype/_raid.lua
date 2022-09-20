@@ -11,7 +11,7 @@
 --- - 1 Leader
 --- - 2 Leader & GroupLeader
 --- - 3 Leader & Specified
----@field public LootType fun(): integer
+---@field public LootType MQInt
 ---@field public MainAssist fun(): raidmember Raid main assist
 ---@field public MasterLooter fun(): raidmember Raid Master Looter
 ---@field public Members MQInt #Total number of raid members

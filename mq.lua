@@ -84,7 +84,6 @@ function mq.gettype(type) end
 ---@field stand fun()
 ---@field target fun()
 
-
 ---Sol2 ImGui Binding
 ---@class IMGUI
 ---@field init fun(name: string, render: fun())

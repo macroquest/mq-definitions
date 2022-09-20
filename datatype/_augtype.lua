@@ -1,0 +1,10 @@
+---@meta
+---@class augtype Describes data about an augmentation slot in an item
+---@field public Empty MQBoolean True if the slot is empty
+---@field public Infusable MQBoolean True if this is a hidden energeian power source slot
+---@field public Item MQItem The item socketed in this slot, if any
+---@field public Name MQString THe name of the item socketed in this slot, if any
+---@field public Slot MQInt Index of the augment slot
+---@field public Solvent MQInt Item ID of the solvent used to remove this item, if any
+---@field public Type MQInt Type Type of augment slot
+---@field public Visible MQBoolean True if this slot is visible to the user

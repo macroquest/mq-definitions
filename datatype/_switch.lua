@@ -1,22 +1,22 @@
 --- @class switch
+--- @field public D MQFloat D coordinate (Upward-positive)
 --- @field public DefaultHeading heading Heading of "closed" switch
+--- @field public DefaultN MQFloat Y coordinate of "closed" switch (Northward-positive)
+--- @field public DefaultU MQFloat Z coordinate of "closed" switch (Upward-positive)
+--- @field public DefaultW MQFloat X coordinate of "closed" switch (Westward-positive)
+--- @field public DefaultX MQFloat X coordinate of "closed" switch
+--- @field public DefaultY MQFloat Y coordinate of "closed" switch
+--- @field public DefaultZ MQFloat Z coordinate of "closed" switch
 --- @field public Distance MQFloat Distance from player to switch in (x,y)
 --- @field public Heading heading Switch is facing this heading
 --- @field public HeadingTo heading Direction player must move to meet this switch
 --- @field public ID number Switch ID
 --- @field public LineOfSight boolean Returns TRUE if the switch is in LoS
+--- @field public N MQFloat Y coordinate (Northward-positive)
 --- @field public Name string Name
 --- @field public Open boolean Open?
+--- @field public ToString string Same as ID
+--- @field public W MQFloat X coordinate (Westward-positive)
 --- @field public X MQFloat X coordinate
 --- @field public Y MQFloat Y coordinate
 --- @field public Z MQFloat Z coordinate
---- @field public W MQFloat X coordinate (Westward-positive)
---- @field public N MQFloat Y coordinate (Northward-positive)
---- @field public D MQFloat D coordinate (Upward-positive)
---- @field public DefaultX MQFloat X coordinate of "closed" switch
---- @field public DefaultY MQFloat Y coordinate of "closed" switch
---- @field public DefaultZ MQFloat Z coordinate of "closed" switch
---- @field public DefaultW MQFloat X coordinate of "closed" switch (Westward-positive)
---- @field public DefaultN MQFloat Y coordinate of "closed" switch (Northward-positive)
---- @field public DefaultU MQFloat Z coordinate of "closed" switch (Upward-positive)
---- @field public ToString string Same as ID

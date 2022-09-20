@@ -11,3 +11,21 @@ local buff = nil
 
 ---Removes the named/partial name buff
 function buff.Remove() end
+
+--[[
+
+Caster
+CountersCorruption
+CountersCurse
+CountersDisease
+CountersPoison
+Dar
+Duration
+HitCount
+ID
+Level
+Mod
+Spell
+TotalCounters
+
+]]

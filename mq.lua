@@ -109,7 +109,7 @@ function mq.imgui.destroy(name) end
 ---@field AdvLoot AdvLoot
 ---@field Alias fun(name:string):boolean # True if alias exists
 ---@field AltAbility altability
----@field Bandoliler any
+---@field Bandoliler fun(name:string) bandolier
 ---@field Corpse corpse|fun():corpse|nil # Corpse you are looting
 ---@field Cursor MQItem
 ---@field DisplayItem fun(): MQItem # Access to all the information in the Item Display window

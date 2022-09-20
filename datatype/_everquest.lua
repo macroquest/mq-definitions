@@ -1,0 +1,33 @@
+---@meta
+---@class everquest # Data types related to the current EverQuest session
+---@field public GameState MQString Shows the current game state. Values: CHARSELECT, INGAME, PRECHARSELECT, UNKNOWN
+---@field public LoginName MQString Your station name
+---@field public Server MQString Full name of your server
+---@field public LastCommand MQString Last command entered
+---@field public LastTell MQString Name of the last person to send you a tell
+---@field public Running MQInt Running time of current MQ session, in milliseconds
+---@field public MouseX MQInt Mouse's X location
+---@field public MouseY MQInt Mouse's Y location
+---@field public Ping MQInt Your current ping
+---@field public LClickedObject MQBoolean Returns True if an object has been left clicked
+---@field public WinTitle MQString Titlebar text of the Evequest window
+---@field public PID MQInt Your current (Process ID)
+---@field public PPriority MQInt Returns the processor priorty that Everquest is set to.  Values: UNKNOWN, LOW, BELOW NORMAL, NORMAL, ABOVE NORMAL, HIGH, REALTIME
+---@field public ChatChannels MQInt Returns the number of channels currently joined
+---@field public ChatChannel fun(channel:integer): string Returns the name of the channel number
+---@field public ViewportX MQInt EverQuest viewport upper left (X) position
+---@field public ViewportY MQInt EverQuest viewport upper left (Y) position
+---@field public ViewportXMax MQInt EverQuest lower right (X) position
+---@field public ViewportYMax MQInt EverQuest lower right (Y) position
+---@field public ViewportXCenter MQInt EverQuest viewport center (X) position
+---@field public ViewportYCenter MQInt EverQuest viewport center (Y) position
+---@field public ScreenMode MQInt Returns the screenmode as in integer, 2 is Normal and 3 is No Windows
+---@field public LayoutCopyInProgress MQBoolean Returns True if a layout copy is in process and False if not
+---@field public LastMouseOver fun(): window Returns the last window you moused over
+---@field public CharSelectList MQInt Currently returns the zone ID the character is currenty in
+---@field public CurrentUI MQString Return a string representing the currently loaded UI skin
+---@field public IsDefaultUILoaded MQBoolean Returns a True or False if the "Default" UI skin is the one loaded
+---@field public HWND MQInt Window Handle
+---@field public Foreground MQBoolean Returns True if EverQuest is in the foreground
+---@field public ValidLoc fun(coordinates:string): boolean Returns true if the given coordinates are valid 
+---@field public Path MQString Path to your EverQuest folder

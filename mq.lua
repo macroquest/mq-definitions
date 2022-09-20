@@ -116,7 +116,7 @@ function mq.imgui.destroy(name) end
 ---@field DoorTarget MQSpawn # Information on your doortarget
 ---@field DynamicZone dynamiczone
 ---@field Event any
----@field EverQuest any
+---@field EverQuest everquest # Access information about the current Everquest session
 ---@field Familiar any
 ---@field Float float
 ---@field FPS userdata

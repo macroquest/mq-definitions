@@ -1,8 +1,9 @@
---- @class AdvLoot
---- @field public LootingInProgress boolean Is lloting from ADVLoot in progress?
---- @field public SList any Data on Shared list
---- @field public PList any Data on Personal list
---- @field public SCount number Item count from the Shared list
---- @field public PCount number Item count from the Personal list
---- @field public SWantCount number Want count from the Shared list
---- @field public PWantCount number Want count from the Personal list
+---@class AdvLoot
+---@field public Filter fun(itemId:integer): itemfilterdata Inspect the loot filter for a given ItemID
+---@field public LootInProgress fun(): boolean True/False if looting from AdvLoot is in progress
+---@field public PCount MQInt Item count from the Personal list
+---@field public PList fun(index:integer): advlootitem Inspect the item at the specified index in the personal loot list
+---@field public PWantCount MQInt Want cound from the personal list (AN + AG + ND + GD)
+---@field public SCount MQInt Item count from the Shared list
+---@field public SList fun(index:integer): advlootitem Inspect the item at the specified index in the shared loot list
+---@field public SWantCount MQInt Want count from the Shared list (AN + AG + ND + GD)

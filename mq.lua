@@ -109,14 +109,14 @@ function mq.imgui.destroy(name) end
 ---@field AdvLoot AdvLoot
 ---@field Alias fun(name:string):boolean # True if alias exists
 ---@field AltAbility altability
----@field Bandoliler any
+---@field Bandoliler fun(name:string) bandolier
 ---@field Corpse corpse|fun():corpse|nil # Corpse you are looting
 ---@field Cursor MQItem
 ---@field DisplayItem fun(): MQItem # Access to all the information in the Item Display window
 ---@field DoorTarget MQSpawn # Information on your doortarget
 ---@field DynamicZone dynamiczone
 ---@field Event any
----@field EverQuest any
+---@field EverQuest everquest # Access information about the current Everquest session
 ---@field Familiar any
 ---@field Float float
 ---@field FPS userdata
@@ -144,7 +144,7 @@ function mq.imgui.destroy(name) end
 ---@field Menu any
 ---@field Mercenary mercenary
 ---@field Merchant MQMerchant # Interacts with the currently active merchant
----@field Mount any
+---@field Mount keyring
 ---@field Pet pet
 ---@field PointMerchant any
 ---@field Raid raid
@@ -265,6 +265,16 @@ function mq.TLO.Spawn(filter)end
 ---@param filter string
 ---@return integer
 function mq.TLO.GroundItemCount(filter)end
+
+---Retrieves the item in your mount keyring by index
+---@param index integer
+---@return keyringitem
+function mq.TLO.Mount(index) end
+
+---Retrieves the item in your mount keyring by name.  A = can be prepended for an exact name match.
+---@param name string
+---@return keyringitem
+function mq.TLO.Mount(name) end
 
 ----Returns a count of Spawns by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string

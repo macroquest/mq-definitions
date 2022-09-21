@@ -1,6 +1,6 @@
 --- @class mqtype
---- @field public Name MQString #Type name
---- @field public ToString MQString #Same as Name
+--- @field public Name MQString # Type name
+--- @field public ToString MQString # Same as Name
 local mqtype = nil
 
 ---@diagnostic disable: duplicate-set-field

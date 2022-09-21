@@ -1,5 +1,5 @@
 --- @class zone
---- @field public ID MQInt #ID of the zone
---- @field public Name MQString #Full zone name
---- @field public ShortName MQString #Short zone name
---- @field public ToString MQString #Same as Name
+--- @field public ID MQInt # ID of the zone
+--- @field public Name MQString # Full zone name
+--- @field public ShortName MQString # Short zone name
+--- @field public ToString MQString # Same as Name

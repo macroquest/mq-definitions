@@ -1,8 +1,8 @@
 ---@meta
 ---@class achievementobj
----@field ID fun():integer
----@field Description fun():string
----@field Count fun():integer
----@field RequiredCount fun():integer
----@field Completed fun():boolean
----@field Index fun():integer
+---@field ID MQInt
+---@field Description MQString
+---@field Count MQInt
+---@field RequiredCount MQString
+---@field Completed MQBoolean
+---@field Index MQInt

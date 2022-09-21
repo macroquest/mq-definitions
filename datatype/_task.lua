@@ -1,5 +1,5 @@
 --- @class task
---- @field public Index fun(): string Returns the task's place on the tasklist
+--- @field public Index MQString # Returns the task's place on the tasklist
 --- @field public Objective.Instruction string Returns a tasks's Objectives
 --- @field public Objective.Status string Returns the status of the objective in the format amount done Vs total IE 0/3
 --- @field public Objective.Zone string Returns the zone the objective is to be performed in

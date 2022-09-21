@@ -25,11 +25,11 @@
 --- @field public CeilingHeightAtCurrLocation MQFloat #Ceiling Height
 --- @field public Class class # Class
 --- @field public CleanName MQString # The "cleaned up" name
---- @field public CollisionCounter fun(): number
+--- @field public CollisionCounter MQInt
 --- @field public CombatSkillTicks any
 --- @field public ConColor MQString # GREY, GREEN, LIGHT BLUE, BLUE, WHITE, YELLOW, RED
---- @field public ContractorID fun(): number
---- @field public CorpseDragCount fun(): number
+--- @field public ContractorID MQInt
+--- @field public CorpseDragCount MQInt
 --- @field public CurrentEndurance MQFloat # Current Endurance points (only updates when target/group)
 --- @field public CurrentHPs MQFloat # Current hit points
 --- @field public CurrentMana MQFloat # Current Mana points (only updates when target/group)
@@ -70,7 +70,7 @@
 --- @field public HeadingToLoc heading # Heading to the coordinates y,x from the spawn
 --- @field public Height MQFloat # Height
 --- @field public Holding MQFloat # Represents what the pc/npc is holding
---- @field public HoldingAnimation fun(): number
+--- @field public HoldingAnimation MQInt
 --- @field public Hovering MQBoolean # Hovering?
 --- @field public ID MQFloat # Spawn ID
 --- @field public InPvPArea fun(): number
@@ -100,7 +100,7 @@
 --- @field public MaxMana MQFloat # Maximum Mana points (only updates when target/group)
 --- @field public MaxRange MQFloat # The max distance from this spawn for it to hit you
 --- @field public MaxRangeTo MQFloat # The Max distance from this spawn for you to hit it
---- @field public MercID fun(): number
+--- @field public MercID MQInt
 --- @field public Mount MQSpawn Mount
 --- @field public Moving MQBoolean # Moving?
 --- @field public MQLoc MQString # Location using MQ format
@@ -118,7 +118,7 @@
 --- @field public Race race Race
 --- @field public Roleplaying MQBoolean # Roleplaying?
 --- @field public Secondary MQFloat # Item ID of anything that may be in the Secondary slot
---- @field public SeeInvis fun(): number
+--- @field public SeeInvis MQFloat
 --- @field public Sitting MQBoolean # Sitting?
 --- @field public Sneaking MQBoolean # Sneaking?
 --- @field public SpawnStatus MQFloat # No idea
@@ -132,7 +132,7 @@
 --- @field public Surname MQString # Last name
 --- @field public Targetable MQBoolean # Is the spawn targetable?
 --- @field public TargetOfTarget MQTarget # My targets target
-----@field public TimeBeenDead MQFloat #If not dead, this is some huge fun(): number.  Not sure.
+--- @field public TimeBeenDead MQFloat # If not dead, this is some huge number.  Not sure.
 --- @field public Title MQString # Prefix/Title before name
 --- @field public Trader MQBoolean # Trader?
 --- @field public Type MQString # PC, NPC, Untargetable, Mount, Pet, Corpse, Chest, Trigger, Trap, Timer, Item, Mercenary, Aura, Object, Banner, Campfire, Flyer

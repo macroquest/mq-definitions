@@ -279,6 +279,11 @@ function character.CombatAbility(name) end
 function character.CombatAbility(index) end
 ---@diagnostic enable: duplicate-set-field
 
+--Combat Ability ready to use?
+---@param name string
+---@return boolean
+function character.CombatAbilityReady(name) end
+
 ---@param minSize? integer # spaces of at least [minSize] size (giant=4) 
 ---@return integer # Number of free inventory spaces
 function character.FreeInventory(minSize) end

@@ -15,7 +15,9 @@
 --- @field public ToString string NULL
 local math = nil
 
----Calculates the distance between two points on the map1, 2, or 3 dimensions may be providedDefaults to your character's current location
----@param coordinates? string # Format [**y,x,z:y,x,z]
+---Calculates the distance between two points on the map; 1, 2, or 3 dimensions may be provided.
+---Format is y1,x1,z1:y2,x2,z2
+---Defaults to your character's current location
+---@param coordinates string
 ---@return MQFloat
 function math.Distance(coordinates) end

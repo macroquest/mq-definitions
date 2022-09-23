@@ -18,6 +18,14 @@
 --- @field public AutoFire MQBoolean #Is Autofire on?
 --- @field public AvoidanceBonus MQFloat #Avoidance bonus from gear/spells
 --- @field public BardSongPlaying MQBoolean #Is a bard song playing?
+--- @field public BaseSTR MQInt # Base stat str
+--- @field public BaseSTA MQInt # Base stat sta
+--- @field public BaseCHA MQInt # Base stat cha
+--- @field public BaseDEX MQInt # Base stat dex
+--- @field public BaseINT MQInt # Base stat int
+--- @field public BaseAGI MQInt # Base stat agi
+--- @field public BaseWIS MQInt # Base stat wis
+--- @field public BoundLocation MQString # List of bound locations
 --- @field public Buyer MQBoolean #if you are an active buyer
 --- @field public CanMount MQBoolean #for some indoor zones that where not flagged as nomount and added bazaar, nexus to zones where its ok to mount.
 --- @field public CareerFavor MQFloat #Career favor/tribute
@@ -279,10 +287,27 @@ function character.CombatAbility(name) end
 function character.CombatAbility(index) end
 ---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
+--Combat Ability ready to use?
+---@param index integer # Combat ability #
+---@return boolean
+function character.CombatAbilityReady(index) end
+
 --Combat Ability ready to use?
 ---@param name string
 ---@return boolean
 function character.CombatAbilityReady(name) end
+---@diagnostic enable: duplicate-set-field
+
+---@diagnostic disable: duplicate-set-field
+---@param index integer # Combat ability #
+---@return integer
+function character.CombatAbilityTimer(index) end
+
+---@param name string 
+---@return integer
+function character.CombatAbilityTimer(name) end
+---@diagnostic enable: duplicate-set-field
 
 ---@param minSize? integer # spaces of at least [minSize] size (giant=4) 
 ---@return integer # Number of free inventory spaces

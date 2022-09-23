@@ -68,8 +68,8 @@
 --- @field public EnduranceRegenBonus MQFloat #Endurance regen bonus
 --- @field public Exp MQFloat #Experience (out of 10,000)
 --- @field public ExpansionFlags MQFloat #Returns a numeric number representing which expansions your toon is flagged for
---- @field public Faycites MQFloat #Faycites on your character
---- @field public Fellowship fellowship Info about Fellowship
+--- @field public Faycites MQFloat # Faycites on your character
+--- @field public Fellowship MQFellowship # Info about Fellowship
 --- @field public FreeBuffSlots MQFloat #Number of open buff slots (not counting the short duration buff slots)
 --- @field public Gold MQFloat #Gold on character
 --- @field public GoldBank MQFloat #Gold in bank

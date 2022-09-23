@@ -120,7 +120,7 @@ function mq.imgui.destroy(name) end
 ---@field Familiar any
 ---@field Float float
 ---@field FPS userdata
----@field FrameLimiter framelimiter
+---@field FrameLimiter framelimiter | fun(): "TRUE" | "FASLE"
 ---@field Friends userdata
 ---@field GameTime time
 ---@field Ground ground # References the ground spawn item you have targeted.

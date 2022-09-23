@@ -3,7 +3,6 @@
 --- @field public Acos fun(degrees: number): MQFloat Arccosine of n (in degrees)
 --- @field public Asin fun(degrees: number): MQFloat Arcsine of n (in degrees)
 --- @field public Atan fun(degrees: number): MQFloat Arctangent of n (in degrees)
---- @field public Calc MQFloat Performs a mathematical calculation n
 --- @field public Cos fun(degrees: number): MQFloat Cosine of n (in degrees)
 --- @field public Dec number Decimal value of a hexidecimal string
 --- @field public Hex string Returns hexidecimal value of int n
@@ -19,3 +18,8 @@ local math = nil
 ---@param coordinates? string # Format [**y,x,z:y,x,z]
 ---@return MQFloat
 function math.Distance(coordinates) end
+
+---Performs a mathematical calculation [expression]
+---@param expression string 
+---@return MQFloat
+function math.Calc(expression) end

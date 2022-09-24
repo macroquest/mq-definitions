@@ -113,14 +113,14 @@ function mq.imgui.destroy(name) end
 ---@field Corpse corpse|fun():corpse|nil # Corpse you are looting
 ---@field Cursor MQItem
 ---@field DisplayItem fun(): MQItem # Access to all the information in the Item Display window
----@field DoorTarget MQSpawn # Information on your doortarget
+---@field DoorTarget MQSwitch # Information on your doortarget
 ---@field DynamicZone dynamiczone
 ---@field Event any
 ---@field EverQuest everquest # Access information about the current Everquest session
 ---@field Familiar any
 ---@field Float float
 ---@field FPS userdata
----@field FrameLimiter framelimiter
+---@field FrameLimiter framelimiter | fun(): "TRUE" | "FASLE"
 ---@field Friends userdata
 ---@field GameTime time
 ---@field Ground ground # References the ground spawn item you have targeted.
@@ -185,42 +185,42 @@ function TLO.NearestSpawn(index, filter)end
 ---Finds an Item by the item ID
 ---@param id integer
 ---@return MQItem
-function mq.TLO.FindItem(id)end
+function TLO.FindItem(id)end
 
 ---Finds an Item by the partial item Name (use of '=' infront of name forces exact match)
 ---@param name string
 ---@return MQItem
-function mq.TLO.FindItem(name)end
+function TLO.FindItem(name)end
 
 ---Finds an Item in the bank by the item ID
 ---@param id integer
 ---@return MQItem
-function mq.TLO.FindItemBank(id)end
+function TLO.FindItemBank(id)end
 
 ---Finds an Item in the bank by the partial item Name (use of '=' infront of name forces exact match)
 ---@param name string
 ---@return MQItem
-function mq.TLO.FindItemBank(name)end
+function TLO.FindItemBank(name)end
 
 ---Return a counts of Items by the item ID
 ---@param id integer
 ---@return integer
-function mq.TLO.FindItemCount(id)end
+function TLO.FindItemCount(id)end
 
 ---Return a counts of Items by the item Name
 ---@param name string
 ---@return integer
-function mq.TLO.FindItemCount(name)end
+function TLO.FindItemCount(name)end
 
 ---Return a counts of Items in the bank by the item ID
 ---@param id integer
 ---@return integer
-function mq.TLO.FindItemBankCount(id)end
+function TLO.FindItemBankCount(id)end
 
 ---Return a counts of Items in the bank by the item Name
 ---@param name string
 ---@return integer
-function mq.TLO.FindItemBankCount(name)end
+function TLO.FindItemBankCount(name)end
 
 ---@diagnostic disable: duplicate-set-field
 ----Creates a heading object using degrees (clockwise)
@@ -244,62 +244,62 @@ function TLO.Heading(north, west) end
 ---Returns a Plugin by index, starting with 1 and stopping whenever the list runs out of plugins.
 ---@param index integer
 ---@return plugin
-function mq.TLO.Plugin(index)end
+function TLO.Plugin(index)end
 
 ----Returns a Plugin by Name
 ---@param name string
 ---@return plugin
-function mq.TLO.Plugin(name)end
+function TLO.Plugin(name)end
 
 ---Returns a Spawn by ID
 ---@param id integer
 ---@return MQSpawn
-function mq.TLO.Spawn(id)end
+function TLO.Spawn(id)end
 
 ----Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string
 ---@return MQSpawn
-function mq.TLO.Spawn(filter)end
+function TLO.Spawn(filter)end
 
 ---Number of items on the ground in this zone (filter is optional)
 ---@param filter string
 ---@return integer
-function mq.TLO.GroundItemCount(filter)end
+function TLO.GroundItemCount(filter)end
 
 ---Retrieves the item in your mount keyring by index
 ---@param index integer
 ---@return keyringitem
-function mq.TLO.Mount(index) end
+function TLO.Mount(index) end
 
 ---Retrieves the item in your mount keyring by name.  A = can be prepended for an exact name match.
 ---@param name string
 ---@return keyringitem
-function mq.TLO.Mount(name) end
+function TLO.Mount(name) end
 
 ----Returns a count of Spawns by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string
 ---@return integer
-function mq.TLO.SpawnCount(filter)end
+function TLO.SpawnCount(filter)end
 
 ---Returns a Spell by ID
 ---@param id integer
 ---@return MQSpell
-function mq.TLO.Spell(id)end
+function TLO.Spell(id)end
 
 ----Returns a Spell by Name
 ---@param name string
 ---@return MQSpell
-function mq.TLO.Spell(name)end
+function TLO.Spell(name)end
 
 ---Returns a Skill by number
 ---@param number integer
 ---@return skill
-function mq.TLO.Skill(number)end
+function TLO.Skill(number)end
 
 ----Returns a Skill by Name
 ---@param name string
 ---@return skill
-function mq.TLO.Skill(name)end
+function TLO.Skill(name)end
 
 ----The current zone information
 ---@type zone

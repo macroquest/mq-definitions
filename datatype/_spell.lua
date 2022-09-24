@@ -23,8 +23,6 @@
 --- @field public Range MQFloat # Maximum range to target (use AERange for AE and group spells)
 --- @field public Rank MQInt # Returns either 1, 2 or 3 for spells and 4-30 for clickys and potions.
 --- @field public RankName MQString # Returns the spell/combat ability name rank character has.
---- @field public ReagentCount MQInt # Number of reagents used for this spell
---- @field public ReagentID MQInt # ID of the reagent item used for this spell
 --- @field public RecastTime MQFloat #T ime to recast after successful cast
 --- @field public RecoveryTime timestamp Same as FizzleTime
 --- @field public ResistAdj MQInt # Resist adjustment
@@ -46,3 +44,11 @@ local spell = nil
 ---@param name string # The spell name
 ---@return boolean # Does the selected spell stack with the specific SPELL name, DOES NOT work with AAs.
 function spell.WillStack(name) end
+
+---@param index integer # The reagent index [1-4]
+---@return MQInt # Number of reagents used for this spell in given [index]
+function spell.ReagentCount(index) end
+
+---@param index integer # The reagent index [1-4]
+---@return MQInt # ID of the reagent item used for this spell in given [index]
+function spell.ReagentID(index) end

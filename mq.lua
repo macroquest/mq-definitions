@@ -113,7 +113,7 @@ function mq.imgui.destroy(name) end
 ---@field Corpse corpse|fun():corpse|nil # Corpse you are looting
 ---@field Cursor MQItem
 ---@field DisplayItem fun(): MQItem # Access to all the information in the Item Display window
----@field DoorTarget MQSpawn # Information on your doortarget
+---@field DoorTarget MQSwitch # Information on your doortarget
 ---@field DynamicZone dynamiczone
 ---@field Event any
 ---@field EverQuest everquest # Access information about the current Everquest session

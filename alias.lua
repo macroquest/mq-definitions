@@ -20,6 +20,7 @@
 ---@alias MQRaidMember raidmember | fun(): string|nil
 ---@alias MQSpawn spawn | fun(): string|nil
 ---@alias MQSpell spell | fun(): string|nil
+---@alias MQSwitch switch | fun(): string|nil
 ---@alias MQTarget target | fun(): string|nil
 ---@alias MQWindow window | fun(): "TRUE" | "FASLE"
 ---@alias MQZone zone | fun(): string|nil

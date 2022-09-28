@@ -29,6 +29,7 @@
 --- @field public ResistType MQString # See below for Resist Types
 --- @field public Skill MQString # See below for Skill Types
 --- @field public SlowPct MQFloat # Percentage of slow, example of use ${Target.Slowed.SlowPct} or ${Spell[Slowing Helix].SlowPct}
+--- @field public SPA MQInt # Sell affect [https://docs.macroquest.org/reference/general/spa-list/?h=spa]
 --- @field public SpellIcon MQInt # Icon number of the spell. Exmaple ${Spell[blah].SpellIcon}
 --- @field public SpellType MQString # The spell type, Will be one of "Beneficial(Group)", "Beneficial", "Detrimental" or "Unknown"
 --- @field public Stacks MQBoolean # Does the selected spell stack with your current buffs (duration is in ticks)

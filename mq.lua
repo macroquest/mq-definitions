@@ -64,6 +64,18 @@ function mq.getAllSpawns() end
 ---@return spawn[] # The spawns
 function mq.getFilteredSpawns(predicate) end
 
+---Returns path to config directory
+---@return string # Path to config directory
+function mq.configDir() end
+
+---Returns path to lua directory
+---@return string # Path to lua directory
+function mq.luaDir() end
+
+---Returns path to module directory
+---@return string # Path to module directory
+function mq.moduleDir() end
+
 ---@param type any # The variable we want to check type of
 ---@return mqtype
 function mq.gettype(type) end

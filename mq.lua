@@ -139,7 +139,7 @@ function mq.imgui.destroy(name) end
 ---@field FrameLimiter framelimiter | fun(): "TRUE" | "FASLE"
 ---@field Friends userdata
 ---@field GameTime time
----@field Ground ground # References the ground spawn item you have targeted.
+---@field Ground ground|Ground # References the ground spawn item you have targeted.
 ---@field Group group
 ---@field GroupLeader any
 ---@field GroupLeaderName any
@@ -272,7 +272,7 @@ function TLO.Plugin(name)end
 ---@return MQSpawn
 function TLO.Spawn(id)end
 
-----Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
+---Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string
 ---@return MQSpawn
 function TLO.Spawn(filter)end

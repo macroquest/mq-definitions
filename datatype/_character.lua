@@ -14,7 +14,6 @@
 --- @field public AssistComplete MQBoolean #returns true/false if the assist is complete
 --- @field public AttackBonus MQFloat #Attack bonus from gear and spells
 --- @field public AttackSpeed MQFloat #Your Attack Speed. No haste spells/items = AttackSpeed of 100. A 41% haste item will result in an AttackSpeed of 141. This variable does not take into account spell or song haste.
---- @field public Aura fun(n: integer): string The aura effect name
 --- @field public AutoFire MQBoolean #Is Autofire on?
 --- @field public AvoidanceBonus MQFloat #Avoidance bonus from gear/spells
 --- @field public BardSongPlaying MQBoolean #Is a bard song playing?
@@ -32,6 +31,7 @@
 --- @field public Cash MQFloat #Total cash on your character, expressed in coppers (eg. if you are carrying 100pp, Cash will return 100000)
 --- @field public CashBank MQFloat #Total cash in your bank, expressed in coppers
 --- @field public CHA MQFloat #Character Charisma
+--- @field public Charmed MQString #Returns the name of the first charm spell on the character
 --- @field public Chronobines MQFloat #Chronobines on your character
 --- @field public ClairvoyanceBonus MQFloat #Clairvoyance Bonus
 --- @field public Combat MQBoolean #In combat?
@@ -73,7 +73,6 @@
 --- @field public FreeBuffSlots MQFloat #Number of open buff slots (not counting the short duration buff slots)
 --- @field public Gold MQFloat #Gold on character
 --- @field public GoldBank MQFloat #Gold in bank
---- @field public GroupAssistTarget MQSpawn Current group assist target
 --- @field public Grouped MQBoolean #Grouped?
 --- @field public GroupLeaderExp MQFloat #Group leadership experience (out of 330)
 --- @field public GroupLeaderPoints MQFloat #Group leadership points
@@ -123,6 +122,7 @@
 --- @field public MaxMana MQFloat #Max mana
 --- @field public Mercenary MQString #The state of your Mercenary, ACTIVE, SUSPENDED, or UNKNOWN (If it's dead). Returns NULL if you do not have a Mercenary.
 --- @field public MercenaryStance MQString #Current active mercenary stance as a string, default is NULL.
+--- @field public Mezzed MQString #Returns the name of the first mez on the character
 --- @field public MirEarned MQFloat #Total LDoN points earned in Miragul's
 --- @field public MMEarned MQFloat #Total LDoN points earned in Mistmoore
 --- @field public Moving MQBoolean #Moving? (including strafe)
@@ -246,6 +246,16 @@ function character.AltAbilityTimer(name) end
 ---@param name string 
 ---@return integer
 function character.AltCurrency(name) end
+
+---@diagnostic disable: duplicate-set-field
+---@param index integer # The aura index
+---@return MQSpell # The aura spell object at the given index
+function character.Aura(index) end
+
+---@param name string # The aura name to check for
+---@return MQSpell # The aura spell object for the given name
+function character.Aura(name) end
+---@diagnostic enable: duplicate-set-field
 
 ---@param slot integer # Bankslot number 
 ---@return MQItem
@@ -378,6 +388,9 @@ function character.PetBuff(name) end
 ---@return MQBuff
 function character.PetBuff(slotNumber) end
 ---@diagnostic enable: duplicate-set-field
+
+---@return spawn
+function character.GroupAssistTarget() end
 
 ---@param index integer # Current raid assist target (1-3)
 ---@return spawn

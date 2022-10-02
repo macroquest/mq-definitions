@@ -181,4 +181,28 @@ function spawn.CachedBuff(spellId)end
 ---@param predicate string
 ---@return MQCachedBuff
 function spawn.CachedBuff(predicate)end
+
+---Returns the cachedbuff given the index or first one found where caster is the caller
+---Data must be populated first by targeting
+---@param index? integer
+---@return MQCachedBuff
+function spawn.MyBuff(index)end
+
+---Returns the cachedbuff given the spell name where caster is the caller
+---Data must be populated first by targeting
+---@param spellName string
+---@return MQCachedBuff
+function spawn.MyBuff(spellName)end
+
+---Returns the remaining duration of the spell at the given index or first one found where the caster is the caller
+---Data must be populated first by targeting
+---@param index? integer
+---@return ticks
+function spawn.MyBuffDuration(index)end
+
+---Returns the remaining duration of the given spell where the caster is the caller
+---Data must be populated first by targeting
+---@param spellName string
+---@return ticks
+function spawn.MyBuffDuration(spellName)end
 ---@diagnostic enable: duplicate-set-field

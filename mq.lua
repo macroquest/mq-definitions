@@ -80,6 +80,10 @@ function mq.moduleDir() end
 ---@return mqtype
 function mq.gettype(type) end
 
+---@param name string # The name of the texture animation
+---@return any
+function mq.FindTextureAnimation(name) end
+
 ---@class Cmd
 ---@field afk fun()
 ---@field alt fun()

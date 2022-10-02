@@ -64,9 +64,25 @@ function mq.getAllSpawns() end
 ---@return spawn[] # The spawns
 function mq.getFilteredSpawns(predicate) end
 
+---Returns path to config directory
+---@return string # Path to config directory
+function mq.configDir() end
+
+---Returns path to lua directory
+---@return string # Path to lua directory
+function mq.luaDir() end
+
+---Returns path to module directory
+---@return string # Path to module directory
+function mq.moduleDir() end
+
 ---@param type any # The variable we want to check type of
 ---@return mqtype
 function mq.gettype(type) end
+
+---@param name string # The name of the texture animation
+---@return any
+function mq.FindTextureAnimation(name) end
 
 ---@class Cmd
 ---@field afk fun()
@@ -123,7 +139,7 @@ function mq.imgui.destroy(name) end
 ---@field FrameLimiter framelimiter | fun(): "TRUE" | "FASLE"
 ---@field Friends userdata
 ---@field GameTime time
----@field Ground ground # References the ground spawn item you have targeted.
+---@field Ground ground|Ground # References the ground spawn item you have targeted.
 ---@field Group group
 ---@field GroupLeader any
 ---@field GroupLeaderName any
@@ -256,7 +272,7 @@ function TLO.Plugin(name)end
 ---@return MQSpawn
 function TLO.Spawn(id)end
 
-----Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
+---Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string
 ---@return MQSpawn
 function TLO.Spawn(filter)end

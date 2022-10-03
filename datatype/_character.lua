@@ -205,11 +205,11 @@ function character.Ability(index) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer # Ability button number
----@return boolean
+---@return MQBoolean
 function character.AbilityReady(index) end
 
 ---@param name string 
----@return boolean
+---@return MQBoolean
 function character.AbilityReady(name) end
 ---@diagnostic enable: duplicate-set-field
 
@@ -225,11 +225,11 @@ function character.AltAbility(name) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer # Alt ability #
----@return boolean
+---@return MQBoolean
 function character.AltAbilityReady(index) end
 
 ---@param name string 
----@return boolean
+---@return MQBoolean
 function character.AltAbilityReady(name) end
 ---@diagnostic enable: duplicate-set-field
 
@@ -352,7 +352,7 @@ function character.Inventory(slotNumber) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@param name string 
----@return boolean # True/False on if the item is ready to cast.
+---@return MQBoolean # True/False on if the item is ready to cast.
 function character.ItemReady(name) end
 
 ---@diagnostic disable: duplicate-set-field
@@ -420,12 +420,12 @@ function character.Song(slotNumber) end
 ---@diagnostic disable: duplicate-set-field
 ---Gem with this spell name ready to cast?
 ---@param name string 
----@return boolean 
+---@return MQBoolean 
 function character.SpellReady(name) end
 
 ---Gem in this gem # ready to cast?
 ---@param slotNumber integer 
----@return boolean
+---@return MQBoolean
 function character.SpellReady(slotNumber) end
 ---@diagnostic enable: duplicate-set-field
 

@@ -55,6 +55,10 @@ function mq.doevents(name) end
 ---@param name? string # Optional name of a single Event to flush
 function mq.flushevents(name) end
 
+---@param name string # The name of the texture to find
+---@return textureanimation # The CTextureAnimation with the given name
+function mq.FindTextureAnimation(name) end
+
 ---Returns all spawns
 ---@return spawn[] # The spawns
 function mq.getAllSpawns() end

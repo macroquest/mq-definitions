@@ -1,0 +1,3 @@
+---@meta
+---@class textureanimation
+---@field public SetTextureCell fun(self: textureanimation, id: integer) # Set the texture animation to the given icon ID

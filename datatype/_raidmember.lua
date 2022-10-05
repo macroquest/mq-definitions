@@ -1,4 +1,4 @@
---- @class raidmember
+--- @class raidmember : spawn
 --- @field public Class class Raid member's class (works without being in zone)
 --- @field public Group number Current group number (or 0)
 --- @field public GroupLeader boolean Returns TRUE if the member is a group leader

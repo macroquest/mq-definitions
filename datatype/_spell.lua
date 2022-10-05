@@ -16,9 +16,11 @@
 --- @field public Level MQInt # Level
 --- @field public Location MQFloat # Appears to be max distance
 --- @field public Mana MQInt # Mana cost (unadjusted)
+--- @field public EnduranceCost MQInt # Endurance cost (unadjusted)
 --- @field public MyCastTime timestamp # Adjusted cast time
 --- @field public MyRange MQFloat # Adjusted spell range, including focus effects, etc.
 --- @field public Name MQString # Spell Name
+--- @field public NumEffects MQInt # The number of effects the spell has
 --- @field public PushBack MQFloat # Push back amount
 --- @field public Range MQFloat # Maximum range to target (use AERange for AE and group spells)
 --- @field public Rank MQInt # Returns either 1, 2 or 3 for spells and 4-30 for clickys and potions.
@@ -32,10 +34,13 @@
 --- @field public SPA MQInt # Sell affect [https://docs.macroquest.org/reference/general/spa-list/?h=spa]
 --- @field public SpellIcon MQInt # Icon number of the spell. Exmaple ${Spell[blah].SpellIcon}
 --- @field public SpellType MQString # The spell type, Will be one of "Beneficial(Group)", "Beneficial", "Detrimental" or "Unknown"
+--- @field public Beneficial MQBoolean # Is this spell a beneficial spell type
 --- @field public Stacks MQBoolean # Does the selected spell stack with your current buffs (duration is in ticks)
+--- @field public StacksSpawn fun(id: integer): MQBoolean # Does the selected spell stack with the spawns current buffs (duration is in ticks)
 --- @field public StacksPet MQBoolean # Does the selected spell stack with your pet's current buffs (duration is in ticks)
 --- @field public StacksTarget MQBoolean # Does the selected spell stack with your target's current buffs (duration is in ticks)
 --- @field public StacksWith MQBoolean # Alias for .WillStack - see entry for more details
+--- @field public StacksWithDiscs MQBoolean # Will this stack with active discs
 --- @field public NewStacks MQBoolean # See entry for more details
 --- @field public TargetType MQString # See below for Target Types
 --- @field public WearOff MQString # The "wear off" message
@@ -53,3 +58,27 @@ function spell.ReagentCount(index) end
 ---@param index integer # The reagent index [1-4]
 ---@return MQInt # ID of the reagent item used for this spell in given [index]
 function spell.ReagentID(index) end
+
+---@param index integer # The index to retrieve the spell attribute value of
+---@return integer
+function spell.Attrib(index) end
+
+---@param index integer # The index to retrieve the trigger value of
+---@return MQSpell
+function spell.Trigger(index) end
+
+---@param index integer # The index to retrieve the base value of
+---@return integer
+function spell.Base(index) end
+
+---@param index integer # The index to retrieve the base2 value of
+---@return integer
+function spell.Base2(index) end
+
+---@param index integer # The index to retrieve the max value of
+---@return integer
+function spell.Max(index) end
+
+---@param spa integer # The SPA number to check against the spell attributes
+---@return MQBoolean # Does the spell contain the specified SPA.
+function spell.HasSPA(spa) end

@@ -3,6 +3,9 @@
 ---@class Mq
 ---@field public TLO TLO # Top Level Object (TLO) Binding
 ---@field public imgui IMGUI # sol2 ImGui Binding
+---@field public configDir string # Path to config directory
+---@field public luaDir string # Path to lua directory
+---@field public moduleDir string # Path to module directory
 mq = {}
 
 ---Performs an ingame slash action provided as a string. Any arguments passed to it are stringified (in lua), concatenated (with a space delimiter), and sent as part of the command.
@@ -67,18 +70,6 @@ function mq.getAllSpawns() end
 ---@param predicate fun(spawn: spawn): bool # The filter predicate
 ---@return spawn[] # The spawns
 function mq.getFilteredSpawns(predicate) end
-
----Returns path to config directory
----@return string # Path to config directory
-function mq.configDir() end
-
----Returns path to lua directory
----@return string # Path to lua directory
-function mq.luaDir() end
-
----Returns path to module directory
----@return string # Path to module directory
-function mq.moduleDir() end
 
 ---@param type any # The variable we want to check type of
 ---@return mqtype

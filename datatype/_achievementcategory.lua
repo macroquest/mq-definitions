@@ -3,8 +3,8 @@
 ---@field ID MQInt #The unique ID for the category
 ---@field Name MQString #The category's display name
 ---@field Description MQString #The category's Description
----@field AchivementByIndex fun(index:integer):achievement Find an achievement by its index in this category
----@field AchivementCount MQInt #The number of achievements in this category
+---@field AchievementByIndex fun(index:integer):achievement Find an achievement by its index in this category
+---@field AchievementCount MQInt #The number of achievements in this category
 ---@field CategoryByIndex fun(index:integer):integer Find a child category by its index in this category
 ---@field CategoryCount MQInt #The number of child categories in this category
 ---@field Points MQInt #The total earned points of achievements in this category

@@ -62,7 +62,7 @@
 ---@field public InvSlot MQFloat #Inventory Slot Number (Historic and now deprecated, use ItemSlot and ItemSlot2)
 ---@field public Item item Item in #th slot, if this is a container or has augs
 ---@field public ItemDelay MQFloat Returns the delay of the weapon
----@field public ItemLink item just prints the actual hexlink for an item (not clickable) unless [CLICKABLE] is included
+---@field public ItemLink fun(clickable?: string): MQString # just prints the actual hexlink for an item (not clickable) unless [CLICKABLE] is included
 ---@field public Items MQFloat #Number of items, if this is a container.
 ---@field public ItemSlot MQFloat #Item Slot number see Slot Names
 ---@field public ItemSlot2 MQFloat #Item Slot sub number see Slot Names

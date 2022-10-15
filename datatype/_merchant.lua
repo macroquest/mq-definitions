@@ -7,7 +7,7 @@
 --- @field public SelectedItem item The currently selected item in the merchant window, and item type
 --- @field public ItemsReceived MQBoolean #True if the merchants itemlist has been filled in.
 --- @field public OpenWindow fun() Will open the merchant closest to you, or if you have a merchant target
---- @field public SelectItem fun() Select item specified or partial match that fits. Use SelectItem[=xxx] for EXACT match(its not case sensitive)
---- @field public Buy fun() Buys # of whatever is selected with Merchant.SelectItem[xxx]
---- @field public Sell fun() Sell # of whatever is selected with /seletitem. See examples
+--- @field public SelectItem fun(item:string) Select item specified or partial match that fits. Use SelectItem[=xxx] for EXACT match(its not case sensitive)
+--- @field public Buy fun(num_of_items:integer) Buys # of whatever is selected with Merchant.SelectItem[xxx]
+--- @field public Sell fun(num_of_items:integer) Sell # of whatever is selected with /seletitem. See examples
 --- @field public ToString MQBoolean #Same as Open

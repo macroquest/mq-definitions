@@ -318,6 +318,12 @@ TLO.Zone = nil
 
 ---@diagnostic disable: duplicate-set-field
 ---@diagnostic disable: assign-type-mismatch
+----Retrieves information about the current zone.
+---@return MQZone
+function TLO.Zone() end
+
+---@diagnostic disable: duplicate-set-field
+---@diagnostic disable: assign-type-mismatch
 ----Retrieves information about a zone by zone ID. If this zone is the current zone, then this will return currentzone.
 ---@param id integer Zone ID
 ---@return MQZone

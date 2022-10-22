@@ -3,6 +3,8 @@
 --- @field public CastOnAnother MQString # Message when cast on others
 --- @field public CastOnYou MQString # Message when cast on yourself
 --- @field public CastTime timestamp # Cast time (unadjusted)
+--- @field public Category MQString # Spell category name
+--- @field public CategoryID MQInt # Spell category id
 --- @field public CounterType MQString # The resist counter. Will be one of "Disease", "Poison", "Curse" or "Corruption"
 --- @field public CounterNumber MQInt # The number of counters that the spell adds
 --- @field public Duration ticks # Duration of the spell (if any)
@@ -31,7 +33,6 @@
 --- @field public ResistType MQString # See below for Resist Types
 --- @field public Skill MQString # See below for Skill Types
 --- @field public SlowPct MQFloat # Percentage of slow, example of use ${Target.Slowed.SlowPct} or ${Spell[Slowing Helix].SlowPct}
---- @field public SPA MQInt # Sell affect [https://docs.macroquest.org/reference/general/spa-list/?h=spa]
 --- @field public SpellIcon MQInt # Icon number of the spell. Exmaple ${Spell[blah].SpellIcon}
 --- @field public SpellType MQString # The spell type, Will be one of "Beneficial(Group)", "Beneficial", "Detrimental" or "Unknown"
 --- @field public Beneficial MQBoolean # Is this spell a beneficial spell type
@@ -41,6 +42,8 @@
 --- @field public StacksTarget MQBoolean # Does the selected spell stack with your target's current buffs (duration is in ticks)
 --- @field public StacksWith MQBoolean # Alias for .WillStack - see entry for more details
 --- @field public StacksWithDiscs MQBoolean # Will this stack with active discs
+--- @field public Subcategory MQString # Spell sub category name
+--- @field public SubcategoryID MQInt # Spell sub category id
 --- @field public NewStacks MQBoolean # See entry for more details
 --- @field public TargetType MQString # See below for Target Types
 --- @field public WearOff MQString # The "wear off" message

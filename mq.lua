@@ -3,6 +3,9 @@
 ---@class Mq
 ---@field public TLO TLO # Top Level Object (TLO) Binding
 ---@field public imgui IMGUI # sol2 ImGui Binding
+---@field public configDir string # Path to config directory
+---@field public luaDir string # Path to lua directory
+---@field public moduleDir string # Path to module directory
 mq = {}
 
 ---Performs an ingame slash action provided as a string. Any arguments passed to it are stringified (in lua), concatenated (with a space delimiter), and sent as part of the command.
@@ -55,6 +58,10 @@ function mq.doevents(name) end
 ---@param name? string # Optional name of a single Event to flush
 function mq.flushevents(name) end
 
+---@param name string # The name of the texture to find
+---@return textureanimation # The CTextureAnimation with the given name
+function mq.FindTextureAnimation(name) end
+
 ---Returns all spawns
 ---@return spawn[] # The spawns
 function mq.getAllSpawns() end
@@ -67,6 +74,10 @@ function mq.getFilteredSpawns(predicate) end
 ---@param type any # The variable we want to check type of
 ---@return mqtype
 function mq.gettype(type) end
+
+---@param name string # The name of the texture animation
+---@return any
+function mq.FindTextureAnimation(name) end
 
 ---@class Cmd
 ---@field afk fun()
@@ -123,7 +134,7 @@ function mq.imgui.destroy(name) end
 ---@field FrameLimiter framelimiter | fun(): "TRUE" | "FASLE"
 ---@field Friends userdata
 ---@field GameTime time
----@field Ground ground # References the ground spawn item you have targeted.
+---@field Ground ground|Ground # References the ground spawn item you have targeted.
 ---@field Group group
 ---@field GroupLeader any
 ---@field GroupLeaderName any
@@ -256,7 +267,7 @@ function TLO.Plugin(name)end
 ---@return MQSpawn
 function TLO.Spawn(id)end
 
-----Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
+---Returns a Spawn by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string
 ---@return MQSpawn
 function TLO.Spawn(filter)end
@@ -304,6 +315,12 @@ function TLO.Skill(name)end
 ----The current zone information
 ---@type zone
 TLO.Zone = nil
+
+---@diagnostic disable: duplicate-set-field
+---@diagnostic disable: assign-type-mismatch
+----Retrieves information about the current zone.
+---@return MQZone
+function TLO.Zone() end
 
 ---@diagnostic disable: duplicate-set-field
 ---@diagnostic disable: assign-type-mismatch

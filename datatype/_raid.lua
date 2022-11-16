@@ -12,7 +12,6 @@
 --- - 2 Leader & GroupLeader
 --- - 3 Leader & Specified
 ---@field public LootType MQInt
----@field public MainAssist MQRaidMember # Raid main assist
 ---@field public MasterLooter MQRaidMember # Raid Master Looter
 ---@field public Members MQInt #Total number of raid members
 ---@field public Target MQRaidMember # Raid target (clicked in raid window)
@@ -39,3 +38,8 @@ function raid.Looter(name) end
 ---@param index integer
 ---@return string
 function raid.Looter(index) end
+
+---Raid main assist
+---@param index integer
+---@return raidmember
+function raid.MainAssist(index) end

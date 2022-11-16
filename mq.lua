@@ -67,7 +67,7 @@ function mq.FindTextureAnimation(name) end
 function mq.getAllSpawns() end
 
 ---Returns all spawns by predicate.
----@param predicate fun(spawn: spawn): bool # The filter predicate
+---@param predicate fun(spawn: spawn): boolean # The filter predicate
 ---@return spawn[] # The spawns
 function mq.getFilteredSpawns(predicate) end
 

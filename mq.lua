@@ -164,7 +164,7 @@ function mq.imgui.destroy(name) end
 ---@field SelectedItem item # Returns information on the object that is selected in your own inventory while using a merchant.
 ---@field String any
 ---@field SubDefined any
----@field Switch switch
+---@field Switch MQSwitch
 ---@field SwitchTarget any
 ---@field Target MQTarget
 ---@field Task fun(index?: integer): task|nil # Returns the first task, or the current shared task if one exists.
@@ -215,22 +215,22 @@ function TLO.FindItemBank(name)end
 
 ---Return a counts of Items by the item ID
 ---@param id integer
----@return integer
+---@return MQInt
 function TLO.FindItemCount(id)end
 
 ---Return a counts of Items by the item Name
 ---@param name string
----@return integer
+---@return MQInt
 function TLO.FindItemCount(name)end
 
 ---Return a counts of Items in the bank by the item ID
 ---@param id integer
----@return integer
+---@return MQInt
 function TLO.FindItemBankCount(id)end
 
 ---Return a counts of Items in the bank by the item Name
 ---@param name string
----@return integer
+---@return MQInt
 function TLO.FindItemBankCount(name)end
 
 ---@diagnostic disable: duplicate-set-field
@@ -289,7 +289,7 @@ function TLO.Mount(name) end
 
 ----Returns a count of Spawns by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string
----@return integer
+---@return MQInt
 function TLO.SpawnCount(filter)end
 
 ---Returns a Spell by ID

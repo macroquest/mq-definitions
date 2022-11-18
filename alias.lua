@@ -18,7 +18,7 @@
 ---@alias MQInvSlot invslot | fun(): string|nil
 ---@alias MQItem item | fun(): string|nil
 ---@alias MQMerchant merchant | fun(): string|nil
----@alias MQPet pet | fun(): string|nil
+---@alias MQPet pet | fun(): string|'NO PET'
 ---@alias MQRaidMember raidmember | fun(): string|nil
 ---@alias MQSpawn spawn | fun(): string|nil
 ---@alias MQSpell spell | fun(): string|nil

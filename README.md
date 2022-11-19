@@ -17,7 +17,7 @@ The extension can also be installed directly from within VSCode.  Search Extensi
 - Create a  [settings file for VS Code](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settingsjson-location) if you do not already have one with these settings:
 ```json
 {
-  "Lua.runtime.version": "Lua 5.1",
+  "Lua.runtime.version": "LuaJIT",
   "Lua.workspace.library": [
     "./relative/path/to/mq/def",
     "./relative/path/to/imgui/def"

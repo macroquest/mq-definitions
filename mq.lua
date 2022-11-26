@@ -22,6 +22,10 @@ function mq.cmdf(command, ...) end
 ---@param condition? function # An optional condition that can end the delay early with a return of true
 function mq.delay(delayValue, condition) end
 
+---Returns time in milliseconds
+---@return number
+function mq.gettime() end
+
 ---Joins a number of string-convertable parameters into a single string
 ---@vararg string
 ---@return string
@@ -75,9 +79,13 @@ function mq.getFilteredSpawns(predicate) end
 ---@return mqtype
 function mq.gettype(type) end
 
----@param name string # The name of the texture animation
+---@param name string The name of the texture animation
 ---@return any
 function mq.FindTextureAnimation(name) end
+
+---Retrieves FLT_MIN and FLT_MAX
+---@return number FLT_MIN, number FLT_MAX
+function mq.NumericLimits_Float() end
 
 ---@class Cmd
 ---@field afk fun()

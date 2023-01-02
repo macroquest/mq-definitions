@@ -128,6 +128,7 @@
 ---@field public Moving MQBoolean #Moving? (including strafe)
 ---@field public Name MQString #First name
 ---@field public NumGems MQFloat #Returns the amount of spell gems your toon has
+---@field public NumBagSlots MQInt #Returns the total number of bag slots
 ---@field public Orux MQFloat #Orux on your character
 ---@field public PctAAExp MQFloat #AA exp as a %
 ---@field public PctAAVitality MQFloat #Percentage of AA Vitality your toon has

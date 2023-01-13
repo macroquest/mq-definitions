@@ -52,7 +52,7 @@
 ---@field public DoFace fun() # Faces target
 ---@field public DoTarget fun() # Targets spawn
 ---@field public Ducking MQBoolean # Ducking?
----@field public Equipment MQFloat # Returns a inttype, it takes numbers 0-8 or names: head chest arms wrists hands legs feet primary offhand
+---@field public Equipment fun(slot_or_name): MQFloat # Returns a inttype, it takes numbers 0-8 or names: head chest arms wrists hands legs feet primary offhand
 ---@field public EQLoc MQString # Location using EQ format
 ---@field public FD fun(): number
 ---@field public FeetWet MQBoolean # Feet wet/swimming?

@@ -155,7 +155,7 @@
 ---@field public E MQFloat # Shortcut for -X (makes Eastward positive)
 ---@field public S MQFloat # Shortcut for -Y (makes Southward positive)
 ---@field public D MQFloat # Shortcut for -Z (makes Downward positive)
----@field public FindBuff fun(predicate: string): spell # Try find a given buff/debuff given predicate from cachedbuffs
+---@field public FindBuff fun(predicate: string): MQSpell # Try find a given buff/debuff given predicate from cachedbuffs
 ---@field public Aggresive MQBoolean # Is the spawn aggressive towards you
 local spawn = {}
 

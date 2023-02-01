@@ -66,7 +66,7 @@
 ---@field public Items MQFloat #Number of items, if this is a container.
 ---@field public ItemSlot MQFloat #Item Slot number see Slot Names
 ---@field public ItemSlot2 MQFloat #Item Slot sub number see Slot Names
----@field public Inspect fun() #Opens inspect window for the given item
+---@field public Inspect fun() #Opens the item display window for this item
 ---@field public LDoNTheme MQString #"All", "Deepest Guk", "Miragul's", "Mistmoore", "Rujarkian", "Takish", "Unknown"
 ---@field public Lore MQBoolean #Lore?
 ---@field public Magic MQBoolean #Magic?

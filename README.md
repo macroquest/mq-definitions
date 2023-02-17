@@ -1,6 +1,8 @@
 # Macroquest Lua Definitions Library
 ## Overview
-This is a set of Lua files, that when placed in a subdirectory under your script folder (do not put this in the `Macroquest/Lua` folder), provide code completion, method signature and brief contexual help, as well as the ability to check types as shown in the examples below. 
+This is a set of Lua files, that when placed in a subdirectory under your scripts development folder, provide code completion, method signature and brief contexual help, as well as the ability to check types as shown in the examples below. 
+
+ :warning: **Do not put this in the `Macroquest/Lua` folder**
 
 ## Installation
 The files in this library work with the VSCode Extension found here:

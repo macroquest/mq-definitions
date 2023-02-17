@@ -1,13 +1,6 @@
 # Macroquest Lua Definitions Library
 ## Overview
-This is a set of Lua files, that when placed in a subdirectory under your Lua folder, provide code completion, method signature and brief contexual help, as well as the ability to check types as shown in the examples below.  
-
-## How to Use
-- Annotate your Macroquest import as a type of "Mq" as shown.  *Note:* This is case sensitive.
-![image](https://user-images.githubusercontent.com/414568/189778453-5910f65d-2dee-45b9-a95e-faf24423c1ed.png)
-
-- Watch the magic start.  Once mq has been identified to the Language server, you will start to see the context menu's populate while coding.
-![image](https://user-images.githubusercontent.com/414568/189778777-e386e385-2065-4d00-b3cd-780f3a1946b2.png)
+This is a set of Lua files, that when placed in a subdirectory under your script folder (do not put this in the `Macroquest/Lua` folder), provide code completion, method signature and brief contexual help, as well as the ability to check types as shown in the examples below. 
 
 ## Installation
 The files in this library work with the VSCode Extension found here:
@@ -23,4 +16,26 @@ The extension can also be installed directly from within VSCode.  Search Extensi
     "./relative/path/to/imgui/def"
   ],
 }
+``` 
+
+## How to Use
+
+When requiring the MQ or ImGui bindings in your Lua script, just annotate the require with a type MQ or ImGui as shown below.  This will then provide autocomplete for ImGui methods and enum types.
+
+- Annotate your Macroquest import as a type of `Mq` as shown.  *Note:* This is case sensitive.
+```lua
+--- @type Mq
+local mq = require 'mq'
+
+. . .
 ```
+- Annotate your ImGui import as a type of `ImGui` as shown.  *Note:* This is case sensitive.
+```lua
+--- @type ImGui
+local imgui = require 'ImGui'
+
+. . .
+```
+
+- Watch the magic start.  Once mq has been identified to the Language server, you will start to see the context menu's populate while coding.
+![image](https://user-images.githubusercontent.com/414568/189778777-e386e385-2065-4d00-b3cd-780f3a1946b2.png)

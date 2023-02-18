@@ -1452,3 +1452,5 @@ function ImGui.DrawTextureAnimation(texture, width, height) end
 ---@param width? number
 ---@param font? ImFont
 function ImGui.HelpMarker(label, width, font) end
+
+return ImGui

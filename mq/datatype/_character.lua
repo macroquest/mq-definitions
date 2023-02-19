@@ -120,8 +120,8 @@
 ---@field public MaxEndurance MQFloat #Max endurance
 ---@field public MaxHPs MQFloat #Max hit points
 ---@field public MaxMana MQFloat #Max mana
----@field public Mercenary MQString #The state of your Mercenary, ACTIVE, SUSPENDED, or UNKNOWN (If it's dead). Returns NULL if you do not have a Mercenary.
----@field public MercenaryStance MQString #Current active mercenary stance as a string, default is NULL.
+---@field public Mercenary MQMercenary #The state of your Mercenary, "DEAD", "SUSPENDED", "ACTIVE", or "UNKNOWN". Returns nil if you do not have a Mercenary.
+---@field public MercenaryStance MQString #Current active mercenary stance as a string, default is nil.
 ---@field public Mezzed MQString #Returns the name of the first mez on the character
 ---@field public MirEarned MQFloat #Total LDoN points earned in Miragul's
 ---@field public MMEarned MQFloat #Total LDoN points earned in Mistmoore

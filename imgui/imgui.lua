@@ -208,11 +208,10 @@ function ImGui.SetNextWindowViewport(viewportID) end
 ---@param cond? ImGuiCond
 function ImGui.SetWindowPos(name, posX, posY, cond) end
 
----@param name string
 ---@param posX number
 ---@param posY number
 ---@param cond? ImGuiCond
-function ImGui.SetWindowPos(name, posX, posY, cond) end
+function ImGui.SetWindowPos(posX, posY, cond) end
 
 ---@param name string
 ---@param sizeX number

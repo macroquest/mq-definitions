@@ -1,4 +1,4 @@
----@meta
+---@meta mq
 
 ---@class Mq
 ---@field public TLO TLO # Top Level Object (TLO) Binding

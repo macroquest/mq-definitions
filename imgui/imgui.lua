@@ -1,4 +1,4 @@
----@meta
+---@meta ImGui
 
 --- Macroquest ImGui Lua Binding
 ---@class ImGui
@@ -99,7 +99,15 @@ function ImGui.End() end
 ---@param sizeY? number
 ---@param border? boolean
 ---@param flags? ImGuiWindowFlags
+---@return boolean draw
 function ImGui.BeginChild(name, sizeX, sizeY, border, flags) end
+
+---@param name string
+---@param size ImVec2
+---@param border? boolean
+---@param flags? ImGuiWindowFlags
+---@return boolean draw
+function ImGui.BeginChild(name, size, border, flags) end
 
 function ImGui.EndChild() end
 
@@ -357,7 +365,7 @@ function ImGui.SetNextItemWidth(itemWidth) end
 ---@return number
 function ImGui.CalcItemWidth() end
 
----@param wrapLocalPosX number
+---@param wrapLocalPosX? number
 function ImGui.PushTextWrapPos(wrapLocalPosX) end
 function ImGui.PopTextWrapPos() end
 
@@ -503,10 +511,11 @@ function ImGui.Button(label, size) end
 ---@param label string
 ---@param sizeX number
 ---@param sizeY number
----@return boolean # clicked
+---@return boolean clicked
 function ImGui.Button(label, sizeX, sizeY) end
 
 ---@param label string
+---@return boolean clicked
 function ImGui.SmallButton(label) end
 
 ---@param label string
@@ -518,7 +527,7 @@ function ImGui.InvisibleButton(label, sizeX, sizeY) end
 ---@param label string
 ---@param size ImVec2
 ---@param flags? ImGuiButtonFlags
----@return boolean # clicked
+---@return boolean clicked
 function ImGui.InvisibleButton(label, size, flags) end
 
 ---@param label string
@@ -924,31 +933,31 @@ function ImGui.BeginListBox(label, size) end
 function ImGui.EndListBox() end
 
 ---@param label string
----@param current_item integer
+---@param currentItem integer
 ---@param items table
----@param items_count integer
----@param height_in_items? integer
+---@param itemsCount integer
+---@param heightInItems? integer
 ---@return integer current_item, boolean clicked
-function ImGui.ListBox(label, current_item, items, items_count, height_in_items) end
+function ImGui.ListBox(label, currentItem, items, itemsCount, heightInItems) end
 
 ---@param label string
----@param size_x number
----@param size_y number
-function ImGui.ListBoxHeader(label, size_x, size_y) end
+---@param sizeX number
+---@param sizeY number
+function ImGui.ListBoxHeader(label, sizeX, sizeY) end
 
 
 ---@param label string
----@param items_count integer
----@param height_in_items? integer
-function ImGui.ListBoxHeader(label, items_count, height_in_items) end
+---@param itemsCount integer
+---@param heightInItems? integer
+function ImGui.ListBoxHeader(label, itemsCount, heightInItems) end
 
 function ImGui.ListBoxFooter() end
 
 --- Widgets: Value() Helpers
 ---@param text string
 ---@param value boolean|number
----@param float_format? string # format only available with float
-function ImGui.Value(text, value, float_format) end
+---@param floatFormat? string format only available with float
+function ImGui.Value(text, value, floatFormat) end
 
 --- Widgets: Menus
 
@@ -1390,7 +1399,9 @@ function ImGui.BeginTable(name, columnsCount, tableFlags, outer_sizeX, outer_siz
 
 function ImGui.EndTable() end
 
----@return integer # Return hovered column. return -1 when table is not hovered. return columns_count if the unused space at the right of visible columns is hovered.
+--- Return hovered column. return -1 when table is not hovered. return columnsCount
+--- if the unused space at the right of visible columns is hovered.
+---@return integer column
 function ImGui.TableGetHoveredColumn() end
 
 ---@param label string

@@ -1,7 +1,7 @@
 ---@meta
 
----@enum ImViewportFlags
-ImViewportFlags = {
+---@enum ImGuiViewportFlags
+ImGuiViewportFlags = {
     None                     = 0,
     IsPlatformWindow         = 1,
     IsPlatformMonitor        = 2,

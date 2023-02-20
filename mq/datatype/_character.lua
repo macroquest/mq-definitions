@@ -156,7 +156,7 @@
 ---@field public SecondaryAggroPlayer MQSpawn spawninfo for secondary aggro player
 ---@field public ShieldingBonus MQFloat #Shielding bonus from gear and spells
 ---@field public Shrouded MQBoolean #Am I Shrouded?
----@field public Silenced MQString #Returns the name of the Silence type effect on you
+---@field public Silenced MQBuff #Returns the Silence effect on you
 ---@field public Silver MQFloat #Silver on your character
 ---@field public SilverBank MQFloat #Silver in bank
 ---@field public Sit fun() Causes toon to sit if not already

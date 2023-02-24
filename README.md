@@ -14,30 +14,25 @@ The extension can also be installed directly from within VSCode.  Search Extensi
 {
   "Lua.runtime.version": "LuaJIT",
   "Lua.workspace.library": [
-    "./relative/path/to/mq/def",
-    "./relative/path/to/imgui/def"
+    "./relative/path/to/mq-definitions",
   ],
 }
 ``` 
 
 ## How to Use
 
-When requiring the MQ or ImGui bindings in your Lua script, just annotate the require with a type MQ or ImGui as shown below.  This will then provide autocomplete for ImGui methods and enum types.
+When requiring the MQ, ImGui or other MQ script bindings in your Lua script autocompletion will be provided for fields, methods and enum types.
 
-- Annotate your Macroquest import as a type of `Mq` as shown.  *Note:* This is case sensitive.
+- Definitions support the following requires. *Note:* This is case sensitive.
 ```lua
---- @type Mq
 local mq = require 'mq'
-
-. . .
-```
-- Annotate your ImGui import as a type of `ImGui` as shown.  *Note:* This is case sensitive.
-```lua
---- @type ImGui
 local imgui = require 'ImGui'
+local icons = require 'mq/icons'
+local utils = require 'mq/utils'
+local packageman = require 'mq/packageman'
 
 . . .
 ```
 
-- Watch the magic start.  Once mq has been identified to the Language server, you will start to see the context menu's populate while coding.
+- Watch the magic start.  Once the definitions has been identified to the Language server, you will start to see the context menu's populate while coding.
 ![image](https://user-images.githubusercontent.com/414568/189778777-e386e385-2065-4d00-b3cd-780f3a1946b2.png)

@@ -15,9 +15,13 @@ The extension can also be installed directly from within VSCode.  Search Extensi
   "Lua.runtime.version": "LuaJIT",
   "Lua.workspace.library": [
     "./relative/path/to/mq-definitions",
+    "absolute/path/to/macroquest/lua",
   ],
 }
 ``` 
+
+Adding the absolute path to the macroquest binary lua folder will give type definitions for lua files shipped with Macroquest.
+ie `c:\games\macroquest\lua` where `c:\games\macroquest`is your install directory for Macroquest.
 
 ## How to Use
 

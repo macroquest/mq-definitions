@@ -1,42 +1,63 @@
 # Macroquest Lua Definitions Library
 ## Overview
-This is a set of Lua files, that when placed in a subdirectory under your scripts development folder, provide code completion, method signature and brief contexual help, as well as the ability to check types as shown in the examples below. 
+The definitive set of Lua code definitions for Macroquest, ImGui Lua Bindings w/custom features, and Macroquest core Lua helpers.  This library is designed to help you write Lua scripts for Macroquest with greater speed and fewer runtime errors, thanks to LuaLS dynamic type checking, syntax checking, and diagnostic tools.
 
- :warning: **Do not put this in the `Macroquest/Lua` folder**
+## Prerequisites 
+To get started you'll need the following.
+- [Microsoft VS Code](https://code.visualstudio.com/download)
+- [The LuaLS Extenstion](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)
+- This library installed to a known location on your computer
+
+If You already have these, jump ahead to "Getting Started", otherwise continue with the next section.
 
 ## Installation
-The files in this library work with the VSCode Extension found here:
-- [VSCode Marketplace - Lua Language Server Extension](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)
-The extension can also be installed directly from within VSCode.  Search Extensions for "Lua Language Server" as seen here, and install the one by "sumneko"
+
+### Microsoft Visual Studio Code 
+- Install the latest version of Visual Studio Code from the [here](https://code.visualstudio.com/download)
+
+
+### LuaLS (Lua Language Server Extension)
+- Install LuaLS either from here [VSCode Marketplace - Lua Language Server Extension](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)
+- Or the extension can be installed directly from within VSCode.  Search Extensions for "Lua Language Server" as seen here, and install the one by "sumneko"
 ![image](https://user-images.githubusercontent.com/414568/189777359-887c937a-5453-4ea0-a8f0-5c41ea4d6b66.png)
-- Create a  [settings file for VS Code](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settingsjson-location) if you do not already have one with these settings:
+
+### Install these files on your computer
+- RedGuides Users can simply "Watch" the resource [here](https://www.redguides.com/community/resources/mq-vs-code-lua-autocomplete-definition-library.2583/) and the files will automatically be placed in a directory called "mq-defintions" under your lua directory when you run the RedGuides launcher.
+- If you are not a RedGuides user, or wish to install the files yourself, you can clone the repository from GitHub, or download the zip file from GitHub.
+- Unless you need the definitions in a seperate location, e.g you're writing scripts for different versions EQ Live and EQ Emu, it is highly reccomended that you put the defintions under your Lua directory (i.e. a subdirectory called mq-defintions under the lua directory). This installation will require no additional configurations and you'll be up and running right away.
+  - Download the zip from Gihub by following this [link](https://github.com/macroquest/mq-definitions/archive/refs/heads/master.zip), or you can use the web interface. 
+  - Clone the repository  
+    - If you do not have Git for Windows installed, you can get it at [gitforwindows.org](https://gitforwindows.org/)
+    - `git clone https://github.com/macroquest/mq-definitions.git`
+
+At this point, you should have
+ - VS Code Installed and Working
+ - with the LuaLS Extension installed
+ - and the files downloaded to a known directory on your computer
+
+- _If you put your mq-defintions in a folder location other than under the lua directory, then you will need to complete the next step, to define where the LuaLS extension can locate the definition files and the Macroquest Lua directory._
+
+- Create or modify [settings file for VS Code](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settingsjson-location) with these settings:
 ```json
 {
   "Lua.runtime.version": "LuaJIT",
   "Lua.workspace.library": [
-    "./relative/path/to/mq-definitions",
-    "absolute/path/to/macroquest/lua",
+    "path/to/mq-definitions",
+    "path/to/macroquest/lua",
   ],
 }
 ``` 
 
-Adding the absolute path to the macroquest binary lua folder will give type definitions for lua files shipped with Macroquest.
-ie `c:\games\macroquest\lua` where `c:\games\macroquest`is your install directory for Macroquest.
-
 ## How to Use
 
-When requiring the MQ, ImGui or other MQ script bindings in your Lua script autocompletion will be provided for fields, methods and enum types.
+When requiring the Macroquest, ImGui, or other supported libaries in your Lua script, autocompletion will be provided for fields, methods and enum types.
 
 - Definitions support the following requires. *Note:* This is case sensitive.
 ```lua
-local mq = require 'mq'
-local imgui = require 'ImGui'
-local icons = require 'mq/icons'
-local utils = require 'mq/utils'
-local packageman = require 'mq/packageman'
-
+local mq = require('mq')
+local imgui = require('ImGui')
+local icons = require('mq/icons')
+local utils = require('mq/utils')
+local packageman = require('mq/packageman')
 . . .
 ```
-
-- Watch the magic start.  Once the definitions has been identified to the Language server, you will start to see the context menu's populate while coding.
-![image](https://user-images.githubusercontent.com/414568/189778777-e386e385-2065-4d00-b3cd-780f3a1946b2.png)

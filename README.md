@@ -30,6 +30,7 @@ If You already have these, jump ahead to "Getting Started", otherwise continue w
     - If you do not have Git for Windows installed, you can get it at [gitforwindows.org](https://gitforwindows.org/)
     - `git clone https://github.com/macroquest/mq-definitions.git`
 
+## Getting Started
 At this point, you should have
  - VS Code Installed and Working
  - with the LuaLS Extension installed

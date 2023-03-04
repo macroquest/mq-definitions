@@ -31,7 +31,7 @@ If You already have these, jump ahead to "Getting Started", otherwise continue w
     - `git clone https://github.com/macroquest/mq-definitions.git`
 
 ## Getting Started
-At this point, you should have
+At this point, you should have:
  - VS Code Installed and Working
  - with the LuaLS Extension installed
  - and the files downloaded to a known directory on your computer

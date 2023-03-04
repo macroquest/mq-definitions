@@ -6,15 +6,9 @@ on:
       - master
 
 jobs:
-  build:
+  release-please:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Release Please
-      uses: google-github-actions/release-please-action@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        args: --release-as minor --changelog-include-merged-prs
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: simple

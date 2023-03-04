@@ -1,0 +1,20 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Release Please
+      uses: google-github-actions/release-please-action@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        args: --release-as minor --changelog-include-merged-prs

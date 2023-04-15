@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/macroquest/mq-definitions/compare/v1.0.0...v1.0.1) (2023-04-10)
+
+
+### Bug Fixes
+
+* updates buff duration to timestamp datatype ([8a2107e](https://github.com/macroquest/mq-definitions/commit/8a2107e2f23980161e3a7d38ad2a9100ff239fce))
+
 ## 1.0.0 (2023-03-04)
 
 

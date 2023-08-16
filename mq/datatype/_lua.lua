@@ -6,11 +6,11 @@
 --- @field public StartTime MQString #The time the most recent execution of the script was started
 --- @field public EndTime MQString #The time the most recent execution of the script ended or NULL if the script has not ended
 --- @field public ReturnCount MQInt #The number of returns from the script, will be 0 if the script has not ended
---- @field public Return fun(index: integer): string string If not indexed, a comma-delimited list of return values. Accepts an integereger index to get a single return value if there is more than one
+--- @field public Return fun(index: integer): string string If not indexed, a comma-delimited list of return values. Accepts an integer index to get a single return value if there is more than one
 --- @field public Status MQString #The execution status of the script
 ---
 --- @class Lua
---- @field public PIDs MQString #A comma-delimited list of integereger PIDs that have info to access
+--- @field public PIDs MQString #A comma-delimited list of integer PIDs that have info to access
 --- @field public Dir MQString #The base lua scripts directory
 --- @field public Turbo MQInt #The turbo value
 --- @field public RequirePaths MQString #The semicolon-delimited value for lua require search paths

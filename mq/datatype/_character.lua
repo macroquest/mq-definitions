@@ -240,11 +240,11 @@ function character.AltAbilityReady(name) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer # Alt ability #
----@return integer
+---@return timestamp
 function character.AltAbilityTimer(index) end
 
 ---@param name string 
----@return integer
+---@return timestamp
 function character.AltAbilityTimer(name) end
 ---@diagnostic enable: duplicate-set-field
 
@@ -316,11 +316,11 @@ function character.CombatAbilityReady(name) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer # Combat ability #
----@return integer
+---@return ticks
 function character.CombatAbilityTimer(index) end
 
 ---@param name string 
----@return integer
+---@return ticks
 function character.CombatAbilityTimer(name) end
 ---@diagnostic enable: duplicate-set-field
 

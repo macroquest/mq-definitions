@@ -21,11 +21,12 @@
 ---@field public CHA MQFloat #CHA value on item
 ---@field public Charges MQFloat #Charges
 ---@field public Clairvoyance MQFloat #Clairvoyance
----@field public Class MQString #Returns the #th long class name of the listed classes on an item. Items suitable for ALL classes will effectively have all 17 classes listed.
+---@field public Class fun(filter: number|string): MQString #Returns the #th long class name of the listed classes on an item. Items suitable for ALL classes will effectively have all 17 classes listed.
 ---@field public Classes MQFloat #The number of classes that can use the item. Items suitable for ALL classes will return 16.
 ---@field public Clicky itemspell Activatable spell effect, if any.
 ---@field public CombatEffects MQFloat #CombatEffects
 ---@field public Container MQFloat #Number of slots, if this is a container
+---@field public Damage MQInt #Damage Shield Mitigation
 ---@field public DamageShieldMitigation MQFloat #Damage Shield Mitigation
 ---@field public DamShield MQFloat #Damage Shield value on item
 ---@field public Deity MQString #Returns the #th deity of the listed deities on an item. Items with no deity restrictions will return NULL for all values of #.
@@ -113,7 +114,7 @@
 ---@field public Weight MQFloat #Item weight
 ---@field public WIS MQFloat #WIS value on item
 ---@filed public Worn itemspell|fun():itemspell Passive worn effect, if any
----@field public WornSlot invslot The #th invslot this item can be worn in (fingers/ears count as 2 slots)
----@field public WornSlot MQBoolean #Can item be worn in invslot with this name? (worn slots only)
+---@field public WornSlot fun(slot: number): invslot invslot The #th invslot this item can be worn in (fingers/ears count as 2 slots)
+---@field public WornSlot fun(slot: string): MQBoolean #Can item be worn in invslot with this name? (worn slots only)
 ---@field public WornSlots MQFloat #The number of invslots this item can be worn in (fingers/ears count as 2 slots)
 ---@field public ToString MQString #Same as Name

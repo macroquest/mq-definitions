@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/macroquest/mq-definitions/compare/v1.0.1...v1.0.2) (2023-10-29)
+
+
+### Bug Fixes
+
+* Fix a few item defs and add one missing ([#48](https://github.com/macroquest/mq-definitions/issues/48)) ([f720fb6](https://github.com/macroquest/mq-definitions/commit/f720fb6c33d766ff531c75c96e099be0de52f428))
+
 ## [1.0.1](https://github.com/macroquest/mq-definitions/compare/v1.0.0...v1.0.1) (2023-04-10)
 
 

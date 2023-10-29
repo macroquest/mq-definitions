@@ -87,6 +87,12 @@ function mq.FindTextureAnimation(name) end
 ---@return number FLT_MIN, number FLT_MAX
 function mq.NumericLimits_Float() end
 
+
+---Serializes a table to the given filepath
+---@param filepath string
+---@param table table
+function mq.pickle(filepath, table) end
+
 ---@class Cmd
 ---@field afk fun()
 ---@field alt fun()

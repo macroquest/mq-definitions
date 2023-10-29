@@ -156,6 +156,7 @@ function mq.imgui.destroy(name) end
 ---@field Illusion any
 ---@field Ini any
 ---@field Int any
+---@field Inventory inventory
 ---@field InvSlot any
 ---@field Irc any
 ---@field ItemTarget ground # Gives access to the ground item that is previously targeted using /itemtarget.

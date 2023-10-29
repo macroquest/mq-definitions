@@ -1,0 +1,2 @@
+--- @class inventory
+--- @field public Bank bank Your bank, only including the primary slots and currencies (not including shared or other features)

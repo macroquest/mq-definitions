@@ -2,6 +2,7 @@
 
 --- Macroquest ImGui Lua Binding
 ---@class ImGui
+---@field ConsoleFont ImFont
 ImGui = {}
 
 ---@alias ImU32 number  Represents a color
@@ -71,11 +72,12 @@ function ImGui.StyleColorsClassic() end
 --
 --
 
----@param r number
----@param g number
----@param b number
----@param a number
----@return number col
+---Combine RGBA color components into a single number.
+---@param r number The red component (0-255)
+---@param g number The green component (0-255)
+---@param b number The blue component (0-255)
+---@param a? number The alpha component (0-255). Default=255
+---@return number col The color encoded as ABGR
 function IM_COL32(r, g, b, a) end
 
 --- Windows

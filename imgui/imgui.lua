@@ -822,7 +822,7 @@ function ImGui.VSliderInt(label, size_x, size_y, value, valueMin, valueMax, form
 ---@param label string
 ---@param text string
 ---@param imGuiInputTextFlags? ImGuiInputTextFlags
---- @return string text, boolean selected
+---@return string text, boolean valueChanged
 function ImGui.InputText(label, text, imGuiInputTextFlags) end
 
 ---@param label string
@@ -830,21 +830,29 @@ function ImGui.InputText(label, text, imGuiInputTextFlags) end
 ---@param size_x number
 ---@param size_y number
 ---@param imGuiInputTextFlags? ImGuiInputTextFlags
---- @return string text, boolean selected
+--- @return string text, boolean valueChanged
 function ImGui.InputTextMultiline(label, text, size_x, size_y, imGuiInputTextFlags) end
 
 --- @param label string
 --- @param hint string
 --- @param text string
 --- @param imGuiInputTextFlags? ImGuiInputTextFlags
---- @return string text, boolean selected
+--- @return string text, boolean valueChanged
 function ImGui.InputTextWithHint(label, hint, text, imGuiInputTextFlags) end
 
 function ImGui.InputFloat(...) end
 function ImGui.InputFloat2(...) end
 function ImGui.InputFloat3(...) end
 function ImGui.InputFloat4(...) end
-function ImGui.InputInt(...) end
+
+---@param label string
+---@param value number
+---@param step? number
+---@param stepFast? number,
+---@param flags? ImGuiInputTextFlags
+---@return number value, boolean valueChanged
+function ImGui.InputInt(label, value, step, stepFast, flags) end
+
 function ImGui.InputInt2(...) end
 function ImGui.InputInt3(...) end
 function ImGui.InputInt4(...) end

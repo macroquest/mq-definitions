@@ -62,7 +62,7 @@ function ImGui.ConsoleWidget:AppendText(color, format, ...) end
 ---Append unformatted text to the buffer. The line is not terminated, so multiple
 ---calls will continue on the same line.
 ---@param text string Text string to append to the buffer.
-function ImGui.ConsoleWidget.AppendTextUnformatted(color, text) end
+function ImGui.ConsoleWidget.AppendTextUnformatted(text) end
 
 ---Append unformatted text to the buffer. The line is not terminated, so multiple
 ---calls will continue on the same line.

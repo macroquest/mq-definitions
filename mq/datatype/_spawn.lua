@@ -122,7 +122,7 @@
 ---@field public Pet MQPet Pet
 ---@field public PctEndurance MQInt # Current endurance as a percentage
 ---@field public PctHPs MQFloat # Current hit points as a percentage
----@filed public PctMana MQInt # Current mana as a percentage
+---@field public PctMana MQInt # Current mana as a percentage
 ---@field public PlayerState MQFloat # returns a mask as an inttype which has the following meaning:0=Idle 1=Open 2=WeaponSheathed 4=Aggressive 8=ForcedAggressive 0x10=InstrumentEquipped 0x20=Stunned 0x40=PrimaryWeaponEquipped 0x80=SecondaryWeaponEquipped
 ---@field public Primary MQFloat # Item ID of anything that may be in the Primary slot
 ---@field public pTouchingSwitch MQFloat # Have no idea what this is...

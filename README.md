@@ -24,7 +24,7 @@ If You already have these, jump ahead to "Getting Started", otherwise continue w
 ### Install these files on your computer
 - RedGuides Users can simply "Watch" the resource [here](https://www.redguides.com/community/resources/mq-vs-code-lua-autocomplete-definition-library.2583/) and the files will automatically be placed in a directory called "mq-defintions" under your lua directory when you run the RedGuides launcher.
 - If you are not a RedGuides user, or wish to install the files yourself, you can clone the repository from GitHub, or download the zip file from GitHub.
-- Unless you need the definitions in a seperate location, e.g you're writing scripts for different versions EQ Live and EQ Emu, it is highly reccomended that you put the defintions under your Lua directory (i.e. a subdirectory called mq-defintions under the lua directory). This installation will require no additional configurations and you'll be up and running right away.
+- Unless you need the definitions in a separate location, e.g you're writing scripts for different versions EQ Live and EQ Emu, it is highly recommended that you put the definitions under your Lua directory (i.e. a subdirectory called mq-definitions under the lua directory). This installation will require no additional configurations and you'll be up and running right away.
   - Download the zip from Gihub by following this [link](https://github.com/macroquest/mq-definitions/archive/refs/heads/master.zip), or you can use the web interface. 
   - Clone the repository  
     - If you do not have Git for Windows installed, you can get it at [gitforwindows.org](https://gitforwindows.org/)

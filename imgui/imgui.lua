@@ -717,43 +717,39 @@ function ImGui.DragInt4(label, value, valueSpeed, valueMin, valueMax, format) en
 
 ---@param label string
 ---@param value number
----@param valueSpeed? number
 ---@param valueMin? number
 ---@param valueMax? number
 ---@param format? string
 ---@param power? number
 ---@return number value, boolean used
-function ImGui.SliderFloat(label, value, valueSpeed, valueMin, valueMax, format, power) end
+function ImGui.SliderFloat(label, value, valueMin, valueMax, format, power) end
 
 ---@param label string
 ---@param value number
----@param valueSpeed? number
 ---@param valueMin? number
 ---@param valueMax? number
 ---@param format? string
 ---@param power? number
 ---@return number[] value, boolean used
-function ImGui.SliderFloat2(label, value, valueSpeed, valueMin, valueMax, format, power) end
+function ImGui.SliderFloat2(label, value, valueMin, valueMax, format, power) end
 
 ---@param label string
 ---@param value number
----@param valueSpeed? number
 ---@param valueMin? number
 ---@param valueMax? number
 ---@param format? string
 ---@param power? number
 ---@return number[] value, boolean used
-function ImGui.SliderFloat3(label, value, valueSpeed, valueMin, valueMax, format, power) end
+function ImGui.SliderFloat3(label, value, valueMin, valueMax, format, power) end
 
 ---@param label string
 ---@param value number
----@param valueSpeed? number
 ---@param valueMin? number
 ---@param valueMax? number
 ---@param format? string
 ---@param power? number
 ---@return number[] value, boolean used
-function ImGui.SliderFloat4(label, value, valueSpeed, valueMin, valueMax, format, power) end
+function ImGui.SliderFloat4(label, value, valueMin, valueMax, format, power) end
 
 ---@param label string
 ---@param v_rad number

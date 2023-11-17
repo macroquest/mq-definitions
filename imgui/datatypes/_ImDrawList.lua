@@ -43,6 +43,13 @@ function ImDrawList:GetClipRectMin() end
 ---@return ImVec2
 function ImDrawList:GetClipRectMax() end
 
+--- Use to split render into layers. By switching channels you can render out-of-order (e.g. submit FG primitives before BG primitives)
+---@param count number
+function ImDrawList:ChannelsSplit(count) end
+---@param n number
+function ImDrawList:ChannelsSetCurrent(n) end
+function ImDrawList:ChannelsMerge() end
+
 ---@param p1 ImVec2
 ---@param p2 ImVec2
 ---@param col ImU32

@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/macroquest/mq-definitions/compare/v1.0.3...v1.1.0) (2023-11-19)
+
+
+### Features
+
+* add ImGuiSliderFlags ([017fd3e](https://github.com/macroquest/mq-definitions/commit/017fd3ebc9face68d8c6bbbfa6a4b82d442feda2))
+* Add mq.CreateTexture ([b6a549d](https://github.com/macroquest/mq-definitions/commit/b6a549d6601e7ea40166bc750ec269073fcfd3af))
+
 ## [1.0.3](https://github.com/macroquest/mq-definitions/compare/v1.0.2...v1.0.3) (2023-11-04)
 
 

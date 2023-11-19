@@ -715,14 +715,29 @@ function ImGui.DragInt4(label, value, valueSpeed, valueMin, valueMax, format) en
 
 --- Widgets: Sliders
 
+---@deprecated This form with `power` as the last param is discontinued. Use the version that has a last parameter of `flags`.
 ---@param label string
 ---@param value number
----@param valueMin? number
----@param valueMax? number
----@param format? string
----@param power? number
----@return number value, boolean used
+---@param valueMin number
+---@param valueMax number
+---@param format string
+---@param power number
+---@return number value, boolean changed
 function ImGui.SliderFloat(label, value, valueMin, valueMax, format, power) end
+
+---CTRL+Click on any slider to turn them into an input box. Manually input values aren't clamped by default and can go off-bounds. Use ImGuiSliderFlags_AlwaysClamp to always clamp.
+---
+---Adjust format string to decorate the value with a prefix, a suffix, or adapt the editing and display precision e.g. "%.3f" -> 1.234; "%5.2f secs" -> 01.23 secs; "Biscuit: %.0f" -> Biscuit: 1; etc.
+---
+---Format string may also be set to NULL or use the default format ("%f" or "%d").
+---@param label string
+---@param value number
+---@param valueMin number
+---@param valueMax number
+---@param format? string @default `"%.3f"`
+---@param flags? ImGuiSliderFlags @default `0`
+---@return number value, boolean changed
+function ImGui.SliderFloat(label, value, valueMin, valueMax, format, flags) end
 
 ---@param label string
 ---@param value number

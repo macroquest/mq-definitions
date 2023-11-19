@@ -247,3 +247,8 @@ function ImDrawList:PathBezierQuadraticCurveTo(p2, p3, thickness, numSegments) e
 ---@param rounding? number
 ---@param flags? ImDrawFlags
 function ImDrawList:PathRect(rectMin, rectMax, rounding, flags) end
+
+---@param texture CTextureAnimation
+---@param pos ImVec2
+---@param size? ImVec2
+function ImDrawList:AddTextureAnimation(texture, pos, size) end

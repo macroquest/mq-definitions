@@ -63,7 +63,7 @@ function mq.doevents(name) end
 function mq.flushevents(name) end
 
 ---@param name string # The name of the texture to find
----@return textureanimation # The CTextureAnimation with the given name
+---@return CTextureAnimation # The CTextureAnimation with the given name
 function mq.FindTextureAnimation(name) end
 
 ---Returns all spawns
@@ -78,10 +78,6 @@ function mq.getFilteredSpawns(predicate) end
 ---@param type any # The variable we want to check type of
 ---@return mqtype
 function mq.gettype(type) end
-
----@param name string The name of the texture animation
----@return any
-function mq.FindTextureAnimation(name) end
 
 ---Retrieves FLT_MIN and FLT_MAX
 ---@return number FLT_MIN, number FLT_MAX
@@ -350,5 +346,19 @@ function TLO.Zone(id) end
 function TLO.Zone(shortName) end
 ---@diagnostic enable: assign-type-mismatch
 ---@diagnostic enable: duplicate-set-field
+
+---@class MQTexture
+---@field public size ImVec2 Size of the texture
+---@field public fileName string filename of the texture
+local MQTexture = {}
+
+---Retrieve the texture id for the texture
+---@return ImTextureID
+function MQTexture:GetTextureID() end
+
+---Create a texture from an image file
+---@param fileName string Texture filename
+---@return MQTexture
+function mq.CreateTexture(fileName) end
 
 return mq

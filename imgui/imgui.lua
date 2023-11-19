@@ -1471,10 +1471,12 @@ function ImGui.AcceptDragDropPayload(label) end
 
 function ImGui.EndDragDropTarget() end
 
----@param texture userdata #CTextureAnimation
----@param width number
----@param height number
-function ImGui.DrawTextureAnimation(texture, width, height) end
+
+---@param texture CTextureAnimation
+---@param width? number
+---@param height? number
+---@param drawBorder? bool
+function ImGui.DrawTextureAnimation(texture, width, height, drawBorder) end
 
 --- Custom additions
 ---@param label string

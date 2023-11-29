@@ -57,6 +57,7 @@ When requiring the Macroquest, ImGui, or other supported libaries in your Lua sc
 ```lua
 local mq = require('mq')
 local imgui = require('ImGui')
+local actors = require('actors')
 local icons = require('mq/icons')
 local utils = require('mq/utils')
 local packageman = require('mq/packageman')

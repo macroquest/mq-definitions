@@ -1,4 +1,40 @@
----@meta
+---@meta ImGui
+
+--
+-- MQ Additions to ImGui
+--
+
+-- Register a callback with the ImGui subsystem to be called every frame
+---@param name string
+---@param render fun()
+function ImGui.Register(name, render) end
+
+-- Unregister a call back with the ImGui subsystem. The named callback will no longer
+-- be called every frame
+---@param name string
+function ImGui.Unregister(name) end
+
+-- Draw an EverQuest CTextureAnimation
+---@param texture CTextureAnimation
+---@param width? number
+---@param height? number
+---@param drawBorder? bool
+function ImGui.DrawTextureAnimation(texture, width, height, drawBorder) end
+---@param texture CTextureAnimation
+---@param size? ImVec2
+---@param drawBorder? bool
+function ImGui.DrawTextureAnimation(texture, size, drawBorder) end
+
+-- Draw a help marker with tooltip text
+---@param text string
+---@param width? number
+---@param font? ImFont
+function ImGui.HelpMarker(text, width, font) end
+
+
+--
+-- MQ Console Widget
+--
 
 ---A console widget which displays a console buffer of colored text in a scrollable
 ---view. The Render function may only be called from an ImGui update function. It is

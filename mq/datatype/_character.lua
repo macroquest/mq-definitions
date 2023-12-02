@@ -380,7 +380,7 @@ function character.Language(name) end
 function character.Language(languageNumber) end
 ---@diagnostic enable: duplicate-set-field
 
----@param language integer 
+---@param language string|integer
 ---@return integer # Your skill in language
 function character.LanguageSkill(language) end
 

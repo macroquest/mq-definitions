@@ -1,7 +1,7 @@
 ---@meta
 
 --
--- ImGui enumeration definitions
+-- ## ImGui enumeration definitions
 --
 
 -- (Enums are ordered as they appear in imgui.h)

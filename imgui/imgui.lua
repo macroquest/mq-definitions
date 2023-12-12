@@ -928,7 +928,7 @@ function ImGui.EndCombo() end
 ---@param label string
 ---@param currentItem number
 ---@param items string[]
----@param itemsCount number
+---@param itemsCount? number
 ---@param popupMaxHeightInItems? number
 ---@return number currentItem, boolean clicked
 function ImGui.Combo(label, currentItem, items, itemsCount, popupMaxHeightInItems) end
@@ -971,8 +971,8 @@ function ImGui.Combo(label, currentItem, getter, itemsCount, popupMaxHeightInIte
 ---@param valueMax? number
 ---@param format? string e.g. "%.3f"
 ---@param flags? ImGuiSliderFlags
----@return number[] value, boolean changed
-function ImGui.DrawFloat(label, value, valueSpeed, valueMin, valueMax, format, flags) end
+---@return number value, boolean changed
+function ImGui.DragFloat(label, value, valueSpeed, valueMin, valueMax, format, flags) end
 
 ---@param label string
 ---@param value number[]  List of 2 values
@@ -1501,8 +1501,8 @@ function ImGui.EndListBox() end
 
 ---@param label string
 ---@param currentItem integer
----@param items table
----@param itemsCount integer
+---@param items string[]
+---@param itemsCount? integer
 ---@param heightInItems? integer
 ---@return integer currentItem, boolean changed
 function ImGui.ListBox(label, currentItem, items, itemsCount, heightInItems) end
@@ -1525,6 +1525,49 @@ function ImGui.Value(prefix, value) end
 ---@param value number
 ---@param floatFormat? string
 function ImGui.Value(text, value, floatFormat) end
+
+
+-- ## Widgets: Data Plotting
+-- - Consider using ImPlot (https://github.com/epezent/implot) which is much better!
+
+---@param label string
+---@param values number[]
+---@param valuesCount? number
+---@param valuesOffset? number
+---@param overlayText? string
+---@param scaleMin? number
+---@param scaleMax? number
+---@param graphSize? ImVec2
+function ImGui.PlotLines(label, values, valuesCount, valuesOffset, overlayText, scaleMin, scaleMax, graphSize) end
+---@param label string
+---@param getter fun(idx: number): number
+---@param valuesCount number
+---@param valuesOffset? number
+---@param overlayText? string
+---@param scaleMin? number
+---@param scaleMax? number
+---@param graphSize? ImVec2
+function ImGui.PlotLines(label, getter, valuesCount, valuesOffset, overlayText, scaleMin, scaleMax, graphSize) end
+
+---@param label string
+---@param values number[]
+---@param valuesCount? number
+---@param valuesOffset? number
+---@param overlayText? string
+---@param scaleMin? number
+---@param scaleMax? number
+---@param graphSize? ImVec2
+function ImGui.PlotHistogram(label, values, valuesCount, valuesOffset, overlayText, scaleMin, scaleMax, graphSize) end
+---@param label string
+---@param getter fun(idx: number): number
+---@param valuesCount number
+---@param valuesOffset? number
+---@param overlayText? string
+---@param scaleMin? number
+---@param scaleMax? number
+---@param graphSize? ImVec2
+function ImGui.PlotHistogram(label, getter, valuesCount, valuesOffset, overlayText, scaleMin, scaleMax, graphSize) end
+
 
 
 --

@@ -1,7 +1,7 @@
 ---@meta ImGui
 
 --
--- ## MQ Additions to ImGui
+-- ## ImGui User Types
 --
 
 

@@ -498,17 +498,17 @@ function ImPlotRect:Max() end
 -- ### ImPlotStyle
 -- Plot style structure
 ---@class ImPlotStyle
----@field LineWeight float = 1,      item line weight in pixels
----@field Marker int = ImPlotMarker_None, marker specification
----@field MarkerSize float = 4,      marker size in pixels (roughly the marker's "radius")
----@field MarkerWeight float = 1,      outline weight of markers in pixels
----@field FillAlpha float = 1,      alpha modifier applied to plot fills
----@field ErrorBarSize float = 5,      error bar whisker width in pixels
----@field ErrorBarWeight float = 1.5,    error bar whisker weight in pixels
----@field DigitalBitHeight float = 8,      digital channels bit height (at y = 1.0f) in pixels
----@field DigitalBitGap float = 4,      digital channels bit padding gap in pixels
----@field PlotBorderSize float = 1,      line thickness of border around plot area
----@field MinorAlpha float = 0.25    alpha multiplier applied to minor axis grid lines
+---@field LineWeight number = 1,      item line weight in pixels
+---@field Marker integer = ImPlotMarker_None, marker specification
+---@field MarkerSize number = 4,      marker size in pixels (roughly the marker's "radius")
+---@field MarkerWeight number = 1,      outline weight of markers in pixels
+---@field FillAlpha number = 1,      alpha modifier applied to plot fills
+---@field ErrorBarSize number = 5,      error bar whisker width in pixels
+---@field ErrorBarWeight number = 1.5,    error bar whisker weight in pixels
+---@field DigitalBitHeight number = 8,      digital channels bit height (at y = 1.0f) in pixels
+---@field DigitalBitGap number = 4,      digital channels bit padding gap in pixels
+---@field PlotBorderSize number = 1,      line thickness of border around plot area
+---@field MinorAlpha number = 0.25    alpha multiplier applied to minor axis grid lines
 ---@field MajorTickLen ImVec2 = 10,10   major tick lengths for X and Y axes
 ---@field MinorTickLen ImVec2 = 5,5     minor tick lengths for X and Y axes
 ---@field MajorTickSize ImVec2 = 1,1     line thickness of major ticks
@@ -527,9 +527,9 @@ function ImPlotRect:Max() end
 ---@field PlotMinSize ImVec2 = 200,150 minimum size plot frame can be when shrunk
 ---@field Colors ImVec4[] Array of styling colors. Indexable with ImPlotCol_ enums.
 ---@field Colormap ImPlotColormap The current colormap. Set this to either an ImPlotColormap_ enum or an index returned by AddColormap.
----@field UseLocalTime bool = false,  axis labels will be formatted for your timezone when ImPlotAxisFlag_Time is enabled
----@field UseISO8601 bool = false,  dates will be formatted according to ISO 8601 where applicable (e.g. YYYY-MM-DD, YYYY-MM, --MM-DD, etc.)
----@field Use24HourClock bool = false,  times will be formatted using a 24 hour clock
+---@field UseLocalTime boolean = false,  axis labels will be formatted for your timezone when ImPlotAxisFlag_Time is enabled
+---@field UseISO8601 boolean = false,  dates will be formatted according to ISO 8601 where applicable (e.g. YYYY-MM-DD, YYYY-MM, --MM-DD, etc.)
+---@field Use24HourClock boolean = false,  times will be formatted using a 24 hour clock
 ImPlotStyle = {}
 
 
@@ -537,17 +537,17 @@ ImPlotStyle = {}
 -- Input mapping structure. Default values listed. See also MapInputDefault, MapInputReverse.
 ---@class ImPlotInputMap
 ---@field Pan ImGuiMouseButton LMB    enables panning when held,
----@field PanMod int none   optional modifier that must be held for panning/fitting
+---@field PanMod integer none   optional modifier that must be held for panning/fitting
 ---@field Fit ImGuiMouseButton LMB    initiates fit when double clicked
 ---@field Select ImGuiMouseButton RMB    begins box selection when pressed and confirms selection when released
 ---@field SelectCancel ImGuiMouseButton LMB    cancels active box selection when pressed; cannot be same as Select
----@field SelectMod int none   optional modifier that must be held for box selection
----@field SelectHorzMod int Alt    expands active box selection horizontally to plot edge when held
----@field SelectVertMod int Shift  expands active box selection vertically to plot edge when held
+---@field SelectMod integer none   optional modifier that must be held for box selection
+---@field SelectHorzMod integer Alt    expands active box selection horizontally to plot edge when held
+---@field SelectVertMod integer Shift  expands active box selection vertically to plot edge when held
 ---@field Menu ImGuiMouseButton RMB    opens context menus (if enabled) when clicked
----@field OverrideMod int Ctrl   when held, all input is ignored; used to enable axis/plots as DND sources
----@field ZoomMod int none   optional modifier that must be held for scroll wheel zooming
----@field ZoomRate float 0.1f   zoom rate for scroll (e.g. 0.1f = 10% plot range every scroll click); make negative to invert
+---@field OverrideMod integer Ctrl   when held, all input is ignored; used to enable axis/plots as DND sources
+---@field ZoomMod integer none   optional modifier that must be held for scroll wheel zooming
+---@field ZoomRate number 0.1f   zoom rate for scroll (e.g. 0.1f = 10% plot range every scroll click); make negative to invert
 ImPlotInputMap = {}
 
 
@@ -590,7 +590,7 @@ ImPlotInputMap = {}
 ---@param titleId string
 ---@param size? ImVec2
 ---@param flags? ImPlotFlags
----@return bool show
+---@return boolean show
 function ImPlot.BeginPlot(titleId, size, flags) end
 
 -- Only call EndPlot() if BeginPlot() returns true! Typically called at the end
@@ -753,8 +753,8 @@ function ImPlot.SetupAxisLimitsConstraints(axis, vMin, vMax) end
 function ImPlot.SetupAxisZoomConstraints(axis, zMin, zMax) end
 
 -- Sets the label and/or flags for primary X and Y axes (shorthand for two calls to SetupAxis).
----@param xLabel string
----@param yLabel string
+---@param xLabel string | nil
+---@param yLabel string | nil
 ---@param xFlags? ImPlotAxisFlags
 ---@param yFlags? ImPlotAxisFlags
 function ImPlot.SetupAxes(xLabel, yLabel, xFlags, yFlags) end
@@ -887,23 +887,31 @@ function ImPlot.SetNextAxesToFit() end
 --
 -- NB: All types are converted to double before plotting. You may lose information
 -- if you try plotting extremely large 64-bit integral types. Proceed with caution!
+--
+-- Some notes on the lua implementation of plotting functions:
+-- - `stride` is counted as a number of element. If you have a table with 8 elements, and the stride is 2,
+--   then you should not have a count greater than 4! The default stride is 1.
 
 -- ### PlotLine
 -- Plots a standard 2D line plot.
 ---@param labelId string
 ---@param values number[]
+---@param count integer
 ---@param xscale? number
 ---@param yscale? number
 ---@param xstart? number
 ---@param flags? ImPlotLineFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotLine(labelId, values, xscale, yscale, xstart, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotLine(labelId, values, count, xscale, yscale, xstart, flags, offset, stride) end
 ---@param labelId string
 ---@param xs number[]
 ---@param ys number[]
+---@param count number
 ---@param flags? ImPlotLineFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotLine(labelId, xs, ys, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotLine(labelId, xs, ys, count, flags, offset, stride) end
 ---@param labelId string
 ---@param getter ImPlotGetter
 ---@param flags? ImPlotLineFlags | ImPlotItemFlags
@@ -913,18 +921,22 @@ function ImPlot.PlotLine(labelId, getter, flags) end
 -- Plots a standard 2D scatter plot. Default marker is ImPlotMarker.Circle.
 ---@param labelId string
 ---@param values number[]
+---@param count integer
 ---@param xscale? number
 ---@param yscale? number
 ---@param xstart? number
 ---@param flags? ImPlotScatterFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotScatter(labelId, values, xscale, yscale, xstart, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotScatter(labelId, values, count, xscale, yscale, xstart, flags, offset, stride) end
 ---@param labelId string
 ---@param xs number[]
 ---@param ys number[]
+---@param count integer
 ---@param flags? ImPlotScatterFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotScatter(labelId, xs, ys, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotScatter(labelId, xs, ys, count, flags, offset, stride) end
 ---@param labelId string
 ---@param getter ImPlotGetter
 ---@param count integer
@@ -934,17 +946,21 @@ function ImPlot.PlotScatter(labelId, getter, count, flags) end
 -- Plots a a stairstep graph. The y value is continued constantly to the right from every x position, i.e. the interval [x[i], x[i+1]) has the value y[i]
 ---@param labelId string
 ---@param values number[]
+---@param count integer
 ---@param xscale? number
 ---@param xstart? number
 ---@param flags? ImPlotStairsFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotStairs(labelId, values, xscale, xstart, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotStairs(labelId, values, count, xscale, xstart, flags, offset, stride) end
 ---@param labelId string
 ---@param xs number[]
 ---@param ys number[]
+---@param count integer
 ---@param flags? ImPlotStairsFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotStairs(labelId, xs, ys, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotStairs(labelId, xs, ys, count, flags, offset, stride) end
 ---@param labelId string
 ---@param getter ImPlotGetter
 ---@param count integer
@@ -954,26 +970,32 @@ function ImPlot.PlotStairs(labelId, getter, count, flags) end
 -- Plots a shaded (filled) region between two lines, or a line and a horizontal reference. Set yref to +/-INFINITY for infinite fill extents.
 ---@param labelId string
 ---@param values number[]
+---@param count integer
 ---@param yref? number
 ---@param xscale? number
 ---@param xstart? number
 ---@param flags? ImPlotShadedFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotShaded(labelId, values, yref, xscale, xstart, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotShaded(labelId, values, count, yref, xscale, xstart, flags, offset, stride) end
 ---@param labelId string
 ---@param xs number[]
 ---@param ys number[]
+---@param count integer
 ---@param yref? number
 ---@param flags? ImPlotShadedFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotShaded(labelId, xs, ys, yref, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotShaded(labelId, xs, ys, count, yref, flags, offset, stride) end
 ---@param labelId string
 ---@param xs number[]
 ---@param ys1 number[]
 ---@param ys2 number[]
+---@param count integer
 ---@param flags? ImPlotShadedFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotShaded(labelId, xs, ys1, ys2, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotShaded(labelId, xs, ys1, ys2, count, flags, offset, stride) end
 ---@param labelId string
 ---@param getter1 ImPlotGetter
 ---@param getter2 ImPlotGetter
@@ -984,18 +1006,22 @@ function ImPlot.PlotShaded(labelId, getter1, getter2, count, flags) end
 -- Plots a bar graph. Vertical by default. `barSize` and `shift` are in plot units.
 ---@param labelId string
 ---@param values number[]
+---@param count integer
 ---@param barSize? number
 ---@param shift? number
 ---@param flags? ImPlotBarsFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotBars(labelId, values, barSize, shift, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotBars(labelId, values, count, barSize, shift, flags, offset, stride) end
 ---@param labelId string
 ---@param xs number[]
 ---@param ys number[]
+---@param count integer
 ---@param barSize number
 ---@param flags? ImPlotBarsFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotBars(labelId, xs, ys, barSize, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotBars(labelId, xs, ys, count, barSize, flags, offset, stride) end
 ---@param labelId string
 ---@param getter ImPlotGetter
 ---@param count integer
@@ -1003,68 +1029,103 @@ function ImPlot.PlotBars(labelId, xs, ys, barSize, flags, offset) end
 ---@param flags ImPlotBarsFlags | ImPlotItemFlags
 function ImPlot.PlotBars(labelId, getter, count, barSize, flags) end
 
--- PlotBarGroups NYI
+-- Plots a group of bars. `values` is a row-major matrix with `itemCount` rows and `groupCount` cols.  `labelIds` should have `itemCount` elements.
+---@param labelIds string[]
+---@param values number[]
+---@param itemCount integer
+---@param groupCount integer
+---@param groupSize? number
+---@param shift? number
+---@param flags? ImPlotBarGroupsFlags | ImPlotItemFlags
+function ImPlot.PlotBarGroups(labelIds, values, itemCount, groupCount, groupSize, shift, flags) end
 
--- Plots vertical error bar. The label_id should be the same as the label_id of the associated line or bar plot.
+
+-- Plots vertical error bar. The labelId should be the same as the labelId of the associated line or bar plot.
 ---@param labelId string
 ---@param xs number[]
 ---@param ys number[]
 ---@param err number[]
+---@param count integer
 ---@param flags? ImPlotErrorBarsFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotErrorBars(labelId, xs, ys, err, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotErrorBars(labelId, xs, ys, err, count, flags, offset, stride) end
 ---@param labelId string
 ---@param xs number[]
 ---@param ys number[]
 ---@param neg number[]
 ---@param pos number[]
+---@param count integer
 ---@param flags? ImPlotErrorBarsFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotErrorBars(labelId, xs, ys, neg, pos, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotErrorBars(labelId, xs, ys, neg, pos, count, flags, offset, stride) end
 
 -- Plots stems. Vertical by default.
 ---@param labelId string
 ---@param values number[]
+---@param count number
 ---@param ref? number
 ---@param scale? number
 ---@param start? number
 ---@param flags? ImPlotStemsFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotStems(labelId, values, ref, scale, start, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotStems(labelId, values, count, ref, scale, start, flags, offset, stride) end
 ---@param labelId string
 ---@param xs number[]
 ---@param ys number[]
+---@param count integer
 ---@param ref? number
 ---@param flags? ImPlotStemsFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotStems(labelId, xs, ys, ref, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotStems(labelId, xs, ys, count, ref, flags, offset, stride) end
 
 -- Plots infinite vertical or horizontal lines (e.g. for references or asymptotes).
 ---@param labelId string
 ---@param values number[]
+---@param count integer
 ---@param flags? ImPlotInfLinesFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotInfLines(labelId, values, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotInfLines(labelId, values, count, flags, offset, stride) end
 
 -- Plots a pie chart. Center and radius are in plot units. #label_fmt can be set to nullptr for no labels.
 ---@param labelIds string[]
 ---@param values number[]
+---@params count integer
 ---@param x number
 ---@param y number
 ---@param radius number
 ---@param formatter ImPlotFormatter
 ---@param angle0? number
 ---@param flags? ImPlotPieChartFlags | ImPlotItemFlags
-function ImPlot.PlotPieChart(labelIds, values, x, y, radius, formatter, angle0, flags) end
+function ImPlot.PlotPieChart(labelIds, values, count, x, y, radius, formatter, angle0, flags) end
 ---@param labelIds string
 ---@param values number[]
+---@param count integer
 ---@param x number
 ---@param y number
 ---@param radius number
 ---@param labelFmt? string
 ---@param angle0? number
 ---@param flags? ImPlotPieChartFlags | ImPlotItemFlags
-function ImPlot.PlotPieChart(labelIds, values, x, y, radius, labelFmt, angle0, flags) end
+function ImPlot.PlotPieChart(labelIds, values, count, x, y, radius, labelFmt, angle0, flags) end
+
+-- Plots a 2D heatmap chart. Values are expected to be in row-major order by default. Leave `scaleMin` and `scaleMax`
+-- both at 0 for automatic color scaling, or set them to a predefined range. `labelFmt` can be set to nullptr for no labels.
+---@param labelId string
+---@param values number[]
+---@param rows integer
+---@param col integer
+---@param scaleMin? number
+---@param scaleMax? number
+---@param labelFmt? string
+---@param boundsMin? ImPlotPoint
+---@param boundsMax? ImPlotPoint
+---@param flags? ImPlotHeatmapFlags | ImPlotItemFlags
+function ImPlot.PlotHeatmap(labelId, values, rows, col, scaleMin, scaleMax, labelFmt, boundsMin, boundsMax, flags) end
 
 -- Plots a horizontal histogram. `bins` can be a positive integer or an ImPlotBin method. If `range` is left unspecified, the min/max of `values` will be used as the range.
 -- Otherwise, outlier values outside of the range are not binned. The largest bin count or density is returned.
@@ -1082,20 +1143,23 @@ function ImPlot.PlotHistogram(labelId, values, bins, barScale, range, flags) end
 ---@param labelId string
 ---@param xs number[]
 ---@param ys number[]
+---@param count integer
 ---@param xBins? ImPlotBin | integer
 ---@param yBins? ImPlotBin | integer
 ---@param range? ImPlotRect
 ---@param flags? ImPlotHistogramFlags | ImPlotItemFlags
 ---@return number
-function ImPlot.PlotHistogram2D(labelId, xs, ys, xBins, yBins, range, flags) end
+function ImPlot.PlotHistogram2D(labelId, xs, ys, count, xBins, yBins, range, flags) end
 
 -- Plots digital data. Digital plots do not respond to y drag or zoom, and are always referenced to the bottom of the plot.
 ---@param labelId string
 ---@param xs number[]
 ---@param ys number[]
+---@param count integer
 ---@param flags? ImPlotDigitalFlags | ImPlotItemFlags
 ---@param offset? integer
-function ImPlot.PlotDigital(labelId, xs, ys, flags, offset) end
+---@param stride? integer
+function ImPlot.PlotDigital(labelId, xs, ys, count, flags, offset, stride) end
 ---@param labelId string
 ---@param getter ImPlotGetter
 ---@param count integer
@@ -1548,7 +1612,7 @@ function ImPlot.GetMarkerName(idx) end
 ---@param name string
 ---@param cols ImU32[] | ImVec4[]
 ---@param qual? boolean
----@return ImPlotColormap
+---@return integer
 function ImPlot.AddColormap(name, cols, qual) end
 
 -- Returns the number of available colormaps (i.e. the built-in + user-added count).
@@ -1556,17 +1620,17 @@ function ImPlot.AddColormap(name, cols, qual) end
 function ImPlot.GetColormapCount() end
 
 -- Returns a null terminated string name for a colormap given an index. Returns nullptr if index is invalid.
----@param cmap ImPlotColormap
+---@param cmap ImPlotColormap | integer
 ---@return string
 function ImPlot.GetColormapName(cmap) end
 
 -- Returns an index number for a colormap given a valid string name. Returns -1 if name is invalid.
 ---@param name string
----@return ImPlotColormap
+---@return ImPlotColormap | integer
 function ImPlot.GetColormapIndex(name) end
 
 -- Temporarily switch to one of the built-in (i.e. ImPlotColormap.XXX) or user-added colormaps (i.e. a return value of AddColormap). Don't forget to call PopColormap!
----@param cmap ImPlotColormap
+---@param cmap ImPlotColormap | integer
 function ImPlot.PushColormap(cmap) end
 -- Push a colormap by string name. Use built-in names such as "Default", "Deep", "Jet", etc. or a string you provided to AddColormap. Don't forget to call PopColormap!
 ---@param name string
@@ -1588,6 +1652,9 @@ function ImPlot.NextColormapColor() end
 function ImPlot.GetColormapSize(cmap) end
 
 -- Returns a color from a colormap given an index >= 0 (modulo will be performed).
+---@param idx integer
+---@param cmap? ImPlotColormap|integer
+---@return ImVec4
 function ImPlot.GetColormapColor(idx, cmap) end
 
 -- Sample a color from the current colormap given t between 0 and 1.
@@ -1600,14 +1667,14 @@ function ImPlot.SampleColormap(t, cmap) end
 ---@param size? ImVec2
 ---@param format? string
 ---@param flags? ImPlotColormapScaleFlags
----@param cmap? ImPlotColormap
+---@param cmap? ImPlotColormap | integer
 function ImPlot.ColormapScale(label, scaleMin, scaleMax, size, format, flags, cmap) end
 
 -- Shows a horizontal slider with a colormap gradient background. Optionally returns the color sampled at t in [0 1].
 ---@param label string
 ---@param t number
 ---@param format? string
----@param cmap? ImPlotColormap
+---@param cmap? ImPlotColormap | integer
 ---@return boolean changed
 ---@return number t
 ---@return ImVec4 out
@@ -1616,7 +1683,7 @@ function ImPlot.ColormapSlider(label, t, out, format, cmap) end
 -- Shows a button with a colormap gradient brackground.
 ---@param label string
 ---@param size ImVec2
----@param cmap ImPlotColormap
+---@param cmap ImPlotColormap | integer
 ---@return boolean changed
 function ImPlot.ColormapButton(label, size, cmap) end
 

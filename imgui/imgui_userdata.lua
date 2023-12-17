@@ -24,6 +24,8 @@ ImVec2 = {}
 ---@param y number
 ---@return ImVec2
 function ImVec2(x, y) end
+---@return ImVec2
+function ImVec2() end
 
 
 -- ### ImVec4

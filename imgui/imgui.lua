@@ -1068,6 +1068,19 @@ function ImGui.DragInt4(label, values, valueSpeed, valueMin, valueMax, format, f
 ---@return integer valueCurrentMin, integer valueCurrentMax, boolean changed
 function ImGui.DragIntRange2(label, valueCurrentMin, valueCurrentMax, valueSpeed, valueMin, valueMax, format, formatMax, flags) end
 
+---@generic T: number|integer
+---@param label string
+---@param dataType ImGuiDataType
+---@param values T[]
+---@param components integer
+---@param valueSpeed number
+---@param valueMin? T
+---@param valueMax? T
+---@param format? string
+---@param flag? ImGuiSliderFlags
+---@return T[] values, bool changed
+function ImGui.DragScalarN(label, dataType, values, components, valueSpeed, valueMin, valueMax, format, flag) end
+
 
 --
 -- ## Widgets: Regular Sliders
@@ -1089,17 +1102,26 @@ function ImGui.SliderFloat(label, value, valueMin, valueMax, format, flags) end
 
 ---@param label string
 ---@param values number[] List of 2 values
----@param valueMin? number
----@param valueMax? number
+---@param valueMin number
+---@param valueMax number
 ---@param format? string
 ---@param flags? ImGuiSliderFlags
 ---@return number[] values, boolean changed
 function ImGui.SliderFloat2(label, values, valueMin, valueMax, format, flags) end
 
 ---@param label string
+---@param value ImVec2
+---@param valueMin number
+---@param valueMax number
+---@param format? string
+---@param flags? ImGuiSliderFlags
+---@return ImVec2 value, boolean changed
+function ImGui.SliderFloatVec2(label, value, valueMin, valueMax, format, flags) end
+
+---@param label string
 ---@param values number List of 3 values
----@param valueMin? number
----@param valueMax? number
+---@param valueMin number
+---@param valueMax number
 ---@param format? string
 ---@param flags? ImGuiSliderFlags
 ---@return number[] values, boolean changed
@@ -1107,12 +1129,21 @@ function ImGui.SliderFloat3(label, values, valueMin, valueMax, format, flags) en
 
 ---@param label string
 ---@param values number List of 4 values
----@param valueMin? number
----@param valueMax? number
+---@param valueMin number
+---@param valueMax number
 ---@param format? string
 ---@param flags? ImGuiSliderFlags
 ---@return number[] values, boolean changed
 function ImGui.SliderFloat4(label, values, valueMin, valueMax, format, flags) end
+
+---@param label string
+---@param value ImVec4
+---@param valueMin number
+---@param valueMax number
+---@param format? string
+---@param flags? ImGuiSliderFlags
+---@return ImVec4 value, boolean changed
+function ImGui.SliderFloatVec4(label, value, valueMin, valueMax, format, flags) end
 
 ---@param label string
 ---@param v_rad number
@@ -1170,6 +1201,16 @@ function ImGui.SliderInt4(label, values, valueMin, valueMax, format, flags) end
 ---@param flags? ImGuiSliderFlags
 ---@return number value, boolean changed
 function ImGui.VSliderFloat(label, sizeX, sizeY, value, valueMin, valueMax, format, flags) end
+
+---@param label string
+---@param size ImVec2
+---@param value number
+---@param valueMin number
+---@param valueMax number
+---@param format? string
+---@param flags? ImGuiSliderFlags
+---@return ImVec2 value, boolean changed
+function ImGui.VSliderFloat(label, size, value, valueMin, valueMax, format, flags) end
 
 ---@param label string
 ---@param sizeX number

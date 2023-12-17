@@ -408,6 +408,21 @@ ImGuiDragDropFlags = {
     AcceptPeekOnly             = 0x0C00, -- For peeking ahead and inspecting the payload before delivery: AcceptBeforeDelivery | AcceptNoDrawDefaultRect
 }
 
+-- A primary data type
+---@enum ImGuiDataType
+ImGuiDataType = {
+    S8                         = 0, -- signed char / char (with sensible compilers)
+    U8                         = 1, -- unsigned char
+    S16                        = 2, -- short
+    U16                        = 3, -- unsigned short
+    S32                        = 4, -- int
+    U32                        = 5, -- unsigned int
+    S64                        = 6, -- long long / __int64
+    U64                        = 7, -- unsigned long long / unsigned __int64
+    Float                      = 8, -- float
+    Double                     = 9, -- double
+    COUNT                      = 10,
+}
 
 -- A cardinal direction
 ---@enum ImGuiDir

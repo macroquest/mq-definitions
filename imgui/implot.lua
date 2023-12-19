@@ -1775,6 +1775,9 @@ function ImPlot.GetVersion() end
 ---@param ref? ImPlotStyle
 function ImPlot.ShowStyleEditor(ref) end
 
+-- A helper for time plot demo
+---@return number
+function ImPlot.GetTime() end
 
 
 

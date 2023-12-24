@@ -1119,7 +1119,7 @@ function ImGui.SliderFloat2(label, values, valueMin, valueMax, format, flags) en
 function ImGui.SliderFloatVec2(label, value, valueMin, valueMax, format, flags) end
 
 ---@param label string
----@param values number List of 3 values
+---@param values number[] List of 3 values
 ---@param valueMin number
 ---@param valueMax number
 ---@param format? string
@@ -1128,7 +1128,7 @@ function ImGui.SliderFloatVec2(label, value, valueMin, valueMax, format, flags) 
 function ImGui.SliderFloat3(label, values, valueMin, valueMax, format, flags) end
 
 ---@param label string
----@param values number List of 4 values
+---@param values number[] List of 4 values
 ---@param valueMin number
 ---@param valueMax number
 ---@param format? string

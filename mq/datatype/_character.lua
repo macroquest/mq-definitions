@@ -262,6 +262,16 @@ function character.Aura(index) end
 function character.Aura(name) end
 ---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
+---@param index integer # Bandolier undex 1:20
+---@return bandolier
+function character.Bandolier (index) end
+
+---@param bandolierName string # Bandolier Name
+---@return bandolier
+function character.Bandolier(bandolierName) end
+---@diagnostic enable: duplicate-set-field
+
 ---@param slot integer # Bankslot number 
 ---@return MQItem
 function character.Bank (slot) end

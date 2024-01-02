@@ -11,7 +11,7 @@
 ---@alias MQBuff buff | fun(): string|nil
 ---@alias MQCachedBuff cachedbuff | fun(): string|nil
 ---@alias MQCharacter character | fun(): string|nil
----@alias MQCurrentZone zone | fun(): string|nil
+---@alias MQCurrentZone currentzone | fun(): string|nil
 ---@alias MQFellowship fellowship | fun(): "TRUE" | "FALSE"
 ---@alias MQGround ground | fun(): string|nil
 ---@alias MQGroupMember groupmember | fun(): string|nil

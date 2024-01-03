@@ -196,6 +196,7 @@
 ---@field public ZoneBoundX fun():integer
 ---@field public ZoneBoundY fun():integer
 ---@field public ZoneBoundZ fun():integer
+---@field public Zoning boolean # Am I zoning?
 local character = nil
 
 ---@diagnostic disable: duplicate-set-field

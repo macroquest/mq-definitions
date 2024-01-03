@@ -14,6 +14,7 @@
 --- @field public GemIcon MQInt # Icon number of the spell. Exmaple ${Spell[blah].GemIcon}
 --- @field public HastePct MQFloat # Percentage of haste, example of use ${Me.Hasted.HastePct} or ${Spell[Speed of Milyex].HastePct}
 --- @field public ID MQInt # Spell ID
+--- @field public Inspect fun(): nil # Brings up in-game inspect window
 --- @field public IsSkill MQBoolean # Is this spell a skill?
 --- @field public IsSwarmSpell MQBoolean # Is this spell a Swarm spell?
 --- @field public Level MQInt # Level
@@ -62,6 +63,10 @@ function spell.ReagentCount(index) end
 ---@param index integer # The reagent index [1-4]
 ---@return MQInt # ID of the reagent item used for this spell in given [index]
 function spell.ReagentID(index) end
+
+---@param index integer # The reagent index [1-4]
+---@return MQInt # ID of the reagent item used for this spell in given [index]
+function spell.NoExpendReagentID(index) end
 
 ---@param index integer # The index to retrieve the spell attribute value of
 ---@return integer

@@ -69,7 +69,12 @@ function window.RightMouseHeldUp() end
 function window.RightMouseUp() end
 
 ---Selects the specified window
-function window.Select() end
+---@param index integer: Index to select
+function window.Select(index) end
+
+---Selects the specified tab
+---@param tabNum integer
+function window.SetCurrentTab(tabNum) end
 
 ---@diagnostic disable: duplicate-set-field
 ---Get the text for the Nth item in a list box. Only works on list boxes. Use of y is optional and allows selection of the column of the window to get text from.

@@ -10,6 +10,7 @@
 --- @field public CounterNumber MQInt # The number of counters that the spell adds
 --- @field public Duration ticks # Duration of the spell (if any)
 --- @field public DurationValue1 ticks # Duration of the spell (if any)
+--- @field public Extra string # extra spell information
 --- @field public FizzleTime timestamp # Time to recover after fizzle
 --- @field public GemIcon MQInt # Icon number of the spell. Exmaple ${Spell[blah].GemIcon}
 --- @field public HastePct MQFloat # Percentage of haste, example of use ${Me.Hasted.HastePct} or ${Spell[Speed of Milyex].HastePct}

@@ -4,7 +4,7 @@
 local mqtype = nil
 
 ---@diagnostic disable: duplicate-set-field
----@param id integer # Internal ID number
+---@param id integer|string # Internal ID number
 ---@return string # Member name based on an internal ID number (based on 1 through N, not all values will be used)
 function mqtype.Member(id) end
 

@@ -10,7 +10,7 @@
 dynamiczone = {}
 
 ---Find the dynamic zone member by id
----@param id integer
+---@param id integer|string
 ---@return dzmember
 function dynamiczone.Member(id) end
 
@@ -20,7 +20,7 @@ function dynamiczone.Member(id) end
 function dynamiczone.Member(name) end
 
 ---comment
----@param id integer
+---@param id integer|string
 ---@return dztimer
 function dynamiczone.Timer(id) end
 

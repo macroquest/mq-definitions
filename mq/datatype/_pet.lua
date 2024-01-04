@@ -20,7 +20,7 @@ local pet = {}
 function pet.Buff(buffname) end
 
 ---Returns the buff name given the slot number
----@param slotnumber integer
+---@param slotnumber integer|string
 ---@return string Buffname
 function pet.Buff(slotnumber)end
 
@@ -30,6 +30,6 @@ function pet.Buff(slotnumber)end
 function pet.BuffDuration(buffname)end
 
 ---Buff time remaining for pet buff given buff slot number, in milliseconds
----@param slotnumber integer Slotnumber
+---@param slotnumber integer|string Slotnumber
 ---@return integer Time in miliseconds
 function pet.BuffDuration(slotnumber)end

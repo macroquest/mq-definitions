@@ -25,7 +25,7 @@ local raid = {}
 function raid.Member(name) end
 
 ---Raid member by index
----@param index integer
+---@param index integer|string
 ---@return raidmember
 function raid.Member(index) end
 
@@ -35,11 +35,11 @@ function raid.Member(index) end
 function raid.Looter(name) end
 
 ---Specified looter by index
----@param index integer
+---@param index integer|string
 ---@return string
 function raid.Looter(index) end
 
 ---Raid main assist
----@param index integer
+---@param index integer|string
 ---@return raidmember
 function raid.MainAssist(index) end

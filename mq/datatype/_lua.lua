@@ -15,4 +15,4 @@
 --- @field public Turbo MQInt #The turbo value
 --- @field public RequirePaths MQString #The semicolon-delimited value for lua require search paths
 --- @field public CRequirePaths MQString #The semicolon-delimited value for dll require search paths
---- @field public Script fun(pid: integer): LuaInfo The accessor to get info on individual scripts. Accepts a PID as an index, or will default to the last executed script that has finished running
+--- @field public Script fun(pid: integer|string): LuaInfo The accessor to get info on individual scripts. Accepts a PID as an index, or will default to the last executed script that has finished running

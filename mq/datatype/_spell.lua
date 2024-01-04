@@ -40,7 +40,7 @@
 --- @field public SpellType MQString # The spell type, Will be one of "Beneficial(Group)", "Beneficial", "Detrimental" or "Unknown"
 --- @field public Beneficial MQBoolean # Is this spell a beneficial spell type
 --- @field public Stacks MQBoolean # Does the selected spell stack with your current buffs (duration is in ticks)
---- @field public StacksSpawn fun(id: integer): MQBoolean # Does the selected spell stack with the spawns current buffs (duration is in ticks)
+--- @field public StacksSpawn fun(id: integer|string): MQBoolean # Does the selected spell stack with the spawns current buffs (duration is in ticks)
 --- @field public StacksPet MQBoolean # Does the selected spell stack with your pet's current buffs (duration is in ticks)
 --- @field public StacksTarget MQBoolean # Does the selected spell stack with your target's current buffs (duration is in ticks)
 --- @field public StacksWith MQBoolean # Alias for .WillStack - see entry for more details
@@ -57,38 +57,38 @@ local spell = nil
 ---@return boolean # Does the selected spell stack with the specific SPELL name, DOES NOT work with AAs.
 function spell.WillStack(name) end
 
----@param index integer # The reagent index [1-4]
+---@param index integer|string # The reagent index [1-4]
 ---@return MQInt # Number of reagents used for this spell in given [index]
 function spell.ReagentCount(index) end
 
----@param index integer # The reagent index [1-4]
+---@param index integer|string # The reagent index [1-4]
 ---@return MQInt # ID of the reagent item used for this spell in given [index]
 function spell.ReagentID(index) end
 
----@param index integer # The reagent index [1-4]
+---@param index integer|string # The reagent index [1-4]
 ---@return MQInt # ID of the reagent item used for this spell in given [index]
 function spell.NoExpendReagentID(index) end
 
----@param index integer # The index to retrieve the spell attribute value of
+---@param index integer|string # The index to retrieve the spell attribute value of
 ---@return integer
 function spell.Attrib(index) end
 
----@param index integer # The index to retrieve the trigger value of
+---@param index integer|string # The index to retrieve the trigger value of
 ---@return MQSpell
 function spell.Trigger(index) end
 
----@param index integer # The index to retrieve the base value of
+---@param index integer|string # The index to retrieve the base value of
 ---@return integer
 function spell.Base(index) end
 
----@param index integer # The index to retrieve the base2 value of
+---@param index integer|string # The index to retrieve the base2 value of
 ---@return integer
 function spell.Base2(index) end
 
----@param index integer # The index to retrieve the max value of
+---@param index integer|string # The index to retrieve the max value of
 ---@return integer
 function spell.Max(index) end
 
----@param spa integer # The SPA number to check against the spell attributes
+---@param spa integer|string # The SPA number to check against the spell attributes
 ---@return MQBoolean # Does the spell contain the specified SPA.
 function spell.HasSPA(spa) end

@@ -21,7 +21,7 @@ local achievement = {}
 function achievement.Objective(description) end
 
 ---Find an objective by it's Id
----@param id integer
+---@param id integer|string
 ---@return achievementobj
 function achievement.Objective(id) end
 ---@diagnostic enable: duplicate-set-field

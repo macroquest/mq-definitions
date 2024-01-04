@@ -23,7 +23,7 @@
 Group = nil
 
 ---Accesses #th member of your group; 0 is you, 1 is the first person in the group list, etc.
----@param index integer
+---@param index integer|string
 ---@return MQGroupMember
 function Group.Member(index) end
 

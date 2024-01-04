@@ -5,6 +5,7 @@
 --- @field public Active MQBoolean #Returns true if navigation is currently active
 --- @field public Paused MQBoolean #Returns true if nativation is currently paused
 --- @field public MeshLoaded MQBoolean #Returns true if a mesh is loaded for the zone
+--- @field public Velocity MQInt #Returns your current velocity
 TLO.Navigation = {}
 
 ----Returns true if a path exists for the target

@@ -55,7 +55,7 @@
 ---@field public DamageShieldBonus MQFloat #Damage Shield bonus from gear and spells
 ---@field public DamageShieldMitigationBonus MQFloat #Damage Shield Mitigation bonus from gear and spells
 ---@field public Dar MQFloat #Damage absorption remaining (eg. from Rune-type spells)
----@field public Diseased MQString #Returns the name of any Disease spell
+---@field public Diseased MQBuff #Returns the name of any Disease spell
 ---@field public DEX MQFloat #Character Dexterity
 ---@field public Dotted MQString #Returns name of first DoT on character.
 ---@field public DoTShieldBonus MQFloat #DoT Shield bonus from gear and spells
@@ -145,11 +145,12 @@
 ---@field public Platinum MQFloat #Platinum on your character
 ---@field public PlatinumBank MQFloat #Platinum in bank
 ---@field public PlatinumShared MQFloat #Platinum in shared bank
----@field public Poisoned MQString #Returns the name of any Poison spell
+---@field public Poisoned MQBuff #Returns the name of any Poison spell
 ---@field public RadiantCrystals MQFloat #Number of Radiant Crystals on your character
 ---@field public RaidLeaderExp MQFloat #Raid leadership exp (out of 330)
 ---@field public RaidLeaderPoints MQFloat #Raid leadership points
 ---@field public RangedReady MQBoolean #Ranged attack ready?
+---@field public Rooted MQBuff #Returns the name of any Root spell
 ---@field public RujEarned MQFloat #Total LDoN points earned in Rujarkian
 ---@field public Running MQBoolean #Do I have auto-run turned on?
 ---@field public SecondaryPctAggro MQFloat #Secondary Percentage aggro
@@ -160,6 +161,7 @@
 ---@field public Silver MQFloat #Silver on your character
 ---@field public SilverBank MQFloat #Silver in bank
 ---@field public Sit fun() Causes toon to sit if not already
+---@field public Snared MQBuff #Returns the name of any Snare spell
 ---@field public Spawn spawn The character's spawn
 ---@field public SpellInCooldown MQBoolean #returns TRUE if you have a spell in cooldown and FALSE when not.
 ---@field public SpellDamageBonus MQFloat #Spell Damage bonus

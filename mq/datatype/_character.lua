@@ -187,6 +187,7 @@
 ---@field public svPrismatic MQFloat #The average of your character's resists
 ---@field public TakEarned MQFloat #Total LDoN points earned in Takish
 ---@field public TargetOfTarget MQTarget Target of Target (will only work when group or raid Target of Target is active; if not, it will return NULL)
+---@field public Tashed MQBuff #Returns the name of any Poison spell
 ---@field public Thirst MQFloat #Thirst level
 ---@field public Trader MQBoolean #if you are an active Trader
 ---@field public TributeActive MQBoolean #Tribute Active

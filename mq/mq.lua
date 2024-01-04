@@ -27,7 +27,7 @@ function mq.delay(delayValue, condition) end
 function mq.gettime() end
 
 ---Joins a number of string-convertable parameters into a single string
----@vararg string
+---@vararg number|string
 ---@return string
 function mq.join(...) end
 

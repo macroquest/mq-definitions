@@ -114,7 +114,7 @@
 ---@field public Weight MQFloat #Item weight
 ---@field public WIS MQFloat #WIS value on item
 ---@filed public Worn itemspell|fun():itemspell Passive worn effect, if any
----@field public WornSlot fun(slot: number): invslot invslot The #th invslot this item can be worn in (fingers/ears count as 2 slots)
+---@field public WornSlot fun(slot: number|string): invslot invslot The #th invslot this item can be worn in (fingers/ears count as 2 slots)
 ---@field public WornSlot fun(slot: string): MQBoolean #Can item be worn in invslot with this name? (worn slots only)
 ---@field public WornSlots MQFloat #The number of invslots this item can be worn in (fingers/ears count as 2 slots)
 ---@field public ToString MQString #Same as Name

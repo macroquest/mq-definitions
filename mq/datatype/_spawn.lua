@@ -164,7 +164,7 @@ local spawn = {}
 ---@diagnostic disable: duplicate-set-field
 ---Returns the cachedbuff given the index or first one found
 ---Data must be populated first by targeting
----@param index? integer
+---@param index? integer|string
 ---@return MQCachedBuff
 function spawn.Buff(index)end
 
@@ -182,7 +182,7 @@ function spawn.BuffCount() end
 ---Returns the cachedbuff given the spell id
 ---Data must be populated first by targeting
 ---Refer to [DataType:CachedBuff](https://docs.macroquest.org/reference/data-types/datatype-cachedbuff/) for additional information
----@param spellId integer
+---@param spellId integer|string
 ---@return MQCachedBuff
 function spawn.CachedBuff(spellId)end
 
@@ -195,7 +195,7 @@ function spawn.CachedBuff(predicate)end
 
 ---Returns the cachedbuff given the index or first one found where caster is the caller
 ---Data must be populated first by targeting
----@param index? integer
+---@param index? integer|string
 ---@return MQCachedBuff
 function spawn.MyBuff(index)end
 
@@ -207,7 +207,7 @@ function spawn.MyBuff(spellName)end
 
 ---Returns the remaining duration of the spell at the given index or first one found where the caster is the caller
 ---Data must be populated first by targeting
----@param index? integer
+---@param index? integer|string
 ---@return ticks
 function spawn.MyBuffDuration(index)end
 

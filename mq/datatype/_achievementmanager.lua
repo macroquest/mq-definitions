@@ -1,8 +1,8 @@
 ---@meta
 ---@class achievementmgr
----@field AchievementByIndex fun(index:integer):achievement Find an achievement by its index
+---@field AchievementByIndex fun(index:integer|string):achievement Find an achievement by its index
 ---@field AchievementCount MQInt #The number of achievements in the mananger
----@field CategoryByIndex fun(index:integer):achievementcat Find an achievement category by its index
+---@field CategoryByIndex fun(index:integer|string):achievementcat Find an achievement category by its index
 ---@field CategoryCount MQInt #The number of achievement categories in the mananger
 ---@field Points MQInt #The total number of accumulated achievement points
 ---@field CompletedAchievements MQInt #The number of completed achievements
@@ -11,7 +11,7 @@
 achievementmgr = {}
 
 ---Find an achievement by its ID
----@param id integer
+---@param id integer|string
 ---@return achievement
 function achievementmgr.Achievement(id) end
 
@@ -21,7 +21,7 @@ function achievementmgr.Achievement(id) end
 function achievementmgr.Achievement(name) end
 
 ---Find an achievement category by its ID
----@param id integer
+---@param id integer|string
 ---@return achievementcat
 function achievementmgr.Category(id) end
 

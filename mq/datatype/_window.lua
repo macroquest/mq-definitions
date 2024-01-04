@@ -70,7 +70,7 @@ function window.RightMouseUp() end
 
 ---@diagnostic disable: duplicate-set-field
 ---Selects the specified item inside a ListBox, List, etc
----@param index integer # Index to select
+---@param index integer|string # Index to select
 function window.Select(index) end
 
 ---Selects the specified item inside a ListBox, List, etc
@@ -84,14 +84,14 @@ function window.SetCurrentTab(tabNum) end
 
 ---@diagnostic disable: duplicate-set-field
 ---Get the text for the Nth item in a list box. Only works on list boxes. Use of y is optional and allows selection of the column of the window to get text from.
----@param nthItem integer
----@param column? integer
+---@param nthItem integer|string
+---@param column? integer|string
 ---@return string
 function window.List(nthItem, column) end
 
 ---Find an item in a list box by partial match (use window.List[=text] for exact). Only works on list boxes. Use of y is optional and allows selection of the column of the window to search in.
 ---@param text string
----@param column? integer
+---@param column? integer|string
 ---@return integer
 function window.List(text, column) end
 ---@diagnostic enable: duplicate-set-field

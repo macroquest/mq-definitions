@@ -3,9 +3,9 @@
 ---@field ID MQInt #The unique ID for the category
 ---@field Name MQString #The category's display name
 ---@field Description MQString #The category's Description
----@field AchievementByIndex fun(index:integer):achievement Find an achievement by its index in this category
+---@field AchievementByIndex fun(index:integer|string):achievement Find an achievement by its index in this category
 ---@field AchievementCount MQInt #The number of achievements in this category
----@field CategoryByIndex fun(index:integer):integer Find a child category by its index in this category
+---@field CategoryByIndex fun(index:integer|string):integer Find a child category by its index in this category
 ---@field CategoryCount MQInt #The number of child categories in this category
 ---@field Points MQInt #The total earned points of achievements in this category
 ---@field CompletedAchievements MQInt #The number of achievements earned in this category and its subcategories
@@ -15,7 +15,7 @@
 achievementcat = {}
 
 ---Find an achievement in this category by its ID
----@param id integer
+---@param id integer|string
 ---@return achievement
 function achievementcat.Achievement(id) end
 
@@ -25,7 +25,7 @@ function achievementcat.Achievement(id) end
 function achievementcat.Achievement(name) end
 
 ---Find a child category by its ID
----@param id integer
+---@param id integer|string
 ---@return achievementcat
 function achievementcat.Category(id) end
 

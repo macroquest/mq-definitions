@@ -13,12 +13,12 @@
 local fellowship = nil
 
 ---@diagnostic disable: duplicate-set-field
----@param name string: Character name
+---@param name string # Character name
 ---@return fellowshipmember
 function fellowship.Member(name) end
 
 ---Find an item in a list box by partial match (use window.List[=text] for exact). Only works on list boxes. Use of y is optional and allows selection of the column of the window to search in.
----@param index integer: Index
+---@param index integer|string # Index
 ---@return fellowshipmember
 function fellowship.Member(index) end
 

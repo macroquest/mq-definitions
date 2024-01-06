@@ -207,13 +207,13 @@ local character = nil
 ---@return integer # The doability button number that the skill name is on
 function character.Ability(name) end
 
----@param index integer # doability button number
+---@param index integer|string # doability button number
 ---@return string # The skill name assigned to this doability button
 function character.Ability(index) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
----@param index integer # Ability button number
+---@param index integer|string # Ability button number
 ---@return MQBoolean
 function character.AbilityReady(index) end
 
@@ -223,7 +223,7 @@ function character.AbilityReady(name) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
----@param index integer # Alt ability #
+---@param index integer|string # Alt ability #
 ---@return altability
 function character.AltAbility(index) end
 
@@ -233,7 +233,7 @@ function character.AltAbility(name) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
----@param index integer # Alt ability #
+---@param index integer|string # Alt ability #
 ---@return MQBoolean
 function character.AltAbilityReady(index) end
 
@@ -243,7 +243,7 @@ function character.AltAbilityReady(name) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
----@param index integer # Alt ability #
+---@param index integer|string # Alt ability #
 ---@return timestamp
 function character.AltAbilityTimer(index) end
 
@@ -257,7 +257,7 @@ function character.AltAbilityTimer(name) end
 function character.AltCurrency(name) end
 
 ---@diagnostic disable: duplicate-set-field
----@param index integer # The aura index
+---@param index integer|string # The aura index
 ---@return MQSpell # The aura spell object at the given index
 function character.Aura(index) end
 
@@ -267,7 +267,7 @@ function character.Aura(name) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
----@param index integer # Bandolier undex 1:20
+---@param index integer|string # Bandolier undex 1:20
 ---@return bandolier
 function character.Bandolier (index) end
 
@@ -299,7 +299,7 @@ function character.BoundLocation(bindPointIndex) end
 ---@return MQBuff
 function character.Buff(name) end
 
----@param slotNumber integer # Buff slot number
+---@param slotNumber integer|string # Buff slot number
 ---@return MQBuff
 function character.Buff(slotNumber) end
 ---@diagnostic enable: duplicate-set-field
@@ -311,14 +311,14 @@ function character.Buff(slotNumber) end
 function character.CombatAbility(name) end
 
 ---The name of Combat Ability # in your list (not the same as anyone else's list!)
----@param index integer # Combat Ability # in your list 
+---@param index integer|string # Combat Ability # in your list 
 ---@return MQSpell
 function character.CombatAbility(index) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
 --Combat Ability ready to use?
----@param index integer # Combat ability #
+---@param index integer|string # Combat ability #
 ---@return boolean
 function character.CombatAbilityReady(index) end
 
@@ -329,7 +329,7 @@ function character.CombatAbilityReady(name) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
----@param index integer # Combat ability #
+---@param index integer|string # Combat ability #
 ---@return ticks
 function character.CombatAbilityTimer(index) end
 
@@ -338,7 +338,7 @@ function character.CombatAbilityTimer(index) end
 function character.CombatAbilityTimer(name) end
 ---@diagnostic enable: duplicate-set-field
 
----@param minSize? integer # spaces of at least [minSize] size (giant=4) 
+---@param minSize? integer|string # spaces of at least [minSize] size (giant=4) 
 ---@return integer # Number of free inventory spaces
 function character.FreeInventory(minSize) end
 
@@ -395,7 +395,7 @@ function character.Language(languageNumber) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@param language string|integer
----@return integer # Your skill in language
+---@return integer|string # Your skill in language
 function character.LanguageSkill(language) end
 
 ---@diagnostic disable: duplicate-set-field
@@ -411,11 +411,11 @@ function character.PetBuff(slotNumber) end
 ---@return spawn
 function character.GroupAssistTarget() end
 
----@param index integer # Current raid assist target (1-3)
+---@param index integer|string # Current raid assist target (1-3)
 ---@return spawn
 function character.RaidAssistTarget(index) end
 
----@param index integer # Current raid marked NPC (1-3)
+---@param index integer|string # Current raid marked NPC (1-3)
 ---@return spawn
 function character.RaidMarkNPC(index) end
 
@@ -424,7 +424,7 @@ function character.RaidMarkNPC(index) end
 ---@return integer # Returns current skill level
 function character.Skill(name) end
 
----@param skillId integer 
+---@param skillId integer|string 
 ---@return integer # Returns current skill level
 function character.Skill(skillId) end
 ---@diagnostic enable: duplicate-set-field
@@ -434,7 +434,7 @@ function character.Skill(skillId) end
 ---@return integer 
 function character.SkillCap(name) end
 
----@param skillId integer 
+---@param skillId integer|string 
 ---@return integer
 function character.SkillCap(skillId) end
 ---@diagnostic enable: duplicate-set-field
@@ -444,7 +444,7 @@ function character.SkillCap(skillId) end
 ---@return MQBuff 
 function character.Song(name) end
 
----@param slotNumber integer 
+---@param slotNumber integer|string 
 ---@return MQBuff
 function character.Song(slotNumber) end
 ---@diagnostic enable: duplicate-set-field
@@ -456,13 +456,13 @@ function character.Song(slotNumber) end
 function character.SpellReady(name) end
 
 ---Gem in this gem # ready to cast?
----@param slotNumber integer 
+---@param slotNumber integer|string 
 ---@return MQBoolean
 function character.SpellReady(slotNumber) end
 ---@diagnostic enable: duplicate-set-field
 
 ---Returns the number of AUTO-HATER mobs on the extended target window where your aggro is less than the optional parameter N. N must be between 1-100 inclusive or it will be set to 100 (the default value).
----@param n? integer # defaults to 100
+---@param n? integer|string # defaults to 100
 ---@return integer
 function character.XTAggroCount(n) end
 
@@ -472,7 +472,7 @@ function character.XTAggroCount(n) end
 function character.XTarget() end
 
 ---Extended target data for the specified XTarget #.
----@param index integer 
+---@param index integer|string 
 ---@return xtarget
 function character.XTarget(index) end
 ---@diagnostic enable: duplicate-set-field

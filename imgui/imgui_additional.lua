@@ -45,6 +45,8 @@ function ImGui.HelpMarker(text, width, font) end
 ---@field public autoScroll boolean
 ---Sets/Gets the maximum number of lines held in the console buffer.
 ---@field public maxBufferLines number
+---Sets/Gets the the opacity of the console.
+---@field public opacity number
 ImGui.ConsoleWidget = {}
 
 ---Creates a new console widget. `id` is a standard ImGui id and shoudl be unique for

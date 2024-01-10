@@ -14,6 +14,9 @@ ImGui = {}
 -- A unique ID used by widgets (typically the result of hashing a stack of string)
 ---@alias ImGuiID number
 
+-- Flags: an ImGuiKey optionally OR-ed with one or more ImGuiMod.XXX values.
+---@alias ImGuiKeyChord ImGuiKey|ImGuiMod
+
 --
 -- ### Main
 --

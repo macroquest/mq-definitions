@@ -195,6 +195,7 @@
 ---@field public UseAdvancedLooting MQBoolean #TRUE/FALSE if using advanced looting
 ---@field public WIS MQFloat #Character Wisdom
 ---@field public Vitality MQFloat #Total amount of Vitality your toon has
+---@field public XTargetSlots integer #Total number of XTarget Slots
 ---@field public ZoneBound zone # Zone that you are bound at.
 ---@field public ZoneBoundX fun():integer
 ---@field public ZoneBoundY fun():integer

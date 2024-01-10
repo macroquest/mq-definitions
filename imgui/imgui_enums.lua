@@ -631,13 +631,14 @@ ImGuiKey = {
 --   backends tend to interfere and break that equivalence. The safer decision is to relay that ambiguity down to the end-user...
 ---@enum ImGuiMod
 ImGuiMod = {
-    None              = 0,
-    Ctrl              = 0x1000, -- Ctrl
-    Shift             = 0x2000, -- Shift
-    Alt               = 0x4000, -- Option/Menu
-    Super             = 0x8000, -- Cmd/Super/Windows
-    Shortcut          = 0x0800, -- Alias for Ctrl (non-macOS) _or_ Super (macOS).
-    Mask_             = 0xF800, -- 5-bits
+    None                       = 0,
+    Ctrl                       = 0x1000, -- Ctrl
+    Shift                      = 0x2000, -- Shift
+    Alt                        = 0x4000, -- Option/Menu
+    Super                      = 0x8000, -- Cmd/Super/Windows
+    Shortcut                   = 0x0800, -- Alias for Ctrl (non-macOS) _or_ Super (macOS).
+
+    Mask_                      = 0xF800, -- 5-bits
 }
 
 

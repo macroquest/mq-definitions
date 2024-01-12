@@ -1837,14 +1837,6 @@ function ImGui.IsPopupOpen(strId, flags) end
 ---@param innerWidth? number
 ---@return boolean
 function ImGui.BeginTable(strId, columnsCount, tableFlags, outerSize, innerWidth) end
----@param strId string
----@param columnsCount integer
----@param tableFlags ImGuiTableFlags
----@param outerSizeX number
----@param outerSizeY number
----@param innerWidth? number
----@return boolean
-function ImGui.BeginTable(strId, columnsCount, tableFlags, outerSizeX, outerSizeY, innerWidth) end
 
 -- only call EndTable() if BeginTable() returns true!
 function ImGui.EndTable() end

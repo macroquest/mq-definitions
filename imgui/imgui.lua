@@ -14,6 +14,9 @@ ImGui = {}
 -- A unique ID used by widgets (typically the result of hashing a stack of string)
 ---@alias ImGuiID number
 
+-- Flags: an ImGuiKey optionally OR-ed with one or more ImGuiMod.XXX values.
+---@alias ImGuiKeyChord ImGuiKey|ImGuiMod
+
 --
 -- ### Main
 --
@@ -1464,9 +1467,9 @@ function ImGui.TreeNodeEx(strId, flags, fmt, ...) end
 function ImGui.TreeNodeEx(objId, flags, fmt, ...) end
 
 -- ~ Indent()+PushId(). Already called by TreeNode() when returning true, but you can call TreePush/TreePop yourself if desired.
----@param strId? string Id string, or nil
+---@param strId string Id string, or nil
 function ImGui.TreePush(strId) end
----@param objId any Create id from any object
+---@param objId? any Create id from any object
 function ImGui.TreePush(objId) end
 
 -- ~ Unindent()+PopId()

@@ -8,6 +8,7 @@
 --- @field public CategoryID MQInt # Spell category id
 --- @field public CounterType MQString # The resist counter. Will be one of "Disease", "Poison", "Curse" or "Corruption"
 --- @field public CounterNumber MQInt # The number of counters that the spell adds
+--- @field public Description string # The number of counters that the spell adds
 --- @field public Duration ticks # Duration of the spell (if any)
 --- @field public DurationValue1 ticks # Duration of the spell (if any)
 --- @field public Extra string # extra spell information
@@ -29,7 +30,7 @@
 --- @field public PushBack MQFloat # Push back amount
 --- @field public Range MQFloat # Maximum range to target (use AERange for AE and group spells)
 --- @field public Rank MQInt # Returns either 1, 2 or 3 for spells and 4-30 for clickys and potions.
---- @field public RankName MQString # Returns the spell/combat ability name rank character has.
+--- @field public RankName MQSpell # Returns the spell/combat ability name rank character has.
 --- @field public RecastTime MQFloat #T ime to recast after successful cast
 --- @field public RecoveryTime timestamp Same as FizzleTime
 --- @field public ResistAdj MQInt # Resist adjustment

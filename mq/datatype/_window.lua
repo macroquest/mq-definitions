@@ -2,6 +2,8 @@
 ---@field public BGColor argb # Background color
 ---@field public Checked MQBoolean # Returns TRUE if the button has been checked
 ---@field public Children MQBoolean # Returns TRUE if the window has children
+---@field public CurrentTab MQWindow # Returns current tab as a window object
+---@field public CurrentTabIndex integer # Returns the current tab index as an int
 ---@field public Enabled MQBoolean # Returns TRUE if the window is enabled
 ---@field public FirstChild MQWindow # First child window
 ---@field public GetCurSel fun():integer # Returns the index of the currently selected row
@@ -81,6 +83,9 @@ function window.Select(index) end
 ---Selects the specified tab
 ---@param tabNum integer
 function window.SetCurrentTab(tabNum) end
+
+---@param text string
+function window.SetText(text) end
 
 ---@diagnostic disable: duplicate-set-field
 ---Get the text for the Nth item in a list box. Only works on list boxes. Use of y is optional and allows selection of the column of the window to get text from.

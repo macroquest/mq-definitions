@@ -132,6 +132,7 @@ function mq.imgui.destroy(name) end
 ---@field Bandoliler fun(name:string) bandolier
 ---@field Corpse corpse|fun():corpse|nil # Corpse you are looting
 ---@field Cursor MQItem
+---@field CursorAttachment cursorattachment
 ---@field DisplayItem fun(): MQItem # Access to all the information in the Item Display window
 ---@field DoorTarget MQSwitch # Information on your doortarget
 ---@field DynamicZone dynamiczone

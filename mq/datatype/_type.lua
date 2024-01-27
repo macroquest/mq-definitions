@@ -1,6 +1,7 @@
 --- @class mqtype
 --- @field public Name MQString # Type name
 --- @field public ToString MQString # Same as Name
+--- @field public InheritedType mqtype # Returns the type which this type inherits from
 local mqtype = nil
 
 ---@diagnostic disable: duplicate-set-field

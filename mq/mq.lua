@@ -83,6 +83,10 @@ function mq.gettype(type) end
 ---@return number FLT_MIN, number FLT_MAX
 function mq.NumericLimits_Float() end
 
+---Parses the provided macro script input
+---@return string # The result of the parsed input
+function mq.parse(macrostring) end
+
 ---Serializes a table to the given filepath
 ---@param filepath string
 ---@param table table

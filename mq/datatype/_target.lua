@@ -18,6 +18,7 @@
 --- @field public Hasted MQCachedBuff # Returns the name of the Haste spell if the Target has one
 --- @field public HybridHP MQCachedBuff # Returns the name of the Hybrid HP spell if the Target has one
 --- @field public Maloed MQCachedBuff # Returns the name of the Malo spell if the Target has one
+--- @field public MaxMeleeTo MQFloat # The Max distance from the target for you to hit it
 --- @field public Mezzed MQCachedBuff # Returns the name of the Mez spell if the Target has one
 --- @field public PctAggro MQInt # Returns your % Aggro with this Target
 --- @field public Poisoned MQCachedBuff # Returns the name of a Poison spell if the Target has one

@@ -20,6 +20,7 @@
 --- @field public IsSkill MQBoolean # Is this spell a skill?
 --- @field public IsSwarmSpell MQBoolean # Is this spell a Swarm spell?
 --- @field public Level MQInt # Level
+--- @field public Link MQString # Prints the link to the spell
 --- @field public Location MQFloat # Appears to be max distance
 --- @field public Mana MQInt # Mana cost (unadjusted)
 --- @field public EnduranceCost MQInt # Endurance cost (unadjusted)
@@ -51,6 +52,7 @@
 --- @field public NewStacks MQBoolean # See entry for more details
 --- @field public TargetType MQString # See below for Target Types
 --- @field public WearOff MQString # The "wear off" message
+--- @field public WillLand MQInt # Returns the buff slot the spell will land in on yourself if it will land, or 0
 --- @field public ToString MQString # Same as Name
 local spell = nil
 

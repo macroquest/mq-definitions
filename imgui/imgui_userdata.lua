@@ -582,3 +582,6 @@ function ImGuiViewport:GetCenter() end
 
 ---@return ImVec2
 function ImGuiViewport:GetWorkCenter() end
+
+---@class ImGuiDragDropPayload
+---@field public Data any

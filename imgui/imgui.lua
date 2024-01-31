@@ -2139,7 +2139,7 @@ function ImGui.EndDragDropSource() end
 function ImGui.BeginDragDropTarget() end
 
 -- accept contents of a given type. If ImGuiDragDropFlags_AcceptBeforeDelivery is set you can peek into the payload before the mouse button is released.
----@return userdata #LuaImGuiPayload
+---@return ImGuiDragDropPayload #The content being dragged
 function ImGui.AcceptDragDropPayload(label) end
 
 -- only call EndDragDropTarget() if BeginDragDropTarget() returns true!

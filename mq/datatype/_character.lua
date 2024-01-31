@@ -30,6 +30,7 @@
 ---@field public CareerFavor MQFloat #Career favor/tribute
 ---@field public Cash MQFloat #Total cash on your character, expressed in coppers (eg. if you are carrying 100pp, Cash will return 100000)
 ---@field public CashBank MQFloat #Total cash in your bank, expressed in coppers
+---@field public CastTimeLeft timestamp #Returns the remaining cast time on the spell being cast
 ---@field public CHA MQFloat #Character Charisma
 ---@field public Charmed MQString #Returns the name of the first charm spell on the character
 ---@field public Chronobines MQFloat #Chronobines on your character
@@ -41,6 +42,7 @@
 ---@field public CopperBank MQFloat #Copper in bank
 ---@field public Corrupted MQSpell Returns the name of the Corrupted debuff if you have one
 ---@field public CountBuffs MQFloat #Number of buffs you have, not including short duration buffs
+---@field public CountersCorruption MQFloat #Number of corruption counters you have
 ---@field public CountersCurse MQFloat #Number of curse counters you have
 ---@field public CountersDisease MQFloat #Number of disease counters you have
 ---@field public CountersPoison MQFloat #Number of poison counters you have
@@ -162,6 +164,7 @@
 ---@field public SilverBank MQFloat #Silver in bank
 ---@field public Sit fun() Causes toon to sit if not already
 ---@field public Snared MQBuff #Returns the name of any Snare spell
+---@field public SPA fun(spaId: integer):integer #Returns the ID of the buff providing the given SPA
 ---@field public Spawn spawn The character's spawn
 ---@field public SpellInCooldown MQBoolean #returns TRUE if you have a spell in cooldown and FALSE when not.
 ---@field public SpellDamageBonus MQFloat #Spell Damage bonus
@@ -300,7 +303,11 @@ function character.Bandolier(bandolierName) end
 
 ---@param slot integer # Bankslot number 
 ---@return MQItem
-function character.Bank (slot) end
+function character.Bank(slot) end
+
+---@param slot integer # SharedBank slot number
+---@return MQItem
+function character.SharedBank(slot) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param spellId integer # Spell ID

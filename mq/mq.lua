@@ -83,6 +83,10 @@ function mq.gettype(type) end
 ---@return number FLT_MIN, number FLT_MAX
 function mq.NumericLimits_Float() end
 
+---Parses the provided macro script input
+---@return string # The result of the parsed input
+function mq.parse(macrostring) end
+
 ---Serializes a table to the given filepath
 ---@param filepath string
 ---@param table table
@@ -132,6 +136,7 @@ function mq.imgui.destroy(name) end
 ---@field Bandoliler fun(name:string) bandolier
 ---@field Corpse corpse|fun():corpse|nil # Corpse you are looting
 ---@field Cursor MQItem
+---@field CursorAttachment cursorattachment
 ---@field DisplayItem fun(): MQItem # Access to all the information in the Item Display window
 ---@field DoorTarget MQSwitch # Information on your doortarget
 ---@field DynamicZone dynamiczone

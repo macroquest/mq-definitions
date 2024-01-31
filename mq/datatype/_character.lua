@@ -253,6 +253,27 @@ function character.AltAbilityTimer(index) end
 function character.AltAbilityTimer(name) end
 ---@diagnostic enable: duplicate-set-field
 
+---@diagnostic disable: duplicate-set-field
+---@param index integer|string # Alt ability #
+---@return timestamp
+function character.AbilityTimer(index) end
+
+---@param name string
+---@return timestamp
+function character.AbilityTimer(name) end
+---@diagnostic enable: duplicate-set-field
+
+---@diagnostic disable: duplicate-set-field
+---@param index integer|string # ability #
+---@return timestamp
+function character.AbilityTimerTotal(index) end
+
+---@param name string
+---@return timestamp
+function character.AbilityTimerTotal(name) end
+
+---@diagnostic enable: duplicate-set-field
+
 ---@param name string 
 ---@return integer
 function character.AltCurrency(name) end
@@ -280,6 +301,29 @@ function character.Bandolier(bandolierName) end
 ---@param slot integer # Bankslot number 
 ---@return MQItem
 function character.Bank (slot) end
+
+---@diagnostic disable: duplicate-set-field
+---@param spellId integer # Spell ID
+---@return spell
+function character.BlockedPetBuff(spellId) end
+
+---@param spellId integer # Spell ID
+---@return spell
+function character.BlockedBuff(spellId) end
+
+---@param spellName string # Spell Name
+---@return spell
+function character.BlockedBuff(spellName) end
+
+---@diagnostic enable: duplicate-set-field
+---@param spellId integer # Spell ID
+---@return spell
+function character.BlockedPetBuff(spellId) end
+
+---@param spellName string # Spell Name
+---@return spell
+function character.BlockedPetBuff(spellName) end
+---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
 ---@param name string 

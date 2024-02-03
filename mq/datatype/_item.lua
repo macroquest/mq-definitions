@@ -83,6 +83,7 @@
 ---@field public Purity MQFloat #Purity of item
 ---@field public Race fun(filter: number|string): MQString #Returns the #th long race name of the listed races on an item. Items suitable for ALL races will effectively have all 15 races listed.
 ---@field public Races MQFloat #The number of races that can use the item. Items suitable for ALL races will return 15.
+---@field public Range integer #Range of the item
 ---@field public RequiredLevel MQFloat #Returns the Required Level of an item. Items with no required level will return 0.
 ---@field public SellPrice MQFloat #Price to sell this item at this merchant
 ---@field public Shielding MQFloat #Shielding

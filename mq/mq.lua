@@ -304,6 +304,11 @@ function TLO.Mount(index) end
 ---@return keyringitem
 function TLO.Mount(name) end
 
+----Returns the Socail button at this index (0-119)
+---@param index integer
+---@return social
+function TLO.Social(index) end
+
 ----Returns a count of Spawns by use of a [Spawn Search](https://docs.macroquest.org/reference/general/spawn-search/) filter
 ---@param filter string
 ---@return MQInt

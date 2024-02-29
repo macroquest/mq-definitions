@@ -30,7 +30,7 @@
 ---@field public CareerFavor MQFloat #Career favor/tribute
 ---@field public Cash MQFloat #Total cash on your character, expressed in coppers (eg. if you are carrying 100pp, Cash will return 100000)
 ---@field public CashBank MQFloat #Total cash in your bank, expressed in coppers
----@field public CastTimeLeft timestamp #Returns the remaining cast time on the spell being cast
+---@field public CastTimeLeft MQTimeStamp #Returns the remaining cast time on the spell being cast
 ---@field public CHA MQFloat #Character Charisma
 ---@field public Charmed MQString #Returns the name of the first charm spell on the character
 ---@field public Chronobines MQFloat #Chronobines on your character

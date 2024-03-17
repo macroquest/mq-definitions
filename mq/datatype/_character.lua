@@ -309,11 +309,6 @@ function character.Bank(slot) end
 ---@return MQItem
 function character.SharedBank(slot) end
 
----@diagnostic disable: duplicate-set-field
----@param spellId integer # Spell ID
----@return spell
-function character.BlockedPetBuff(spellId) end
-
 ---@param spellId integer # Spell ID
 ---@return spell
 function character.BlockedBuff(spellId) end
@@ -323,9 +318,9 @@ function character.BlockedBuff(spellId) end
 function character.BlockedBuff(spellName) end
 
 ---@diagnostic enable: duplicate-set-field
----@param spellId integer # Spell ID
+---@param slotNumber integer # Index into pet blocked buffs list
 ---@return spell
-function character.BlockedPetBuff(spellId) end
+function character.BlockedPetBuff(slotNumber) end
 
 ---@param spellName string # Spell Name
 ---@return spell

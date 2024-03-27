@@ -11,6 +11,7 @@
 --- @field public Description string # The number of counters that the spell adds
 --- @field public Duration ticks # Duration of the spell (if any)
 --- @field public DurationValue1 ticks # Duration of the spell (if any)
+--- @field public DurationWindow MQInt # Type of Duration of the spell 0 = long buff window, 1 = short buff window
 --- @field public Extra string # extra spell information
 --- @field public FizzleTime timestamp # Time to recover after fizzle
 --- @field public GemIcon MQInt # Icon number of the spell. Exmaple ${Spell[blah].GemIcon}

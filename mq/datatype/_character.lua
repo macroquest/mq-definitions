@@ -97,6 +97,7 @@
 ---@field public Hunger MQFloat #Hunger level
 ---@field public ID MQFloat #Spawn ID
 ---@field public InInstance MQBoolean #Returns TRUE/FALSE if you are in an instance.
+---@field public Instance MQInt #Returns the instance ID if you are in one, else 0.
 ---@field public INT MQFloat #Character Intelligence
 ---@field public Invulnerable MQString #Returns the invulnerable spell name on you, can be used with spell data type ex. ${Me.Invulnerable.Spell.ID}
 ---@field public LADelegateMA MQFloat #Level of Delegate MA of the current group leader (not your own ability level)

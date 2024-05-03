@@ -8,7 +8,7 @@
 ---@field public Attuneable MQBoolean #Attuneable?
 ---@field public AugRestrictions MQFloat #Augment Restrictions
 ---@field public Augs MQFloat #Number of augs on this item
----@field public AugSlot fun(slot:integer): augtype Retreive the augment in the specified slot number
+---@field public AugSlot fun(slot:integer): augtype #Retreive the augment in the specified slot number
 ---@field public AugSlot1 MQFloat #Aug slot 1
 ---@field public AugSlot2 MQFloat #Aug slot 2
 ---@field public AugSlot3 MQFloat #Aug slot 3
@@ -24,7 +24,7 @@
 ---@field public Clairvoyance MQFloat #Clairvoyance
 ---@field public Class fun(filter: number|string): MQString #Returns the #th long class name of the listed classes on an item. Items suitable for ALL classes will effectively have all 17 classes listed.
 ---@field public Classes MQFloat #The number of classes that can use the item. Items suitable for ALL classes will return 16.
----@field public Clicky itemspell Activatable spell effect, if any.
+---@field public Clicky itemspell #Activatable spell effect, if any.
 ---@field public CombatEffects MQFloat #CombatEffects
 ---@field public Container MQFloat #Number of slots, if this is a container
 ---@field public Damage MQInt #Damage Shield Mitigation
@@ -38,7 +38,9 @@
 ---@field public EffectType MQString #Spell effect type (see below for spell effect types)
 ---@field public Endurance MQFloat #Endurance
 ---@field public EnduranceRegen MQFloat #Endurance regen
----@field public Evolving evolving Does this item have Evolving experience on?
+---@field public Evolving evolving #Does this item have Evolving experience on?
+---@field public Focus itemspell|fun():itemspell #Return first focus effect, if any. 
+---@field public Focus2 itemspell|fun():itemspell #Return second focus effect, if any. 
 ---@field public FreeStack MQFloat #The number of items needed to fill all the stacks of the item you have (with a stacksize of 20).If you have 3 stacks (1, 10, 20 in those stacks), you have room for 60 total and you have 31 on you, so FreeStack would return 29.
 ---@field public Haste MQFloat #Haste value on item
 ---@field public HealAmount MQFloat #HealAmount (regen?)
@@ -59,11 +61,11 @@
 ---@field public HPRegen MQFloat #HPRegen value on item
 ---@field public Icon MQFloat #Item Icon
 ---@field public ID MQFloat #Item ID
----@field public InstrumentMod MQFloat Instrument Modifier Value
+---@field public InstrumentMod MQFloat #Instrument Modifier Value
 ---@field public INT MQFloat #INT value on item
 ---@field public InvSlot MQFloat #Inventory Slot Number (Historic and now deprecated, use ItemSlot and ItemSlot2)
----@field public Item item Item in #th slot, if this is a container or has augs
----@field public ItemDelay MQFloat Returns the delay of the weapon
+---@field public Item item #Item in #th slot, if this is a container or has augs
+---@field public ItemDelay MQFloat #Returns the delay of the weapon
 ---@field public ItemLink fun(clickable?: string): MQString # just prints the actual hexlink for an item (not clickable) unless [CLICKABLE] is included
 ---@field public Items MQFloat #Number of items, if this is a container.
 ---@field public ItemSlot MQFloat #Item Slot number see Slot Names
@@ -89,7 +91,7 @@
 ---@field public Shielding MQFloat #Shielding
 ---@field public Size MQFloat #Item size:1 SMALL2 MEDIUM3 LARGE4 GIANT
 ---@field public SizeCapacity MQFloat #If item is a container, size of items it can hold:1 SMALL2 MEDIUM3 LARGE4 GIANT
----@field public Spell MQSpell Spell effect
+---@field public Spell MQSpell #Spell effect
 ---@field public SpellDamage MQFloat #Spell damage
 ---@field public SpellShield MQFloat #SpellShield
 ---@field public STA MQFloat #STA value on item
@@ -107,7 +109,7 @@
 ---@field public svFire MQFloat #svFire value on item
 ---@field public svMagic MQFloat #svMagic value on item
 ---@field public svPoison MQFloat #svPoison value on item
----@field public Timer ticks Returns the number of ticks remaining on an item recast timer
+---@field public Timer ticks #Returns the number of ticks remaining on an item recast timer
 ---@field public TimerReady MQFloat #Returns the number of seconds remaining on an item recast timer
 ---@field public Tradeskills MQBoolean #Tradeskills?
 ---@field public Type MQString #Type
@@ -115,7 +117,7 @@
 ---@field public Value MQFloat #Item value in coppers
 ---@field public Weight MQFloat #Item weight
 ---@field public WIS MQFloat #WIS value on item
----@filed public Worn itemspell|fun():itemspell Passive worn effect, if any
+---@field public Worn itemspell|fun():itemspell #Passive worn effect, if any
 ---@field public WornSlot fun(slot: number|string): invslot invslot The #th invslot this item can be worn in (fingers/ears count as 2 slots)
 ---@field public WornSlot fun(slot: string): MQBoolean #Can item be worn in invslot with this name? (worn slots only)
 ---@field public WornSlots MQFloat #The number of invslots this item can be worn in (fingers/ears count as 2 slots)

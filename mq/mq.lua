@@ -157,7 +157,6 @@ function mq.imgui.destroy(name) end
 ---@field Ini any
 ---@field Int any
 ---@field Inventory inventory
----@field InvSlot any
 ---@field Irc any
 ---@field ItemTarget ground # Gives access to the ground item that is previously targeted using /itemtarget.
 ---@field LastSpawn any
@@ -267,6 +266,15 @@ function TLO.Heading(y, x) end
 ---@return heading
 function TLO.Heading(north, west) end
 
+---Return the invslot specified by name
+---@param name string
+---@return invslot
+function TLO.InvSlot(name) end
+
+---Return the invslot specified by id
+---@param id number
+---@return invslot
+function TLO.InvSlot(id) end
 ---@diagnostic enable: duplicate-set-field
 
 ---Returns a Plugin by index, starting with 1 and stopping whenever the list runs out of plugins.

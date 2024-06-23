@@ -92,7 +92,7 @@
 ---@field public LastCastNum MQFloat # No idea...
 ---@field public LastCastTime MQFloat # No idea...
 ---@field public Level MQFloat # Level
----@field public DoLeftClick fun() # Left clicks the spawn
+---@field public LeftClick fun() # Left clicks the spawn
 ---@field public Levitating MQBoolean # Levitating?
 ---@field public LFG MQBoolean # LFG?
 ---@field public Light MQString # Name of the light class this spawn has
@@ -127,6 +127,7 @@
 ---@field public Primary MQFloat # Item ID of anything that may be in the Primary slot
 ---@field public pTouchingSwitch MQFloat # Have no idea what this is...
 ---@field public Race race Race
+---@field public RightClick fun() # Right clicks the spawn
 ---@field public Roleplaying MQBoolean # Roleplaying?
 ---@field public Secondary MQFloat # Item ID of anything that may be in the Secondary slot
 ---@field public SeeInvis MQFloat
@@ -157,7 +158,7 @@
 ---@field public E MQFloat # Shortcut for -X (makes Eastward positive)
 ---@field public S MQFloat # Shortcut for -Y (makes Southward positive)
 ---@field public D MQFloat # Shortcut for -Z (makes Downward positive)
----@field public FindBuff fun(predicate: string): MQSpell # Try find a given buff/debuff given predicate from cachedbuffs
+---@field public FindBuff fun(predicate: string): MQBuff # Try find a given buff/debuff given predicate from cachedbuffs
 ---@field public Aggressive MQBoolean # Is the spawn aggressive towards you
 local spawn = {}
 

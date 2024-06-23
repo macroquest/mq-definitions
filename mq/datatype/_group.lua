@@ -17,6 +17,7 @@
 --- @field public MouseOver MQString # Returns the name of the group member your mouse is hovering over
 --- @field public Offline MQBoolean # Will return a TRUE if offline, and FALSE if online
 --- @field public OtherZone MQBoolean # Will return a Bool TRUE if online but in another zone and FALSE if online and in same zone as you.
+--- @field public Present MQInt # Number of group members present in zone (not including you)
 --- @field public Puller MQGroupMember # Data on the puller of the group
 --- @field public TankMercCount MQFloat # Count of how many Tank mercenaries are in your group
 --- @field public ToString MQString # Same as Members

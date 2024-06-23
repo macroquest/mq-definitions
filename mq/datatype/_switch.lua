@@ -15,6 +15,7 @@
 --- @field public N MQFloat Y coordinate (Northward-positive)
 --- @field public Name string Name
 --- @field public Open boolean Open?
+--- @field public Toggle fun() Toggles the selected switch
 --- @field public ToString string Same as ID
 --- @field public W MQFloat X coordinate (Westward-positive)
 --- @field public X MQFloat X coordinate

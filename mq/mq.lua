@@ -43,12 +43,17 @@ function mq.bind(command, callback) end
 ---@param command string e.g /burn
 function mq.unbind(command) end
 
+
+---@class EventOptions
+---@field keepLinks boolean
+
 ---Creates an event that will execute a Lua function when the provided matcher text is seen in game
 ---Note: this needs to be paried with #doevents() to actually process the events during the script execution.
 ---@param name string Name of the Event
 ---@param matcherText string # This needs an example and reference
 ---@param callback function # Function to call when text is matched
-function mq.event(name, matcherText, callback) end
+---@param options? EventOptions
+function mq.event(name, matcherText, callback, options) end
 
 ---Unregisters the event by name so that it will no longer react
 ---@param name string # Name of the Event

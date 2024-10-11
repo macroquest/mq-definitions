@@ -1,5 +1,6 @@
----@diagnostic disable: duplicate-doc-field
 ---@meta
+
+---@diagnostic disable: duplicate-doc-field
 ---@class item Contains the properties that describe an item
 ---@field public AC MQFloat #AC value on item
 ---@field public AGI MQFloat #AGI value on item
@@ -14,6 +15,7 @@
 ---@field public AugSlot3 MQFloat #Aug slot 3
 ---@field public AugSlot4 MQFloat #Aug slot 4
 ---@field public AugSlot5 MQFloat #Aug slot 5
+---@field public AugSlot6 MQFloat Aug slot 6
 ---@field public AugType MQFloat #Augment Type
 ---@field public Avoidance MQFloat #Avoidance
 ---@field public BuyPrice MQFloat #The cost to buy this item from active merchant

@@ -80,6 +80,15 @@ function mq.getAllSpawns() end
 ---@return spawn[] # The spawns
 function mq.getFilteredSpawns(predicate) end
 
+---Returns all ground items
+---@return ground[] # The spawns
+function mq.getAllGroundItems() end
+
+---Returns all ground items by predicate.
+---@param predicate fun(item: ground): boolean # The filter predicate
+---@return ground[] # The ground items
+function mq.getFilteredGroundItems(predicate) end
+
 ---@param type any # The variable we want to check type of
 ---@return mqtype
 function mq.gettype(type) end

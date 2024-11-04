@@ -20,7 +20,7 @@ Zep.LineLocation = {
     LineCRBegin         = 6, -- The first carraige return character
 }
 
----@enum Zep.FileFlags
+---@enum Zep.BufferFlags
 Zep.BufferFlags = {
     None                = 0x0000,
     WindowsLineEndings  = 0x0001, -- Buffer has windows line endings (CRLF)
@@ -79,6 +79,23 @@ function Buffer:Load(filePath) end
 ---@return bool, int
 function Buffer:Save() end
 
+---Check if the specified flag is set
+---@param flag Zep.BufferFlags
+---@return boolean
+function Buffer:HasFlag(flag) end
+
+---Toggle the specified flag on the buffer
+---@param flag Zep.BufferFlags
+function Buffer:ToggleFlag(flag) end
+
+---Set the specified flags on the buffer
+---@param flags Zep.BufferFlags
+function Buffer:SetFlags(flags) end
+
+---Clear the specified flags on the buffer
+---@param flags Zep.BufferFlags
+function Buffer:ClearFlags(flags) end
+
 
 -- A Zep.GlyphIterator represents the location of a cursor in a buffer.
 ---@class Zep.GlyphIterator
@@ -131,6 +148,10 @@ function GlyphIterator.PeekClamped(count, clamp) end
 ---Create a copy of this iterator and clamp it to within the boundaries of the current buffer.
 ---@return Zep.GlyphIterator iterator The new iterator
 function GlyphIterator.Clamped() end
+
+---@class Zep.SyntaxProvider
+---@field id string Id of the syntax provider to pass when setting syntax
+---@field name string Name of the syntax provider for display purposes
 
 
 ---A basic text editor with support for multiple buffers and syntax highlighting.
@@ -193,20 +214,29 @@ function Editor:InitWithText(name, text) end
 ---assigned as the activeBuffer. If the file does not exist, an empty buffer will be created, and saving the
 ---buffer will attempt to create the file.
 ---@param file string The file to load.
+---@return Zep.Buffer
 function Editor:CreateFileBuffer(file) end
 
 ---Create a new empty buffer. The buffer will be added to the editor, but will not be made active unless it is
 ---assigned as the activeBuffer
 ---@param name string Name of the buffer
+---@return Zep.Buffer
 function Editor:CreateEmptyBuffer(name) end
 
----Remove the given buffer from the editor. The buffer should no longer be used after being removed.
+---Remove the given buffer from the editor. The buffer should no longer be used after being removed. If this
+---function attempts to remove the last buffer, the call will fail and return false.
 ---@param buffer Zep.Buffer
+---@return boolean
 function Editor:RemoveBuffer(buffer) end
 
 ---Toggle a flag on the editor
 ---@param flag Zep.WindowFlags
 function Editor:ToggleFlag(flag) end
+
+---Get list of syntax providers that the editor supports. This value won't change while the editor is running
+---so it can be fetched and stored locally only once.
+---@return Zep.SyntaxProvider[]
+function Editor:GetSyntaxProviders() end
 
 
 ---Event data provided to the event callback when a link is clicked
@@ -320,16 +350,16 @@ function Console.AppendTextUnformatted(color, text) end
 ---Append a hyperlink to the console buffer. Clicking the link will send an event through the
 ---`eventCallback` set on the Console with the provided data string. The color of the link can
 ---be modified with PushStyleColor.
----@param data string String of data to associate with the link.
----@param text string Text for the link
+---@param data string Data string to associate with the link.
+---@param text string Text for the link.
 ---@return Zep.Console
 function Console:AppendHyperlink(data, text) end
 
 ---Append a hyperlink to the console buffer. Clicking the link will send an event through the
 ---`eventCallback` set on the Console with the provided data string. The color of the link can
 ---be modified with PushStyleColor.
----@param data string
----@param text string
+---@param data string Data string to associate with the link.
+---@param text string Format string to append to the console buffer.
 ---@vararg any
 ---@return Zep.Console
 function Console:AppendHyperlink(data, text, ...) end

@@ -42,6 +42,7 @@ Zep.WindowFlags = {
     ShowIndicators      = 0x0008,
     ShowLineBackground  = 0x0400,
     ShowWrappedLineNumbers = 0x0800,
+    ShowAirLine         = 0x1000, -- Show the airline (status bar)
 }
 
 
@@ -54,6 +55,8 @@ Zep.WindowFlags = {
 ---@field displayName string Name or filepath of the buffer used for display purposes
 ---@field filePath string Path to the file represented by this buffer, if any.
 ---@field fileExtension string Extension of the file being used to select syntax
+---@field dirty boolean True if the buffer has been modified. If this is a file buffer, saving the buffer will clear this dirty flag.
+---@field readonly boolean True if the buffer is read-only. If this is a read-only buffer, it cannot be modified or saved.
 local Buffer = {}
 
 ---Clear the buffer
@@ -170,6 +173,17 @@ local Editor = {}
 ---Creates a new Zep editor widget. `id` is a standard ImGui id and should be unique for
 ---the current scope. This `id` will be given to a Child frame (via `BeginChild`) and so
 ---it can be styled similarly.
+---
+---Editor documents are called buffers. The editor can have multiple buffers, but only one
+---buffer may be active (visible in the editor) at a time.
+---
+---When an editor is created, it starts with an empty buffer as its default active buffer.
+---If a new buffer is created before this buffer is modified, it will replace this default
+---buffer. It is recommended to create a new buffer when the editor is created.
+---
+---The editor supports multiple tabs and split panes, but this functionality is not currently
+---available to lua.
+---
 ---@param id? string Unique ImGui identifier for this editor. If not provided, one must be provided in the render function.
 ---@return Zep.Editor
 function Editor.new(id) end
@@ -195,21 +209,6 @@ function Editor:Render(id, displaySize) end
 ---@param displaySize? ImVec2  Size of the widget.
 function Editor:Render(displaySize) end
 
----Initialize a new editor with a buffer created from a file. This replaces the initial buffer
----created by an empty editor and makes it the active buffer. The editor currently only supports
----calling any InitXXX function once.
----@param file string path to the file to open
----@return Zep.Buffer
-function Editor:InitWithFile(file) end
-
----Initialize a new editor with an empty buffer and populate it with the provided string. This replaces
----the initial buffer created by an empty editor and makes it the active buffer. The editor currently
----only supports calling any InitXXX function once.
----@param name string Name of the buffer
----@param text string Text to put into the buffer
----@return Zep.Buffer
-function Editor:InitWithText(name, text) end
-
 ---Create a new file buffer. The buffer will be added to the editor, but will not be made active unless it is
 ---assigned as the activeBuffer. If the file does not exist, an empty buffer will be created, and saving the
 ---buffer will attempt to create the file.
@@ -220,8 +219,9 @@ function Editor:CreateFileBuffer(file) end
 ---Create a new empty buffer. The buffer will be added to the editor, but will not be made active unless it is
 ---assigned as the activeBuffer
 ---@param name string Name of the buffer
+---@param text? string Initial text contents of the buffer
 ---@return Zep.Buffer
-function Editor:CreateEmptyBuffer(name) end
+function Editor:CreateBuffer(name, text) end
 
 ---Remove the given buffer from the editor. The buffer should no longer be used after being removed. If this
 ---function attempts to remove the last buffer, the call will fail and return false.
@@ -236,7 +236,7 @@ function Editor:ToggleFlag(flag) end
 ---Get list of syntax providers that the editor supports. This value won't change while the editor is running
 ---so it can be fetched and stored locally only once.
 ---@return Zep.SyntaxProvider[]
-function Editor:GetSyntaxProviders() end
+function Editor:GetSyntaxList() end
 
 
 ---Event data provided to the event callback when a link is clicked
@@ -325,7 +325,7 @@ function Console:AppendText(format, ...) end
 ---@param color ImVec4|ImU32 The default color of the text.
 ---@param text string text string to append to the console buffer.
 ---@return Zep.Console
-function Console.AppendText(color, text) end
+function Console:AppendText(color, text) end
 
 ---Append a line of colored, formatted text to the buffer.
 ---@param color ImVec4|ImU32 The default color of the text.
@@ -338,14 +338,14 @@ function Console:AppendText(color, format, ...) end
 ---calls will continue on the same line.
 ---@param text string Text string to append to the buffer.
 ---@return Zep.Console
-function Console.AppendTextUnformatted(text) end
+function Console:AppendTextUnformatted(text) end
 
 ---Append unformatted text to the buffer. The line is not terminated, so multiple
 ---calls will continue on the same line.
 ---@param color ImVec4|ImU32 Optional: The default color of the text.
 ---@param text string Text string to append to the buffer.
 ---@return Zep.Console
-function Console.AppendTextUnformatted(color, text) end
+function Console:AppendTextUnformatted(color, text) end
 
 ---Append a hyperlink to the console buffer. Clicking the link will send an event through the
 ---`eventCallback` set on the Console with the provided data string. The color of the link can

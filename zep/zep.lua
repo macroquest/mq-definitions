@@ -93,7 +93,8 @@ function Buffer:ToggleFlag(flag) end
 
 ---Set the specified flags on the buffer
 ---@param flags Zep.BufferFlags
-function Buffer:SetFlags(flags) end
+---@param value? boolean Set the flag on or off. Defaults to true (on)
+function Buffer:SetFlags(flags, value) end
 
 ---Clear the specified flags on the buffer
 ---@param flags Zep.BufferFlags

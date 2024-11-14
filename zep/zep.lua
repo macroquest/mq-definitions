@@ -46,6 +46,15 @@ Zep.WindowFlags = {
 }
 
 
+---@class Zep.ThemeName
+---@field name string Name of the theme
+---@field id number Id of the theme
+
+---Get list of themes. Probably not a good idea to hard code these anywhere in your scripts
+---as they may be subject to change.
+---@return Zep.ThemeName[]
+function Zep.GetThemes() end
+
 -- A buffer holds the text contents that are edited in the editor. A buffer can
 -- optionally be assigned a filename for Saving to disk and a buffer can also
 -- be assigned a syntax for syntax highlighting.
@@ -78,9 +87,16 @@ function Buffer:Load(filePath) end
 
 ---Save the buffer to the file associated with the buffer. This action will
 ---fail and return false if the buffer is locked, readonly, or if the file write
----operation fails. Also returns the number of bytes written as a second return value.
----@return bool, int
+---operation fails.
+---@return bool
 function Buffer:Save() end
+
+---Save the buffer with the given filePath. The buffer's filePath will also be updated.
+---This action will fail and return false if the buffer is locked, readonly, or if
+---the file write operation fails.
+---@param filePath string
+---@return bool
+function Buffer:SaveAs(filePath) end
 
 ---Check if the specified flag is set
 ---@param flag Zep.BufferFlags
@@ -168,6 +184,7 @@ function GlyphIterator.Clamped() end
 ---@field cursor Zep.GlyphIterator Current position of the cursor.
 ---@field cursorPos ImVec2 Current line and column of the cursor.
 ---@field mouseCursor Zep.GlyphIterator Current position of the mouse cursor.
+---@field theme number Id of the current theme
 local Editor = {}
 
 

@@ -1,3 +1,5 @@
+--- @meta group
+
 --- @class group
 --- @field public AnyoneMissing MQBoolean # TRUE if someone is missing in group, offline, in other zone or simply just dead
 --- @field public CasterMercCount MQFloat # Count of how many Caster DPS mercenaries are in your group

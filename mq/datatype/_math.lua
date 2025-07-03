@@ -1,3 +1,5 @@
+---@meta math
+
 --- @class math
 --- @field public Abs fun(number: number|string): MQFloat The absolute value of the result of n
 --- @field public Acos fun(degrees: number|string): MQFloat Arccosine of n (in degrees)

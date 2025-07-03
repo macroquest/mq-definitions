@@ -1,3 +1,5 @@
+---@meta mqtype
+
 --- @class mqtype
 --- @field public Name MQString # Type name
 --- @field public ToString MQString # Same as Name

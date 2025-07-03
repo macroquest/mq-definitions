@@ -1,9 +1,11 @@
+--- @meta netbot
+
 --- @class netbot
 --- @field public Name MQString #Name of Name.
 --- @field public Zone MQInt #Zone ID of Name.
 --- @field public Instance MQInt #Instance ID of Name.
---- @field public MQInt Spawn ID of Name.
---- @field public Class class Class of Name.
+--- @field public ID MQInt #Spawn ID of Name.
+--- @field public Class class #Class of Name.
 --- @field public Level MQInt #Level of Name.
 --- @field public PctExp MQFloat #Percent Experience of Name.
 --- @field public PctAAExp MQFloat #Percent AA Experience of Name.
@@ -41,7 +43,7 @@
 --- @field public Standing MQBoolean #Is Name standing?
 --- @field public Stunned MQBoolean #Is Name stunned?
 --- @field public FreeBuffSlots MQInt #Total free buff slots Name has.
---- @field public InZone MQBoolean Is Name in the same zone as you?
+--- @field public InZone MQBoolean #Is Name in the same zone as you?
 --- @field public InGroup MQBoolean #Is Name in your group?
 --- @field public Leader MQString #Is Name the group leader?
 --- @field public Note MQString #Is Name the group leader?

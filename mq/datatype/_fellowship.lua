@@ -1,3 +1,5 @@
+--- @meta fellowship
+
 --- @class fellowship
 --- @field public Campfire MQBoolean #TRUE if campfire is up, FALSE if not
 --- @field public CampfireDuration ticks | fun(): ticks Time left on current campfire

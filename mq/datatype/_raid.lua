@@ -1,4 +1,7 @@
+---@meta raid
+
 ---@diagnostic disable: duplicate-set-field
+---@diagnostic disable: redundant-parameter
 
 ---@meta
 ---@class raid
@@ -43,3 +46,7 @@ function raid.Looter(index) end
 ---@param index integer|string
 ---@return raidmember
 function raid.MainAssist(index) end
+
+---@diagnostic enable: duplicate-set-field
+---@diagnostic enable: redundant-parameter
+

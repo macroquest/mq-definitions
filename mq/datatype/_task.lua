@@ -11,7 +11,7 @@
 --- @field public RequiredSpell string Returns a string of the required spell to complete a objective.
 --- @field public DZSwitchID number Returns an int of the switch used in a objective.
 --- @field public ID number Returns an int of the task ID
---- @field public Step string Returns description of current step in the task
+--- @field public Step taskobjective Returns description of current step in the task
 --- @field public Select string Selects the task
 --- @field public Title string Returns name of the shared task
 --- @field public Timer ticks Returns amount of time before task expires

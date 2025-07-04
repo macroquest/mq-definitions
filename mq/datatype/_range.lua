@@ -1,3 +1,6 @@
+---@meta range
+
+
 --- @class range
 range = nil
 

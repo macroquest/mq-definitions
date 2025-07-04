@@ -1,3 +1,5 @@
+--- @meta corpse
+
 ---@class corpse : spawn # Data related to the current lootable corpse.  See [Corpse](https://docs.macroquest.org/reference/top-level-objects/tlo-corpse/)
 ---@field public Items MQFloat # Number of items on the corpse
 ---@field public Open MQBoolean # Corpse open?

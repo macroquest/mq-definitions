@@ -1,3 +1,5 @@
+--- @meta friends
+
 --- @class friends
 --- @field public ToString MQString # Number of friends on your friends list
 local friends = nil

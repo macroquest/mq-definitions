@@ -1,4 +1,4 @@
----@meta
+---@meta DanNet
 
 --- DanNet Lua Bindings
 ---@class TLO.DanNet
@@ -27,9 +27,14 @@ TLO.DanNet = {}
 ---@return peer|fun(): string|nil
 function TLO.DanNet(peerName) end
 
+---@diagnostic disable: redundant-parameter
 ---@param groupName string 
 ---@return string # all peers in the [groupName] group
 function TLO.DanNet.Peers(groupName) end
+
+---@diagnostic enable: redundant-parameter
+
+
 
 ---- Observe accessor
 ---@return string # List all queries observers have registered

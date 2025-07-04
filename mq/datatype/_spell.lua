@@ -1,3 +1,5 @@
+---@meta spell
+
 --- @class spell
 --- @field public AERange MQFloat # AE range (group spells use this for their range)
 --- @field public BaseName MQString # Base name of the spell without rank information.

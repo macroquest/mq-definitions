@@ -134,7 +134,7 @@ function mq.imgui.destroy(name) end
 
 ---MQ2 Top Level Object Accssor
 ---@class TLO
----@field Achievement Achievement
+---@field Achievement achievementmgr
 ---@field AdvLoot AdvLoot
 ---@field Alias fun(name:string):boolean # True if alias exists
 ---@field AltAbility altability

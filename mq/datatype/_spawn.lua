@@ -5,7 +5,7 @@
 ---@field public ActorDef MQString # Actor Defintion
 ---@field public Address MQFloat # Unknown?
 ---@field public AFK MQBoolean # AFK?
----@field public Aggressive MQBoolean # Returns TRUE or FALSE if a mob is aggressive or not
+---@field public Aggressive MQBoolean # Returns TRUE or FALSE if a mob is aggressive towards you or not
 ---@field public Animation MQFloat # Current animation ID. See Animations for a list of animations.
 ---@field public Anonymous MQBoolean # Anonymous
 ---@field public Assist MQBoolean # Current Raid or Group assist target?
@@ -159,7 +159,6 @@
 ---@field public S MQFloat # Shortcut for -Y (makes Southward positive)
 ---@field public D MQFloat # Shortcut for -Z (makes Downward positive)
 ---@field public FindBuff fun(predicate: string): MQBuff # Try find a given buff/debuff given predicate from cachedbuffs
----@field public Aggressive MQBoolean # Is the spawn aggressive towards you
 local spawn = {}
 
 ---@diagnostic disable: duplicate-set-field

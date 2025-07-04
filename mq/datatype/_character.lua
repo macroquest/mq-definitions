@@ -1,3 +1,5 @@
+--- @meta character
+
 ---@class character : spawn
 ---@field public AAExp MQFloat #AA exp as a raw number out of 10,000 (10,000=100%)
 ---@field public AAPoints MQFloat #Unused AA points
@@ -348,11 +350,13 @@ function character.Book(name) end
 function character.Book(slot) end
 
 ---@diagnostic enable: duplicate-set-field
+---@diagnostic disable: redundant-parameter
 
 ---@param bindPointIndex integer # Your bind points (0-4)
 ---@return worldlocation
 function character.BoundLocation(bindPointIndex) end
 
+---@diagnostic enable: redundant-parameter
 ---@diagnostic disable: duplicate-set-field
 ---@param name string # Name of the buff
 ---@return MQBuff

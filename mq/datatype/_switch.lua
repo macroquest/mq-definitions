@@ -8,6 +8,7 @@
 --- @field public DefaultY MQFloat Y coordinate of "closed" switch
 --- @field public DefaultZ MQFloat Z coordinate of "closed" switch
 --- @field public Distance MQFloat Distance from player to switch in (x,y)
+--- @field public Distance3D MQFloat Distance from player to switch in (x,y,z)
 --- @field public Heading heading Switch is facing this heading
 --- @field public HeadingTo heading Direction player must move to meet this switch
 --- @field public ID number Switch ID

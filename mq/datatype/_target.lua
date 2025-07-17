@@ -32,6 +32,7 @@
 --- @field public Slowed MQCachedBuff # Returns the name of the Slow spell if the Target has one
 --- @field public Snared MQCachedBuff # Returns the name of the Snare spell if the Target has one
 --- @field public SecondaryPctAggro MQInt # Returns the PctAggro of the person who is second
+--- @field public SecondaryAggroPlayer MQSpawn # Returns the secondary aggro spawn
 --- @field public Strength MQCachedBuff # Returns the name of the Strength spell if the Target has one
 --- @field public SV MQCachedBuff # Returns the name of the Spiritual Vitality spell if the Target has one
 --- @field public Symbol MQCachedBuff # Returns the name of the Symbol spell if the Target has one

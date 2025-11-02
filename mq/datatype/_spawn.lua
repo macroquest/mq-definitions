@@ -70,6 +70,7 @@
 ---@field public Heading heading # Heading in this direction
 ---@field public HeadingTo heading # Heading player must travel in to reach this spawn
 ---@field public HeadingToLoc heading # Heading to the coordinates y,x from the spawn
+---@field public HeadWet MQBoolean # submersed/swimming?
 ---@field public Height MQFloat # Height
 ---@field public Holding MQFloat # Represents what the pc/npc is holding
 ---@field public HoldingAnimation MQInt

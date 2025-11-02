@@ -3,7 +3,7 @@
 ---@diagnostic disable: duplicate-set-field
 ---@class pet : spawn
 ---@field Combat MQBoolean #Combat state
----@field Ghold MQBoolean #GHold state
+---@field GHold MQBoolean #GHold state
 ---@field Hold MQBoolean #Hold state
 ---@field ReGroup MQBoolean #ReGroup state
 ---@field Stance MQString #Returns the pet's current stance (e.g. FOLLOW, GUARD)

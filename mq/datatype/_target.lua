@@ -27,6 +27,7 @@
 --- @field public Regen MQCachedBuff # Returns the name of the Regen spell if the Target has one
 --- @field public RevDSed MQCachedBuff # Returns the name of the Reverse Damage Shield spell if the Target has one
 --- @field public SE MQCachedBuff # Returns the name of the Spiritual Enlightenment spell if the Target has one
+--- @field public SecondaryPctAggro MQInt # Returns the % Aggro of the second position on the Aggro list of this Target
 --- @field public Shining MQCachedBuff # Returns the name of the Shining spell if the Target has one
 --- @field public Skin MQCachedBuff # Returns the name of the Skin spell if the Target has one
 --- @field public Slowed MQCachedBuff # Returns the name of the Slow spell if the Target has one

@@ -62,6 +62,19 @@ ImGuiChildFlags = {
 }
 
 
+-- Flags for ImGui.PushItemFlag()
+-- (Those are shared by all items)
+---@enum ImGuiItemFlags
+ImGuiItemFlags = {
+    None                       = 0,        -- (Default)
+    NoTabStop                  = 0x01,     -- false    - Disable keyboard tabbing. This is a "lighter" version of ImGuiItemFlags.NoNav.
+    NoNav                      = 0x02,     -- false    - Disable any form of focusing (keyboard/gamepad directional navigation and SetKeyboardFocusHere() calls).
+    NoNavDefaultFocus          = 0x04,     -- false    - Disable item being a candidate for default focus (e.g. used by title bar items).
+    ButtonRepeat               = 0x08,     -- false    - Any button-like behavior will have repeat mode enabled (based on io.KeyRepeatDelay and io.KeyRepeatRate values). Note that you can also call IsItemActive() after any button to tell if it is being held.
+    AutoClosePopups            = 0x10,     -- true     - MenuItem()/Selectable() automatically close their parent popup window.
+    AllowDuplicateId           = 0x20,     -- false    - Allow submitting an item with the same identifier as an item already submitted this frame without triggering a warning tooltip if io.ConfigDebugHighlightIdConflicts is set.
+}
+
 -- Flags for ImGui.InputText()
 ---@enum ImGuiInputTextFlags
 ImGuiInputTextFlags = {

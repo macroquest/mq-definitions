@@ -6,6 +6,7 @@
 --- @field public Level MQFloat # The level of the person that cast the buff on you (not the level of the spell)
 --- @field public Mod MQFloat # The modifier to a bard song
 --- @field public Spell MQSpell # The spell
+--- @field public HitCount MQInt
 --- @field public ToString MQString # Same as Name
 local buff = nil
 

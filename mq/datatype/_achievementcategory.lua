@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class achievementcat
 ---@field ID MQInt #The unique ID for the category
 ---@field Name MQString #The category's display name

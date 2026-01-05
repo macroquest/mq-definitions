@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class alertlist MQDatatype
 ---@field public AlertList MQInt #Any spawn on the associated alert list
 ---@field public bAlert MQBoolean #Indicates usage of alert filter

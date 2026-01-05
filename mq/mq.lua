@@ -97,6 +97,12 @@ function mq.parse(macrostring) end
 ---@param table table
 function mq.pickle(filepath, table) end
 
+---Deserializes a pickled table from a file that was created with
+---pickle back into a table.
+---@param filepath string
+---@return table
+function mq.unpickle(filepath) end
+
 ---@class Cmd
 ---@field afk fun()
 ---@field alt fun()

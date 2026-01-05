@@ -232,9 +232,32 @@ function ImGuiListClipper.new() end
 
 
 -- ### ImColor
+-- ImColor is not a discrete type in lua. Rather, it is simply a factory function that returns
+-- an instance of ImVec4. We do it this way so we can provide some constructors for ImVec4 that
+-- assume the behaviors of colors.
 
----@class ImColor
-ImColor = {}
+-- construct an ImVec4 from the parameters of a color, where each component is a number with values
+-- from 0.0 to 1.0
+---@param red number Red color component
+---@param green number Green color component
+---@param blue number Blue color component
+---@param alpha? number Alpha color component. If omitted, alpha will be 100%
+---@return ImVec4 color
+function ImColor(red, green, blue, alpha) end
+
+-- Default construct an ImVec4, represented as black with 0% alpha
+---@return ImVec4 color
+function ImColor() end
+
+-- Copy an ImVec4
+---@param color ImVec4
+---@return ImVec4 color
+function ImColor(color) end
+
+-- Create a color from a table. Accepts a table with either three or four components.
+---@param table number[]
+---@return ImVec4 color
+function ImColor(table) end
 
 
 --
@@ -584,4 +607,6 @@ function ImGuiViewport:GetCenter() end
 function ImGuiViewport:GetWorkCenter() end
 
 ---@class ImGuiDragDropPayload
----@field public Data any
+---@field public Data any DragDrop payload data. In lua can be one of: string, number, list of numbers. For non-lua types, use RawData and parse the bytes yourself.
+---@field public DataType string The name of the DragDrop data type.
+---@field public RawData string Raw string of bytes

@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class achievementobj
 ---@field ID MQInt
 ---@field Description MQString

@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class achievement
 ---@field Completed MQBoolean # If the achievement has been completed
 ---@field Description MQString # The achievement's description

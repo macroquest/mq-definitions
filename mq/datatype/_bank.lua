@@ -1,11 +1,13 @@
+---@meta
+
 ---@alias itemsizenumber 0 | 1 | 2 | 3 | 4
 ---@alias itemsizestring "tiny" | "small" | "medium" | "large" | "giant"
 
---- @class bank
---- @field public BagSlots MQInt How many bag slots (base slots for bags/items) your bank has.
---- @field public FreeSlots fun(size: itemsizenumber|itemsizestring): number How many free (empty) slots your bank has. This includes slots where you have a bag and the bag has empty slots. It accepts an index specifying one of the case insensitive bag sizes (tiny, small, medium, large, giant) or the corresponding number (0, 1, 2, 3, 4).
---- @field public TotalSlots MQInt How many total slots your bank has.
---- @field public Platinum MQInt How much platinum you have in your bank.
---- @field public Gold MQInt How much gold you have in your bank.
---- @field public Silver MQInt How much silver you have in your bank.
---- @field public Copper MQInt How much copper you have in your bank.
+---@class bank
+---@field public BagSlots MQInt How many bag slots (base slots for bags/items) your bank has.
+---@field public FreeSlots fun(size: itemsizenumber|itemsizestring): number How many free (empty) slots your bank has. This includes slots where you have a bag and the bag has empty slots. It accepts an index specifying one of the case insensitive bag sizes (tiny, small, medium, large, giant) or the corresponding number (0, 1, 2, 3, 4).
+---@field public TotalSlots MQInt How many total slots your bank has.
+---@field public Platinum MQInt How much platinum you have in your bank.
+---@field public Gold MQInt How much gold you have in your bank.
+---@field public Silver MQInt How much silver you have in your bank.
+---@field public Copper MQInt How much copper you have in your bank.

@@ -1,7 +1,6 @@
----@meta range
+---@meta
 
-
---- @class range
+---@class range
 range = nil
 
 ----True if N is between the range of #1 and #2, inclusive.

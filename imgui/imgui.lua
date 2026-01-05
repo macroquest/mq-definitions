@@ -573,16 +573,16 @@ function ImGui.GetFontTexUvWhitePixel() end
 function ImGui.GetColorU32(idx, alphaMul) end
 
 -- retrieve given color with style alpha applied, packed as a 32-bit value suitable for ImDrawList
---- @param r number Red (0-1)
---- @param g number Green (0-1)
---- @param b number Blue (0-1)
---- @param a number Alpha (0-1)
---- @return ImU32
+---@param r number Red (0-1)
+---@param g number Green (0-1)
+---@param b number Blue (0-1)
+---@param a number Alpha (0-1)
+---@return ImU32
 function ImGui.GetColorU32(r, g, b, a) end
 
 -- retrieve given color with style alpha applied, packed as a 32-bit value suitable for ImDrawList
---- @param col ImVec4
---- @return number col ImU32
+---@param col ImVec4
+---@return number col ImU32
 function ImGui.GetColorU32(col) end
 
 -- retrieve given color as individual component values from 0-1

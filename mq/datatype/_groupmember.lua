@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class groupmember : spawn
 ---@field public Index MQFloat #Which number in the group the member is
 ---@field public Leader MQBoolean #TRUE if the member is the group's leader, FALSE otherwise

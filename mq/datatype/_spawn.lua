@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class spawn
 ---@field public AARank MQFloat # AA rank number
 ---@field public AATitle MQString # AA Title name

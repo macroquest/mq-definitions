@@ -1,4 +1,4 @@
----@meta Zep
+---@meta
 
 local Zep = {}
 

@@ -1,7 +1,7 @@
---- @meta friends
+---@meta
 
---- @class friends
---- @field public ToString MQString # Number of friends on your friends list
+---@class friends
+---@field public ToString MQString # Number of friends on your friends list
 local friends = nil
 
 ---@diagnostic disable: duplicate-set-field

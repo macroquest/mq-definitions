@@ -1,5 +1,7 @@
---- @class deity
---- @field public ID number The deity's ID #
---- @field public Name string The full deity name
---- @field public Team string The team name
---- @field public ToString string Same as Name
+---@meta
+
+---@class deity
+---@field public ID number The deity's ID #
+---@field public Name string The full deity name
+---@field public Team string The team name
+---@field public ToString string Same as Name

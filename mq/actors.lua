@@ -1,4 +1,4 @@
----@meta actors
+---@meta
 
 ---@class Actors
 actors = {}

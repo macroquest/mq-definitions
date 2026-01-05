@@ -1,4 +1,4 @@
----@meta
+---@meta ImGui
 
 --
 -- ## ImGui enumeration definitions
@@ -8,7 +8,7 @@
 
 
 -- Flags for ImGui.Begin()
---- @enum ImGuiWindowFlags
+---@enum ImGuiWindowFlags
 ImGuiWindowFlags = {
     None                       = 0,
     NoTitleBar                 = 0x00000001, -- Disable title-bar

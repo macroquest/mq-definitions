@@ -1,7 +1,7 @@
---- @class mercenary: spawn
---- @field public AAPoints MQInt #AA Points spent on mercenary abilities
---- @field public Stance MQString #Current stance of the mercenary
---- @field public State MQString #Current state of the mercenary (returns "DEAD", "SUSPENDED", "ACTIVE", or "UNKNOWN")
---- @field public StateID MQInt #Current state ID of the mercenary as a number.
---- @field public Index MQString #Index
---- @field public ToString MQString #Same as Name
+---@class mercenary: spawn
+---@field public AAPoints MQInt #AA Points spent on mercenary abilities
+---@field public Stance MQString #Current stance of the mercenary
+---@field public State MQString #Current state of the mercenary (returns "DEAD", "SUSPENDED", "ACTIVE", or "UNKNOWN")
+---@field public StateID MQInt #Current state ID of the mercenary as a number.
+---@field public Index MQString #Index
+---@field public ToString MQString #Same as Name

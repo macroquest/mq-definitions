@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class augtype Describes data about an augmentation slot in an item
 ---@field public Empty MQBoolean True if the slot is empty
 ---@field public Infusable MQBoolean True if this is a hidden energeian power source slot

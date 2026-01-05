@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class ground
 ---@field public ID MQInt # Ground item ID (not the same as item ID, this is like spawn ID)
 ---@field public Distance MQFloat # Distance from player to ground item

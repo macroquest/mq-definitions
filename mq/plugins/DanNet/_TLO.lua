@@ -12,7 +12,7 @@
 ---@field Timeout MQString # Timeout for implicit delay in /dquery and /dobserve commands
 ---@field ObserveDelay MQInt # Delay between observe broadcasts (in ms)
 ---@field Evasive MQInt # Time to classify a peer as evasive (in ms)
----@field EvasiveRefresh MQBoolean 
+---@field EvasiveRefresh MQBoolean
 ---@field Expired MQInt # Keepalive time for non-responding peers (in ms)
 ---@field Keepalive MQInt # Keepalive time for local actor pipe (in ms)
 ---@field PeerCount MQInt # Number of connected peers
@@ -23,12 +23,12 @@
 ---@field Joined MQString # List of joined groups
 TLO.DanNet = {}
 
----@param peerName string 
+---@param peerName string
 ---@return peer|fun(): string|nil
 function TLO.DanNet(peerName) end
 
 ---@diagnostic disable: redundant-parameter
----@param groupName string 
+---@param groupName string
 ---@return string # all peers in the [groupName] group
 function TLO.DanNet.Peers(groupName) end
 

@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class advlootitem # Represents a discrete item being looted in an AdvLoot window
 ---@field public AlwaysGreed MQBoolean # The Always Greed (AG) state of the item.
 ---@field public AlwaysNeed MQBoolean # The Always Need (AN) state of the item.

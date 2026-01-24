@@ -1,10 +1,10 @@
---- @class raidmember : spawn
---- @field public Class class Raid member's class (works without being in zone)
---- @field public Group number Current group number (or 0)
---- @field public GroupLeader boolean Returns TRUE if the member is a group leader
---- @field public Level number Raid member's level (works without being in zone)
---- @field public Looter boolean Allowed to loot with current loot rules and looters?
---- @field public Name string Raid member's name
---- @field public RaidLeader boolean Returns TRUE if the member is the raid leader
---- @field public Spawn MQSpawn Spawn object for this player if available (must be in zone)
---- @field public ToString string Same as Name
+---@class raidmember : spawn
+---@field public Class class Raid member's class (works without being in zone)
+---@field public Group number Current group number (or 0)
+---@field public GroupLeader boolean Returns TRUE if the member is a group leader
+---@field public Level number Raid member's level (works without being in zone)
+---@field public Looter boolean Allowed to loot with current loot rules and looters?
+---@field public Name string Raid member's name
+---@field public RaidLeader boolean Returns TRUE if the member is the raid leader
+---@field public Spawn MQSpawn Spawn object for this player if available (must be in zone)
+---@field public ToString string Same as Name

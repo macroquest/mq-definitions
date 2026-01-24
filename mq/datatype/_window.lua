@@ -1,4 +1,4 @@
----@meta window
+---@meta
 
 ---@class window
 ---@field public BGColor argb # Background color

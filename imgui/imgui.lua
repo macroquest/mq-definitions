@@ -503,6 +503,13 @@ function ImGui.PushButtonRepeat(btnRepeat) end
 
 function ImGui.PopButtonRepeat() end
 
+-- modify specified shared item flag, e.g. PushItemFlag(ImGuiItemFlags.NoTabStop, true)
+---@param flag ImGuiItemFlags
+---@param enabled boolean
+function ImGui.PushItemFlag(flag, enabled) end
+
+function ImGui.PopItemFlag() end
+
 
 --
 -- ## Parameters stacks (current window)
@@ -566,16 +573,16 @@ function ImGui.GetFontTexUvWhitePixel() end
 function ImGui.GetColorU32(idx, alphaMul) end
 
 -- retrieve given color with style alpha applied, packed as a 32-bit value suitable for ImDrawList
---- @param r number Red (0-1)
---- @param g number Green (0-1)
---- @param b number Blue (0-1)
---- @param a number Alpha (0-1)
---- @return ImU32
+---@param r number Red (0-1)
+---@param g number Green (0-1)
+---@param b number Blue (0-1)
+---@param a number Alpha (0-1)
+---@return ImU32
 function ImGui.GetColorU32(r, g, b, a) end
 
 -- retrieve given color with style alpha applied, packed as a 32-bit value suitable for ImDrawList
---- @param col ImVec4
---- @return number col ImU32
+---@param col ImVec4
+---@return number col ImU32
 function ImGui.GetColorU32(col) end
 
 -- retrieve given color as individual component values from 0-1
@@ -2040,7 +2047,7 @@ function ImGui.EndTabItem() end
 ---@param label string
 ---@param flags? ImGuiTabItemFlags
 ---@return boolean
-function TabItemButton(label, flags) end
+function ImGui.TabItemButton(label, flags) end
 
 -- notify TabBar or Docking system of a closed tab/window ahead (useful to reduce visual flicker on reorderable tab bars).
 -- - For tab-bar: call after BeginTabBar() and before Tab submissions.
@@ -2127,7 +2134,7 @@ function ImGui.BeginDragDropSource(flags) end
 -- type is a user defined string of maximum 32 characters. Strings starting with '_' are reserved for dear imgui internal types.
 -- Data is copied and held by imgui. Return true when payload has been accepted.
 ---@param type string
----@param payload any
+---@param payload number|string|number[]|ImVec4
 ---@param cond? ImGuiCond
 function ImGui.SetDragDropPayload(type, payload, cond) end
 
@@ -2138,15 +2145,17 @@ function ImGui.EndDragDropSource() end
 ---@return boolean
 function ImGui.BeginDragDropTarget() end
 
--- accept contents of a given type. If ImGuiDragDropFlags_AcceptBeforeDelivery is set you can peek into the payload before the mouse button is released.
----@return ImGuiDragDropPayload #The content being dragged
-function ImGui.AcceptDragDropPayload(label) end
+-- accept contents of a given type. If ImGuiDragDropFlags.AcceptBeforeDelivery is set you can peek into the payload before the mouse button is released.
+---@param type string
+---@param flags? ImGuiDragDropFlags
+---@return ImGuiDragDropPayload payload The content being dragged
+function ImGui.AcceptDragDropPayload(type, flags) end
 
 -- only call EndDragDropTarget() if BeginDragDropTarget() returns true!
 function ImGui.EndDragDropTarget() end
 
 -- peek directly into the current payload from anywhere. returns NULL when drag and drop is finished or inactive. use ImGuiPayload::IsDataType() to test for the payload type.
----@return any
+---@return ImGuiDragDropPayload
 function ImGui.GetDragDropPayload() end
 
 

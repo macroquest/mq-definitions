@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class itemfilterdata
 ---@field AutoRoll fun(): boolean The Auto Roll state (dice icon)
 ---@field Greed fun(): boolean The Greed (GD) state

@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class dynamiczone
 ---@field public InRaid fun():boolean
 ---@field public Leader fun():dzmember The leader of the dynamic zone

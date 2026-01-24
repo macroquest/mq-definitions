@@ -1,4 +1,5 @@
 ---@meta
+
 ---Using CachedBuff to get buff info on targets, group members etc, only requires you to target the entity once.
 ---The upside is obviously that we don't have to target back and forth constantly.
 ---@class cachedbuff : spell

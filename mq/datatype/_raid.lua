@@ -1,16 +1,15 @@
----@meta raid
+---@meta
 
 ---@diagnostic disable: duplicate-set-field
 ---@diagnostic disable: redundant-parameter
 
----@meta
 ---@class raid
 ---@field public AverageLevel MQInt #Average level of raid members (more accurate than in the window)
 ---@field public Invited MQBoolean #Have I been invited to the raid?
 ---@field public Leader MQRaidMember # Raid leader
 ---@field public Locked MQBoolean #Returns TRUE if the raid is locked
 ---@field public Looter MQInt #Number of specified looters
----Loot type: 
+---Loot type:
 --- - 1 Leader
 --- - 2 Leader & GroupLeader
 --- - 3 Leader & Specified

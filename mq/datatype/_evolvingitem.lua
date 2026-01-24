@@ -1,6 +1,6 @@
---- @class evolving
---- @field public ExpPct MQFloat Percentage of experience that the item has gained
---- @field public ExpOn MQBoolean #Is evolving item experience turned on for this item?
---- @field public Level MQInt #The level of the evolving item.
---- @field public MaxLevel MQInt #The maximum level of the evolving item
---- @field public ToString MQString #Same as ExpOn
+---@class evolving
+---@field public ExpPct MQFloat Percentage of experience that the item has gained
+---@field public ExpOn MQBoolean #Is evolving item experience turned on for this item?
+---@field public Level MQInt #The level of the evolving item.
+---@field public MaxLevel MQInt #The maximum level of the evolving item
+---@field public ToString MQString #Same as ExpOn

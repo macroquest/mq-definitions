@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class Achievement Achievement
 Achievement = {}
 

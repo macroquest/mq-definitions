@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class bandolier Used to access information about bandolier sets on your character
 ---@field public Active MQBoolean Indicates if the bandolier set is active 
 ---@field public Index MQInt Returns the index number of the bandolier set

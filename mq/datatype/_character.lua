@@ -1,4 +1,4 @@
---- @meta character
+---@meta
 
 ---@class character : spawn
 ---@field public AAExp MQFloat #AA exp as a raw number out of 10,000 (10,000=100%)
@@ -208,7 +208,7 @@
 ---@field public ZoneBoundY fun():integer
 ---@field public ZoneBoundZ fun():integer
 ---@field public Zoning boolean # Am I zoning?
-local character = nil
+local character = {}
 
 ---@diagnostic disable: duplicate-set-field
 ---@param name string # Skill name

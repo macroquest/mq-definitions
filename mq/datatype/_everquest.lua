@@ -24,7 +24,7 @@
 ---@field public ScreenMode MQInt Returns the screenmode as in integer, 2 is Normal and 3 is No Windows
 ---@field public LayoutCopyInProgress MQBoolean Returns True if a layout copy is in process and False if not
 ---@field public LastMouseOver fun(): window Returns the last window you moused over
----@field public CharSelectList MQInt Currently returns the zone ID the character is currenty in
+---@field public CharSelectList charselectlist Currently returns the zone ID the character is currenty in
 ---@field public CurrentUI MQString Return a string representing the currently loaded UI skin
 ---@field public IsDefaultUILoaded MQBoolean Returns a True or False if the "Default" UI skin is the one loaded
 ---@field public HWND MQInt Window Handle

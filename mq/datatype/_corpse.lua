@@ -15,4 +15,5 @@ function corpse.Item(name) end
 ---@param index integer
 ---@return MQItem
 function corpse.Item(index) end
+
 ---@diagnostic enable: duplicate-set-field

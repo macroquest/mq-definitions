@@ -1,0 +1,11 @@
+---@meta
+
+---@class loginprofile
+---@field public Account MQString # Account name associated with the profile
+---@field public Character MQString # Character name from the profile
+---@field public Server MQString # Server name from the profile
+---@field public Profile MQString # Profile group name (if part of a profile group)
+---@field public HotKey MQString # Hotkey assigned to the profile (if any)
+---@field public Class class # Character's class as shortname, also provides access to class type members
+---@field public Level MQInt # Character's level
+---@field public CustomCharacterIni MQString # Custom client INI file path if specified in the profile

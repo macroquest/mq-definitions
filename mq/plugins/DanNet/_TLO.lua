@@ -1,4 +1,4 @@
----@meta DanNet
+---@meta
 
 --- DanNet Lua Bindings
 ---@class TLO.DanNet

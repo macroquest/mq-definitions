@@ -1,0 +1,25 @@
+---@meta Melee
+
+---@class Melee
+---@field AggroMode MQBoolean # TRUE/FALSE if the plugin is operating in Aggro-mode or not.
+---@field Ammunition MQInt # Count of defined ammunition or current equipped ammunition.
+---@field BackAngle MQFloat # Angle representing heading difference with current target's back.
+---@field BackStabbing MQBoolean # TRUE/FALSE if backstab setting is on/off.
+---@field Casted MQInt # Time (in miliseconds) elapsed since last detected spell casting (60000 if none).
+---@field Combat MQBoolean # TRUE/FALSE if plugin enable and got valid kill target. Should replace ${Me.Combat} logic.
+---@field DiscID MQInt # Spell ID of currently running discipline, 0 if none.
+---@field Enable MQBoolean # TRUE/FALSE if plugin on/off, NULL if not loaded.
+---@field Enrage MQBoolean # True if enraged
+---@field GotAggro MQBoolean # TRUE/FALSE if current target seems to be aggroed on you (not perfect).
+---@field Immobilize MQBoolean # TRUE if you have been standing still for more then 250ms, FALSE if not.
+---@field Infuriate MQBoolean # TRUE if kill target is infuriated!
+---@field MeleeMode MQBoolean # TRUE/FALSE if melee mode is on/off.
+---@field RangeMode MQBoolean # TRUE/FALSE if range mode is enabled (i.e. the range setting is > 0).
+---@field Status MQString # Current plugin status, can be one or more of the following: ENGAGED, WAITING, MELEE, RANGE, ENRAGE, INFURIATE, BACKING, ESCAPING, FEIGNING, EVADING, FALLING, STEALING, BEGGING.
+---@field Target MQInt # SpawnID of current valid kill target, otherwise 0.
+---@field ViewAngle MQFloat # Angle of view with current target.
+---@field Hidden MQInt # How long you've been hidden
+---@field Silent MQInt # How long you've been sneaking
+---@field NumHits MQInt # Total number of hits
+---@field XTaggro MQBoolean # Returns TRUE if you are the highest on aggro for all mobs on your extended target window hate list. FALSE if another person has higher aggro on at least one of them.
+local Melee = {}

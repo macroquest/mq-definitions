@@ -610,3 +610,19 @@ function ImGuiViewport:GetWorkCenter() end
 ---@field public Data any DragDrop payload data. In lua can be one of: string, number, list of numbers. For non-lua types, use RawData and parse the bytes yourself.
 ---@field public DataType string The name of the DragDrop data type.
 ---@field public RawData string Raw string of bytes
+
+
+---@class ImGuiWindowClass
+---@field public ClassId ImGuiID User data. 0 = Default class (unclassed). Windows of different classes cannot be docked with each others.
+---@field public ParentViewportId ImGuiID Hint for the platform backend. -1: use default. 0: request platform backend to not parent the platform. != 0: request platform backend to create a parent<>child relationship between the platform windows. Not conforming backends are free to e.g. parent every viewport to the main viewport or not.
+---@field public FocusRouteParentWindowId ImGuiID ID of parent window for shortcut focus route evaluation, e.g. Shortcut() call from Parent Window will succeed when this window is focused.
+---@field public ViewportFlagsOverrideSet ImGuiViewportFlags Viewport flags to set when a window of this class owns a viewport. This allows you to enforce OS decoration or task bar icon, override the defaults on a per-window basis.
+---@field public ViewportFlagsOverrideClear ImGuiViewportFlags Viewport flags to clear when a window of this class owns a viewport. This allows you to enforce OS decoration or task bar icon, override the defaults on a per-window basis.
+---@field public TabItemFlagsOverrideSet ImGuiTabItemFlags [EXPERIMENTAL] TabItem flags to set when a window of this class gets submitted into a dock node tab bar. May use with ImGuiTabItemFlags_Leading or ImGuiTabItemFlags_Trailing.
+---@field public DockNodeFlagsOverrideSet ImGuiDockNodeFlags [EXPERIMENTAL] Dock node flags to set when a window of this class is hosted by a dock node (it doesn't have to be selected!)
+---@field public DockingAlwaysTabBar boolean Set to true to enforce single floating windows of this class always having their own docking node (equivalent of setting the global io.ConfigDockingAlwaysTabBar)
+---@field public DockingAllowUnclassed boolean Set to true to allow windows of this class to be docked/merged with an unclassed window.
+ImGuiWindowClass = {}
+
+---@return ImGuiWindowClass
+function ImGuiWindowClass() end

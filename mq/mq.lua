@@ -43,7 +43,6 @@ function mq.bind(command, callback) end
 ---@param command string e.g /burn
 function mq.unbind(command) end
 
-
 ---@class EventOptions
 ---@field keepLinks boolean
 
@@ -122,6 +121,8 @@ function mq.unpickle(filepath) end
 ---Sol2 ImGui Binding
 ---@class IMGUI
 ---@field init fun(name: string, render: fun())
+---@field exists fun(name: string): boolean
+---@field destroy fun(name: string)
 
 ---Register the ImGui Callback.  Named function that will be called on every ImGui update,
 ---usually bound to one function that renders the ImGui window interface in game.
@@ -286,6 +287,7 @@ function TLO.InvSlot(name) end
 ---@param id number
 ---@return invslot
 function TLO.InvSlot(id) end
+
 ---@diagnostic enable: duplicate-set-field
 
 ---Returns a Plugin by index, starting with 1 and stopping whenever the list runs out of plugins.

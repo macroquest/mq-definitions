@@ -1,0 +1,12 @@
+---@meta
+
+---@class pointmerchantitem
+---@field Name MQString # Returns the name of the item
+---@field ItemID MQInt # Returns the ID of the item
+---@field Price MQInt # Price of item (int64)
+---@field ThemeID MQInt # Theme ID of the item
+---@field IsStackable MQBoolean # TRUE if item is stackable
+---@field IsLore MQBoolean # TRUE if item is lore
+---@field RaceMask MQInt # Race mask for item restrictions
+---@field ClassMask MQInt # Class mask for item restrictions
+---@field CanUse MQBoolean # TRUE if you can use this item

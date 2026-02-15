@@ -9,7 +9,7 @@
 ---@field public Leader MQRaidMember # Raid leader
 ---@field public Locked MQBoolean #Returns TRUE if the raid is locked
 ---@field public Looter MQInt #Number of specified looters
----Loot type: 
+---Loot type:
 --- - 1 Leader
 --- - 2 Leader & GroupLeader
 --- - 3 Leader & Specified

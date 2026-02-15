@@ -31,6 +31,7 @@
 ---@field public Skin MQCachedBuff # Returns the name of the Skin spell if the Target has one
 ---@field public Slowed MQCachedBuff # Returns the name of the Slow spell if the Target has one
 ---@field public Snared MQCachedBuff # Returns the name of the Snare spell if the Target has one
+---@field public SecondaryAggroPlayer MQSpawn # Returns the secondary aggro spawn
 ---@field public SecondaryPctAggro MQInt # Returns the % Aggro of the second position on the Aggro list of this Target
 ---@field public Strength MQCachedBuff # Returns the name of the Strength spell if the Target has one
 ---@field public SV MQCachedBuff # Returns the name of the Spiritual Vitality spell if the Target has one

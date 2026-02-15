@@ -1,0 +1,7 @@
+---@class charselectlist
+---@field public Class MQString # Class of the character
+---@field public Count MQInt # Number of characters in the character select list
+---@field public Level MQInt # Level of the character
+---@field public Name MQString # Name of the character
+---@field public Race MQString # Race of the character
+---@field public ZoneID MQInt # Id of the zone the character logged out in

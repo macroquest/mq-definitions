@@ -24,6 +24,6 @@ local math = nil
 function math.Distance(coordinates) end
 
 ---Performs a mathematical calculation [expression]
----@param expression string 
+---@param expression string
 ---@return MQFloat
 function math.Calc(expression) end

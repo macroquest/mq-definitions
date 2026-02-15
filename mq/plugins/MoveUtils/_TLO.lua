@@ -84,8 +84,8 @@ TLO.MakeCamp = {}
 ---@field CircleY MQFloat #Returns the location of circle center Y
 ---@field CircleX MQFloat #Returns the location of circle center X
 ---@field Drunken MQBoolean #Returns TRUE if drunken
----@field Rotation MQString #Returns CCW if reverse circling ["CW" or "CCW"] 
----@field Direction MQString #Returns movement direction of current circle ["FORWARDS" or "BACKWARDS"] 
+---@field Rotation MQString #Returns CCW if reverse circling ["CW" or "CCW"]
+---@field Direction MQString #Returns movement direction of current circle ["FORWARDS" or "BACKWARDS"]
 ---@field Clockwise MQBoolean #Returns FALSE if reverse circling
 ---@field Backwards MQBoolean #Returns TRUE if movement direction backwards
 ---@field Radius MQFloat #Returns the radius size of circle

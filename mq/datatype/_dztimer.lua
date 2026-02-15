@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class dztimer
 ---@field ExpeditionName MQString #The name of the expedition 
 ---@field EventName MQString #The name of the event 

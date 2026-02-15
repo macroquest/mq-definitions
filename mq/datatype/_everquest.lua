@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class everquest # Data types related to the current EverQuest session
 ---@field public GameState MQString Shows the current game state. Values: CHARSELECT, INGAME, PRECHARSELECT, UNKNOWN
 ---@field public LoginName MQString Your station name

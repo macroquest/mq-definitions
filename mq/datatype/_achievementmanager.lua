@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class achievementmgr
 ---@field AchievementByIndex fun(index:integer|string):achievement Find an achievement by its index
 ---@field AchievementCount MQInt #The number of achievements in the mananger

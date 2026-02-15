@@ -25,6 +25,11 @@ function ImGui.DrawTextureAnimation(texture, width, height, drawBorder) end
 ---@param drawBorder? bool
 function ImGui.DrawTextureAnimation(texture, size, drawBorder) end
 
+-- Get an EQ font as an imgui ImFont
+---@param fontStyle number EQ font style (0-10)
+---@return ImFont|nil font The font or nil
+function ImGui.GetEQImFont(fontStyle) end
+
 -- Draw a help marker with tooltip text
 ---@param text string
 ---@param width? number

@@ -32,7 +32,7 @@ ImAxis = {
 ---@enum ImPlotFlags
 ImPlotFlags = {
     None                        = 0,      -- default
-    NoTitle                     = 0x0001, -- the plot title will not be displayed (titles are also hidden if preceeded by double hashes, e.g. "##MyPlot")
+    NoTitle                     = 0x0001, -- the plot title will not be displayed (titles are also hidden if preceded by double hashes, e.g. "##MyPlot")
     NoLegend                    = 0x0002, -- the legend will not be displayed
     NoMouseText                 = 0x0004, -- the mouse position, in plot coordinates, will not be displayed inside of the plot
     NoInputs                    = 0x0008, -- the user will not be able to interact with the plot
@@ -73,7 +73,7 @@ ImPlotAxisFlags = {
 ---@enum ImPlotSubplotFlags
 ImPlotSubplotFlags = {
     None                        = 0,      -- default
-    NoTitle                     = 0x0001, -- the subplot title will not be displayed (titles are also hidden if preceeded by double hashes, e.g. "##MySubplot")
+    NoTitle                     = 0x0001, -- the subplot title will not be displayed (titles are also hidden if preceded by double hashes, e.g. "##MySubplot")
     NoLegend                    = 0x0002, -- the legend will not be displayed (only applicable if ImPlotSubplotFlags_ShareItems is enabled)
     NoMenus                     = 0x0004, -- the user will not be able to open context menus with right-click
     NoResize                    = 0x0008, -- resize splitters between subplot cells will be not be provided
@@ -94,9 +94,10 @@ ImPlotLegendFlags = {
     NoHighlightItem             = 0x0002, -- plot items will not be highlighted when their legend entry is hovered
     NoHighlightAxis             = 0x0004, -- axes will not be highlighted when legend entries are hovered (only relevant if x/y-axis count > 1)
     NoMenus                     = 0x0008, -- the user will not be able to open context menus with right-click
-    Outside                     = 0x0001, -- legend will be rendered outside of the plot area
-    Horizontal                  = 0x0002, -- legend entries will be displayed horizontally
-    Sort                        = 0x0004, -- legend entries will be displayed in alphabetical order
+    Outside                     = 0x0010, -- legend will be rendered outside of the plot area
+    Horizontal                  = 0x0020, -- legend entries will be displayed horizontally
+    Sort                        = 0x0040, -- legend entries will be displayed in alphabetical order
+    Reverse                     = 0x0080, -- legend entries will be displayed in reverse order
 }
 
 -- Options for mouse hover text (see SetupMouseText)
@@ -209,6 +210,7 @@ ImPlotPieChartFlags = {
     None                        = 0,      -- default
     Normalize                   = 0x0400, -- force normalization of pie chart values (i.e. always make a full circle if sum < 0)
     IgnoreHidden                = 0x0800, -- ignore hidden slices when drawing the pie chart (as if they were not there)
+    Exploding                   = 0x1000, -- Explode legend-hovered slice
 }
 
 -- Flags for PlotHeatmap
@@ -225,7 +227,7 @@ ImPlotHistogramFlags = {
     Horizontal                  = 0x0400, -- histogram bars will be rendered horizontally (not supported by PlotHistogram2D)
     Cumulative                  = 0x0800, -- each bin will contain its count plus the counts of all previous bins (not supported by PlotHistogram2D)
     Density                     = 0x1000, -- counts will be normalized, i.e. the PDF will be visualized, or the CDF will be visualized if Cumulative is also set
-    NoOutliers                  = 0x2000, -- exclude values outside the specifed histogram range from the count toward normalizing and cumulative counts
+    NoOutliers                  = 0x2000, -- exclude values outside the specified histogram range from the count toward normalizing and cumulative counts
     ColMajor                    = 0x4000, -- data will be read in column major order (not supported by PlotHistogram)
 }
 
@@ -280,7 +282,7 @@ ImPlotCol = {
     LegendText                  = 10, -- legend text color (defaults to ImPlotCol_InlayText)
     TitleText                   = 11, -- plot title text color (defaults to ImGuiCol_Text)
     InlayText                   = 12, -- color of text appearing inside of plots (defaults to ImGuiCol_Text)
-    AxisText                    = 13, -- axis label and tick lables color (defaults to ImGuiCol_Text)
+    AxisText                    = 13, -- axis label and tick labels color (defaults to ImGuiCol_Text)
     AxisGrid                    = 14, -- axis grid color (defaults to 25% ImPlotCol_AxisText)
     AxisTick                    = 15, -- axis tick color (defaults to AxisGrid)
     AxisBg                      = 16, -- background color of axis hover region (defaults to transparent)
@@ -331,7 +333,7 @@ ImPlotStyleVar = {
 ImPlotScale = {
     Linear                      = 0, -- default linear scale
     Time                        = 1, -- date/time scale
-    Log10                       = 2, -- base 10 logartithmic scale
+    Log10                       = 2, -- base 10 logarithmic scale
     SymLog                      = 3, -- symmetric log scale
 }
 
@@ -604,7 +606,7 @@ function ImPlot.EndPlot() end
 
 -- Starts a subdivided plotting context. If the function returns true,
 -- EndSubplots() MUST be called! Call BeginPlot/EndPlot AT MOST [rows*cols]
--- times in  between the begining and end of the subplot context. Plots are
+-- times in  between the beginning and end of the subplot context. Plots are
 -- added in row major order.
 --
 -- Example:
@@ -791,7 +793,7 @@ function ImPlot.SetupFinish() end
 -- using a preceding button or slider widget to change the plot limits). In
 -- this case, you can use the `SetNext` API below. While this is not as feature
 -- rich as the Setup API, most common needs are provided. These functions can be
--- called anwhere except for inside of `Begin/EndPlot`. For example:
+-- called anywhere except for inside of `Begin/EndPlot`. For example:
 --
 -- ```lua
 -- if ImGui.Button("Center Plot") then
@@ -840,7 +842,7 @@ function ImPlot.SetNextAxesToFit() end
 -- Note: Everything below was intended for c++ code. Some parts of this may be
 -- relevant for lua.
 --
--- The main plotting API is provied below. Call these functions between
+-- The main plotting API is provided below. Call these functions between
 -- Begin/EndPlot and after any Setup API calls. Each plots data on the current
 -- x and y axes, which can be changed with `SetAxis/Axes`.
 --
@@ -1343,7 +1345,7 @@ function ImPlot.PlotToPixels(x, y, xAxis, yAxis) end
 ---@return ImVec2
 function ImPlot.GetPlotPos() end
 
--- Get the curent Plot size in pixels.
+-- Get the current Plot size in pixels.
 ---@return ImVec2
 function ImPlot.GetPlotSize() end
 
@@ -1495,7 +1497,7 @@ function ImPlot.EndDragDropSource() end
 --    manually set these colors to whatever you like, and further can Push/Pop
 --    them around individual plots for plot-specific styling (e.g. coloring axes).
 
--- Provides access to plot style structure for permanant modifications to colors, sizes, etc.
+-- Provides access to plot style structure for permanent modifications to colors, sizes, etc.
 ---@return ImPlotStyle
 function ImPlot.GetStyle() end
 
@@ -1680,7 +1682,7 @@ function ImPlot.ColormapScale(label, scaleMin, scaleMax, size, format, flags, cm
 ---@return ImVec4 out
 function ImPlot.ColormapSlider(label, t, out, format, cmap) end
 
--- Shows a button with a colormap gradient brackground.
+-- Shows a button with a colormap gradient background.
 ---@param label string
 ---@param size ImVec2
 ---@param cmap ImPlotColormap | integer
@@ -1688,7 +1690,7 @@ function ImPlot.ColormapSlider(label, t, out, format, cmap) end
 function ImPlot.ColormapButton(label, size, cmap) end
 
 -- When items in a plot sample their color from a colormap, the color is cached and does not change
--- unless explicitly overriden. Therefore, if you change the colormap after the item has already been plotted,
+-- unless explicitly overridden. Therefore, if you change the colormap after the item has already been plotted,
 -- item colors will NOT update. If you need item colors to resample the new colormap, then use this
 -- function to bust the cached colors. If #plot_title_id is nullptr, then every item in EVERY existing plot
 -- will be cache busted. Otherwise only the plot specified by #plot_title_id will be busted. For the
@@ -1702,7 +1704,7 @@ function ImPlot.BustColorCache(plotTitleId) end
 -- ## Input Mapping
 --
 
--- Provides access to input mapping structure for permanant modifications to controls for pan, select, etc.
+-- Provides access to input mapping structure for permanent modifications to controls for pan, select, etc.
 ---@return ImPlotInputMap
 function ImPlot.GetInputMap() end
 

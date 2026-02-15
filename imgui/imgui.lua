@@ -440,17 +440,41 @@ function ImGui.SetScrollFromPosX(localX, centerXRatio) end
 ---@param centerYRatio? number
 function ImGui.SetScrollFromPosY(localY, centerYRatio) end
 
-
 --
--- ## Parameters Stacks (Shared)
+-- ## Parameter stacks (font)
 --
 
--- Push a font onto the font stack. use `nil` as a shortcut to push default font.
----@param font? ImFont
+--  - PushFont(font, 0.0f)                       // Change font and keep current size
+--  - PushFont(NULL, 20.0f)                      // Keep font and change current size
+--  - PushFont(font, 20.0f)                      // Change font and set size to 20.0f
+--  - PushFont(font, style.FontSizeBase * 2.0f)  // Change font and set size to be twice bigger than current size.
+--  - PushFont(font, font->LegacySize)           // Change font and set size to size passed to AddFontXXX() function. Same as pre-1.92 behavior.
+-- *IMPORTANT* before 1.92, fonts had a single size. They can now be dynamically be adjusted.
+--  - In 1.92 we have REMOVED the single parameter version of PushFont() because it seems like the easiest way to provide an error-proof transition.
+--  - PushFont(font) before 1.92 = PushFont(font, font->LegacySize) after 1.92          // Use default font size as passed to AddFontXXX() function.
+-- *IMPORTANT* global scale factors are applied over the provided size.
+--  - Global scale factors are: 'style.FontScaleMain', 'style.FontScaleDpi' and maybe more.
+-- -  If you want to apply a factor to the _current_ font size:
+--  - CORRECT:   PushFont(NULL, style.FontSizeBase)         // use current unscaled size    == does nothing
+--  - CORRECT:   PushFont(NULL, style.FontSizeBase * 2.0f)  // use current unscaled size x2 == make text twice bigger
+--  - INCORRECT: PushFont(NULL, GetFontSize())              // INCORRECT! using size after global factors already applied == GLOBAL SCALING FACTORS WILL APPLY TWICE!
+--  - INCORRECT: PushFont(NULL, GetFontSize() * 2.0f)       // INCORRECT! using size after global factors already applied == GLOBAL SCALING FACTORS WILL APPLY TWICE!
+
+-- Push a font onto the font stack.
+---@param font ImFont|nil Font to set as the current font. If nil, use the current font (and change the size)
+---@param size number Font size to set as the current size. If 0, use the current size and change the font.
+function ImGui.PushFont(font, size) end
+
+-- Push a font onto the font stack with the default size.
+---@param font? ImFont Font to set as the current font. If nil, the default font will be set.
 function ImGui.PushFont(font) end
 
 -- Pop a font from the font stack.
 function ImGui.PopFont() end
+
+--
+-- ## Parameters Stacks (Shared)
+--
 
 -- Modify a style color. Push a new value for the given style color index onto the stack
 ---@param idx ImGuiCol Style color index
@@ -503,6 +527,13 @@ function ImGui.PushButtonRepeat(btnRepeat) end
 
 function ImGui.PopButtonRepeat() end
 
+-- modify specified shared item flag, e.g. PushItemFlag(ImGuiItemFlags.NoTabStop, true)
+---@param flag ImGuiItemFlags
+---@param enabled boolean
+function ImGui.PushItemFlag(flag, enabled) end
+
+function ImGui.PopItemFlag() end
+
 
 --
 -- ## Parameters stacks (current window)
@@ -550,6 +581,10 @@ function ImGui.GetFont() end
 ---@return number
 function ImGui.GetFontSize() end
 
+-- Get the default font
+---@return ImFont font default font
+function ImGui.GetDefaultFont() end
+
 ---@param idx ImGuiCol
 ---@return ImVec4 color
 function ImGui.GetStyleColor(idx) end
@@ -562,20 +597,20 @@ function ImGui.GetFontTexUvWhitePixel() end
 -- packed as a 32-bit value suitable for ImDrawList
 ---@param idx ImGuiCol color value
 ---@param alphaMul number Alpha multiplier
----@return ImU32 col 
+---@return ImU32 col
 function ImGui.GetColorU32(idx, alphaMul) end
 
 -- retrieve given color with style alpha applied, packed as a 32-bit value suitable for ImDrawList
---- @param r number Red (0-1)
---- @param g number Green (0-1)
---- @param b number Blue (0-1)
---- @param a number Alpha (0-1)
---- @return ImU32
+---@param r number Red (0-1)
+---@param g number Green (0-1)
+---@param b number Blue (0-1)
+---@param a number Alpha (0-1)
+---@return ImU32
 function ImGui.GetColorU32(r, g, b, a) end
 
 -- retrieve given color with style alpha applied, packed as a 32-bit value suitable for ImDrawList
---- @param col ImVec4
---- @return number col ImU32
+---@param col ImVec4
+---@return number col ImU32
 function ImGui.GetColorU32(col) end
 
 -- retrieve given color as individual component values from 0-1
@@ -889,6 +924,15 @@ function ImGui.ProgressBar(fraction, sizeX, sizeY, overlay) end
 -- same distance that TreeNode() uses
 function ImGui.Bullet() end
 
+-- hyperlink text button, return true when clicked
+---@param text string
+---@varargs any
+function ImGui.TextLink(text, ...) end
+
+-- hyperlink text button, automatically open file/url when clicked
+---@param text string text to display
+---@param url? string url to open when clicked
+function ImGui.TextLinkOpenURL(text, url) end
 
 --
 -- ## Widgets: Images
@@ -903,6 +947,14 @@ function ImGui.Bullet() end
 ---@param tintCol? ImVec4
 ---@param borderCol? ImVec4
 function ImGui.Image(textureId, size, uv0, uv1, tintCol, borderCol) end
+
+---@param textureId ImTextureID
+---@param size ImVec2
+---@param uv0? ImVec2
+---@param uv1? ImVec2
+---@param bgCol? ImVec4
+---@param tintCol? ImVec4
+function ImGui.ImageWithBg(textureId, size, uv0, uv1, bgCol, tintCol) end
 
 ---@param strId string
 ---@param textureId ImTextureID
@@ -1232,10 +1284,10 @@ function ImGui.VSliderInt(label, sizeX, sizeY, value, valueMin, valueMax, format
 -- - Most of the ImGuiInputTextFlags flags are only useful for InputText() and not for InputFloatX, InputIntX, InputDouble etc.
 --
 
--- Shared state of InputText(), passed as an argument to your callback when a ImGuiInputTextFlags.Callback* flag is used.
+-- Shared state of InputText(), passed as an argument to your callback when a ImGuiInputTextFlags_Callback* flag is used.
 -- The callback function should return 0 by default.
 -- Callbacks (follow a flag name and see comments in ImGuiInputTextFlags_ declarations for more details)
--- - ImGuiInputTextFlags.CallbackEdit:        Callback on buffer edit (note that InputText() already returns true on edit, the callback is useful mainly to manipulate the underlying buffer while focus is active)
+-- - ImGuiInputTextFlags.CallbackEdit:        Callback on buffer edit. Note that InputText() already returns true on edit + you can always use IsItemEdited(). The callback is useful to manipulate the underlying buffer while focus is active.
 -- - ImGuiInputTextFlags.CallbackAlways:      Callback on each iteration
 -- - ImGuiInputTextFlags.CallbackCompletion:  Callback on pressing TAB
 -- - ImGuiInputTextFlags.CallbackHistory:     Callback on pressing Up/Down arrows
@@ -1243,6 +1295,8 @@ function ImGui.VSliderInt(label, sizeX, sizeY, value, valueMin, valueMax, format
 -- - ImGuiInputTextFlags.CallbackResize:      Callback on buffer capacity changes request (beyond 'buf_size' parameter value), allowing the string to grow.
 --
 -- Arguments for the different callback events
+-- - During Resize callback, Buf will be same as your input buffer.
+-- - However, during Completion/History/Always callback, Buf always points to our own internal data (it is not the same as your buffer)! Changes to it will be reflected into your own buffer shortly after the callback.
 -- - To modify the text buffer in a callback, prefer using the InsertChars() / DeleteChars() function. InsertChars() will take care of calling the resize callback if necessary.
 -- - If you know your edits are not going to resize the underlying buffer allocation, you may modify the contents of 'Buf[]' directly. You need to update 'BufTextLen' accordingly (0 <= BufTextLen < BufSize) and set 'BufDirty'' to true so InputText can update its internal state.
 ---@class ImGuiInputTextCallbackData
@@ -1745,7 +1799,7 @@ function ImGui.EndPopup() end
 ---@param flags? ImGuiPopupFlags
 function ImGui.OpenPopup(strId, flags) end
 -- id overload to facilitate calling from nested stacks
----@param id integer 
+---@param id integer
 ---@param flags? ImGuiPopupFlags
 function ImGui.OpenPopup(id, flags) end
 
@@ -1952,8 +2006,6 @@ function ImGui.TableSetBgColor(target, colR, colG, colB, colA, columnN) end
 
 -- Return hovered column. return -1 when table is not hovered. return columnsCount
 -- if the unused space at the right of visible columns is hovered.
---
--- Note: This function is not part of the public imgui api, and may be subject to change.
 ---@return integer column
 function ImGui.TableGetHoveredColumn() end
 
@@ -2000,7 +2052,7 @@ function ImGui.SetColumnWidth(columnIndex, width) end
 -- get position of column line (in pixels, from the left side of the contents region). pass -1 to use current column,
 -- otherwise 0..GetColumnsCount() inclusive. column 0 is typically 0.0f
 ---@param columnIndex? integer
----@return number 
+---@return number
 function ImGui.GetColumnOffset(columnIndex) end
 
 -- set position of column line (in pixels, from the left side of the contents region). pass -1 to use current column
@@ -2040,7 +2092,7 @@ function ImGui.EndTabItem() end
 ---@param label string
 ---@param flags? ImGuiTabItemFlags
 ---@return boolean
-function TabItemButton(label, flags) end
+function ImGui.TabItemButton(label, flags) end
 
 -- notify TabBar or Docking system of a closed tab/window ahead (useful to reduce visual flicker on reorderable tab bars).
 -- - For tab-bar: call after BeginTabBar() and before Tab submissions.
@@ -2127,7 +2179,7 @@ function ImGui.BeginDragDropSource(flags) end
 -- type is a user defined string of maximum 32 characters. Strings starting with '_' are reserved for dear imgui internal types.
 -- Data is copied and held by imgui. Return true when payload has been accepted.
 ---@param type string
----@param payload any
+---@param payload number|string|number[]|ImVec4
 ---@param cond? ImGuiCond
 function ImGui.SetDragDropPayload(type, payload, cond) end
 
@@ -2138,15 +2190,17 @@ function ImGui.EndDragDropSource() end
 ---@return boolean
 function ImGui.BeginDragDropTarget() end
 
--- accept contents of a given type. If ImGuiDragDropFlags_AcceptBeforeDelivery is set you can peek into the payload before the mouse button is released.
----@return ImGuiDragDropPayload #The content being dragged
-function ImGui.AcceptDragDropPayload(label) end
+-- accept contents of a given type. If ImGuiDragDropFlags.AcceptBeforeDelivery is set you can peek into the payload before the mouse button is released.
+---@param type string
+---@param flags? ImGuiDragDropFlags
+---@return ImGuiDragDropPayload payload The content being dragged
+function ImGui.AcceptDragDropPayload(type, flags) end
 
 -- only call EndDragDropTarget() if BeginDragDropTarget() returns true!
 function ImGui.EndDragDropTarget() end
 
 -- peek directly into the current payload from anywhere. returns NULL when drag and drop is finished or inactive. use ImGuiPayload::IsDataType() to test for the payload type.
----@return any
+---@return ImGuiDragDropPayload
 function ImGui.GetDragDropPayload() end
 
 
@@ -2449,12 +2503,51 @@ function ImGui.ColorConvertRGBtoHSV(r, g , b) end
 ---@return number r, number g, number b
 function ImGui.ColorConvertHSVtoRGB(h, s, v) end
 
+--
+-- Inputs Utilities: Shortcut Testing & Routing [BETA]
+-- - ImGuiKeyChord = a ImGuiKey + optional ImGuiMod.Alt/ImGuiMod.Ctrl/ImGuiMod.Shift/ImGuiMod.Super.
+--       ImGuiKey.C                            - Accepted by functions taking ImGuiKey or ImGuiKeyChord arguments
+--       bit32.bor(ImGuiMod.Ctrl, ImGuiKey.C)  - Accepted by functions taking ImGuiKeyChord arguments
+--   only ImGuiMod.XXX values are legal to combine with an ImGuiKey. You CANNOT combine two ImGuiKey values.
+-- - The general idea is that several callers may register interest in a shortcut, and only one owner gets it.
+--      Parent   -> call Shortcut(Ctrl+S)    // When Parent is focused, Parent gets the shortcut.
+--        Child1 -> call Shortcut(Ctrl+S)    // When Child1 is focused, Child1 gets the shortcut (Child1 overrides Parent shortcuts)
+--        Child2 -> no call                  // When Child2 is focused, Parent gets the shortcut.
+--   The whole system is order independent, so if Child1 makes its calls before Parent, results will be identical.
+--   This is an important property as it facilitate working with foreign code or larger codebase.
+-- - To understand the difference:
+--   - IsKeyChordPressed() compares mods and call IsKeyPressed() -> function has no side-effect.
+--   - Shortcut() submits a route, routes are resolved, if it currently can be routed it calls IsKeyChordPressed() -> function has (desirable) side-effects as it can prevents another call from getting the route.
+-- - Visualize registered routes in 'Metrics/Debugger->Inputs'.
+
+--- Check if a key chord is pressed. See comments above this function for more details.
+---@param keyChord ImGuiKeyChord The key chord
+---@param flags? ImGuiInputFlags input flags for the shortcut
+---@return boolean result True if the shortcut is activated
+function ImGui.Shortcut(keyChord, flags) end
+
+--- Set the shortcut for the next item
+---@param keyChord ImGuiKeyChord The key chord
+---@param flags? ImGuiInputFlags input flags for the shortcut
+function ImGui.SetNextItemShortcut(keyChord, flags) end
+
+-- Inputs Utilities: Key/Input Ownership [BETA]
+-- - One common use case would be to allow your items to disable standard inputs behaviors such
+--   as Tab or Alt key handling, Mouse Wheel scrolling, etc.
+--   e.g. Button(...); SetItemKeyOwner(ImGuiKey_MouseWheelY); to make hovering/activating a button disable wheel for scrolling.
+-- - Reminder ImGuiKey enum include access to mouse buttons and gamepad, so key ownership can apply to them.
+-- - Many related features are still in imgui_internal.h. For instance, most IsKeyXXX()/IsMouseXXX() functions have an owner-id-aware version.
+
+--- Set key owner to last item ID if it is hovered or active. Equivalent to 'if IsItemHovered() or IsItemActive()) then SetKeyOwner(key, GetItemID()) end'.
+---@param key ImGuiKey The key
+function ImGui.SetItemKeyOwner(key) end
+
 
 --
 -- Inputs Utilities: Keyboard/Mouse/Gamepad
 -- - the ImGuiKey enum contains all possible keyboard, mouse and gamepad inputs (e.g. ImGuiKey_A, ImGuiKey_MouseLeft, ImGuiKey_GamepadDpadUp...).
 -- - before v1.87, we used ImGuiKey to carry native/user indices as defined by each backends. About use of those legacy ImGuiKey values:
---  - without IMGUI_DISABLE_OBSOLETE_KEYIO (legacy support): you can still use your legacy native/user indices (< 512) 
+--  - without IMGUI_DISABLE_OBSOLETE_KEYIO (legacy support): you can still use your legacy native/user indices (< 512)
 --    according to how your backend/engine stored them in io.KeysDown[], but need to cast them to ImGuiKey.
 --  - with    IMGUI_DISABLE_OBSOLETE_KEYIO (this is the way forward): any use of ImGuiKey will assert with key < 512.
 --    GetKeyIndex() is pass-through and therefore deprecated (gone if IMGUI_DISABLE_OBSOLETE_KEYIO is defined).
@@ -2535,6 +2628,12 @@ function ImGui.IsMouseReleased(button) end
 ---@param button ImGuiMouseButton
 ---@return boolean
 function ImGui.IsMouseDoubleClicked(button) end
+
+--- delayed mouse release (use very sparingly!). Generally used with 'delay >= io.MouseDoubleClickTime' + combined with a 'io.MouseClickedLastCount==1' test. This is a very rarely used UI idiom, but some apps use this: e.g. MS Explorer single click on an icon to rename.
+---@param button ImGuiMouseButton
+---@param delay number
+---@return boolean result
+function ImGui.IsMouseReleasedWithDelay(button, delay) end
 
 ---@param button ImGuiMouseButton
 ---@return number

@@ -1,3 +1,5 @@
+---@meta
+
 ---@class window
 ---@field public BGColor argb # Background color
 ---@field public Checked MQBoolean # Returns TRUE if the button has been checked

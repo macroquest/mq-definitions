@@ -1,3 +1,5 @@
+---@meta
+
 ---@class observer
 ---@field Received MQInt # The last received timestamp, or 0 for never received
 

@@ -19,7 +19,7 @@ function mq.cmdf(command, ...) end
 
 ---Provides a Timing delay
 ---@param delayValue number|string # A number (milliseconds) or string ending in s, m, or ms (e.g. '2s' or '1m')
----@param condition? function # An optional condition that can end the delay early with a return of true
+---@param condition? fun(): boolean # An optional condition that can end the delay early if it retursn true
 function mq.delay(delayValue, condition) end
 
 ---Returns time in milliseconds
@@ -106,6 +106,12 @@ function mq.parse(macrostring) end
 ---@param table table
 function mq.pickle(filepath, table) end
 
+---Deserializes a pickled table from a file that was created with
+---pickle back into a table.
+---@param filepath string
+---@return table
+function mq.unpickle(filepath) end
+
 ---@class Cmd
 ---@field afk fun()
 ---@field alt fun()
@@ -143,7 +149,7 @@ function mq.imgui.destroy(name) end
 
 ---MQ2 Top Level Object Accssor
 ---@class TLO
----@field Achievement Achievement
+---@field Achievement achievementmgr
 ---@field AdvLoot AdvLoot
 ---@field Alias fun(name:string):boolean # True if alias exists
 ---@field AltAbility altability

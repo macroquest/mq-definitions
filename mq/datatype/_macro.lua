@@ -1,15 +1,15 @@
---- @class Macro
---- @field public CurCommand MQString #list the current line number, macro name and code of the macro being processed
---- @field public CurLine MQFloat #The current line number of the macro being processed
---- @field public CurSub MQString #The current sub routine
---- @field public isOuterVariable MQBoolean #true if the provided parameter is a defined outer variable
---- @field public isTLO MQBoolean #true if the provided parameter an existing TLO
---- @field public MemUse MQFloat #How much memory the macro is using
---- @field public Name MQString #The name of the macro currently running
---- @field public Params MQFloat #The number of parameters that were passed to the current subroutine
---- @field public Paused MQBoolean #NULL if no macro running, FALSE if mqpause is off, TRUE if mqpause is on
---- @field public Return MQString #The value that was returned by the last completed subroutine
---- @field public RunTime MQFloat #How long the macro has been running (in seconds)
---- @field public StackSize MQFloat #StackSize?
---- @field public Undeclared fun() will list all undeclared variables
---- @field public Variable fun(name: string): int|boolean|fun(): any # Attemps to get Macro variable into LUA
+---@class Macro
+---@field public CurCommand MQString #list the current line number, macro name and code of the macro being processed
+---@field public CurLine MQFloat #The current line number of the macro being processed
+---@field public CurSub MQString #The current sub routine
+---@field public isOuterVariable MQBoolean #true if the provided parameter is a defined outer variable
+---@field public isTLO MQBoolean #true if the provided parameter an existing TLO
+---@field public MemUse MQFloat #How much memory the macro is using
+---@field public Name MQString #The name of the macro currently running
+---@field public Params MQFloat #The number of parameters that were passed to the current subroutine
+---@field public Paused MQBoolean #NULL if no macro running, FALSE if mqpause is off, TRUE if mqpause is on
+---@field public Return MQString #The value that was returned by the last completed subroutine
+---@field public RunTime MQFloat #How long the macro has been running (in seconds)
+---@field public StackSize MQFloat #StackSize?
+---@field public Undeclared fun() will list all undeclared variables
+---@field public Variable fun(name: string): int|boolean|fun(): any # Attemps to get Macro variable into LUA

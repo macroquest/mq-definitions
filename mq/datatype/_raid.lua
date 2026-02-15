@@ -1,6 +1,8 @@
----@diagnostic disable: duplicate-set-field
-
 ---@meta
+
+---@diagnostic disable: duplicate-set-field
+---@diagnostic disable: redundant-parameter
+
 ---@class raid
 ---@field public AverageLevel MQInt #Average level of raid members (more accurate than in the window)
 ---@field public Invited MQBoolean #Have I been invited to the raid?
@@ -43,3 +45,7 @@ function raid.Looter(index) end
 ---@param index integer|string
 ---@return raidmember
 function raid.MainAssist(index) end
+
+---@diagnostic enable: duplicate-set-field
+---@diagnostic enable: redundant-parameter
+

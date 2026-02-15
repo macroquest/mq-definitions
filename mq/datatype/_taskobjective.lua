@@ -1,0 +1,13 @@
+---@class taskobjective
+---@field public CurrentCount MQInt # Returns the current count of the .Type needed to complete a objective
+---@field public DZSwitchID MQInt # Returns an int of the switch used in a objective.
+---@field public Index MQInt # Returns the objective's place on the objectivelist
+---@field public Instruction MQString # Returns a tasks' Objectives
+---@field public Optional MQBoolean # Returns true or false if a objective is optional
+---@field public RequiredCount MQInt # Returns the required count of the .Type needed to complete a objective
+---@field public RequiredItem MQString # Returns a string of the required item to complete a objective.
+---@field public RequiredSkill MQString # Returns a string of the required skill to complete a objective.
+---@field public RequiredSpell MQString # Returns a string of the required spell to complete a objective.
+---@field public Status MQString # Returns the status of the objective in the format amount done Vs total IE 0/3
+---@field public Type MQString # Returns a string that can be one of the following:< Unknown, None, Deliver, Kill, Loot, Hail, Explore, Tradeskill, Fishing, Foraging, Cast, UseSkill, DZSwitch, DestroyObject, Collect, Dialogue
+---@field public Zone MQString # Returns the zone the objective is to be performed in

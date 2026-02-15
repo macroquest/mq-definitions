@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class achievement
 ---@field Completed MQBoolean # If the achievement has been completed
 ---@field Description MQString # The achievement's description
@@ -25,6 +26,12 @@ function achievement.Objective(description) end
 ---@return achievementobj
 function achievement.Objective(id) end
 ---@diagnostic enable: duplicate-set-field
+
+---Find an objective by it's Index in the Achievement
+---@param id integer|string
+---@return achievementobj
+function achievement.ObjectiveByIndex(id) end
+
 
 ---Generate an cheivement link.  An optional name can be
 ---provided to display in the achievement, otherwise the

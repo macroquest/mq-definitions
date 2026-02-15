@@ -51,7 +51,7 @@ ImGuiWindowFlags = {
 ---@enum ImGuiChildFlags
 ImGuiChildFlags = {
     None                       = 0,
-    Border                     = 0x01, -- Show an outer border and enable WindowPadding.
+    Borders                    = 0x01, -- Show an outer border and enable WindowPadding.
     AlwaysUseWindowPadding     = 0x02, -- Pad with style.WindowPadding even if no border are drawn (no padding by default for non-bordered child windows because it makes more sense)
     ResizeX                    = 0x04, -- Allow resize from right border (layout direction). Enable .ini saving (unless ImGuiWindowFlags_NoSavedSettings passed to window flags)
     ResizeY                    = 0x08, -- Allow resize from bottom border (layout direction). Enable .ini saving (unless ImGuiWindowFlags_NoSavedSettings passed to window flags)
@@ -59,6 +59,9 @@ ImGuiChildFlags = {
     AutoResizeY                = 0x20, -- Enable auto-resizing height. Read "IMPORTANT: Size measurement" details above.
     AlwaysAutoResize           = 0x40, -- Combined with AutoResizeX/AutoResizeY. Always measure size even when child is hidden, always return true, always disable clipping optimization! NOT RECOMMENDED.
     FrameStyle                 = 0x80, -- Style the child window like a framed item: use FrameBg, FrameRounding, FrameBorderSize, FramePadding instead of ChildBg, ChildRounding, ChildBorderSize, WindowPadding.
+    NavFlattened               = 0x100, -- [BETA] Share focus scope, allow keyboard/gamepad navigation to cross over parent border to this child or between sibling child windows.
+
+    Border                     = 0x01, ---@deprecated Renamed in 1.91.1 (August 2024) for consistency. Use `ImGuiChildFlags.Borders` instead.
 }
 
 
@@ -79,51 +82,71 @@ ImGuiItemFlags = {
 ---@enum ImGuiInputTextFlags
 ImGuiInputTextFlags = {
     None                       = 0,
-    CharsDecimal               = 0x000001, -- Allow 0123456789.+-*/
-    CharsHexadecimal           = 0x000002, -- Allow 0123456789ABCDEFabcdef
-    CharsUppercase             = 0x000004, -- Turn a..z into A..Z
-    CharsNoBlank               = 0x000008, -- Filter out spaces, tabs
-    AutoSelectAll              = 0x000010, -- Select entire text when first taking mouse focus
-    EnterReturnsTrue           = 0x000020, -- Return 'true' when Enter is pressed (as opposed to every time the value was modified). Consider looking at the IsItemDeactivatedAfterEdit() function.
-    CallbackCompletion         = 0x000040, -- Callback on pressing TAB (for completion handling)
-    CallbackHistory            = 0x000080, -- Callback on pressing Up/Down arrows (for history handling)
-    CallbackAlways             = 0x000100, -- Callback on each iteration. User code may query cursor position, modify text buffer.
-    CallbackCharFilter         = 0x000200, -- Callback on character inputs to replace or discard them. Modify 'EventChar' to replace or discard, or return 1 in callback to discard.
-    AllowTabInput              = 0x000400, -- Pressing TAB input a '\t' character into the text field
-    CtrlEnterForNewLine        = 0x000800, -- In multi-line mode, unfocus with Enter, add new line with Ctrl+Enter (default is opposite: unfocus with Ctrl+Enter, add line with Enter).
-    NoHorizontalScroll         = 0x001000, -- Disable following the cursor horizontally
-    AlwaysOverwrite            = 0x002000, -- Overwrite mode
-    ReadOnly                   = 0x004000, -- Read-only mode
-    Password                   = 0x008000, -- Password mode, display all characters as '*'
-    NoUndoRedo                 = 0x010000, -- Disable undo/redo. Note that input text owns the text data while active, if you want to provide your own undo/redo stack you need e.g. to call ClearActiveID().
-    CharsScientific            = 0x020000, -- Allow 0123456789.+-*/eE (Scientific notation input)
-    CallbackResize             = 0x040000, -- Callback on buffer capacity changes request (beyond 'buf_size' parameter value), allowing the string to grow. Notify when the string wants to be resized (for string types which hold a cache of their Size). You will be provided a new BufSize in the callback and NEED to honor it. (see misc/cpp/imgui_stdlib.h for an example of using this)
-    CallbackEdit               = 0x080000, -- Callback on any edit (note that InputText() already returns true on edit, the callback is useful mainly to manipulate the underlying buffer while focus is active)
-    EscapeClearsAll            = 0x100000, -- Escape key clears content if not empty, and deactivate otherwise (contrast to default behavior of Escape to revert)
+    CharsDecimal               = 0x0000001, -- Allow 0123456789.+-*/
+    CharsHexadecimal           = 0x0000002, -- Allow 0123456789ABCDEFabcdef
+    CharsScientific            = 0x0000004, -- Allow 0123456789.+-*/eE (Scientific notation input)
+    CharsUppercase             = 0x0000008, -- Turn a..z into A..Z
+    CharsNoBlank               = 0x0000010, -- Filter out spaces, tabs
+
+    AllowTabInput              = 0x0000020, -- Pressing TAB input a '\t' character into the text field
+    EnterReturnsTrue           = 0x0000040, -- Return 'true' when Enter is pressed (as opposed to every time the value was modified). Consider looking at the IsItemDeactivatedAfterEdit() function.
+    EscapeClearsAll            = 0x0000080, -- Escape key clears content if not empty, and deactivate otherwise (contrast to default behavior of Escape to revert)
+    CtrlEnterForNewLine        = 0x0000100, -- In multi-line mode, unfocus with Enter, add new line with Ctrl+Enter (default is opposite: unfocus with Ctrl+Enter, add line with Enter).
+
+    ReadOnly                   = 0x0000200, -- Read-only mode
+    Password                   = 0x0000400, -- Password mode, display all characters as '*'
+    AlwaysOverwrite            = 0x0000800, -- Overwrite mode
+    AutoSelectAll              = 0x0001000, -- Select entire text when first taking mouse focus
+    ParseEmptyRefVal           = 0x0002000, -- InputFloat(), InputInt(), InputScalar() etc. only: parse empty string as zero value.
+    DisplayEmptyRefVal         = 0x0004000, -- InputFloat(), InputInt(), InputScalar() etc. only: when value is zero, do not display it. Generally used with ImGuiInputTextFlags.ParseEmptyRefVal.
+    NoHorizontalScroll         = 0x0008000, -- Disable following the cursor horizontally
+    NoUndoRedo                 = 0x0010000, -- Disable undo/redo. Note that input text owns the text data while active, if you want to provide your own undo/redo stack you need e.g. to call ClearActiveID().
+
+    ElideLeft                  = 0x0020000, -- When text doesn't fit, elide left side to ensure right side stays visible. Useful for path/filenames. Single-line only!
+
+    CallbackCompletion         = 0x0040000, -- Callback on pressing TAB (for completion handling)
+    CallbackHistory            = 0x0080000, -- Callback on pressing Up/Down arrows (for history handling)
+    CallbackAlways             = 0x0100000, -- Callback on each iteration. User code may query cursor position, modify text buffer.
+    CallbackCharFilter         = 0x0200000, -- Callback on character inputs to replace or discard them. Modify 'EventChar' to replace or discard, or return 1 in callback to discard.
+    CallbackResize             = 0x0400000, -- Callback on buffer capacity changes request (beyond 'buf_size' parameter value), allowing the string to grow. Notify when the string wants to be resized (for string types which hold a cache of their Size). You will be provided a new BufSize in the callback and NEED to honor it. (see misc/cpp/imgui_stdlib.h for an example of using this)
+    CallbackEdit               = 0x0800000, -- Callback on any edit (note that InputText() already returns true on edit, the callback is useful mainly to manipulate the underlying buffer while focus is active)
+
+    WordWrap                   = 0x10000000, -- InputTextMultiline(): word-wrap lines that are too long.
 }
 
 
 ---@enum ImGuiTreeNodeFlags
 ImGuiTreeNodeFlags = {
     None                       = 0,
-    Selected                   = 0x0001, -- Draw as selected
-    Framed                     = 0x0002, -- Draw frame with background (e.g. for CollapsingHeader)
-    AllowOverlap               = 0x0004, -- Hit testing to allow subsequent widgets to overlap this one
-    NoTreePushOnOpen           = 0x0008, -- Don't do a TreePush() when open (e.g. for CollapsingHeader) = no extra indent nor pushing on ID stack
-    NoAutoOpenOnLog            = 0x0010, -- Don't automatically and temporarily open node when Logging is active (by default logging will automatically open tree nodes)
-    DefaultOpen                = 0x0020, -- Default node to be open
-    OpenOnDoubleClick          = 0x0040, -- Need double-click to open node
-    OpenOnArrow                = 0x0080, -- Only open when clicking on the arrow part. If ImGuiTreeNodeFlags.OpenOnDoubleClick is also set, single-click arrow or double-click all box to open.
-    Leaf                       = 0x0100, -- No collapsing, no arrow (use as a convenience for leaf nodes).
-    Bullet                     = 0x0200, -- Display a bullet instead of arrow
-    FramePadding               = 0x0400, -- Use FramePadding (even for an unframed text node) to vertically align text baseline to regular widget height. Equivalent to calling AlignTextToFramePadding().
-    SpanAvailWidth             = 0x0800, -- Extend hit box to the right-most edge, even if not framed. This is not the default in order to allow adding other items on the same line. In the future we may refactor the hit system to be front-to-back, allowing natural overlaps and then this can become the default.
-    SpanFullWidth              = 0x1000, -- Extend hit box to the left-most and right-most edges (bypass the indented area).
-    SpanAllColumns             = 0x2000,
-    NavLeftJumpsBackHere       = 0x4000, -- (WIP) Nav: left direction may move to this TreeNode() from any of its child (items submitted between TreeNode and TreePop)
-    CollapsingHeader           = 0x001a, -- Framed | NoTreePushOnOpen | NoAutoOpenOnLog,
+    Selected                   = 0x000001, -- Draw as selected
+    Framed                     = 0x000002, -- Draw frame with background (e.g. for CollapsingHeader)
+    AllowOverlap               = 0x000004, -- Hit testing to allow subsequent widgets to overlap this one
+    NoTreePushOnOpen           = 0x000008, -- Don't do a TreePush() when open (e.g. for CollapsingHeader) = no extra indent nor pushing on ID stack
+    NoAutoOpenOnLog            = 0x000010, -- Don't automatically and temporarily open node when Logging is active (by default logging will automatically open tree nodes)
+    DefaultOpen                = 0x000020, -- Default node to be open
+    OpenOnDoubleClick          = 0x000040, -- Need double-click to open node
+    OpenOnArrow                = 0x000080, -- Only open when clicking on the arrow part. If ImGuiTreeNodeFlags.OpenOnDoubleClick is also set, single-click arrow or double-click all box to open.
+    Leaf                       = 0x000100, -- No collapsing, no arrow (use as a convenience for leaf nodes).
+    Bullet                     = 0x000200, -- Display a bullet instead of arrow
+    FramePadding               = 0x000400, -- Use FramePadding (even for an unframed text node) to vertically align text baseline to regular widget height. Equivalent to calling AlignTextToFramePadding().
+    SpanAvailWidth             = 0x000800, -- Extend hit box to the right-most edge, even if not framed. This is not the default in order to allow adding other items on the same line. In the future we may refactor the hit system to be front-to-back, allowing natural overlaps and then this can become the default.
+    SpanFullWidth              = 0x001000, -- Extend hit box to the left-most and right-most edges (bypass the indented area).
+    SpanLabelWidth             = 0x002000, -- Narrow hit box + narrow hovering highlight, will only cover the label text.
+    SpanAllColumns             = 0x004000, -- Frame will span all columns of its container table (label will still fit in current column)
+    LabelSpanAllColumns        = 0x008000, -- Label will span all columns of its container table
+    NavLeftJumpsToParent       = 0x020000, -- Nav: left arrow moves back to parent. This is processed in TreePop() when there's an unfulfilled Left nav request remaining.
+    CollapsingHeader           = 0x00001a, -- Framed | NoTreePushOnOpen | NoAutoOpenOnLog,
 
-    AllowItemOverlap           = 0x0004, ---@deprecated Renamed in 1.89.7, use AllowOverlap
+    -- [EXPERIMENTAL] Draw lines connecting TreeNode hierarchy. Discuss in GitHub issue #2920.
+    -- Default value is pulled from style.TreeLinesFlags. May be overridden in TreeNode calls.
+
+    DrawLinesNone              = 0x040000, -- No lines drawn
+    DrawLinesFull              = 0x080000, -- Horizontal lines to child nodes. Vertical line drawn down to TreePop() position: cover full contents. Faster (for large trees).
+    DrawLinesToNodes           = 0x100000, -- Horizontal lines to child nodes. Vertical line drawn down to bottom-most child node. Slower (for large trees).
+
+    AllowItemOverlap           = 0x000004, ---@deprecated Renamed in 1.89.7, use AllowOverlap
+    NavLeftJumpsBackHere       = 0x020000, ---@deprecated Renamed in 1.92.0, use NavLeftJumpsToParent
+    SpanTextWidth              = 0x002000, ---@deprecated Renamed in 1.90.7, use SpanLabelWidth
 }
 
 
@@ -138,17 +161,18 @@ ImGuiTreeNodeFlags = {
 ---@enum ImGuiPopupFlags
 ImGuiPopupFlags = {
     None                       = 0,
-    MouseButtonLeft            = 0x000, -- For BeginPopupContext*(): open on Left Mouse release. Guaranteed to always be == 0 (same as ImGuiMouseButton_Left)
-    MouseButtonRight           = 0x001, -- For BeginPopupContext*(): open on Right Mouse release. Guaranteed to always be == 1 (same as ImGuiMouseButton_Right)
-    MouseButtonMiddle          = 0x002, -- For BeginPopupContext*(): open on Middle Mouse release. Guaranteed to always be == 2 (same as ImGuiMouseButton_Middle)
-    NoOpenOverExistingPopup    = 0x020, -- For OpenPopup*(), BeginPopupContext*(): don't open if there's already a popup at the same level of the popup stack
-    NoOpenOverItems            = 0x040, -- For BeginPopupContextWindow(): don't return true when hovering items, only when hovering empty space
-    AnyPopupId                 = 0x080, -- For IsPopupOpen(): ignore the ImGuiID parameter and test for any popup.
-    AnyPopupLevel              = 0x100, -- For IsPopupOpen(): search/test at any level of the popup stack (default test in the current level)
-    AnyPopup                   = 0x180, -- AnyPopupId | AnyPopupLevel
+    MouseButtonLeft            = 0x0000, -- For BeginPopupContext*(): open on Left Mouse release. Guaranteed to always be == 0 (same as ImGuiMouseButton_Left)
+    MouseButtonRight           = 0x0001, -- For BeginPopupContext*(): open on Right Mouse release. Guaranteed to always be == 1 (same as ImGuiMouseButton_Right)
+    MouseButtonMiddle          = 0x0002, -- For BeginPopupContext*(): open on Middle Mouse release. Guaranteed to always be == 2 (same as ImGuiMouseButton_Middle)
+    NoReopen                   = 0x0020, -- For OpenPopup*(), BeginPopupContext*(): don't reopen same popup if already open (won't reposition, won't reinitialize navigation)
+    NoOpenOverExistingPopup    = 0x0080, -- For OpenPopup*(), BeginPopupContext*(): don't open if there's already a popup at the same level of the popup stack
+    NoOpenOverItems            = 0x0100, -- For BeginPopupContextWindow(): don't return true when hovering items, only when hovering empty space
+    AnyPopupId                 = 0x0400, -- For IsPopupOpen(): ignore the ImGuiID parameter and test for any popup.
+    AnyPopupLevel              = 0x0800, -- For IsPopupOpen(): search/test at any level of the popup stack (default test in the current level)
+    AnyPopup                   = 0x0c00, -- AnyPopupId | AnyPopupLevel
 
-    MouseButtonMask_           = 0x01f,
-    MouseButtonDefault_        = 0x001,
+    MouseButtonMask_           = 0x001f,
+    MouseButtonDefault_        = 0x0001,
 }
 
 
@@ -156,13 +180,16 @@ ImGuiPopupFlags = {
 ---@enum ImGuiSelectableFlags
 ImGuiSelectableFlags = {
     None                       = 0,
-    DontClosePopups            = 0x01, -- Clicking this don't close parent popup window
+    NoAutoClosePopups          = 0x01, -- Clicking this doesn't close parent popup window (overrides ImGuiItemFlags_AutoClosePopups)
     SpanAllColumns             = 0x02, -- Selectable frame can span all columns (text will still fit in current column)
     AllowDoubleClick           = 0x04, -- Generate press events on double clicks too
     Disabled                   = 0x08, -- Cannot be selected, display grayed out text
     AllowOverlap               = 0x10, -- (WIP) Hit testing to allow subsequent widgets to overlap this one
+    Highlight                  = 0x20, -- Make the item be displayed as if it is hovered
+    SelectOnNav                = 0x40, -- Auto-select when moved into, unless Ctrl is held. Automatic when in a BeginMultiSelect() block.
 
     AllowItemOverlap           = 0x10, ---@deprecated Renamed in 1.89.7, use AllowOverlap
+    DontClosePopups            = 0x01, ---@deprecated Renamed in 1.91.0, use NoAutoClosePopups
 }
 
 
@@ -184,148 +211,39 @@ ImGuiComboFlags =  {
 
 ---@enum ImGuiTabBarFlags
 ImGuiTabBarFlags = {
-    None                       = 0,
-    Reorderable                = 0x01, -- Allow manually dragging tabs to re-order them + New tabs are appended at the end of list
-    AutoSelectNewTabs          = 0x02, -- Automatically select new tabs when they appear
-    TabListPopupButton         = 0x04, -- Disable buttons to open the tab list popup
-    NoCloseWithMiddleMouseButton = 0x08, -- Disable behavior of closing tabs (that are submitted with open != nil) with middle mouse button. You can still repro this behavior on user's side with if (IsItemHovered() && IsMouseClicked(2)) *p_open = false.
-    NoTabListScrollingButtons  = 0x10, -- Disable scrolling buttons (apply when fitting policy is FittingPolicyScroll)
-    NoTooltip                  = 0x20, -- Disable tooltips when hovering a tab
-    FittingPolicyResizeDown    = 0x40, -- Resize tabs when they don't fit
-    FittingPolicyScroll        = 0x80, -- Add scroll buttons when tabs don't fit
+    None                         = 0,
+    Reorderable                  = 0x001, -- Allow manually dragging tabs to re-order them + New tabs are appended at the end of list
+    AutoSelectNewTabs            = 0x002, -- Automatically select new tabs when they appear
+    TabListPopupButton           = 0x004, -- Disable buttons to open the tab list popup
+    NoCloseWithMiddleMouseButton = 0x008, -- Disable behavior of closing tabs (that are submitted with open != nil) with middle mouse button. You can still repro this behavior on user's side with if (IsItemHovered() && IsMouseClicked(2)) *p_open = false.
+    NoTabListScrollingButtons    = 0x010, -- Disable scrolling buttons (apply when fitting policy is FittingPolicyScroll)
+    NoTooltip                    = 0x020, -- Disable tooltips when hovering a tab
+    DrawSelectedOverline         = 0x040, -- Draw selected overline markers over selected tab
 
-    FittingPolicyMask_         = 0xc0, -- FittingPolicyResizeDown | FittingPolicyScroll
-    FittingPolicyDefault_      = 0x40, -- FittingPolicyResizeDown
+    FittingPolicyMixed           = 0x080, -- Shrink down tabs when they don't fit, until width is style.TabMinWidthShrink, then enable scrolling buttons.
+    FittingPolicyShrink          = 0x100, -- Shrink down tabs when they don't fit
+    FittingPolicyScroll          = 0x200, -- Add scroll buttons when tabs don't fit
+
+    FittingPolicyMask_           = 0x380, -- FittingPolicyMixed | FittingPolicyShrink | FittingPolicyScroll
+    FittingPolicyDefault_        = 0x080, -- FittingPolicyMixed
+
+    FittingPolicyResizeDown      = 0x100, ---@deprecated Renamed in 1.92.2, use FittingPolicyShrink instead
 }
 
 
 -- Flags for ImGui::BeginTabItem()
 ---@enum ImGuiTabItemFlags
 ImGuiTabItemFlags = {
-    None                        = 0,
-    UnsavedDocument             = 0x01, -- Display a dot next to the title + tab is selected when clicking the X + closure is not assumed (will wait for user to stop submitting the tab). Otherwise closure is assumed when pressing the X, so if you keep submitting the tab may reappear at end of tab bar.
-    SetSelected                 = 0x02, -- Trigger flag to programmatically make the tab selected when calling BeginTabItem()
-    NoCloseWithMiddleMouseButton = 0x04, -- Disable behavior of closing tabs (that are submitted with open != nil) with middle mouse button. You can still repro this behavior on user's side with if (IsItemHovered() && IsMouseClicked(2)) open = false.
-    NoPushId                    = 0x08, -- Don't call PushID(tab->ID)/PopID() on BeginTabItem()/EndTabItem()
-    NoTooltip                   = 0x10, -- Disable tooltip for the given tab
-    NoReorder                   = 0x20, -- Disable reordering this tab or having another tab cross over this tab
-    Leading                     = 0x40, -- Enforce the tab position to the left of the tab bar (after the tab list popup button)
-    Trailing                    = 0x80, -- Enforce the tab position to the right of the tab bar (before the scrolling buttons)
-}
-
-
----@enum ImGuiTableFlags
-ImGuiTableFlags = {
-    -- Features
-    None                        = 0,
-    Resizable                   = 0x00000001, -- Enable resizing columns.
-    Reorderable                 = 0x00000002, -- Enable reordering columns in header row (need calling TableSetupColumn() + TableHeadersRow() to display headers)
-    Hideable                    = 0x00000004, -- Enable hiding/disabling columns in context menu.
-    Sortable                    = 0x00000008, -- Enable sorting. Call TableGetSortSpecs() to obtain sort specs. Also see ImGuiTableFlags_SortMulti and ImGuiTableFlags_SortTristate.
-    NoSavedSettings             = 0x00000010, -- Disable persisting columns order, width and sort settings in the .ini file.
-    ContextMenuInBody           = 0x00000020, -- Right-click on columns body/contents will display table context menu. By default it is available in TableHeadersRow().
-    -- Decorations
-    RowBg                       = 0x00000040, -- Set each RowBg color with ImGuiCol_TableRowBg or ImGuiCol_TableRowBgAlt (equivalent of calling TableSetBgColor with ImGuiTableBgFlags_RowBg0 on each row manually)
-    BordersInnerH               = 0x00000080, -- Draw horizontal borders between rows.
-    BordersOuterH               = 0x00000100, -- Draw horizontal borders at the top and bottom.
-    BordersInnerV               = 0x00000200, -- Draw vertical borders between columns.
-    BordersOuterV               = 0x00000400, -- Draw vertical borders on the left and right sides.
-    BordersH                    = 0x00000180, -- Draw horizontal borders.
-    BordersV                    = 0x00000600, -- Draw vertical borders.
-    BordersInner                = 0x00000280, -- Draw inner borders.
-    BordersOuter                = 0x00000500, -- Draw outer borders.
-    Borders                     = 0x00000780, -- Draw all borders.
-    NoBordersInBody             = 0x00000800, -- [ALPHA] Disable vertical borders in columns Body (borders will always appears in Headers). -> May move to style
-    NoBordersInBodyUntilResize  = 0x00001000, -- [ALPHA] Disable vertical borders in columns Body until hovered for resize (borders will always appears in Headers). -> May move to style
-    -- Sizing Policy (read above for defaults)
-    SizingFixedFit              = 0x00002000, -- Columns default to _WidthFixed or _WidthAuto (if resizable or not resizable), matching contents width.
-    SizingFixedSame             = 0x00004000, -- Columns default to _WidthFixed or _WidthAuto (if resizable or not resizable), matching the maximum contents width of all columns. Implicitly enable ImGuiTableFlags_NoKeepColumnsVisible.
-    SizingStretchProp           = 0x00006000, -- Columns default to _WidthStretch with default weights proportional to each columns contents widths.
-    SizingStretchSame           = 0x00008000, -- Columns default to _WidthStretch with default weights all equal, unless overridden by TableSetupColumn().
-    -- Sizing Extra Options
-    NoHostExtendX               = 0x00010000, --  Make outer width auto-fit to columns, overriding outer_size.x value. Only available when ScrollX/ScrollY are disabled and Stretch columns are not used.
-    NoHostExtendY               = 0x00020000, --  Make outer height stop exactly at outer_size.y (prevent auto-extending table past the limit). Only available when ScrollX/ScrollY are disabled. Data below the limit will be clipped and not visible.
-    NoKeepColumnsVisible        = 0x00040000, -- Disable keeping column always minimally visible when ScrollX is off and table gets too small. Not recommended if columns are resizable.
-    PreciseWidths               = 0x00080000, --  Disable distributing remainder width to stretched columns (width allocation on a 100-wide table with 3 columns: Without this flag: 33,33,34. With this flag: 33,33,33). With larger number of columns, resizing will appear to be less smooth.
-    -- Clipping
-    NoClip                      = 0x00100000, -- Disable clipping rectangle for every individual columns (reduce draw command count, items will be able to overflow into other columns). Generally incompatible with TableSetupScrollFreeze().
-    -- PAdding
-    PadOuterX                   = 0x00200000, -- Default if BordersOuterV is on. Enable outer-most padding. Generally desirable if you have headers.
-    NoPadOuterX                 = 0x00400000, -- Default if BordersOuterV is off. Disable outer-most padding.
-    NoPadInnerX                 = 0x00800000, -- Disable inner padding between columns (double inner padding if BordersOuterV is on, single inner padding if BordersOuterV is off).
-    -- Scrolling
-    ScrollX                     = 0x01000000, -- Enable horizontal scrolling. Require 'outer_size' parameter of BeginTable() to specify the container size. Changes default sizing policy. Because this create a child window, ScrollY is currently generally recommended when using ScrollX.
-    ScrollY                     = 0x02000000, -- Enable vertical scrolling. Require 'outer_size' parameter of BeginTable() to specify the container size.
-    -- Sorting
-    SortMulti                   = 0x04000000, -- Hold shift when clicking headers to sort on multiple column. TableGetSortSpecs() may return specs where (SpecsCount > 1).
-    SortTristate                = 0x08000000, -- Allow no sorting, disable default sorting. TableGetSortSpecs() may return specs where (SpecsCount == 0).
-    -- Miscellaneous
-    HighlightHoveredColumn      = 0x10000000, -- Highlight column headers when hovered (may evolve into a fuller highlight)
-
-    -- Deprecated
-    MultiSortable               = 0x04000000, ---@deprecated Use ImGuiTableFlags.SortMulti instead
-}
-
-
----@enum ImGuiTableColumnFlags
-ImGuiTableColumnFlags = {
-    None                        = 0,
-    Disabled                    = 0x00000001, -- Overriding/master disable flag: hide column, won't show in context menu (unlike calling TableSetColumnEnabled() which manipulates the user accessible state)
-    DefaultHide                 = 0x00000002, -- Default as a hidden/disabled column.
-    DefaultSort                 = 0x00000004, -- Default as a sorting column.
-    WidthStretch                = 0x00000008, -- Column will stretch. Preferable with horizontal scrolling disabled (default if table sizing policy is _SizingStretchSame or _SizingStretchProp).
-    WidthFixed                  = 0x00000010, -- Column will not stretch. Preferable with horizontal scrolling enabled (default if table sizing policy is _SizingFixedFit and table is resizable).
-    NoResize                    = 0x00000020, -- Disable manual resizing.
-    NoReorder                   = 0x00000040, -- Disable manual reordering this column, this will also prevent other columns from crossing over this column.
-    NoHide                      = 0x00000080, -- Disable ability to hide/disable this column.
-    NoClip                      = 0x00000100, -- Disable clipping for this column (all NoClip columns will render in a same draw command).
-    NoSort                      = 0x00000200, -- Disable ability to sort on this field (even if ImGuiTableFlags_Sortable is set on the table).
-    NoSortAscending             = 0x00000400, -- Disable ability to sort in the ascending direction.
-    NoSortDescending            = 0x00000800, -- Disable ability to sort in the descending direction.
-    NoHeaderLabel               = 0x00001000, -- TableHeadersRow() will not submit label for this column. Convenient for some small columns. Name will still appear in context menu.
-    NoHeaderWidth               = 0x00002000, -- Disable header text width contribution to automatic column width.
-    PreferSortAscending         = 0x00004000, -- Make the initial sort direction Ascending when first sorting on this column (default).
-    PreferSortDescending        = 0x00008000, -- Make the initial sort direction Descending when first sorting on this column.
-    IndentEnable                = 0x00010000, -- Use current Indent value when entering cell (default for column 0).
-    IndentDisable               = 0x00020000, -- Ignore current Indent value when entering cell (default for columns > 0). Indentation changes _within_ the cell will still be honored.
-    AngledHeader                = 0x00040000, -- TableHeadersRow() will submit an angled header row for this column. Note this will add an extra row.
-
-    -- Output status flags, read-only via TableGetColumnFlags()
-    IsEnabled                   = 0x01000000, -- Status: is enabled == not hidden by user/api (referred to as "Hide" in _DefaultHide and _NoHide) flags.
-    IsVisible                   = 0x02000000, -- Status: is visible == is enabled AND not clipped by scrolling.
-    IsSorted                    = 0x04000000, -- Status: is currently part of the sort specs
-    IsHovered                   = 0x08000000, -- Status: is hovered by mouse
-
-    WidthAlwaysAutoResize       = 0x00000030, -- Same as WidthFixed | NoResize
-}
-
-
--- Flags for ImGui::TableNextRow()
----@enum ImGuiTableRowFlags
-ImGuiTableRowFlags = {
-    None                       = 0,
-    Headers                    = 1, -- Identify header row (set default background color + width of its contents accounted differently for auto column width)
-}
-
-
--- Enum for ImGui::TableSetBgColor()
--- Background colors are rendering in 3 layers:
---  - Layer 0: draw with `RowBg0` color if set, otherwise draw with `ColumnBg0` if set.
---  - Layer 1: draw with `RowBg1` color if set, otherwise draw with `ColumnBg1` if set.
---  - Layer 2: draw with `CellBg` color if set.
--- The purpose of the two row/columns layers is to let you decide if a background color change should override or blend with the existing color.
---
--- When using `ImGuiTableFlags.RowBg` on the table, each row has the RowBg0 color automatically set for odd/even rows.
---
--- If you set the color of `RowBg0` target, your color will override the existing RowBg0 color.
---
--- If you set the color of `RowBg1` or `ColumnBg1` target, your color will blend over the RowBg0 color.
----@enum ImGuiTableBgTarget
-ImGuiTableBgTarget = {
-    None                       = 0,
-    RowBg0                     = 1, -- Set row background color 0 (generally used for background, automatically set when ImGuiTableFlags_RowBg is used)
-    RowBg1                     = 2, -- Set row background color 1 (generally used for selection marking)
-    CellBg                     = 3, -- Set cell background color (top-most color)
+    None                         = 0,
+    UnsavedDocument              = 0x001, -- Display a dot next to the title + tab is selected when clicking the X + closure is not assumed (will wait for user to stop submitting the tab). Otherwise closure is assumed when pressing the X, so if you keep submitting the tab may reappear at end of tab bar.
+    SetSelected                  = 0x002, -- Trigger flag to programmatically make the tab selected when calling BeginTabItem()
+    NoCloseWithMiddleMouseButton = 0x004, -- Disable behavior of closing tabs (that are submitted with open != nil) with middle mouse button. You can still repro this behavior on user's side with if (IsItemHovered() && IsMouseClicked(2)) open = false.
+    NoPushId                     = 0x008, -- Don't call PushID(tab->ID)/PopID() on BeginTabItem()/EndTabItem()
+    NoTooltip                    = 0x010, -- Disable tooltip for the given tab
+    NoReorder                    = 0x020, -- Disable reordering this tab or having another tab cross over this tab
+    Leading                      = 0x040, -- Enforce the tab position to the left of the tab bar (after the tab list popup button)
+    Trailing                     = 0x080, -- Enforce the tab position to the right of the tab bar (before the scrolling buttons)
+    NoAssumedClosure             = 0x100, -- Tab is selected when trying to close + closure is not immediately assumed (will wait for user to stop submitting the tab). Otherwise closure is assumed when pressing the X, so if you keep submitting the tab may reappear at end of tab bar.
 }
 
 
@@ -341,7 +259,6 @@ ImGuiFocusedFlags = {
 
     RootAndChildWindows        = 0x03, -- RootWindow | ChildWindows
 }
-
 
 -- Flags for ImGui::IsItemHovered(), ImGui::IsWindowHovered()
 -- - Note: windows with the ImGuiWindowFlags.NoInputs flag are ignored by IsWindowHovered() calls.
@@ -412,14 +329,21 @@ ImGuiDragDropFlags = {
     SourceNoHoldToOpenOthers   = 0x0004, -- Disable the behavior that allows to open tree nodes and collapsing header by holding over them while dragging a source item.
     SourceAllowNullID          = 0x0008, -- Allow items such as Text(), Image() that have no unique identifier to be used as drag source, by manufacturing a temporary identifier based on their window-relative position. This is extremely unusual within the dear imgui ecosystem and so we made it explicit.
     SourceExtern               = 0x0010, -- External source (from outside of dear imgui), won't attempt to read current item/window info. Will always return true. Only one Extern source can be active simultaneously.
-    SourceAutoExpirePayload    = 0x0020, -- Automatically expire the payload if the source cease to be submitted (otherwise payloads are persisting while being dragged)
+
+    PayloadAutoExpire          = 0x0020, -- Automatically expire the payload if the source cease to be submitted (otherwise payloads are persisting while being dragged)
+    PayloadNoCrossContext      = 0x0040, -- Hint to specify that the payload may not be copied outside current dear imgui context.
+    PayloadNoCrossProcess      = 0x0080, -- Hint to specify that the payload may not be copied outside current process.
 
     -- AcceptDragDropPayload() flags
     AcceptBeforeDelivery       = 0x0400, -- AcceptDragDropPayload() will returns true even before the mouse button is released. You can then call IsDelivery() to test if the payload needs to be delivered.
     AcceptNoDrawDefaultRect    = 0x0800, -- Do not draw the default highlight rectangle when hovering over target.
     AcceptNoPreviewTooltip     = 0x1000, -- Request hiding the BeginDragDropSource tooltip from the BeginDragDropTarget site.
+    AcceptDrawAsHovered        = 0x2000, -- Accepting item will render as if hovered. Useful for e.g. a Button() used as a drop target.
     AcceptPeekOnly             = 0x0C00, -- For peeking ahead and inspecting the payload before delivery: AcceptBeforeDelivery | AcceptNoDrawDefaultRect
+
+    SourceAutoExpirePayload = 0, ---@deprecated Renamed in 1.90.0, use PayloadAutoExpire instead
 }
+
 
 -- A primary data type
 ---@enum ImGuiDataType
@@ -434,8 +358,11 @@ ImGuiDataType = {
     U64                        = 7, -- unsigned long long / unsigned __int64
     Float                      = 8, -- float
     Double                     = 9, -- double
-    COUNT                      = 10,
+    Bool                       = 10, -- bool (provided for user convenience, not supported by scalar widgets)
+    String                     = 11, -- char* (provided for user convenience, not supported by scalar widgets)
+    COUNT                      = 12,
 }
+
 
 -- A cardinal direction
 ---@enum ImGuiDir
@@ -445,6 +372,8 @@ ImGuiDir = {
     Right                      = 1,
     Up                         = 2,
     Down                       = 3,
+
+    COUNT                      = 4,
 }
 
 
@@ -560,7 +489,7 @@ ImGuiKey = {
     Semicolon                  = 601, -- ;
     Equal                      = 602, -- =
     LeftBracket                = 603, -- [
-    Backslash                  = 604, -- \ 
+    Backslash                  = 604, -- \
     RightBracket               = 605, -- ]
     GraveAccent                = 606, -- `
     CapsLock                   = 607,
@@ -587,50 +516,51 @@ ImGuiKey = {
     KeypadEqual                = 628,
     AppBack                    = 629, -- Available on some keyboard/mouses. Often referred as "Browser Back"
     AppForward                 = 630,
+    Oem102                     = 631,
 
     -- Gamepad (some of those are analog values, 0.0f to 1.0f)                          -- NAVIGATION ACTION
     -- (download controller mapping PNG/PSD at http:--dearimgui.com/controls_sheets)
-    GamepadStart               = 631, -- Menu (Xbox)      + (Switch)   Start/Options (PS)
-    GamepadBack                = 632, -- View (Xbox)      - (Switch)   Share (PS)
-    GamepadFaceLeft            = 633, -- X (Xbox)         Y (Switch)   Square (PS)        -- Tap: Toggle Menu. Hold: Windowing mode (Focus/Move/Resize windows)
-    GamepadFaceRight           = 634, -- B (Xbox)         A (Switch)   Circle (PS)        -- Cancel / Close / Exit
-    GamepadFaceUp              = 635, -- Y (Xbox)         X (Switch)   Triangle (PS)      -- Text Input / On-screen Keyboard
-    GamepadFaceDown            = 636, -- A (Xbox)         B (Switch)   Cross (PS)         -- Activate / Open / Toggle / Tweak
-    GamepadDpadLeft            = 637, -- D-pad Left                                       -- Move / Tweak / Resize Window (in Windowing mode)
-    GamepadDpadRight           = 638, -- D-pad Right                                      -- Move / Tweak / Resize Window (in Windowing mode)
-    GamepadDpadUp              = 639, -- D-pad Up                                         -- Move / Tweak / Resize Window (in Windowing mode)
-    GamepadDpadDown            = 640, -- D-pad Down                                       -- Move / Tweak / Resize Window (in Windowing mode)
-    GamepadL1                  = 641, -- L Bumper (Xbox)  L (Switch)   L1 (PS)            -- Tweak Slower / Focus Previous (in Windowing mode)
-    GamepadR1                  = 642, -- R Bumper (Xbox)  R (Switch)   R1 (PS)            -- Tweak Faster / Focus Next (in Windowing mode)
-    GamepadL2                  = 643, -- L Trig. (Xbox)   ZL (Switch)  L2 (PS) [Analog]
-    GamepadR2                  = 644, -- R Trig. (Xbox)   ZR (Switch)  R2 (PS) [Analog]
-    GamepadL3                  = 645, -- L Stick (Xbox)   L3 (Switch)  L3 (PS)
-    GamepadR3                  = 646, -- R Stick (Xbox)   R3 (Switch)  R3 (PS)
-    GamepadLStickLeft          = 647, -- [Analog]                                         -- Move Window (in Windowing mode)
-    GamepadLStickRight         = 648, -- [Analog]                                         -- Move Window (in Windowing mode)
-    GamepadLStickUp            = 649, -- [Analog]                                         -- Move Window (in Windowing mode)
-    GamepadLStickDown          = 650, -- [Analog]                                         -- Move Window (in Windowing mode)
-    GamepadRStickLeft          = 651, -- [Analog]
-    GamepadRStickRight         = 652, -- [Analog]
-    GamepadRStickUp            = 653, -- [Analog]
-    GamepadRStickDown          = 654, -- [Analog]
+    GamepadStart               = 632, -- Menu (Xbox)      + (Switch)   Start/Options (PS)
+    GamepadBack                = 633, -- View (Xbox)      - (Switch)   Share (PS)
+    GamepadFaceLeft            = 634, -- X (Xbox)         Y (Switch)   Square (PS)        -- Tap: Toggle Menu. Hold: Windowing mode (Focus/Move/Resize windows)
+    GamepadFaceRight           = 635, -- B (Xbox)         A (Switch)   Circle (PS)        -- Cancel / Close / Exit
+    GamepadFaceUp              = 636, -- Y (Xbox)         X (Switch)   Triangle (PS)      -- Text Input / On-screen Keyboard
+    GamepadFaceDown            = 637, -- A (Xbox)         B (Switch)   Cross (PS)         -- Activate / Open / Toggle / Tweak
+    GamepadDpadLeft            = 638, -- D-pad Left                                       -- Move / Tweak / Resize Window (in Windowing mode)
+    GamepadDpadRight           = 639, -- D-pad Right                                      -- Move / Tweak / Resize Window (in Windowing mode)
+    GamepadDpadUp              = 640, -- D-pad Up                                         -- Move / Tweak / Resize Window (in Windowing mode)
+    GamepadDpadDown            = 641, -- D-pad Down                                       -- Move / Tweak / Resize Window (in Windowing mode)
+    GamepadL1                  = 642, -- L Bumper (Xbox)  L (Switch)   L1 (PS)            -- Tweak Slower / Focus Previous (in Windowing mode)
+    GamepadR1                  = 643, -- R Bumper (Xbox)  R (Switch)   R1 (PS)            -- Tweak Faster / Focus Next (in Windowing mode)
+    GamepadL2                  = 644, -- L Trig. (Xbox)   ZL (Switch)  L2 (PS) [Analog]
+    GamepadR2                  = 645, -- R Trig. (Xbox)   ZR (Switch)  R2 (PS) [Analog]
+    GamepadL3                  = 646, -- L Stick (Xbox)   L3 (Switch)  L3 (PS)
+    GamepadR3                  = 647, -- R Stick (Xbox)   R3 (Switch)  R3 (PS)
+    GamepadLStickLeft          = 648, -- [Analog]                                         -- Move Window (in Windowing mode)
+    GamepadLStickRight         = 649, -- [Analog]                                         -- Move Window (in Windowing mode)
+    GamepadLStickUp            = 650, -- [Analog]                                         -- Move Window (in Windowing mode)
+    GamepadLStickDown          = 651, -- [Analog]                                         -- Move Window (in Windowing mode)
+    GamepadRStickLeft          = 652, -- [Analog]
+    GamepadRStickRight         = 653, -- [Analog]
+    GamepadRStickUp            = 654, -- [Analog]
+    GamepadRStickDown          = 655, -- [Analog]
 
     -- Aliases: Mouse Buttons (auto-submitted from AddMouseButtonEvent() calls)
     -- - This is mirroring the data also written to io.MouseDown[], io.MouseWheel, in a format allowing them to be accessed via standard key API.
-    MouseLeft                  = 655,
-    MouseRight                 = 656,
-    MouseMiddle                = 657,
-    MouseX1                    = 658,
-    MouseX2                    = 659,
-    MouseWheelX                = 660,
-    MouseWheelY                = 661,
+    MouseLeft                  = 656,
+    MouseRight                 = 657,
+    MouseMiddle                = 658,
+    MouseX1                    = 659,
+    MouseX2                    = 660,
+    MouseWheelX                = 661,
+    MouseWheelY                = 662,
 
     -- [Internal] Prior to 1.87 we required user to fill io.KeysDown[512] using their own native index + the io.KeyMap[] array.
     -- We are ditching this method but keeping a legacy path for user code doing e.g. IsKeyPressed(MY_NATIVE_KEY_CODE)
     -- If you need to iterate all keys (for e.g. an input mapper) you may use ImGuiKey_NamedKey_BEGIN..ImGuiKey_NamedKey_END.
     NamedKey_BEGIN             = 512,
-    NamedKey_END               = 666,
-    NamedKey_COUN              = 154,
+    NamedKey_END               = 667,
+    NamedKey_COUNT             = 155,
 }
 
 
@@ -645,14 +575,44 @@ ImGuiKey = {
 ---@enum ImGuiMod
 ImGuiMod = {
     None                       = 0,
-    Ctrl                       = 0x1000, -- Ctrl
+    Ctrl                       = 0x1000, -- Ctrl (non-macOS), Cmd (macOS)
     Shift                      = 0x2000, -- Shift
     Alt                        = 0x4000, -- Option/Menu
-    Super                      = 0x8000, -- Cmd/Super/Windows
-    Shortcut                   = 0x0800, -- Alias for Ctrl (non-macOS) _or_ Super (macOS).
+    Super                      = 0x8000, --  Windows/Super (non-macOS), Ctrl (macOS)
 
-    Mask_                      = 0xF800, -- 5-bits
+    Mask_                      = 0xF000, -- 4-bits
+
+    Shortcut                   = 0x1000, ---@deprecated Removed in 1.90.7, you can now simply use ImGuiMod_Ctrl
 }
+
+
+-- Flags for Shortcut(), SetNextItemShortcut(),
+-- (and for upcoming extended versions of IsKeyPressed(), IsMouseClicked(), Shortcut(), SetKeyOwner(), SetItemKeyOwner() that are still in imgui_internal.h)
+-- Don't mistake with ImGuiInputTextFlags! (which is for ImGui::InputText() function)
+---@enum ImGuiInputFlags
+ImGuiInputFlags = {
+    None                       = 0,
+    Repeat                     = 0x00001, -- Enable repeat. Return true on successive repeats. Default for legacy IsKeyPressed(). NOT Default for legacy IsMouseClicked(). MUST BE == 1.
+
+    -- Flags for Shortcut(), SetNextItemShortcut()
+    -- - Routing policies: RouteGlobal+OverActive >> RouteActive or RouteFocused (if owner is active item) >> RouteGlobal+OverFocused >> RouteFocused (if in focused window stack) >> RouteGlobal.
+    -- - Default policy is RouteFocused. Can select only 1 policy among all available.
+
+    RouteActive                = 0x00400, -- Route to active item only.
+    RouteFocused               = 0x00800, -- Route to windows in the focus stack (DEFAULT). Deep-most focused window takes inputs. Active item takes inputs over deep-most focused window.
+    RouteGlobal                = 0x01000, -- Global route (unless a focused window or active item registered the route).
+    RouteAlways                = 0x02000, -- Do not register route, poll keys directly.
+
+    -- Routing options
+
+    RouteOverFocused           = 0x04000, -- Option: global route: higher priority than focused route (unless active item in focused route).
+    RouteOverActive            = 0x08000, -- Option: global route: higher priority than active item. Unlikely you need to use that: will interfere with every active items, e.g. Ctrl+A registered by InputText will be overridden by this. May not be fully honored as user/internal code is likely to always assume they can access keys when active.
+    RouteUnlessBgFocused       = 0x10000, -- Option: global route: will not be applied if underlying background/void is focused (== no Dear ImGui windows are focused). Useful for overlay applications.
+    RouteFromRootWindow        = 0x20000, -- Option: route evaluated from the point of view of root window rather than current window.
+
+    -- Flags for SetNextItemShortcut():
+    Tooltip                    = 0x40000, -- Automatically display a tooltip when hovering item [BETA] Unsure of right api (opt-in/opt-out)
+};
 
 
 -- Configuration flags stored in io.ConfigFlags. Set by user/application.
@@ -661,23 +621,43 @@ ImGuiConfigFlags = {
     None                       = 0,
     NavEnableKeyboard          = 0x0001, -- Master keyboard navigation enable flag. NewFrame() will automatically fill io.NavInputs[] based on io.KeysDown[].
     NavEnableGamepad           = 0x0002, -- Master gamepad navigation enable flag. This is mostly to instruct your imgui backend to fill io.NavInputs[]. Backend also needs to set ImGuiBackendFlags_HasGamepad.
-    NavEnableSetMousePos       = 0x0004, -- Instruct navigation to move the mouse cursor. May be useful on TV/console systems where moving a virtual mouse is awkward. Will update io.MousePos and set io.WantSetMousePos=true. If enabled you MUST honor io.WantSetMousePos requests in your backend, otherwise ImGui will react as if the mouse is jumping around back and forth.
-    NavNoCaptureKeyboard       = 0x0008, -- Instruct navigation to not set the io.WantCaptureKeyboard flag when io.NavActive is set.
     NoMouse                    = 0x0010, -- Instruct imgui to clear mouse position/buttons in NewFrame(). This allows ignoring the mouse information set by the backend.
     NoMouseCursorChange        = 0x0020, -- Instruct backend to not alter mouse cursor shape and visibility. Use if the backend cursor changes are interfering with yours and you don't want to use SetMouseCursor() to change mouse cursor. You may want to honor requests from imgui by reading GetMouseCursor() yourself instead.
+    NoKeyboard                 = 0x0040, -- Instruct dear imgui to disable keyboard inputs and interactions. This is done by ignoring keyboard events and clearing existing states.
 
     -- [BETA] Docking
-    DockingEnable              = 0x0040, -- Docking enable flags.
+    DockingEnable              = 0x0080, -- Docking enable flags.
 
     -- [BETA] Viewports
     -- When using viewports it is recommended that your default value for ImGuiCol_WindowBg is opaque (Alpha=1.0) so transition to a viewport won't be noticeable.
     ViewportsEnable            = 0x0400, -- Viewport enable flags (require both ImGuiBackendFlags_PlatformHasViewports + ImGuiBackendFlags_RendererHasViewports set by the respective backends)
-    DpiEnableScaleViewports    = 0x4000, -- [BETA: Don't use] FIXME-DPI: Reposition and resize imgui windows when the DpiScale of a viewport changed (mostly useful for the main viewport hosting other window). Note that resizing the main window itself is up to your application.
-    DpiEnableScaleFonts        = 0x0800, -- [BETA: Don't use] FIXME-DPI: Request bitmap-scaled fonts to match DpiScale. This is a very low-quality workaround. The correct way to handle DPI is _currently_ to replace the atlas and/or fonts in the Platform_OnChangedViewport callback, but this is all early work in progress.
 
     -- User storage (to allow your backend/engine to communicate to code that may be shared between multiple projects. Those flags are not used by core Dear ImGui)
     IsSRGB                     = 0x100000, -- Application is SRGB-aware.
     IsTouchScreen              = 0x200000, -- Application is using a touch screen instead of a mouse.
+
+    NavEnableSetMousePos       = 0x0004, ---@deprecated [moved/renamed in 1.91.4] -> use bool io.ConfigNavMoveSetMousePos
+    NavNoCaptureKeyboard       = 0x0008, ---@deprecated [moved/renamed in 1.91.4] -> use bool io.ConfigNavCaptureKeyboard
+    DpiEnableScaleViewports    = 0x4000, ---@deprecated [moved/renamed in 1.92.0] -> use bool io.ConfigDpiScaleViewports
+    DpiEnableScaleFonts        = 0x0800, ---@deprecated [moved/renamed in 1.92.0] -> use bool io.ConfigDpiScaleFonts
+}
+
+
+-- Backend capabilities flags stored in io.BackendFlags. Set by imgui_impl_xxx or custom backend.
+---@enum ImGuiBackendFlags
+ImGuiBackendFlags = {
+    None                    = 0,
+    HasGamepad              = 0x0001, -- Backend Platform supports gamepad and currently has one connected.
+    HasMouseCursors         = 0x0002, -- Backend Platform supports honoring GetMouseCursor() value to change the OS cursor shape.
+    HasSetMousePos          = 0x0004, -- Backend Platform supports io.WantSetMousePos requests to reposition the OS mouse position (only used if io.ConfigNavMoveSetMousePos is set).
+    RendererHasVtxOffset    = 0x0008, -- Backend Renderer supports ImDrawCmd::VtxOffset. This enables output of large meshes (64K+ vertices) while still using 16-bit indices.
+    RendererHasTextures     = 0x0010, -- Backend Renderer supports ImTextureData requests to create/update/destroy textures. This enables incremental texture updates and texture reloads. See https://github.com/ocornut/imgui/blob/master/docs/BACKENDS.md for instructions on how to upgrade your custom backend.
+
+    -- [BETA] Multi-Viewports
+    RendererHasViewports    = 0x0400, -- Backend Renderer supports multiple viewports.
+    PlatformHasViewports    = 0x0800, -- Backend Platform supports multiple viewports.
+    HasMouseHoveredViewport = 0x1000, -- Backend Platform supports calling io.AddMouseViewportEvent() with the viewport under the mouse. IF POSSIBLE, ignore viewports with the ImGuiViewportFlags_NoInputs flag (Win32 backend, GLFW 3.30+ backend can do this, SDL backend cannot). If this cannot be done, Dear ImGui needs to use a flawed heuristic to find the viewport under.
+    HasParentViewport       = 0x2000, -- Backend Platform supports honoring viewport->ParentViewport/ParentViewportId value, by applying the corresponding parent/child relation at the Platform level.
 }
 
 
@@ -717,30 +697,42 @@ ImGuiCol = {
     ResizeGrip                 = 30, -- Resize grip in lower-right and lower-left corners of windows.
     ResizeGripHovered          = 31,
     ResizeGripActive           = 32,
-    Tab                        = 33, -- TabItem in a TabBar
-    TabHovered                 = 34,
-    TabActive                  = 35,
-    TabUnfocused               = 36,
-    TabUnfocusedActive         = 37,
-    DockingPreview             = 38, -- Preview overlay color when about to docking something
-    DockingEmptyBg             = 39, -- Background color for empty node (e.g. CentralNode with no window docked into it)
-    PlotLines                  = 40,
-    PlotLinesHovered           = 41,
-    PlotHistogram              = 42,
-    PlotHistogramHovered       = 43,
-    TableHeaderBg              = 44, -- Table header background
-    TableBorderStrong          = 45, -- Table outer and header borders (prefer using Alpha=1.0 here)
-    TableBorderLight           = 46, -- Table inner borders (prefer using Alpha=1.0 here)
-    TableRowBg                 = 47, -- Table row background (even rows)
-    TableRowBgAlt              = 48, -- Table row background (odd rows)
-    TextSelectedBg             = 49,
-    DragDropTarget             = 50, -- Rectangle highlighting a drop target
-    NavHighlight               = 51, -- Gamepad/keyboard: current highlighted item
-    NavWindowingHighlight      = 52, -- Highlight window when using CTRL+TAB
-    NavWindowingDimBg          = 53, -- Darken/colorize entire screen behind the CTRL+TAB window list, when active
-    ModalWindowDimBg           = 54, -- Darken/colorize entire screen behind a modal window, when one is active
+    InputTextCursor            = 33, -- InputText cursor/caret
+    TabHovered                 = 34, -- Tab background, when hovered
+    Tab                        = 35, -- Tab background, when tab-bar is focused & tab is unselected
+    TabSelected                = 36, -- Tab background, when tab-bar is focused & tab is selected
+    TabSelectedOverline        = 37, -- Tab horizontal overline, when tab-bar is focused & tab is selected
+    TabDimmed                  = 38, -- Tab background, when tab-bar is unfocused & tab is unselected
+    TabDimmedSelected          = 39, -- Tab background, when tab-bar is unfocused & tab is selected
+    TabDimmedSelectedOverline  = 40, -- ..horizontal overline, when tab-bar is unfocused & tab is selected
+    DockingPreview             = 41, -- Preview overlay color when about to docking something
+    DockingEmptyBg             = 42, -- Background color for empty node (e.g. CentralNode with no window docked into it)
+    PlotLines                  = 43,
+    PlotLinesHovered           = 44,
+    PlotHistogram              = 45,
+    PlotHistogramHovered       = 46,
+    TableHeaderBg              = 47, -- Table header background
+    TableBorderStrong          = 48, -- Table outer and header borders (prefer using Alpha=1.0 here)
+    TableBorderLight           = 49, -- Table inner borders (prefer using Alpha=1.0 here)
+    TableRowBg                 = 50, -- Table row background (even rows)
+    TableRowBgAlt              = 51, -- Table row background (odd rows)
+    TextLink                   = 52, -- Hyperlink color
+    TextSelectedBg             = 53, -- Selected text inside an InputText
+    TreeLines                  = 54, -- Tree node hierarchy outlines when using ImGuiTreeNodeFlags_DrawLines
+    DragDropTarget             = 55, -- Rectangle highlighting a drop target
+    DragDropTargetBg           = 56, -- Rectangle background highlighting a drop target
+    UnsavedMarker              = 57, -- Unsaved Document marker (in window title and tabs)
+    NavCursor                  = 58, -- Color of keyboard/gamepad navigation cursor/rectangle, when visible
+    NavWindowingHighlight      = 59, -- Highlight window when using CTRL+TAB
+    NavWindowingDimBg          = 60, -- Darken/colorize entire screen behind the CTRL+TAB window list, when active
+    ModalWindowDimBg           = 61, -- Darken/colorize entire screen behind a modal window, when one is active
 
     COUNT                      = 55,
+
+    TabActive                  = 36, ---@deprecated [renamed in 1.90.9], use TabSelected instead
+    TabUnfocused               = 38, ---@deprecated [renamed in 1.90.9], use TabDimmed instead
+    TabUnfocusedActive         = 39, ---@deprecated [renamed in 1.90.9], use TabDimmedSelected instead
+    NavHighlight               = 58, ---@deprecated [renamed in 1.91.4], use NavCursor instead
 }
 
 
@@ -768,17 +760,28 @@ ImGuiStyleVar = {
     CellPadding                = 17, -- ImVec2    CellPadding
     ScrollbarSize              = 18, -- float     ScrollbarSize
     ScrollbarRounding          = 19, -- float     ScrollbarRounding
-    GrabMinSize                = 20, -- float     GrabMinSize
-    GrabRounding               = 21, -- float     GrabRounding
-    TabRounding                = 22, -- float     TabRounding
-    TabBarBorderSize           = 23, -- float     TabBarBorderSize
-    ButtonTextAlign            = 24, -- ImVec2    ButtonTextAlign
-    SelectableTextAlign        = 25, -- ImVec2    SelectableTextAlign
-    SeparatorTextBorderSize    = 26, -- float     SeparatorTextBorderSize
-    SeparatorTextAlign         = 27, -- ImVec2    SeparatorTextAlign
-    SeparatorTextPadding       = 28, -- ImVec2    SeparatorTextPadding
-    DockingSeparatorSize       = 29, -- float     DockingSeparatorSize
-    COUNT                      = 30
+    ScrollbarPadding           = 20, -- float     ScrollbarPadding
+    GrabMinSize                = 21, -- float     GrabMinSize
+    GrabRounding               = 22, -- float     GrabRounding
+    LayoutAlign                = 23, -- float     LayoutAlign
+    ImageBorderSize            = 24, -- float     ImageBorderSize
+    TabRounding                = 25, -- float     TabRounding
+    TabBorderSize              = 26, -- float     TabBorderSize
+    TabMinWidthBase            = 27, -- float     TabMinWidthBase
+    TabMinWidthShrink          = 28, -- float     TabMinWidthShrink
+    TabBarBorderSize           = 29, -- float     TabBarBorderSize
+    TabBarOverlineSize         = 30, -- float     TabBarOverlineSize
+    TableAngledHeadersAngle    = 31, -- float     TableAngledHeadersAngle
+    TableAngledHeadersTextAlign = 32, -- ImVec2   TableAngledHeadersTextAlign
+    TreeLinesSize              = 33, -- float     TreeLinesSize
+    TreeLinesRounding          = 34, -- float     TreeLinesRounding
+    ButtonTextAlign            = 35, -- ImVec2    ButtonTextAlign
+    SelectableTextAlign        = 36, -- ImVec2    SelectableTextAlign
+    SeparatorTextBorderSize    = 37, -- float     SeparatorTextBorderSize
+    SeparatorTextAlign         = 38, -- ImVec2    SeparatorTextAlign
+    SeparatorTextPadding       = 39, -- ImVec2    SeparatorTextPadding
+    DockingSeparatorSize       = 40, -- float     DockingSeparatorSize
+    COUNT                      = 41,
 }
 
 
@@ -786,9 +789,12 @@ ImGuiStyleVar = {
 ---@enum ImGuiButtonFlags
 ImGuiButtonFlags = {
     None                       = 0,
-    MouseButtonLeft            = 1, -- React on left mouse button (default)
-    MouseButtonRight           = 2, -- React on right mouse button
-    MouseButtonMiddle          = 4, -- React on center mouse button
+    MouseButtonLeft            = 0x01, -- React on left mouse button (default)
+    MouseButtonRight           = 0x02, -- React on right mouse button
+    MouseButtonMiddle          = 0x04, -- React on center mouse button
+    EnableNav                  = 0x08, -- InvisibleButton(): do not disable navigation/tabbing. Otherwise disabled by default.
+
+    MouseButtonMask_           = 0x07 -- MouseButtonLeft | MouseButtonRight | MouseButtonMiddle
 }
 
 
@@ -807,10 +813,19 @@ ImGuiColorEditFlags = {
     NoDragDrop                 = 0x00000200, -- ColorEdit: disable drag and drop target. ColorButton: disable drag and drop source.
     NoBorder                   = 0x00000400, -- ColorButton: disable border (which is enforced by default)
 
+
+    -- Alpha preview
+    -- - Prior to 1.91.8 (2025/01/21): alpha was made opaque in the preview by default using old name ImGuiColorEditFlags_AlphaPreview.
+    -- - We now display the preview as transparent by default. You can use ImGuiColorEditFlags_AlphaOpaque to use old behavior.
+    -- - The new flags may be combined better and allow finer controls.
+
+    AlphaOpaque                = 0x00000800, -- ColorEdit, ColorPicker, ColorButton: disable alpha in the preview,. Contrary to _NoAlpha it may still be edited when calling ColorEdit4()/ColorPicker4(). For ColorButton() this does the same as _NoAlpha.
+    AlphaNoBg                  = 0x00001000, -- ColorEdit, ColorPicker, ColorButton: disable rendering a checkerboard background behind transparent color.
+    AlphaPreviewHalf           = 0x00002000, -- ColorEdit, ColorPicker, ColorButton: display half opaque / half transparent preview.
+
     -- User Options (right-click on widget to change some of them).
+
     AlphaBar                   = 0x00010000, -- ColorEdit, ColorPicker: show vertical alpha bar/gradient in picker.
-    AlphaPreview               = 0x00020000, -- ColorEdit, ColorPicker, ColorButton: display preview as a transparent color over a checkerboard, instead of opaque.
-    AlphaPreviewHalf           = 0x00040000, -- ColorEdit, ColorPicker, ColorButton: display half opaque / half checkerboard, instead of opaque.
     HDR                        = 0x00080000, -- (WIP) ColorEdit: Currently only disable 0.0f..1.0f limits in RGBA edition (note: you probably want to use ImGuiColorEditFlags_Float flag as well).
     DisplayRGB                 = 0x00100000, -- [Display] ColorEdit: override _display_ type among RGB/HSV/Hex. ColorPicker: select any combination using one or more of RGB/HSV/Hex.
     DisplayHSV                 = 0x00200000, -- [Display] ColorEdit: override _display_ type among RGB/HSV/Hex. ColorPicker: select any combination using one or more of RGB/HSV/Hex.
@@ -825,6 +840,8 @@ ImGuiColorEditFlags = {
     -- Defaults Options. You can set application defaults using SetColorEditOptions(). The intent is that you probably don't want to
     -- override them in most of your calls. Let the user choose via the option menu and/or call SetColorEditOptions() once during startup.
     DefaultOptions_            = 0x0A900000, -- Uint8 | DisplayRGB | InputRGB | PickerHueBar
+
+    AlphaPreview               = 0, ---@deprecated Removed in 1.91.8. This is the default now. Will display a checkerboard unless ImGuiColorEditFlags_AlphaNoBg is set.
 }
 
 
@@ -833,11 +850,16 @@ ImGuiColorEditFlags = {
 ---We use the same sets of flags for DragXXX() and SliderXXX() functions as the features are the same and it makes it easier to swap them.
 ---@enum ImGuiSliderFlags
 ImGuiSliderFlags = {
-    None                       = 0x00,
-    AlwaysClamp                = 0x10, -- Clamp value to min/max bounds when input manually with CTRL+Click. By default CTRL+Click allows going out of bounds.
-    Logarithmic                = 0x20, -- Make the widget logarithmic (linear otherwise). Consider using ImGuiSliderFlags_NoRoundToFormat with this if using a format-string with small amount of digits.
-    NoRoundToFormat            = 0x40, -- Disable rounding underlying value to match precision of the display format string (e.g. %.3f values are rounded to those 3 digits)
-    NoInput                    = 0x80, -- Disable CTRL+Click or Enter key allowing to input text directly into the widget
+    None                       = 0x0000,
+    Logarithmic                = 0x0020, -- Make the widget logarithmic (linear otherwise). Consider using ImGuiSliderFlags.NoRoundToFormat with this if using a format-string with small amount of digits.
+    NoRoundToFormat            = 0x0040, -- Disable rounding underlying value to match precision of the display format string (e.g. %.3f values are rounded to those 3 digits)
+    NoInput                    = 0x0080, -- Disable CTRL+Click or Enter key allowing to input text directly into the widget
+
+    WrapAround                 = 0x0100, -- Enable wrapping around from max to min and from min to max. Only supported by DragXXX() functions for now.
+    ClampOnInput               = 0x0200, -- Clamp value to min/max bounds when input manually with Ctrl+Click. By default Ctrl+Click allows going out of bounds.
+    ClampZeroRange             = 0x0400, -- Clamp even if min==max==0.0f. Otherwise due to legacy reason DragXXX functions don't clamp with those values. When your clamping limits are dynamic you almost always want to use it.
+    NoSpeedTweaks              = 0x0800, -- Disable keyboard modifiers altering tweak speed. Useful if you want to alter tweak speed yourself based on your own logic.
+    AlwaysClamp                = 0x0600, -- ImGuiSliderFlags.ClampOnInput | ImGuiSliderFlags.ClampZeroRange
 }
 
 
@@ -849,7 +871,8 @@ ImGuiMouseButton = {
     Left                       = 0,
     Right                      = 1,
     Middle                     = 2,
-    Count                      = 5,
+
+    COUNT                      = 5,
 }
 
 
@@ -860,15 +883,18 @@ ImGuiMouseButton = {
 ImGuiMouseCursor = {
     None                       = -1,
     Arrow                      = 0,
-    TextInput                  = 1, -- When hovering over InputText, etc.
-    ResizeAll                  = 2, -- (Unused by Dear ImGui functions)
-    ResizeNS                   = 3, -- When hovering over a horizontal border
-    ResizeEW                   = 4, -- When hovering over a vertical border or a column
-    ResizeNESW                 = 5, -- When hovering over the bottom-left corner of a window
-    ResizeNWSE                 = 6, -- When hovering over the bottom-right corner of a window
-    Hand                       = 7, -- (Unused by Dear ImGui functions. Use for e.g. hyperlinks)
-    NotAllowed                 = 8, -- When hovering something with disallowed interaction. Usually a crossed circle.
-    COUNT                      = 9
+    TextInput                  = 1,  -- When hovering over InputText, etc.
+    ResizeAll                  = 2,  -- (Unused by Dear ImGui functions)
+    ResizeNS                   = 3,  -- When hovering over a horizontal border
+    ResizeEW                   = 4,  -- When hovering over a vertical border or a column
+    ResizeNESW                 = 5,  -- When hovering over the bottom-left corner of a window
+    ResizeNWSE                 = 6,  -- When hovering over the bottom-right corner of a window
+    Hand                       = 7,  -- (Unused by Dear ImGui functions. Use for e.g. hyperlinks)
+    Wait                       = 8,  -- When waiting for something to process/load.
+    Progress                   = 9,  -- When waiting for something to process/load, but application is still interactive.
+    NotAllowed                 = 10, -- When hovering something with disallowed interaction. Usually a crossed circle.
+
+    COUNT                      = 11
 };
 
 
@@ -899,6 +925,121 @@ ImGuiCond = {
     Once                       = 2,  -- Set the variable once per runtime session (only the first call will succeed)
     FirstUseEver               = 4,  -- Set the variable if the object/window has no persistently saved data (no entry in .ini file)
     Appearing                  = 8,  -- Set the variable if the object/window is appearing after being hidden/inactive (or the first time)
+}
+
+
+---@enum ImGuiTableFlags
+ImGuiTableFlags = {
+    -- Features
+    None                        = 0,
+    Resizable                   = 0x00000001, -- Enable resizing columns.
+    Reorderable                 = 0x00000002, -- Enable reordering columns in header row (need calling TableSetupColumn() + TableHeadersRow() to display headers)
+    Hideable                    = 0x00000004, -- Enable hiding/disabling columns in context menu.
+    Sortable                    = 0x00000008, -- Enable sorting. Call TableGetSortSpecs() to obtain sort specs. Also see ImGuiTableFlags_SortMulti and ImGuiTableFlags_SortTristate.
+    NoSavedSettings             = 0x00000010, -- Disable persisting columns order, width and sort settings in the .ini file.
+    ContextMenuInBody           = 0x00000020, -- Right-click on columns body/contents will display table context menu. By default it is available in TableHeadersRow().
+    -- Decorations
+    RowBg                       = 0x00000040, -- Set each RowBg color with ImGuiCol_TableRowBg or ImGuiCol_TableRowBgAlt (equivalent of calling TableSetBgColor with ImGuiTableBgFlags_RowBg0 on each row manually)
+    BordersInnerH               = 0x00000080, -- Draw horizontal borders between rows.
+    BordersOuterH               = 0x00000100, -- Draw horizontal borders at the top and bottom.
+    BordersInnerV               = 0x00000200, -- Draw vertical borders between columns.
+    BordersOuterV               = 0x00000400, -- Draw vertical borders on the left and right sides.
+    BordersH                    = 0x00000180, -- Draw horizontal borders.
+    BordersV                    = 0x00000600, -- Draw vertical borders.
+    BordersInner                = 0x00000280, -- Draw inner borders.
+    BordersOuter                = 0x00000500, -- Draw outer borders.
+    Borders                     = 0x00000780, -- Draw all borders.
+    NoBordersInBody             = 0x00000800, -- [ALPHA] Disable vertical borders in columns Body (borders will always appears in Headers). -> May move to style
+    NoBordersInBodyUntilResize  = 0x00001000, -- [ALPHA] Disable vertical borders in columns Body until hovered for resize (borders will always appears in Headers). -> May move to style
+    -- Sizing Policy (read above for defaults)
+    SizingFixedFit              = 0x00002000, -- Columns default to _WidthFixed or _WidthAuto (if resizable or not resizable), matching contents width.
+    SizingFixedSame             = 0x00004000, -- Columns default to _WidthFixed or _WidthAuto (if resizable or not resizable), matching the maximum contents width of all columns. Implicitly enable ImGuiTableFlags_NoKeepColumnsVisible.
+    SizingStretchProp           = 0x00006000, -- Columns default to _WidthStretch with default weights proportional to each columns contents widths.
+    SizingStretchSame           = 0x00008000, -- Columns default to _WidthStretch with default weights all equal, unless overridden by TableSetupColumn().
+    -- Sizing Extra Options
+    NoHostExtendX               = 0x00010000, --  Make outer width auto-fit to columns, overriding outer_size.x value. Only available when ScrollX/ScrollY are disabled and Stretch columns are not used.
+    NoHostExtendY               = 0x00020000, --  Make outer height stop exactly at outer_size.y (prevent auto-extending table past the limit). Only available when ScrollX/ScrollY are disabled. Data below the limit will be clipped and not visible.
+    NoKeepColumnsVisible        = 0x00040000, -- Disable keeping column always minimally visible when ScrollX is off and table gets too small. Not recommended if columns are resizable.
+    PreciseWidths               = 0x00080000, --  Disable distributing remainder width to stretched columns (width allocation on a 100-wide table with 3 columns: Without this flag: 33,33,34. With this flag: 33,33,33). With larger number of columns, resizing will appear to be less smooth.
+    -- Clipping
+    NoClip                      = 0x00100000, -- Disable clipping rectangle for every individual columns (reduce draw command count, items will be able to overflow into other columns). Generally incompatible with TableSetupScrollFreeze().
+    -- PAdding
+    PadOuterX                   = 0x00200000, -- Default if BordersOuterV is on. Enable outer-most padding. Generally desirable if you have headers.
+    NoPadOuterX                 = 0x00400000, -- Default if BordersOuterV is off. Disable outer-most padding.
+    NoPadInnerX                 = 0x00800000, -- Disable inner padding between columns (double inner padding if BordersOuterV is on, single inner padding if BordersOuterV is off).
+    -- Scrolling
+    ScrollX                     = 0x01000000, -- Enable horizontal scrolling. Require 'outer_size' parameter of BeginTable() to specify the container size. Changes default sizing policy. Because this create a child window, ScrollY is currently generally recommended when using ScrollX.
+    ScrollY                     = 0x02000000, -- Enable vertical scrolling. Require 'outer_size' parameter of BeginTable() to specify the container size.
+    -- Sorting
+    SortMulti                   = 0x04000000, -- Hold shift when clicking headers to sort on multiple column. TableGetSortSpecs() may return specs where (SpecsCount > 1).
+    SortTristate                = 0x08000000, -- Allow no sorting, disable default sorting. TableGetSortSpecs() may return specs where (SpecsCount == 0).
+    -- Miscellaneous
+    HighlightHoveredColumn      = 0x10000000, -- Highlight column headers when hovered (may evolve into a fuller highlight)
+
+    -- Deprecated
+    MultiSortable               = 0x04000000, ---@deprecated Use ImGuiTableFlags.SortMulti instead
+}
+
+
+---@enum ImGuiTableColumnFlags
+ImGuiTableColumnFlags = {
+    None                        = 0,
+    Disabled                    = 0x00000001, -- Overriding/master disable flag: hide column, won't show in context menu (unlike calling TableSetColumnEnabled() which manipulates the user accessible state)
+    DefaultHide                 = 0x00000002, -- Default as a hidden/disabled column.
+    DefaultSort                 = 0x00000004, -- Default as a sorting column.
+    WidthStretch                = 0x00000008, -- Column will stretch. Preferable with horizontal scrolling disabled (default if table sizing policy is _SizingStretchSame or _SizingStretchProp).
+    WidthFixed                  = 0x00000010, -- Column will not stretch. Preferable with horizontal scrolling enabled (default if table sizing policy is _SizingFixedFit and table is resizable).
+    NoResize                    = 0x00000020, -- Disable manual resizing.
+    NoReorder                   = 0x00000040, -- Disable manual reordering this column, this will also prevent other columns from crossing over this column.
+    NoHide                      = 0x00000080, -- Disable ability to hide/disable this column.
+    NoClip                      = 0x00000100, -- Disable clipping for this column (all NoClip columns will render in a same draw command).
+    NoSort                      = 0x00000200, -- Disable ability to sort on this field (even if ImGuiTableFlags_Sortable is set on the table).
+    NoSortAscending             = 0x00000400, -- Disable ability to sort in the ascending direction.
+    NoSortDescending            = 0x00000800, -- Disable ability to sort in the descending direction.
+    NoHeaderLabel               = 0x00001000, -- TableHeadersRow() will not submit label for this column. Convenient for some small columns. Name will still appear in context menu.
+    NoHeaderWidth               = 0x00002000, -- Disable header text width contribution to automatic column width.
+    PreferSortAscending         = 0x00004000, -- Make the initial sort direction Ascending when first sorting on this column (default).
+    PreferSortDescending        = 0x00008000, -- Make the initial sort direction Descending when first sorting on this column.
+    IndentEnable                = 0x00010000, -- Use current Indent value when entering cell (default for column 0).
+    IndentDisable               = 0x00020000, -- Ignore current Indent value when entering cell (default for columns > 0). Indentation changes _within_ the cell will still be honored.
+    AngledHeader                = 0x00040000, -- TableHeadersRow() will submit an angled header row for this column. Note this will add an extra row.
+
+    -- Output status flags, read-only via TableGetColumnFlags()
+    IsEnabled                   = 0x01000000, -- Status: is enabled == not hidden by user/api (referred to as "Hide" in _DefaultHide and _NoHide) flags.
+    IsVisible                   = 0x02000000, -- Status: is visible == is enabled AND not clipped by scrolling.
+    IsSorted                    = 0x04000000, -- Status: is currently part of the sort specs
+    IsHovered                   = 0x08000000, -- Status: is hovered by mouse
+
+    WidthAlwaysAutoResize       = 0x00000030, -- Same as WidthFixed | NoResize
+}
+
+
+-- Flags for ImGui::TableNextRow()
+---@enum ImGuiTableRowFlags
+ImGuiTableRowFlags = {
+    None                       = 0,
+    Headers                    = 1, -- Identify header row (set default background color + width of its contents accounted differently for auto column width)
+}
+
+
+-- Enum for ImGui::TableSetBgColor()
+-- Background colors are rendering in 3 layers:
+--  - Layer 0: draw with `RowBg0` color if set, otherwise draw with `ColumnBg0` if set.
+--  - Layer 1: draw with `RowBg1` color if set, otherwise draw with `ColumnBg1` if set.
+--  - Layer 2: draw with `CellBg` color if set.
+-- The purpose of the two row/columns layers is to let you decide if a background color change should override or blend with the existing color.
+--
+-- When using `ImGuiTableFlags.RowBg` on the table, each row has the RowBg0 color automatically set for odd/even rows.
+--
+-- If you set the color of `RowBg0` target, your color will override the existing RowBg0 color.
+--
+-- If you set the color of `RowBg1` or `ColumnBg1` target, your color will blend over the RowBg0 color.
+---@enum ImGuiTableBgTarget
+ImGuiTableBgTarget = {
+    None                       = 0,
+    RowBg0                     = 1, -- Set row background color 0 (generally used for background, automatically set when ImGuiTableFlags_RowBg is used)
+    RowBg1                     = 2, -- Set row background color 1 (generally used for selection marking)
+    CellBg                     = 3, -- Set cell background color (top-most color)
 }
 
 

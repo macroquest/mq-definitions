@@ -68,11 +68,15 @@ function ImVec4:ToImU32() end
 --
 
 ---@class ImGuiStyle
+---@field FontSizeBase number Current base font size before external global factors are applied. Use PushFont(NULL, size) to modify. Use ImGui::GetFontSize() to obtain scaled value.
+---@field FontSizeMin number Main global scale factor. May be set by application once, or exposed to end-user.
+---@field FontScaleDpi number Additional global scale factor from viewport/monitor contents scale. When io.ConfigDpiScaleFonts is enabled, this is automatically overwritten when changing monitor DPI.
 ---@field Alpha number Global alpha applies to everything in Dear ImGui.
 ---@field DisabledAlpha number Additional alpha multiplier applied by BeginDisabled(). Multiply over current value of Alpha.
 ---@field WindowPadding ImVec2 Padding within a window.
 ---@field WindowRounding number Radius of window corners rounding. Set to 0.0f to have rectangular windows. Large values tend to lead to variety of artifacts and are not recommended.
 ---@field WindowBorderSize number Thickness of border around windows. Generally set to 0.0f or 1.0f. (Other values are not well tested and more CPU/GPU costly).
+---@field WindowBorderHoverPadding number  Hit-testing extent outside/inside resizing border. Also extend determination of hovered window. Generally meaningfully larger than WindowBorderSize to make it easy to reach borders.
 ---@field WindowMinSize ImVec2 Minimum window size. This is a global setting. If you want to constraint individual windows, use SetNextWindowSizeConstraints().
 ---@field WindowTitleAlign ImVec2 Alignment for title bar text. Defaults to (0.0f,0.5f) for left-aligned,vertically centered.
 ---@field WindowMenuButtonPosition ImGuiDir Side of the collapsing/docking button in the title bar (None/Left/Right). Defaults to ImGuiDir_Left.
@@ -91,14 +95,27 @@ function ImVec4:ToImU32() end
 ---@field ColumnsMinSpacing number Minimum horizontal spacing between two columns. Preferably > (FramePadding.x + 1).
 ---@field ScrollbarSize number Width of the vertical scrollbar, Height of the horizontal scrollbar.
 ---@field ScrollbarRounding number Radius of grab corners for scrollbar.
+---@field ScrollbarPadding number Padding of scrollbar grab within its frame (same for both axes).
 ---@field GrabMinSize number Minimum width/height of a grab box for slider/scrollbar.
 ---@field GrabRounding number Radius of grabs corners rounding. Set to 0.0f to have rectangular slider grabs.
+---@field LayoutAlign number Element alignment inside horizontal and vertical layouts (0.0f - left/top, 1.0f - right/bottom, 0.5f - center).
 ---@field LogSliderDeadzone number The size in pixels of the dead-zone around zero on logarithmic sliders that cross zero.
 ---@field TabRounding number Radius of upper corners of a tab. Set to 0.0f to have rectangular tabs.
 ---@field TabBorderSize number Thickness of border around tabs.
----@field TabMinWidthForCloseButton number Minimum width for close button to appears on an unselected tab when hovered. Set to 0.0f to always show when hovering, set to FLT_MAX to never show close button unless selected.
+---@field TabMinWidthBase number Minimum tab width, to make tabs larger than their contents. TabBar buttons are not affected.
+---@field TabMinWidthShrink number Minimum tab width after shrinking, when using ImGuiTabBarFlags_FittingPolicyMixed policy.
+---@field TabCloseButtonMinWidthSelected number -1: always visible. 0.0f: visible when hovered. >0.0f: visible when hovered if minimum width.
+---@field TabCloseButtonMinWidthUnselected number -1: always visible. 0.0f: visible when hovered. >0.0f: visible when hovered if minimum width.
 ---@field TabBarBorderSize number Thickness of tab-bar separator, which takes on the tab active color to denote focus.
----@field TableAngledHeadersAngle number  Angle of angled headers (supported values range from -50.0f degrees to +50.0f degrees).
+---@field TabBarOverlineSize number Thickness of tab-bar overline, which highlights the selected tab-bar.
+---@field TableAngledHeadersAngle number Angle of angled headers (supported values range from -50.0f degrees to +50.0f degrees).
+---@field TableAngledHeadersTextAlign ImVec2 Alignment of angled headers within the cell
+---@field TreeLinesFlags ImGuiTreeNodeFlags Default way to draw lines connecting TreeNode hierarchy. ImGuiTreeNodeFlags_DrawLinesNone or ImGuiTreeNodeFlags_DrawLinesFull or ImGuiTreeNodeFlags_DrawLinesToNodes.
+---@field TreeLinesSize number Thickness of outlines when using ImGuiTreeNodeFlags_DrawLines.
+---@field TreeLinesRounding number Radius of lines connecting child nodes to the vertical line.
+---@field DragDropTargetRounding number Radius of the drag and drop target frame.
+---@field DragDropTargetBorderSize number Thickness of the drag and drop target border.
+---@field DragDropTargetPadding number Size to expand the drag and drop target from actual target item size.
 ---@field ColorButtonPosition ImGuiDir Side of the color button in the ColorEdit4 widget (left/right). Defaults to ImGuiDir_Right.
 ---@field ButtonTextAlign ImVec2 Alignment of button text when button is larger than text. Defaults to (0.5f, 0.5f) (centered).
 ---@field SelectableTextAlign ImVec2 Alignment of selectable text. Defaults to (0.0f, 0.0f) (top-left aligned). It's generally important to keep this left-aligned if you want to lay multiple items on a same line.
@@ -106,6 +123,7 @@ function ImVec4:ToImU32() end
 ---@field SeparatorTextAlign ImVec2 Alignment of text within the separator. Defaults to (0.0f, 0.5f) (left aligned, center).
 ---@field DisplayWindowPadding ImVec2 Window position are clamped to be visible within the display area or monitors by at least this amount. Only applies to regular windows.
 ---@field DisplaySafeAreaPadding ImVec2 If you cannot see the edges of your screen (e.g. on a TV) increase the safe area padding. Apply to popups/tooltips as well regular windows. NB: Prefer configuring your TV sets correctly!
+---@field DockingNodeHasCloseButton boolean Docking node has their own CloseButton() to close all docked windows.
 ---@field DockingSeparatorSize number Thickness of resizing border between docked windows
 ---@field MouseCursorScale number Scale software rendered mouse cursor (when io.MouseDrawCursor is enabled). We apply per-monitor DPI scaling over this scale. May be removed later.
 ---@field AntiAliasedLines boolean Enable anti-aliased lines/borders. Disable if you are really tight on CPU/GPU. Latched at the beginning of the frame (copied to ImDrawList).
@@ -121,6 +139,7 @@ function ImVec4:ToImU32() end
 ---@field HoverFlagsForTooltipNav ImGuiHoveredFlags  Default flags when using IsItemHovered(ImGuiHoveredFlags_ForTooltip) or BeginItemTooltip()/SetItemTooltip() while using keyboard/gamepad.
 local ImGuiStyle = {}
 
+
 ---@return ImGuiStyle
 function ImGuiStyle.new() end
 
@@ -135,13 +154,27 @@ function ImGuiStyle:ScaleAllSizes(scaleFactor) end
 -- ## ImGuiIO
 --
 
+-- Communicate most settings and inputs/outputs to Dear ImGui using this structure.
+-- Access via ImGui::GetIO(). Read 'Programmer guide' section in .cpp file for general usage.
+-- It is generally expected that:
+-- - initialization: backends and user code writes to ImGuiIO.
+-- - main loop: backends writes to ImGuiIO, user code and imgui code reads from ImGuiIO.
+--
+-- Also see ImGui::GetPlatformIO() and ImGuiPlatformIO struct for OS/platform related functions: clipboard, IME etc.
+--
+-- **Most of these fields are read-only to lua, since it is not expected to modify them directly from a lua script.**
 ---@class ImGuiIO
 ---@field public ConfigFlags ImGuiConfigFlags See ImGuiConfigFlags enum. Set by user/application. Gamepad/keyboard navigation options, etc.
+---@field public BackendFlags ImGuiBackendFlags See ImGuiBackendFlags_enum. Set by backend (imgui_impl_xxx files or custom backend) to communicate features supported by the backend.
 ---@field public DisplaySize ImVec2 Main display size, in pixels (generally == GetMainViewport()->Size). May change every frame.
+---@field public DisplayFramebufferScale ImVec2 [default: (1, 1)] Main display density. For retina display where window coordinates are different from framebuffer coordinates. This will affect font density + will end up in ImDrawData::FramebufferScale.
 ---@field public DeltaTime number Time elapsed since last frame, in seconds. May change every frame.
+---@field public IniSavingRate number [default: 5.0] Minimum time between saving positions/sizes to .ini file, in seconds.
+---@field public IniFilename string Path to .ini file (important: default "imgui.ini" is relative to current working dir!). Set NULL to disable automatic .ini loading/saving or if you want to manually call LoadIniSettingsXXX() / SaveIniSettingsXXX() functions.
+---@field public LogFilename string Path to .log file (default parameter to ImGui::LogToFile when no file is specified).
 ---@field public Fonts ImFontAtlas Font atlas: load, rasterize and pack one or more fonts into a single texture.
----@field public FontGlobalScale number  Global scale all fonts
----@field public FontDefault ImFont
+---@field public FontDefault ImFont Font to use on NewFrame(). Use NULL to uses Fonts->Fonts[0].
+---@field public FontAllowUserScaling boolean [default: false] Allow user scaling text of individual window with Ctrl+Wheel.
 ---@field public Framerate number Estimate of application framerate (rolling average over 60 frames, based on io.DeltaTime), in frame per second. Solely for convenience. Slow applications may not want to use a moving average or may want to reset underlying buffers occasionally.
 ---@field public MouseDelta ImVec2 Mouse delta. Note that this is zero if either current or previous position are invalid (-FLT_MAX,-FLT_MAX), so a disappearing/reappearing mouse won't have a huge delta.
 ---@field public MousePos ImVec2 Mouse position, in pixels. Set to ImVec2(-FLT_MAX, -FLT_MAX) if mouse is unavailable (on another screen, etc.)
@@ -158,6 +191,23 @@ ImGuiIO = {}
 
 
 -- ### ImGuiWindowClass
+
+---@class ImGuiWindowClass
+---@field public ClassId ImGuiID User data. 0 = Default class (unclassed). Windows of different classes cannot be docked with each others.
+---@field public ParentViewportId ImGuiID Hint for the platform backend. -1: use default. 0: request platform backend to not parent the platform. != 0: request platform backend to create a parent<>child relationship between the platform windows. Not conforming backends are free to e.g. parent every viewport to the main viewport or not.
+---@field public FocusRouteParentWindowId ImGuiID ID of parent window for shortcut focus route evaluation, e.g. Shortcut() call from Parent Window will succeed when this window is focused.
+---@field public ViewportFlagsOverrideSet ImGuiViewportFlags Viewport flags to set when a window of this class owns a viewport. This allows you to enforce OS decoration or task bar icon, override the defaults on a per-window basis.
+---@field public ViewportFlagsOverrideClear ImGuiViewportFlags Viewport flags to clear when a window of this class owns a viewport. This allows you to enforce OS decoration or task bar icon, override the defaults on a per-window basis.
+---@field public TabItemFlagsOverrideSet ImGuiTabItemFlags [EXPERIMENTAL] TabItem flags to set when a window of this class gets submitted into a dock node tab bar. May use with ImGuiTabItemFlags_Leading or ImGuiTabItemFlags_Trailing.
+---@field public DockNodeFlagsOverrideSet ImGuiDockNodeFlags [EXPERIMENTAL] Dock node flags to set when a window of this class is hosted by a dock node (it doesn't have to be selected!)
+---@field public DockingAlwaysTabBar boolean Set to true to enforce single floating windows of this class always having their own docking node (equivalent of setting the global io.ConfigDockingAlwaysTabBar)
+---@field public DockingAllowUnclassed boolean Set to true to allow windows of this class to be docked/merged with an unclassed window.
+ImGuiWindowClass = {}
+
+---@return ImGuiWindowClass
+function ImGuiWindowClass() end
+
+
 -- ### ImGuiPayload
 -- ### ImGuiTableColumnSortSpecs
 -- ### ImGuiTableSortSpecs
@@ -169,6 +219,11 @@ ImGuiIO = {}
 
 -- ### ImGuiTextFilter
 
+---@enum ImGuiListClipperFlags
+ImGuiListClipperFlags = {
+    None                       = 0,
+    NoSetTableRowCounters      = 0x01, -- [Internal] Disabled modifying table row counters. Avoid assumption that 1 clipper item == 1 table row.
+}
 
 -- ### ImGuiListClipper
 -- Manually clip large list of items.
@@ -205,6 +260,7 @@ ImGuiIO = {}
 ---@class ImGuiListClipper
 ---@field public DisplayStart number First item to display, updated by each call to Step()
 ---@field public DisplayEnd number End of items to display (exclusive)
+---@field public Flags ImGuiListClipperFlags [Internal] Flags, currently not yet well exposed.
 ImGuiListClipper = {}
 
 ---@param itemsCount number Use INT_MAX if you don't know how many items you have (in which case the cursor won't be advanced in the final step)
@@ -226,6 +282,17 @@ function ImGuiListClipper:IncludeItemsByIndex(itemBegin, itemEnd) end
 
 ---@param itemIndex number
 function ImGuiListClipper:IncludeItemByIndex(itemIndex) end
+
+-- itemEnd is exclusive e.g. use (42, 42+1) to make item 42 never clipped.
+---@param itemBegin number
+---@param itemEnd number
+function ImGuiListClipper:IncludeItemsByIndex(itemBegin, itemEnd) end
+
+-- Seek cursor toward given item. This is automatically called while stepping.
+-- - The only reason to call this is: you can use ImGuiListClipper::Begin(INT_MAX) if you don't know item count ahead of time.
+-- - In this case, after all steps are done, you'll want to call SeekCursorForItem(item_count).
+---@param itemIndex number
+function ImGuiListClipper:SeekCursorForItem(itemIndex) end
 
 ---@return ImGuiListClipper
 function ImGuiListClipper.new() end
@@ -281,8 +348,9 @@ ImDrawList = {}
 ---@field public FontSize number
 ---@field public CurveTessellationTol number
 ---@field public CircleSegmentMaxError number
----@field public ClipRectFullscreen ImVec4
 ---@field public InitialFlags ImDrawListFlags
+---@field public InitialFringeScale number
+---@field public ClipRectFullscreen ImVec4
 ImDrawListSharedData = {}
 
 ---@param maxError number
@@ -304,6 +372,11 @@ function ImDrawList:PushClipRect(clipRectMin, clipRectMax, intersectWithCurrentC
 function ImDrawList:PushClipRectFullScreen() end
 
 function ImDrawList:PopClipRect() end
+
+---@param texture ImTextureRef
+function ImDrawList:PushTexture(texture) end
+
+function ImDrawList:PopTexture() end
 
 ---@param textureId ImTextureID
 function ImDrawList:PushTextureID(textureId) end
@@ -574,8 +647,7 @@ function ImDrawList:AddTextureAnimation(texture, pos, size) end
 
 ---@class ImFontAtlas
 ---@field public TexID ImTextureID
----@field public TexWidth number
----@field public TexHeight number
+---@field public TexRef ImTextureRef
 ImFontAtlas = {}
 
 
@@ -584,6 +656,13 @@ ImFontAtlas = {}
 ---@class ImFont
 ImFont = {}
 
+
+
+---@class ImTextureRef
+ImTextureRef = {}
+
+---@return ImTextureID
+function ImTextureRef.GetTexID() end
 
 --
 -- Viewports

@@ -73,10 +73,12 @@
 ---@field public Exp MQFloat #Experience (out of 10,000)
 ---@field public ExpansionFlags MQFloat #Returns a numeric number representing which expansions your toon is flagged for
 ---@field public Faycites MQFloat # Faycites on your character
+---@field public Feared MQBuff #Returns the Fear effect on you
 ---@field public Fellowship MQFellowship # Info about Fellowship
 ---@field public FreeBuffSlots MQFloat #Number of open buff slots (not counting the short duration buff slots)
 ---@field public Gold MQFloat #Gold on character
 ---@field public GoldBank MQFloat #Gold in bank
+---@field public GroupAssistTarget MQTarget #The target of the Group Main Assist
 ---@field public Grouped MQBoolean #Grouped?
 ---@field public GroupLeaderExp MQFloat #Group leadership experience (out of 330)
 ---@field public GroupLeaderPoints MQFloat #Group leadership points
@@ -127,7 +129,7 @@
 ---@field public MaxMana MQFloat #Max mana
 ---@field public Mercenary MQMercenary #The state of your Mercenary, "DEAD", "SUSPENDED", "ACTIVE", or "UNKNOWN". Returns nil if you do not have a Mercenary.
 ---@field public MercenaryStance MQString #Current active mercenary stance as a string, default is nil.
----@field public Mezzed MQString #Returns the name of the first mez on the character
+---@field public Mezzed MQBuff #Returns the name of the first mez on the character
 ---@field public MirEarned MQFloat #Total LDoN points earned in Miragul's
 ---@field public MMEarned MQFloat #Total LDoN points earned in Mistmoore
 ---@field public Moving MQBoolean #Moving? (including strafe)
@@ -196,6 +198,7 @@
 ---@field public TargetOfTarget MQTarget Target of Target (will only work when group or raid Target of Target is active; if not, it will return NULL)
 ---@field public Tashed MQBuff #Returns the name of any Poison spell
 ---@field public Thirst MQFloat #Thirst level
+---@field public TotalCounters MQFloat #Number of counters you have total
 ---@field public Trader MQBoolean #if you are an active Trader
 ---@field public TributeActive MQBoolean #Tribute Active
 ---@field public TributeTimer ticks Tribute Timer
@@ -293,11 +296,11 @@ function character.AltCurrency(name) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer|string # The aura index
----@return MQSpell # The aura spell object at the given index
+---@return auratype # The aura spell object at the given index
 function character.Aura(index) end
 
 ---@param name string # The aura name to check for
----@return MQSpell # The aura spell object for the given name
+---@return auratype # The aura spell object for the given name
 function character.Aura(name) end
 
 ---@diagnostic enable: duplicate-set-field
@@ -480,9 +483,6 @@ function character.PetBuff(slotNumber) end
 
 ---@diagnostic enable: duplicate-set-field
 
----@return spawn
-function character.GroupAssistTarget() end
-
 ---@param index integer|string # Current raid assist target (1-3)
 ---@return spawn
 function character.RaidAssistTarget(index) end
@@ -521,6 +521,11 @@ function character.Song(name) end
 ---@param slotNumber integer|string
 ---@return MQBuff
 function character.Song(slotNumber) end
+
+
+---@param name string
+---@return spell # The ranked version of the spell you have scribed
+function character.Spell(name) end
 
 ---@diagnostic enable: duplicate-set-field
 

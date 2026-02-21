@@ -151,6 +151,7 @@ function ImAnim.ProfilerEnd() end
 ---@class IamDragOpts
 ---@field snap_grid ImVec2 Grid size for snapping (0,0 = no grid)
 ---@field snap_duration number Duration of snap animation
+---@field snap_points ImVec2[] Array of custom snap points
 ---@field overshoot number Overshoot amount (0 = none, 1 = normal)
 ---@field ease_type IamEaseType Easing type for snap animation
 IamDragOpts = {}
@@ -641,7 +642,7 @@ function ImAnim.EaseBezier(x1, y1, x2, y2) end
 ---@param steps integer Number of steps (>=1)
 ---@param mode integer 0:end 1:start 2:both
 ---@return IamEaseDesc
-function ImAnim.EaseSteps(steps, mode) end
+function ImAnim.EaseStepsDesc(steps, mode) end
 
 -- Create back easing with overshoot.
 ---@param overshoot number
@@ -660,7 +661,7 @@ function ImAnim.EaseElastic(amplitude, period) end
 ---@param damping number
 ---@param v0 number Initial velocity
 ---@return IamEaseDesc
-function ImAnim.EaseSpring(mass, stiffness, damping, v0) end
+function ImAnim.EaseSpringDesc(mass, stiffness, damping, v0) end
 
 -- Use registered custom easing (slot 0-15).
 ---@param slot integer
@@ -1525,8 +1526,16 @@ IamResult = {
 ---@field initial_velocity number
 IamSpringParams = {}
 
+---@param table? IamSpringParams
 ---@return IamSpringParams
-function IamSpringParams() end
+function IamSpringParams(table) end
+
+---@param mass number
+---@param stiffness number
+---@param damping number
+---@param initial_velocity number
+---@return IamSpringParams
+function IamSpringParams(mass, stiffness, damping, initial_velocity) end
 
 
 -- ============================================================================
@@ -2167,33 +2176,33 @@ function IamInstance:IsPaused() end
 
 -- Get animated float value.
 ---@param channel ImGuiID
----@return boolean ok
 ---@return number value
+---@return boolean ok
 function IamInstance:GetFloat(channel) end
 
 -- Get animated vec2 value.
 ---@param channel ImGuiID
----@return boolean ok
 ---@return ImVec2 value
+---@return boolean ok
 function IamInstance:GetVec2(channel) end
 
 -- Get animated vec4 value.
 ---@param channel ImGuiID
----@return boolean ok
 ---@return ImVec4 value
+---@return boolean ok
 function IamInstance:GetVec4(channel) end
 
 -- Get animated int value.
 ---@param channel ImGuiID
----@return boolean ok
 ---@return integer value
+---@return boolean ok
 function IamInstance:GetInt(channel) end
 
 -- Get animated color value.
 ---@param channel ImGuiID
 ---@param color_space? IamColorSpace Default: IamColorSpace.OKLAB
----@return boolean ok
 ---@return ImVec4 value
+---@return boolean ok
 function IamInstance:GetColor(channel, color_space) end
 
 -- Check validity.
@@ -2216,10 +2225,6 @@ function ImAnim.ClipInit(initial_clip_cap, initial_inst_cap) end
 
 -- Shutdown clip system.
 function ImAnim.ClipShutdown() end
-
--- Garbage collection for instances.
----@param max_age_frames? integer Default: 600
-function ImAnim.ClipGC(max_age_frames) end
 
 -- Play a clip on an instance (creates or reuses instance).
 ---@param clip_id ImGuiID
@@ -2281,27 +2286,29 @@ function ImAnim.LayerEnd(instance_id) end
 -- Get blended float value.
 ---@param instance_id ImGuiID
 ---@param channel ImGuiID
----@return boolean ok
 ---@return number value
+---@return boolean ok
 function ImAnim.GetBlendedFloat(instance_id, channel) end
 
 -- Get blended vec2 value.
 ---@param instance_id ImGuiID
 ---@param channel ImGuiID
----@return boolean ok
 ---@return ImVec2 value
+---@return boolean ok
 function ImAnim.GetBlendedVec2(instance_id, channel) end
 
 -- Get blended vec4 value.
 ---@param instance_id ImGuiID
 ---@param channel ImGuiID
----@return boolean ok
 ---@return ImVec4 value
+---@return boolean ok
 function ImAnim.GetBlendedVec4(instance_id, channel) end
 
 -- Get blended int value.
 ---@param instance_id ImGuiID
 ---@param channel ImGuiID
----@return boolean ok
 ---@return integer value
+---@return boolean ok
 function ImAnim.GetBlendedInt(instance_id, channel) end
+
+return ImAnim

@@ -486,6 +486,11 @@ function ImDrawList:AddNgonFilled(center, radius, col, numSegments) end
 ---@param text string
 function ImDrawList:AddText(pos, col, text) end
 
+---@param font ImFont|nil
+---@param fontSize number
+---@param pos ImVec2
+---@param col ImU32
+---@param text string
 function ImDrawList:AddText(font, fontSize, pos, col, text) end
 
 ---@param points ImVec2[]

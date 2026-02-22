@@ -143,6 +143,10 @@ local ImGuiStyle = {}
 ---@return ImGuiStyle
 function ImGuiStyle.new() end
 
+--- Return a copy of the style
+---@return ImGuiStyle
+function ImGuiStyle:Copy() end
+
 -- To scale your entire UI (e.g. if you want your app to use High DPI or generally be DPI aware) you may use this helper function. Scaling the fonts is done separately and is up to you.
 --
 -- Important: This operation is lossy because we round all sizes to integer. If you need to change your scale multiples, call this over a freshly initialized ImGuiStyle structure rather than scaling multiple times.

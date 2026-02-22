@@ -2744,6 +2744,16 @@ function ImGui.SetClipboardText(text) end
 
 
 --
+-- Misc utilities
+--
+
+---@param str string
+---@param seed? ImGuiID
+---@return ImGuiID
+function ImHashStr(str, seed) end
+
+
+--
 -- OBSOLETE functions
 -- All of these functions are deprecated and should be replaced with something else
 --

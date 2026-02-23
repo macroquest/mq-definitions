@@ -7,6 +7,7 @@
 ---@field public MeshLoaded MQBoolean #Returns true if a mesh is loaded for the zone
 ---@field public Velocity MQInt #Returns your current velocity
 TLO.Navigation = {}
+TLO.Nav = TLO.Navigation
 
 ----Returns true if a path exists for the target
 ---@param navigationParams string # Navigation parameters are the same parameters that would be passed to /nav

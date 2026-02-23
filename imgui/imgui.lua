@@ -798,7 +798,7 @@ function ImGui.TextUnformatted(text) end
 ---@param format string
 ---@vararg any
 function ImGui.Text(format, ...) end
----@param text string
+---@param text string|number
 function ImGui.Text(text) end
 
 -- Draw colored text. Shortcut for PushStyleColor(ImGuiCol_Text, col); Text(fmt, ...); PopStyleColor();

@@ -69,7 +69,7 @@ function ImVec4:ToImU32() end
 
 ---@class ImGuiStyle
 ---@field FontSizeBase number Current base font size before external global factors are applied. Use PushFont(NULL, size) to modify. Use ImGui::GetFontSize() to obtain scaled value.
----@field FontSizeMain number Main global scale factor. May be set by application once, or exposed to end-user.
+---@field FontScaleMain number Main global scale factor. May be set by application once, or exposed to end-user.
 ---@field FontScaleDpi number Additional global scale factor from viewport/monitor contents scale. When io.ConfigDpiScaleFonts is enabled, this is automatically overwritten when changing monitor DPI.
 ---@field Alpha number Global alpha applies to everything in Dear ImGui.
 ---@field DisabledAlpha number Additional alpha multiplier applied by BeginDisabled(). Multiply over current value of Alpha.

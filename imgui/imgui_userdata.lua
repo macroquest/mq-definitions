@@ -505,6 +505,10 @@ function ImDrawList:AddPolyline(points, col, flags, thickness) end
 
 ---@param points ImVec2[]
 ---@param col ImU32
+function ImDrawList:AddConcavePolyFilled(points, col) end
+
+---@param points ImVec2[]
+---@param col ImU32
 function ImDrawList:AddConvexPolyFilled(points, col) end
 
 ---@param p1 ImVec2

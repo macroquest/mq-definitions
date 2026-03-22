@@ -24,7 +24,7 @@
 ---@field public CHA MQFloat CHA value on item
 ---@field public Charges MQFloat Charges
 ---@field public Clairvoyance MQFloat Clairvoyance
----@field public Class fun(filter: number|string): class Returns the th long class of the listed classes on an item. Items suitable for ALL classes will effectively have all 16 classes listed.
+---@field public Class fun(filter: number|string): class Returns the long class of the listed classes on an item. Items suitable for ALL classes will effectively have all 16 classes listed.
 ---@field public Classes MQFloat The number of classes that can use the item. Items suitable for ALL classes will return 16.
 ---@field public Clicky itemspell Activatable spell effect, if any.
 ---@field public CombatEffects MQFloat CombatEffects

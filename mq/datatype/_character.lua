@@ -2,21 +2,28 @@
 
 ---@class character : spawn
 ---@field public AAExp MQFloat #AA exp as a raw number out of 10,000 (10,000=100%)
----@field public AAPoints MQFloat #Unused AA points
----@field public AAPointsSpent MQFloat #The number of points you have spent on AA abilities
----@field public AAPointsTotal MQFloat #The total number of AA points you have
----@field public AAVitality MQFloat #The total number of AA Vitality you have
+---@field public AAPoints MQInt #Unused AA points
+---@field public AAPointsAssigned MQInt #Assigned AA points
+---@field public AAPointsSpent MQInt #The number of points you have spent on AA abilities
+---@field public AAPointsTotal MQInt #The total number of AA points you have
+---@field public AAVitality MQInt #The total number of AA Vitality you have
+---@field public AAVitalityCap MQInt #The maximum amount of AA Vitality you can have based on your level and spent AA points
 ---@field public AccuracyBonus MQFloat #Accuracy bonus from gear and spells
----@field public ActiveDisc MQSpell Returns a spell if melee discipline is active.
+---@field public ActiveDisc MQSpell #Returns a spell if melee discipline is active.
 ---@field public ActiveFavorCost MQFloat #If Tribute is active, how much it is costing you every 10 minutes. Returns NULL if tribute is inactive.
+---@field public AdoptiveCoin MQInt #Number of Adoptive Coins on your character
+---@field public Aego MQBuff #Returns the name of the first Aego buff on the character
 ---@field public AltTimerReady MQBoolean #Alternate timer ready? (Bash/Slam/Frenzy/Backstab). Note: ${AbilityReady} works fine with most of these.
 ---@field public AGI MQFloat #Character Agility
 ---@field public AggroLock MQSpawn spawn info for aggro lock player
 ---@field public AmIGroupLeader MQBoolean #Am I the group leader?
+---@field public AncientDraconicCoin MQInt #Number of Ancient Draconic Coins on your character
+---@field public AncientSebilisianCoins MQInt #Number of Ancient Sebilisian Coins on your character
 ---@field public AssistComplete MQBoolean #returns true/false if the assist is complete
 ---@field public AttackBonus MQFloat #Attack bonus from gear and spells
 ---@field public AttackSpeed MQFloat #Your Attack Speed. No haste spells/items = AttackSpeed of 100. A 41% haste item will result in an AttackSpeed of 141. This variable does not take into account spell or song haste.
 ---@field public AutoFire MQBoolean #Is Autofire on?
+---@field public AutoSkill MQBoolean #Is AutoSkill on?
 ---@field public AvoidanceBonus MQFloat #Avoidance bonus from gear/spells
 ---@field public BardSongPlaying MQBoolean #Is a bard song playing?
 ---@field public BaseSTR MQInt # Base stat str
@@ -26,7 +33,14 @@
 ---@field public BaseINT MQInt # Base stat int
 ---@field public BaseAGI MQInt # Base stat agi
 ---@field public BaseWIS MQInt # Base stat wis
+---@field public BathezidTradeGems MQInt # Number of Bathezid Trade Gems on your character
+---@field public Bayle MQInt # Returns the Bayle coin count on your character
+---@field public Beneficial MQBuff #Returns the name of the first beneficial buff on the character
+---@field public BifurcatedCoin MQInt # Number of Bifurcated Coins on your character
 ---@field public BoundLocation MQString # List of bound locations
+---@field public Brellium MQInt #Number of Brellium on your character
+---@field public Brells MQBuff #Returns the name of the first Brell buff on the character
+---@field public BronzeFiats MQInt #Number of Bronze Fiats on your character
 ---@field public Buyer MQBoolean #if you are an active buyer
 ---@field public CanMount MQBoolean #for some indoor zones that where not flagged as nomount and added bazaar, nexus to zones where its ok to mount.
 ---@field public CareerFavor MQFloat #Career favor/tribute
@@ -37,9 +51,11 @@
 ---@field public Charmed MQString #Returns the name of the first charm spell on the character
 ---@field public Chronobines MQFloat #Chronobines on your character
 ---@field public ClairvoyanceBonus MQFloat #Clairvoyance Bonus
+---@field public Clarity MQBuff #Returns the name of the first Clarity buff on the character
 ---@field public Combat MQBoolean #In combat?
 ---@field public CombatEffectsBonus MQFloat #Combat Effects bonus from gear and spells
 ---@field public CombatState MQString #Returns one of the following: COMBAT, DEBUFFED, COOLDOWN, ACTIVE, RESTING, UNKNOWN
+---@field public Commemoratives MQInt #Number of Commemoratives on your character
 ---@field public Copper MQFloat #Copper on your character
 ---@field public CopperBank MQFloat #Copper in bank
 ---@field public Corrupted MQSpell Returns the name of the Corrupted debuff if you have one
@@ -50,43 +66,64 @@
 ---@field public CountersPoison MQFloat #Number of poison counters you have
 ---@field public CountSongs MQFloat #Number of songs you have
 ---@field public Counters MQFloat #Damage Absorption Counters Remaining
+---@field public Crippled MQBuff #Returns the name of the first Crippled buff on the character
+---@field public CrystallizedFear MQInt #Returns the number of stacks of Crystallized Fear on your character
+---@field public crystallizedluck MQInt #Returns the number of stacks of Crystallized Luck on your character
 ---@field public CurrentEndurance MQFloat #Current endurance
 ---@field public CurrentFavor MQFloat #Current favor/tribute
 ---@field public CurrentHPs MQFloat #Current hit points
 ---@field public CurrentMana MQFloat #Current mana
 ---@field public CurrentWeight MQFloat #Current weight
 ---@field public Cursed MQSpell Returns the name of the Curse debuff if you are effected by one
+---@field public CursorCopper MQInt #Copper on your cursor
+---@field public CursorGold MQInt #Gold on your cursor
+---@field public CursorKrono MQInt #Krono on your cursor
+---@field public CursorPlatinum MQInt #Platinum on your cursor
+---@field public CursorSilver MQInt #Silver on your cursor
 ---@field public DamageShieldBonus MQFloat #Damage Shield bonus from gear and spells
 ---@field public DamageShieldMitigationBonus MQFloat #Damage Shield Mitigation bonus from gear and spells
 ---@field public Dar MQFloat #Damage absorption remaining (eg. from Rune-type spells)
+---@field public DiamondCoins MQInt #Number of Diamond Coins on your character
 ---@field public Diseased MQBuff #Returns the name of any Disease spell
 ---@field public DEX MQFloat #Character Dexterity
 ---@field public Dotted MQString #Returns name of first DoT on character.
 ---@field public DoTShieldBonus MQFloat #DoT Shield bonus from gear and spells
 ---@field public Doubloons MQFloat #Doubloons on your character
 ---@field public Downtime ticks Downtime (Ticks left til combat timer end)
+---@field public DreadStones MQInt #Number of Dread Stones on your character
 ---@field public Drunk MQFloat #Drunkenness level
+---@field public DSed MQBuff #Returns the name of the first DSed buff on the character
 ---@field public EbonCrystals MQFloat #Number of Ebon Crystals on your character
----@field public EnduranceBonus MQFloat #Endurance bonus from gear and spells
----@field public EnduranceRegen MQFloat #Endurance regen from the last tick
----@field public EnduranceRegenBonus MQFloat #Endurance regen bonus
+---@field public Endurance MQInt #Current endurance
+---@field public EnduranceBonus MQInt #Endurance bonus from gear and spells
+---@field public EnduranceRegen MQInt #Endurance regen from the last tick
+---@field public EnduranceRegenBonus MQInt #Endurance regen bonus
+---@field public EnergyCrystals MQInt #Number of Energy Crystals on your character
+---@field public EntwinedDjinnCoins MQInt #Number of Entwined Djinn Coins on your character
+---@field public FetterredIfritCoins MQInt #Number of Fettered Ifrit Coins on your character
 ---@field public Exp MQFloat #Experience (out of 10,000)
 ---@field public ExpansionFlags MQFloat #Returns a numeric number representing which expansions your toon is flagged for
 ---@field public Faycites MQFloat # Faycites on your character
 ---@field public Feared MQBuff #Returns the Fear effect on you
 ---@field public Fellowship MQFellowship # Info about Fellowship
+---@field public Fists MQInt #Number of Fists Coins on your character
+---@field public Focus MQBuff #Returns the name of the first Focus buff on the character
 ---@field public FreeBuffSlots MQFloat #Number of open buff slots (not counting the short duration buff slots)
+---@field public FroststoneDucat MQInt #Number of Froststone Ducats on your character
 ---@field public Gold MQFloat #Gold on character
 ---@field public GoldBank MQFloat #Gold in bank
+---@field public GoldTokens MQInt #Number of Gold Tokens on your character
 ---@field public GroupAssistTarget MQTarget #The target of the Group Main Assist
 ---@field public Grouped MQBoolean #Grouped?
 ---@field public GroupLeaderExp MQFloat #Group leadership experience (out of 330)
 ---@field public GroupLeaderPoints MQFloat #Group leadership points
 ---@field public GroupList MQString #Returns a string of your group members (excluding you)
 ---@field public GroupSize MQFloat #Size of group
+---@field public Growth MQBuff #Returns the name of the first Growth buff on the character
 ---@field public GukEarned MQFloat #Total LDoN points earned in Deepest Guk
 ---@field public GuildID MQFloat #Returns the ID number of your guild
 ---@field public Haste MQFloat #Total Combined Haste (worn and spell) as shown in Inventory Window stats
+---@field public Hasted MQBuff #Returns the name of the first Haste buff on the character
 ---@field public HealAmountBonus MQFloat #Total Heal Amount bonus from gear
 ---@field public HeroicAGIBonus MQFloat #Total Heroic Agility bonus from gear
 ---@field public HeroicCHABonus MQFloat #Total Heroic Charisma bonus from gear
@@ -99,11 +136,13 @@
 ---@field public HPRegen MQFloat #Hit point regeneration from last tick
 ---@field public HPRegenBonus MQFloat #HP regen bonus from gear and spells
 ---@field public Hunger MQFloat #Hunger level
+---@field public HybridHP MQBuff #Returns the name of the first Hybrid HP buff on the character
 ---@field public ID MQFloat #Spawn ID
 ---@field public InInstance MQBoolean #Returns TRUE/FALSE if you are in an instance.
 ---@field public Instance MQInt #Returns the instance ID if you are in one, else 0.
 ---@field public INT MQFloat #Character Intelligence
 ---@field public Invulnerable MQString #Returns the invulnerable spell name on you, can be used with spell data type ex. ${Me.Invulnerable.Spell.ID}
+---@field public Krono MQInt #Number of Krono on your character
 ---@field public LADelegateMA MQFloat #Level of Delegate MA of the current group leader (not your own ability level)
 ---@field public LADelegateMarkNPC MQFloat #Level of Delegate Mark NPC of the current group leader (not your own ability level)
 ---@field public LAFindPathPC MQFloat #Level of Find Path PC of the current group leader (not your own ability level)
@@ -118,57 +157,90 @@
 ---@field public LASpellAwareness MQFloat #Level of Spell Awareness of the current group leader (not your own ability level)
 ---@field public LargestFreeInventory MQFloat #Size of your largest free inventory space
 ---@field public LastZoned timestamp Returns a timestamp of last time you zoned
+---@field public LaurionInnVoucher MQInt # Number of Laurion Inn Vouchers on your character
 ---@field public LDoNPoints MQFloat #Available LDoN points
 ---@field public Level MQFloat #Character Level
+---@field public LoyaltyTokens MQInt #Number of Loyalty Tokens on your character
+---@field public Maloed MQBuff #Returns the name of the first Malo debuff on the character
 ---@field public ManaBonus MQFloat #Mana bonus from gear and spells
 ---@field public ManaRegen MQFloat #Mana regeneration from last tick
 ---@field public ManaRegenBonus MQFloat #Mana regen bonus from gear and spells
+---@field public MarksOfValor MQInt #Number of Marks of Valor on your character
 ---@field public MaxBuffSlots MQFloat #Max number of buffs you can have on you. /echo ${Me.MaxBuffSlots}
 ---@field public MaxEndurance MQFloat #Max endurance
 ---@field public MaxHPs MQFloat #Max hit points
 ---@field public MaxMana MQFloat #Max mana
+---@field public McKenzie MQInt #Returns the McKenzie coin count on your character
+---@field public MedalsOfConflict MQInt #Number of Medals of Conflict on your character
+---@field public MedalsOfHeroism MQInt #Number of Medals of Heroism on your character
+---@field public MercAAExp MQInt #Mercenary AA exp as a raw number
+---@field public MercAAPoints MQInt #Mercenary AA points available to spend
+---@field public MercAAPointsSpent MQInt #Mercenary AA points spent
 ---@field public Mercenary MQMercenary #The state of your Mercenary, "DEAD", "SUSPENDED", "ACTIVE", or "UNKNOWN". Returns nil if you do not have a Mercenary.
 ---@field public MercenaryStance MQString #Current active mercenary stance as a string, default is nil.
 ---@field public Mezzed MQBuff #Returns the name of the first mez on the character
 ---@field public MirEarned MQFloat #Total LDoN points earned in Miragul's
 ---@field public MMEarned MQFloat #Total LDoN points earned in Mistmoore
+---@field public Motes MQInt #Number of Motes on your character
 ---@field public Moving MQBoolean #Moving? (including strafe)
 ---@field public Name MQString #First name
+---@field public Nobles MQInt #Number of Nobles on your character
 ---@field public NumGems MQFloat #Returns the amount of spell gems your toon has
 ---@field public NumBagSlots MQInt #Returns the total number of bag slots
 ---@field public Origin MQZone # Returns character home city zone
 ---@field public Orux MQFloat #Orux on your character
+---@field public OverseerTetradrachm MQInt #Number of Overseer Tetradrachms on your character
 ---@field public PctAAExp MQFloat #AA exp as a %
 ---@field public PctAAVitality MQFloat #Percentage of AA Vitality your toon has
 ---@field public PctAggro MQFloat #Your aggro percentage
 ---@field public PctEndurance MQFloat #Current endurance as a %
 ---@field public PctExp MQFloat #Experience as a %
+---@field public PctExpToAA MQInt #Experience to AA as a %
 ---@field public PctGroupLeaderExp MQFloat #Group leadership exp as a %
 ---@field public PctHPs MQFloat #Current HP as a %
 ---@field public PctMana MQFloat #Current mana as a %
+---@field public PctMercAAExp MQFloat #Mercenary AA exp as a %
 ---@field public PctRaidLeaderExp MQFloat #Raid leadership experience as a %
 ---@field public PctVitality MQFloat #Percentage of Vitality the toon has
+---@field public PiecesofEight MQInt #Number of Pieces of Eight on your character
 ---@field public Phosphenes MQFloat #Phosphenes on your character
 ---@field public Phosphites MQFloat #Phosphites on your character
 ---@field public Platinum MQFloat #Platinum on your character
 ---@field public PlatinumBank MQFloat #Platinum in bank
 ---@field public PlatinumShared MQFloat #Platinum in shared bank
 ---@field public Poisoned MQBuff #Returns the name of any Poison spell
+---@field public Pred MQBuff #Returns the name of the first Pred buff on the character
 ---@field public RadiantCrystals MQFloat #Number of Radiant Crystals on your character
 ---@field public RaidLeaderExp MQFloat #Raid leadership exp (out of 330)
 ---@field public RaidLeaderPoints MQFloat #Raid leadership points
 ---@field public RangedReady MQBoolean #Ranged attack ready?
+---@field public RebellionChits MQInt #Number of Rebellion Chits on your character
+---@field public Reclamation MQInt #Number of Reclamation on your character
+---@field public Regen MQBuff #Returns the name of the first Regen buff on the character
+---@field public RemnantOfTranquility MQInt #Number of Remnant of Tranquility on your character
+---@field public RestlessMark MQInt #Number of Restless Mark on your character
+---@field public RevDSed MQBuff #Returns the name of the first RevDSed buff on the character
 ---@field public Rooted MQBuff #Returns the name of any Root spell
 ---@field public RujEarned MQFloat #Total LDoN points earned in Rujarkian
 ---@field public Running MQBoolean #Do I have auto-run turned on?
+---@field public SathirsTradeGems MQInt # Number of Sathir's Trade Gems on your character
+---@field public ScarletMarks MQInt #Number of Scarlet Marks on your character
+---@field public SE MQBuff #Returns the name of the first SE buff on the character
 ---@field public SecondaryPctAggro MQFloat #Secondary Percentage aggro
 ---@field public SecondaryAggroPlayer MQSpawn spawninfo for secondary aggro player
+---@field public ShadedSpecie MQInt #Number of Shaded Specie on your character
+---@field public ShadowStones MQInt #Number of Shadow Stones on your character
+---@field public ShalowainsPrivateReserve MQInt #Number of Shalowain's Private Reserve on your character
 ---@field public ShieldingBonus MQFloat #Shielding bonus from gear and spells
+---@field public Shining MQBuff #Returns the name of the first Shining buff on the character
 ---@field public Shrouded MQBoolean #Am I Shrouded?
 ---@field public Silenced MQBuff #Returns the Silence effect on you
 ---@field public Silver MQFloat #Silver on your character
 ---@field public SilverBank MQFloat #Silver in bank
+---@field public SilverTokens MQInt #Number of Silver Tokens on your character
 ---@field public Sit fun() Causes toon to sit if not already
+---@field public Skin MQBuff #Returns the name of the first Skin buff on the character
+---@field public Slowed MQBuff #Returns the name of the first Slowed buff on the character
 ---@field public Snared MQBuff #Returns the name of any Snare spell
 ---@field public SPA fun(spaId: integer):integer #Returns the ID of the buff providing the given SPA
 ---@field public Spawn spawn The character's spawn
@@ -176,16 +248,19 @@
 ---@field public SpellDamageBonus MQFloat #Spell Damage bonus
 ---@field public SpellRankCap MQFloat #your characters spell rank cap. if it returns: 1 = Rk. I spells 2 = Rk. II spells 3 = Rk. III spells
 ---@field public SpellShieldBonus MQFloat #Spell Shield bonus from gear and spells
+---@field public SpiritualMedallions MQInt #Number of Spiritual Medallions on your character
 ---@field public STA MQFloat #Character Stamina
 ---@field public Stand fun() causes toon to stand if not already
 ---@field public StopCast fun() Causes toon to stop casting
 ---@field public STR MQFloat #Character Strength
+---@field public Strength MQBuff #Returns the name of the first Strength buff on the character
 ---@field public StrikeThroughBonus MQFloat #Strikethrough bonus from gear and spells
 ---@field public Stunned MQBoolean #Am I stunned?
 ---@field public StunResistBonus MQFloat #Stun Resist bonus from gear and spells
 ---@field public Subscription MQString #Subscription type GOLD, FREE, (Silver?)
 ---@field public SubscriptionDays MQFloat #Returns an intUsage: /echo I have ${Me.SubscriptionDays} left before my all access expires.
 ---@field public Surname MQString #Last name
+---@field public SV MQBuff #Returns the name of the first SV buff on the character
 ---@field public svChromatic MQFloat #Your character's lowest resist
 ---@field public svCold MQFloat #Character Cold Resist
 ---@field public svCorruption MQFloat #Character Corruption Resist
@@ -194,6 +269,7 @@
 ---@field public svMagic MQFloat #Character Magic Resist
 ---@field public svPoison MQFloat #Character Poison Resist
 ---@field public svPrismatic MQFloat #The average of your character's resists
+---@field public Symbol MQBuff #Returns the name of the first Symbol buff on the character
 ---@field public TakEarned MQFloat #Total LDoN points earned in Takish
 ---@field public TargetOfTarget MQTarget Target of Target (will only work when group or raid Target of Target is active; if not, it will return NULL)
 ---@field public Tashed MQBuff #Returns the name of any Poison spell
@@ -204,8 +280,14 @@
 ---@field public TributeTimer ticks Tribute Timer
 ---@field public UseAdvancedLooting MQBoolean #TRUE/FALSE if using advanced looting
 ---@field public WIS MQFloat #Character Wisdom
+---@field public VeliumShards MQInt #Number of Velium Shards on your character
 ---@field public Vitality MQFloat #Total amount of Vitality your toon has
+---@field public VitalityCap MQInt #The maximum amount of Vitality you can have based on your level
+---@field public Voucher MQInt #Number of Voucher's on your character
+---@field public WarforgedEmblem MQInt #Number of Warforged Emblem's on your character
+---@field public WarlordsSymbol MQInt #Number of Warlords Symbol's on your character
 ---@field public XTargetSlots integer #Total number of XTarget Slots
+---@field public XTHaterCount #The number of XTarget Slots with a hating NPC
 ---@field public ZoneBound zone # Zone that you are bound at.
 ---@field public ZoneBoundX fun():integer
 ---@field public ZoneBoundY fun():integer
@@ -215,11 +297,11 @@ local character = {}
 
 ---@diagnostic disable: duplicate-set-field
 ---@param name string # Skill name
----@return integer # The doability button number that the skill name is on
+---@return MQInt # The doability button number that the skill name is on
 function character.Ability(name) end
 
 ---@param index integer|string # doability button number
----@return string # The skill name assigned to this doability button
+---@return MQString # The skill name assigned to this doability button
 function character.Ability(index) end
 
 ---@diagnostic enable: duplicate-set-field
@@ -237,11 +319,11 @@ function character.AbilityReady(name) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer|string # Alt ability #
----@return altability
+---@return MQAltAbility
 function character.AltAbility(index) end
 
 ---@param name string
----@return altability
+---@return MQAltAbility
 function character.AltAbility(name) end
 
 ---@diagnostic enable: duplicate-set-field
@@ -259,59 +341,59 @@ function character.AltAbilityReady(name) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer|string # Alt ability #
----@return timestamp
+---@return MQTimeStamp
 function character.AltAbilityTimer(index) end
 
 ---@param name string
----@return timestamp
+---@return MQTimeStamp
 function character.AltAbilityTimer(name) end
 
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer|string # Alt ability #
----@return timestamp
+---@return MQTimeStamp
 function character.AbilityTimer(index) end
 
 ---@param name string
----@return timestamp
+---@return MQTimeStamp
 function character.AbilityTimer(name) end
 
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer|string # ability #
----@return timestamp
+---@return MQTimeStamp
 function character.AbilityTimerTotal(index) end
 
 ---@param name string
----@return timestamp
+---@return MQTimeStamp
 function character.AbilityTimerTotal(name) end
 
 ---@diagnostic enable: duplicate-set-field
 
 ---@param name string
----@return integer
+---@return MQInt
 function character.AltCurrency(name) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer|string # The aura index
----@return auratype # The aura spell object at the given index
+---@return MQAuraType # The aura spell object at the given index
 function character.Aura(index) end
 
 ---@param name string # The aura name to check for
----@return auratype # The aura spell object for the given name
+---@return MQAuraType # The aura spell object for the given name
 function character.Aura(name) end
 
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer|string # Bandolier undex 1:20
----@return bandolier
+---@return MQBandolier
 function character.Bandolier(index) end
 
 ---@param bandolierName string # Bandolier Name
----@return bandolier
+---@return MQBandolier
 function character.Bandolier(bandolierName) end
 
 ---@diagnostic enable: duplicate-set-field
@@ -325,38 +407,38 @@ function character.Bank(slot) end
 function character.SharedBank(slot) end
 
 ---@param spellId integer # Spell ID
----@return spell
+---@return MQSpell
 function character.BlockedBuff(spellId) end
 
 ---@param spellName string # Spell Name
----@return spell
+---@return MQSpell
 function character.BlockedBuff(spellName) end
 
 ---@diagnostic enable: duplicate-set-field
 ---@param slotNumber integer # Index into pet blocked buffs list
----@return spell
+---@return MQSpell
 function character.BlockedPetBuff(slotNumber) end
 
 ---@param spellName string # Spell Name
----@return spell
+---@return MQSpell
 function character.BlockedPetBuff(spellName) end
 
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
 ---@param name string
----@return integer # Slot in your spell book assigned to spell name
+---@return MQInt # Slot in your spell book assigned to spell name
 function character.Book(name) end
 
 ---@param slot integer # Slot number in book
----@return spell
+---@return MQSpell
 function character.Book(slot) end
 
 ---@diagnostic enable: duplicate-set-field
 ---@diagnostic disable: redundant-parameter
 
 ---@param bindPointIndex integer # Your bind points (0-4)
----@return worldlocation
+---@return MQWorldLocation
 function character.BoundLocation(bindPointIndex) end
 
 ---@diagnostic enable: redundant-parameter
@@ -374,7 +456,7 @@ function character.Buff(slotNumber) end
 ---@diagnostic disable: duplicate-set-field
 ---The number of Combat ability name in your list (not the same as anyone else's list!)
 ---@param name string # Name of the combat ability
----@return integer
+---@return MQInt
 function character.CombatAbility(name) end
 
 ---The name of Combat Ability # in your list (not the same as anyone else's list!)
@@ -387,34 +469,41 @@ function character.CombatAbility(index) end
 ---@diagnostic disable: duplicate-set-field
 --Combat Ability ready to use?
 ---@param index integer|string # Combat ability #
----@return boolean
+---@return MQBoolean
 function character.CombatAbilityReady(index) end
 
 --Combat Ability ready to use?
 ---@param name string
----@return boolean
+---@return MQBoolean
 function character.CombatAbilityReady(name) end
 
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
 ---@param index integer|string # Combat ability #
----@return ticks
+---@return MQTicks
 function character.CombatAbilityTimer(index) end
 
 ---@param name string
----@return ticks
+---@return MQTicks
 function character.CombatAbilityTimer(name) end
 
 ---@diagnostic enable: duplicate-set-field
 
+---Dismounts the character
+function character.Dismount() end
+
+---@param filter string
+---@return MQBuff
+function character.FindBuff(filter) end
+
 ---@param minSize? integer|string # spaces of at least [minSize] size (giant=4)
----@return integer # Number of free inventory spaces
+---@return MQInt # Number of free inventory spaces
 function character.FreeInventory(minSize) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param name string # Spell name
----@return integer # Returns the slot # with the spell name
+---@return MQInt # Returns the slot # with the spell name
 function character.Gem(name) end
 
 ---@param gemSlot integer
@@ -425,21 +514,21 @@ function character.Gem(gemSlot) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param name string # Spell name
----@return ticks
+---@return MQTimeStamp
 function character.GemTimer(name) end
 
 ---@param gemSlot integer
----@return ticks
+---@return MQTimeStamp
 function character.GemTimer(gemSlot) end
 
 ---@diagnostic enable: duplicate-set-field
 
 ---@param index integer # Current group marked NPC (1-3)
----@return spawn
+---@return MQSpawn
 function character.GroupMarkNPC(index) end
 
 ---@param expansionNumber integer
----@return boolean
+---@return MQBoolean
 function character.HaveExpansion(expansionNumber) end
 
 ---@diagnostic disable: duplicate-set-field
@@ -459,18 +548,29 @@ function character.ItemReady(name) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param name string
----@return integer # langauge number
+---@return MQInt # langauge number
 function character.Language(name) end
 
 ---@param languageNumber integer
----@return string # The EQ language name of the language number specified.
+---@return MQString # The EQ language name of the language number specified.
 function character.Language(languageNumber) end
 
 ---@diagnostic enable: duplicate-set-field
 
 ---@param language string|integer
----@return integer|string # Your skill in language
+---@return MQInt|MQString # Your skill in language
 function character.LanguageSkill(language) end
+
+---@diagnostic disable: duplicate-set-field
+---@param name string # Mercenary type name
+---@return MQInt # Index of the merc in your merc list if found
+function character.MercListInfo(name) end
+
+---@param slotNumber integer
+---@return MQString # Mercenary type name in the specified mercenary slot
+function character.MercListInfo(slotNumber) end
+
+---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
 ---@param name string # Name of the buff
@@ -484,31 +584,42 @@ function character.PetBuff(slotNumber) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@param index integer|string # Current raid assist target (1-3)
----@return spawn
+---@return MQSpawn
 function character.RaidAssistTarget(index) end
 
 ---@param index integer|string # Current raid marked NPC (1-3)
----@return spawn
+---@return MQSpawn
 function character.RaidMarkNPC(index) end
 
 ---@diagnostic disable: duplicate-set-field
 ---@param name string
----@return integer # Returns current skill level
+---@return MQInt # Returns current skill level
 function character.Skill(name) end
 
 ---@param skillId integer|string
----@return integer # Returns current skill level
+---@return MQInt # Returns current skill level
 function character.Skill(skillId) end
 
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
+---@param name string # Skill name
+---@return MQInt
+function character.SkillBase(name) end
+
+---@param index integer # Skill index
+---@return MQInt
+function character.SkillBase(index) end
+
+---@diagnostic enable: duplicate-set-field
+
+---@diagnostic disable: duplicate-set-field
 ---@param name string
----@return integer
+---@return MQInt
 function character.SkillCap(name) end
 
 ---@param skillId integer|string
----@return integer
+---@return MQInt
 function character.SkillCap(skillId) end
 
 ---@diagnostic enable: duplicate-set-field
@@ -524,7 +635,7 @@ function character.Song(slotNumber) end
 
 
 ---@param name string
----@return spell # The ranked version of the spell you have scribed
+---@return MQSpell # The ranked version of the spell you have scribed
 function character.Spell(name) end
 
 ---@diagnostic enable: duplicate-set-field
@@ -544,21 +655,21 @@ function character.SpellReady(slotNumber) end
 
 ---Returns the number of AUTO-HATER mobs on the extended target window where your aggro is less than the optional parameter N. N must be between 1-100 inclusive or it will be set to 100 (the default value).
 ---@param n? integer|string # defaults to 100
----@return integer
+---@return MQInt
 function character.XTAggroCount(n) end
 
 ---@diagnostic disable: duplicate-set-field
 ---Returns the number of current extended targets.
----@return integer
+---@return MQInt
 function character.XTarget() end
 
 ---Extended target data for the specified XTarget #.
 ---@param index integer|string
----@return xtarget
+---@return MQXTarget
 function character.XTarget(index) end
 
 ---@diagnostic enable: duplicate-set-field
 
 ---Returns the Long Name of the zone you are bound inactive
----@return string
+---@return MQZone
 function ZoneBound() end

@@ -127,6 +127,21 @@ function ImAnim.ShowDebugTimeline(instance_id) end
 
 
 -- ============================================================================
+-- Lazy Init
+-- ============================================================================
+
+-- Check if lazy init is enabled. If lazy init is enabled, tweens will not be
+-- created until the current value and target value differ.
+---@return boolean
+function ImAnim.IsLazyInitEnabled() end
+
+-- Set whether lazy init is enabled. If lazy init is enabled, tweens will not be
+-- created until the current value and target value differ.
+---@param lazy_init boolean
+function ImAnimSetLazyInitEnabled(lazy_init) end
+
+
+-- ============================================================================
 -- Performance Profiler
 -- ============================================================================
 

@@ -11,7 +11,7 @@
 ---
 ---@class Lua
 ---@field public PIDs MQString #A comma-delimited list of integer PIDs that have info to access
----@field public Dir MQString #The base lua scripts directory
+---@field public Dir fun(index?: "lua"|"modules"): MQString #The base lua scripts directory. Pass "modules" for the modules directory, or no argument (or "lua") for the lua scripts directory
 ---@field public Turbo MQInt #The turbo value
 ---@field public RequirePaths MQString #The semicolon-delimited value for lua require search paths
 ---@field public CRequirePaths MQString #The semicolon-delimited value for dll require search paths

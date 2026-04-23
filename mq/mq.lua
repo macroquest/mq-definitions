@@ -22,6 +22,10 @@ function mq.cmdf(command, ...) end
 ---@param condition? fun(): boolean # An optional condition that can end the delay early if it retursn true
 function mq.delay(delayValue, condition) end
 
+---Returns true if the current context allows yielding (mq.delay can sleep without erroring). Returns false when yielding is disabled, most commonly while a module is being loaded via `require`.
+---@return boolean
+function mq.canDelay() end
+
 ---Returns time in milliseconds
 ---@return number
 function mq.gettime() end

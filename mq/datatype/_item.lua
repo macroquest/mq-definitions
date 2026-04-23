@@ -20,6 +20,7 @@
 ---@field public Avoidance MQFloat Avoidance
 ---@field public BuyPrice MQFloat The cost to buy this item from active merchant
 ---@field public Blessing string  Name of the blessing this item gives
+---@field public CanUse MQBoolean Can your class use this item.
 ---@field public CastTime MQFloat Spell effect's cast time (in seconds)
 ---@field public CHA MQFloat CHA value on item
 ---@field public Charges MQFloat Charges

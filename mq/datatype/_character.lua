@@ -56,6 +56,10 @@
 ---@field public CurrentMana MQFloat #Current mana
 ---@field public CurrentWeight MQFloat #Current weight
 ---@field public Cursed MQSpell Returns the name of the Curse debuff if you are effected by one
+---@field public CursorCopper MQInt #Returns the amount of Platinum on the cursor
+---@field public CursorGold MQInt #Returns the amount of Gold on the cursor
+---@field public CursorPlatinum MQInt #Returns the amount of Platinum on the cursor
+---@field public CursorSilver MQInt #Returns the amount of Silver on the cursor
 ---@field public DamageShieldBonus MQFloat #Damage Shield bonus from gear and spells
 ---@field public DamageShieldMitigationBonus MQFloat #Damage Shield Mitigation bonus from gear and spells
 ---@field public Dar MQFloat #Damage absorption remaining (eg. from Rune-type spells)

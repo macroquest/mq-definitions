@@ -112,3 +112,82 @@ function ImGui.ConsoleWidget.AppendTextUnformatted(text) end
 ---@param color ImVec4|ImU32 Optional: The default color of the text.
 ---@param text string Text string to append to the buffer.
 function ImGui.ConsoleWidget.AppendTextUnformatted(color, text) end
+
+
+--
+-- Stencil Masking
+--
+
+---@enum AlphaMaskOp
+AlphaMaskOp = {
+    Intersect         = 0,  -- Visible inside ALL layers
+    Union             = 1,  -- Visible inside ANY layer (default)
+    Subtract          = 2,  -- Inside prevrious layers,  NOT the last
+    Complement        = 3,  -- Outside ALL layers
+}
+
+-- Begins a new mask layer. Each call auto-assigns the next available stencil bit
+-- (up to 8 per session). Draw mask image(s) after this call using AddImage or
+-- other draw calls - only texels with alpha >= 0.5 write to the stencil.
+-- Call up to 8 times before BeginMaskedDraw.
+function ImDrawList:CreateMaskLayer() end
+
+-- Commits all mask layers and begins the masked drawing scope. The given `op` controls
+-- how multiple layers are combined. All draw calls between here and EndMaskedDraw are
+-- clipped to the combined mask shape.
+---@param op? AlphaMaskOp the op use to combine layers. Default us AlphaMaskOp.Union.
+function ImDrawList:BeginMaskedDraw(op) end
+
+-- Ends the masked drawing scope and restore default render state.
+-- Stencil bits are reclaimed automatically at next frame star.t
+function ImDrawList:EndMaskedDraw() end
+
+
+--
+-- Coverage Masking
+--
+
+-- Begins a coverage mask for the given screen region. Pushes a clip rect,
+-- clears framebuffer alpha to 0 inside the region, and switches to alpha-write
+-- mode. Draw the mask texture(s) after this call.
+---@param p_min ImVec2 Clipoing rect minimum point
+---@param p_max ImVec2 Clipping rect maximum point
+function ImDrawList:CreateCoverageMaskLayer(p_min, p_max) end
+
+-- Commits the mask and begins the coverage-masked drawing scope. Draw calls issued
+-- between here and EndAlphaMaskedDraw are blended using the framebuffer alpha
+-- written by the mask textures as per-pixel coverage.
+function ImDrawList:BeginCoverageMaskedDraw() end
+
+-- Ends the coverage-masked drawing scope, restores the default blend state, and
+-- pops the clip rect pushed by CreateCoverageMaskLayer.
+function ImDrawList:EndCoverageMaskedDraw() end
+
+
+--
+-- Nine-slice drawing
+--
+
+---@class NineSliceImageParams
+---@field p_min ImVec2 pixel coordinates of the upper left corner of the image
+---@field p_max ImVec2 pixel coordinates of the lower right corner of the image
+---@field uv_min ImVec2 texture coordinates of the upper left corner of the image (0.0-1.0)
+---@field uv_max ImVec2 texture coordinates of the lower right corner of the image (0.0-1.0)
+---@field p_margins ImVec4 pixel sizes of the margins for cutting the image (left, top, right, bottom)
+---@field uv_margins ImVec4 texel sizes of the margins for cutting the image (left, top, right, bottom) (0.0-1.0)
+---@field texture_size ImVec2 size of the texture containing the image
+NineSliceImageParams = {}
+
+-- Create a NineSliceImageParams using texture coordinates
+---@param texture_size ImVec2 Full size of the texture that contains the image being drawn.
+---@param p_margins ImVec4 Pixel sizes of the margins from each edge used to slice the image in order (left, top, right, bottom).
+---@param uv_min? ImVec2 The upper left corner of the image to draw in texture coordinates (defaults to upper left: 0.0)
+---@param uv_max? ImVec2 The lower right corner of the image to draw in texture coordinates (defaults to full texture: 1.0)
+function NineSliceImageParams.WithTextureCoords(texture_size, p_margins, uv_min, uv_max) end
+
+-- Create a NineSliceImageParams using pixel coordinates
+---@param texture_size ImVec2 Full size of the texture that contains the image being drawn.
+---@param p_margins ImVec4 Pixel sizes of the margins from each edge used to slice the image in order (left, top, right, bottom).
+---@param p_min? ImVec2 The upper left corner of the image to draw in pixels (defaults to upper left: 0.0)
+---@param p_max? ImVec2 The lower right corner of the image to draw in pixels (defaults to full texture: -1.0)
+function NineSliceImageParams.WithPixelCoords(texture_size, p_margins, p_min, p_max) end

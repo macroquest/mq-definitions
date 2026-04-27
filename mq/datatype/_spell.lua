@@ -32,6 +32,7 @@
 ---@field public MyRange MQFloat # Adjusted spell range, including focus effects, etc.
 ---@field public Name MQString # Spell Name
 ---@field public NumEffects MQInt # The number of effects the spell has
+---@field public PreventsRegen boolean # This spell prevents OOC regen
 ---@field public PushBack MQFloat # Push back amount
 ---@field public Range MQFloat # Maximum range to target (use AERange for AE and group spells)
 ---@field public Rank MQInt # Returns either 1, 2 or 3 for spells and 4-30 for clickys and potions.

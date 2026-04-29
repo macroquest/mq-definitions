@@ -8,11 +8,16 @@
 
 --[[ Userdata ]]
 ---@alias MQAltAbility altability | fun(): string|nil
+---@alias MQAuraType auratype | fun(): string|nil
+---@alias MQBandolier bandolier | fun(): string|nil
 ---@alias MQBuff buff | fun(): string|nil
 ---@alias MQCachedBuff cachedbuff | fun(): string|nil
 ---@alias MQCharacter character | fun(): string|nil
 ---@alias MQCurrentZone currentzone | fun(): string|nil
+---@alias MQDZMember dzmember | fun(): string|nil
+---@alias MQDZTimer dztimer | fun(): string|nil
 ---@alias MQFellowship fellowship | fun(): "TRUE" | "FALSE"
+---@alias MQFellowshipMember fellowshipmember | fun(): string|nil
 ---@alias MQGround ground | fun(): string|nil
 ---@alias MQGroupMember groupmember | fun(): string|nil
 ---@alias MQHeading heading | fun(): string|nil
@@ -26,6 +31,9 @@
 ---@alias MQSpell spell | fun(): string|nil
 ---@alias MQSwitch switch | fun(filter): switch|string|nil
 ---@alias MQTarget target | fun(): string|nil
+---@alias MQTicks ticks | fun(): string|nil
 ---@alias MQTimeStamp timestamp | fun(): string|nil
 ---@alias MQWindow window | fun(): "TRUE" | "FALSE"
+---@alias MQWorldLocation worldlocation | fun(): string|nil
 ---@alias MQZone zone | fun(): string|nil
+---@alias MQXTarget xtarget | fun(): string|nil

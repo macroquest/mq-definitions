@@ -7,6 +7,7 @@
 ---@field public MercType MQBoolean # Mercenary?
 ---@field public Name MQString # The long name, as in "Ranger"
 ---@field public NecromancerType MQBoolean # Necromancer/Shadow Knight?
+---@field public PetClass MQBoolean # Any one of: Druid, Shaman, Necromancer, Wizard, Mage, Enchanter, Shadow Knight, Beastlord
 ---@field public PureCaster MQBoolean # Any one of: Cleric, Druid, Shaman, Necromancer, Wizard, Mage, Enchanter
 ---@field public ShamanType MQBoolean # Shaman/Beastlord?
 ---@field public ShortName MQString # The short name as in "RNG"

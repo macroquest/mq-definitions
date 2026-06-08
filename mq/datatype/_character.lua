@@ -372,6 +372,19 @@ function character.Buff(slotNumber) end
 ---@diagnostic enable: duplicate-set-field
 
 ---@diagnostic disable: duplicate-set-field
+---Time remaining on the buff or song matching this name (case-insensitive substring match; prefix `=` for a full match). Reads your live buff and song windows.
+---@param name string # Name of the buff or song
+---@return timestamp
+function character.BuffDuration(name) end
+
+---Time remaining on the buff or song in this slot (slots numbered from 1, long-duration buffs followed by short-duration songs).
+---@param slotNumber integer|string # Buff slot number
+---@return timestamp
+function character.BuffDuration(slotNumber) end
+
+---@diagnostic enable: duplicate-set-field
+
+---@diagnostic disable: duplicate-set-field
 ---The number of Combat ability name in your list (not the same as anyone else's list!)
 ---@param name string # Name of the combat ability
 ---@return integer

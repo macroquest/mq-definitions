@@ -18,11 +18,12 @@ function ImGui.Unregister(name) end
 ---@param texture CTextureAnimation
 ---@param width? number
 ---@param height? number
----@param drawBorder? bool
+---@param drawBorder? boolean
 function ImGui.DrawTextureAnimation(texture, width, height, drawBorder) end
+
 ---@param texture CTextureAnimation
 ---@param size? ImVec2
----@param drawBorder? bool
+---@param drawBorder? boolean
 function ImGui.DrawTextureAnimation(texture, size, drawBorder) end
 
 -- Get an EQ font as an imgui ImFont
@@ -35,7 +36,6 @@ function ImGui.GetEQImFont(fontStyle) end
 ---@param width? number
 ---@param font? ImFont
 function ImGui.HelpMarker(text, width, font) end
-
 
 --
 -- MQ Console Widget

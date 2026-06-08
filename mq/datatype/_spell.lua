@@ -3,6 +3,7 @@
 ---@class spell
 ---@field public AERange MQFloat # AE range (group spells use this for their range)
 ---@field public BaseName MQString # Base name of the spell without rank information.
+---@field public Caster MQString # Name of the spells caster. (buffs and debuffs use this)
 ---@field public CastOnAnother MQString # Message when cast on others
 ---@field public CastOnYou MQString # Message when cast on yourself
 ---@field public CastTime timestamp # Cast time (unadjusted)

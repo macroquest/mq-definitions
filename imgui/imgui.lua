@@ -2556,17 +2556,17 @@ function ImGui.SetItemKeyOwner(key) end
 --
 
 -- Is key being held.
----@param key ImGuiKey
+---@param key ImGuiKey|ImGuiMod
 ---@return boolean
 function ImGui.IsKeyDown(key) end
 
 -- was key pressed (went from !Down to Down)? if repeat=true, uses io.KeyRepeatDelay / KeyRepeatRate
----@param key ImGuiKey
+---@param key ImGuiKey|ImGuiMod
 ---@return boolean
 function ImGui.IsKeyPressed(key) end
 
 -- was key released (went from Down to !Down)?
----@param key ImGuiKey
+---@param key ImGuiKey|ImGuiMod
 ---@return boolean
 function ImGui.IsKeyReleased(key) end
 

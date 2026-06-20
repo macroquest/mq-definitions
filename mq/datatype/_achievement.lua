@@ -2,11 +2,13 @@
 
 ---@class achievement
 ---@field Completed MQBoolean # If the achievement has been completed
+---@field CompletedTime MQTimeStamp # The time when the achievement was completed
 ---@field Description MQString # The achievement's description
 ---@field Hidden MQBoolean # If the achievement is hidden
 ---@field IconID MQInt # ID of the Achievement state.  See [Achievement Icon](https://docs.macroquest.org/reference/data-types/datatype-achievement/#achievement-icon) for more information.
 ---@field ID MQInt # The achivement's unique ID
 ---@field Index MQInt # The index of the achivement. See [Achievement Indices](https://docs.macroquest.org/reference/top-level-objects/tlo-achievement/#note-about-achievement-indices) for more information.
+---@field Link MQString # The link for the achievement
 ---@field Locked MQBoolean # If the achievement is locked
 ---@field Name MQString # The achievement's name
 ---@field ObjectiveCount MQInt # The number of objectives in this achievement

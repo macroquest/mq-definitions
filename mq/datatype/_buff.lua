@@ -2,7 +2,6 @@
 
 ---@class buff : spell
 ---@field public Caster MQString # Name of the caster who cast the buff, if available
----@field public Counters MQInt # The number of counters added by the buff
 ---@field public CountersCorruption MQInt # The number of corruption counters
 ---@field public CountersCurse MQInt # The number of curse counters
 ---@field public CountersDisease MQInt # The number of disease counters

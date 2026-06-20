@@ -1,15 +1,19 @@
 ---@meta
 
 ---@class everquest # Data types related to the current EverQuest session
+---@field public ConnectionStrength MQFloat Your current connection strength
 ---@field public GameState MQString Shows the current game state. Values: CHARSELECT, INGAME, PRECHARSELECT, UNKNOWN
 ---@field public LoginName MQString Your station name
 ---@field public Server MQString Full name of your server
 ---@field public LastCommand MQString Last command entered
 ---@field public LastTell MQString Name of the last person to send you a tell
 ---@field public Running MQInt Running time of current MQ session, in milliseconds
+---@field public MaxBGFPS MQInt Max background FPS
+---@field public MaxFPS MQInt Max FPS
 ---@field public MouseX MQInt Mouse's X location
 ---@field public MouseY MQInt Mouse's Y location
 ---@field public Ping MQInt Your current ping
+---@field public UiScale MQFloat Current UI scale (0.0 -> 1.0)
 ---@field public LClickedObject MQBoolean Returns True if an object has been left clicked
 ---@field public WinTitle MQString Titlebar text of the Evequest window
 ---@field public PID MQInt Your current (Process ID)

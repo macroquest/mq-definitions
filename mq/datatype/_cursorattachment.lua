@@ -8,6 +8,6 @@
 ---@field Item MQItem The item attached to the cursor
 ---@field Spell MQSpell The spell attached to the cursor
 ---@field ButtonText string The Text of the button attached to the cursor
----@field Quanity MQInt The quantity of the item attached to the cursor
+---@field Quantity MQInt The quantity of the item attached to the cursor
 ---@field ItemID MQInt The ID of the item attached to the cursor
 ---@field IconID MQInt The Icon ID of the item attached to the cursor

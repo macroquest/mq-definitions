@@ -3,9 +3,13 @@
 ---@class altability
 ---@field public AARankRequired MQFloat # Rank required to train
 ---@field public CanTrain MQBoolean # Returns true/false on if the Alternative Ability can be trained
+---@field public Category MQString # The category of the Alternative Ability
 ---@field public Cost MQFloat # Base cost to train
 ---@field public Description MQString # Basic description
+---@field public Expansion MQInt # The expansion the Alternative Ability belongs to
+---@field public Flags MQInt # The flags value for the Alternative Ability. See [AA Flags](https://docs.macroquest.org/reference/data-types/datatype-altability/#aa-flags) for more information.
 ---@field public ID MQInt # ID
+---@field public GroupID MQInt # Same as ID
 ---@field public Index MQFloat # Returns the index number of the Alternative Ability
 ---@field public MaxRank MQFloat # Max rank available in this ability
 ---@field public MinLevel MQFloat # Minimum level to train
@@ -18,6 +22,7 @@
 ---@field public Rank MQFloat # Returns the Rank of the AA
 ---@field public RequiresAbilityPoints MQFloat # Points required in above ability
 ---@field public ReuseTime MQFloat # Reuse time in seconds
----@field public ShortName MQString # Short name
+---@field public ShortName MQString # First line of button label (if any)
+---@field public ShortName2 MQString # Second line of button label (if any)
 ---@field public Spell MQSpell # Spell used by the ability (if any)
 ---@field public Type MQFloat # Type (1-6)

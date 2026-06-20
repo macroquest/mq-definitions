@@ -2,7 +2,6 @@
 
 ---@class currentzone
 ---@field public Dungeon boolean Are we in a dungeon
----@field public Gravity MQFloat Gravity
 ---@field public ID number Zone ID
 ---@field public Indoor boolean Are we indoors?
 ---@field public MaxClip MQFloat Maximum clip plane allowed in zone
@@ -11,7 +10,4 @@
 ---@field public NoBind boolean Can we bind here?
 ---@field public Outdoor boolean Are we outdoors?
 ---@field public ShortName string Short zone name
----@field public SkyType number Sky type
 ---@field public Type number Zone type:0=Indoor Dungeon 1=Outdoor 2=Outdoor City 3=Dungeon City 4=Indoor City 5=Outdoor Dungeon
----@field public FOgOnOff number off
----@field public ToString string Same as Name
